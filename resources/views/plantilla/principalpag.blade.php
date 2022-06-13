@@ -89,11 +89,6 @@ li a:hover:not(.active) {
     </nav>   
 </header>
 
-
-
-
-
-
 <main class="flex-shrink-0">
 <div class="container" style="margin-left:12%;">
     @yield('contenido')
