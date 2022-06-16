@@ -24,3 +24,7 @@ Route::get('/Empleados', function () {
 Route::get('/Proveedores', function () {
     return view('VentanaEmpleados');
 });
+
+Route::get('/Login', function () {
+    return view('login');
+});
