@@ -12,7 +12,7 @@ ul {
   margin: 0;
   padding: 0;
   width: 12%;
-  background-color: #3385ff;  
+  background-color: #3385ff;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -42,7 +42,7 @@ li a:hover:not(.active) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -71,7 +71,7 @@ li a:hover:not(.active) {
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <h1 class="fst-italic text-white  " >  FARMACIA LA POPULAR  </h1>   
+                    <h1 class="fst-italic text-white  " >  FARMACIA LA POPULAR  </h1>
                 </div>
             </div>
         </div>
@@ -80,13 +80,13 @@ li a:hover:not(.active) {
 <!-- --------------------------------------------------------NAVBAR #2-------------------------------------------------------- -->
     <nav  >
         <ul style="border-right: 4px solid black;">
-            <br><li><a href="/Empleados">Empleados</a></li> <br>
+            <br><li><a href="empleados/nuevo">Empleados</a></li> <br>
             <li><a href="/Proveedores">Proveedores</a></li><br>
             <li><a href="#about">Clientes</a></li> <br>
             <li><a href="#contact">Facturación</a></li> <br>
             <li><a href="#about">Inventario</a></li>  <br>
       </ul>
-    </nav>   
+    </nav>
 </header>
 
 <main class="flex-shrink-0">
