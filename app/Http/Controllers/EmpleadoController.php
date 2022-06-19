@@ -105,7 +105,7 @@ class EmpleadoController extends Controller
 
         if ($creado) {
             return redirect()->route('empleados.index')
-                ->with('mensaje', 'El empleado fue creada exitosamente');
+                ->with('mensaje', 'El empleado fue creado exitosamente');
         } else {
 
         }
