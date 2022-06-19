@@ -114,7 +114,7 @@ Añadir Empleado
         <label for="confirm_password" class="col-sm-4 col-form-label">{{ __('Contraseña:') }}</label>
                 <div class="input-group" style="width: 40%; margin-right: 1110px" >
 
-                    <input id="password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="password" required>
+                    <input placeholder="Ingrese la contraseña" id="password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="password" required>
                     <span class="input-group-btn">
                         <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                     </span>
@@ -128,7 +128,7 @@ Añadir Empleado
 
                 <label for="confirm_password" class="col-sm-4 col-form-label">{{ __('Confirmar Contraseña:') }}</label>
                 <div class="input-group" style="width: 40%; margin-right: 1110px" >
-                    <input placeholder="" id="confirm_password" type="password" class="form-control @error('confirm_password') is-invalid @enderror" name="confirm_password" required autocomplete="new-password">
+                    <input placeholder="Confirme la contraseña" id="confirm_password" type="password" class="form-control @error('confirm_password') is-invalid @enderror" name="confirm_password" required autocomplete="new-password">
                     <span class="input-group-btn">
                         <button id="show_confirm_password" class="btn btn-primary" type="button" onclick="mostrarConfirmPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                     </span>
