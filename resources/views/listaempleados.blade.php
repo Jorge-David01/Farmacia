@@ -24,7 +24,7 @@
 
 <body>
 
-<a style="color: #0088cc; text-decoration: none; margin-top: 2%;" href="/"> <img src="https://us.123rf.com/450wm/faysalfarhan/faysalfarhan1711/faysalfarhan171112773/89435989-%C3%ADcono-de-flecha-hacia-atr%C3%A1s-aislado-en-la-ilustraci%C3%B3n-abstracta-de-bot%C3%B3n-redondo-azul-cian-especial.jpg?ver=6" style="width: 3%; height: 3%; margin-left: 5%; margin-top: 2%; float: left;"  alt=""> <h3 style="float: left; paddign: 1%; margin-top: 2.3%;" >Atrás</h3></a>
+<a style="color: #0088cc; text-decoration: none; margin-top: 2%;" href="/Empleados"> <img src="https://us.123rf.com/450wm/faysalfarhan/faysalfarhan1711/faysalfarhan171112773/89435989-%C3%ADcono-de-flecha-hacia-atr%C3%A1s-aislado-en-la-ilustraci%C3%B3n-abstracta-de-bot%C3%B3n-redondo-azul-cian-especial.jpg?ver=6" style="width: 3%; height: 3%; margin-left: 5%; margin-top: 2%; float: left;"  alt=""> <h3 style="float: left; paddign: 1%; margin-top: 2.3%;" >Atrás</h3></a>
 <br>
 <h1 style="text-align: center; margin-top: 1%; padding-top: 3%;">Empleados</h1>
 
@@ -39,23 +39,44 @@
 <th style="border: 2px solid #dddddd">Teléfono</th>
 <th style="border: 2px solid #dddddd">Ver detalles</th>
 
+</tr>
+
+
+
+@forelse($employee as $emple)
 
 <tr>
 
-<td> </td>
-
+<td>{{$emple->nombres}}</td>
+<td>{{$emple->apellidos}}</td>
+<td>{{$emple->dni}}</td>
+<td>{{$emple->telefono_personal}}</td>
+<td href="/showempleado" >Ver detalles</td>
 </tr>
 
+@empty
+
+@endforelse
+
+
+{{$employee -> links() }}
 
 
 
-</tr>
+
+
+
+
+
+
 
 
 </tbody>
+
 </table>
 
 
 
 </body>
+
 </html>

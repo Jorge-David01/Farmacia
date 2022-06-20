@@ -6,6 +6,7 @@ use App\Models\Empleado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreEmpleadoRequest;
+use Illuminate\Support\Facades\DB;
 
 class EmpleadoController extends Controller
 {
@@ -36,6 +37,13 @@ class EmpleadoController extends Controller
      * @param  \App\Http\Requests\StoreEmpleadoRequest  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function list(){
+        $employee = Empleado::paginate(10);
+        return view('listaempleados')->with('employee', $employee);    
+    }
+
+
     public function store(Request $request)
     {
         $fecha_actual = date("d-m-Y");
