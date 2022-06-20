@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmpleadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,12 @@ Route::get('/Principal', function () {
     return view('PaginaPrincipal');
 });
 
-Route::get('/Empleados', function () {
-    return view('VentanaEmpleados');
-});
+//CREACION DE EMPLEADO
+Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])
+    ->name('empleados.create');
+
+Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])
+    ->name('empleados.store');
 
 Route::get('/Proveedores', function () {
     return view('VentanaProveedores');
@@ -28,3 +32,17 @@ Route::get('/Proveedores', function () {
 Route::get('/', function () {
     return view('login');
 });
+
+//Rutas para Detalles 
+
+Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])
+->name('empleados.show');
+
+
+Route::get('/Empleados', function () {
+    return view('VentanaEmpleados');
+});
+
+
+
+

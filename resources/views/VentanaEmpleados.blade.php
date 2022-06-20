@@ -23,15 +23,12 @@ div.gallery img {
 <div class="container" >
 <div class="responsive" >
   <div class="gallery" style="border: 5px solid #000033;">
-    <a href="/Principal">
+    <a href="/empleados/nuevo">
       <img src="https://img.freepik.com/vector-gratis/ilustracion-vectorial-formulario-solicitud-empleo-gente-selecciona-curriculum-trabajo_545399-828.jpg" width="600" height="400">
     </a>
     <b style="font-size: 20px;">Agregar nuevo empleado</b>
   </div>
 </div>
-
-
-
 
 <div class="responsive" >
   <div class="gallery" style="border: 5px solid #000033;">

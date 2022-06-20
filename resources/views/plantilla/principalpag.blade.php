@@ -57,11 +57,11 @@ li a:hover:not(.active) {
 </head>
 
 <body onload="startTime()">
-<header>
 
+<header>
 <!-- --------------------------------------------------------NAVBAR #1-------------------------------------------------------- -->
     <nav style="background-color: #0088cc;  border-bottom: 4px solid black;" class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
+      <div class="container-fluid">
         <a style="margin-left:0%;" class="navbar-brand" href="/Principal"><img src="https://thumbs.dreamstime.com/b/logotipo-o-emblema-m%C3%A9dico-de-la-farmacia-bot%C3%B3n-cristal-azul-con-c-100946974.jpg" alt="logo" style="width:120px;"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,15 +70,16 @@ li a:hover:not(.active) {
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <h1 style="font-size: 60px; color: white; text-shadow: 3px 3px 3px black, 0 0 30px black, 0 0 5px black;" class="fst-italic">FARMACIA LA POPULAR</h1>   
+                  <h1 style="font-size: 60px; color: white; text-shadow: 3px 3px 3px black, 0 0 30px black, 0 0 5px black;" class="fst-italic">FARMACIA LA POPULAR</h1>   
                 </div>
             </div>
-        </div>
+      </div>
 
-        <div class="w3-container">
+      <div class="w3-container">
  
-    <div class="w3-dropdown-hover">
+      <div class="w3-dropdown-hover">
       <button class="w3-button; fa fa-cog">Ajustes</button>
+      
       <div class="w3-dropdown-content ">
         <a href="#" class="w3-bar-item w3-button">Perfil</a>
         <a href="#" class="w3-bar-item w3-button">Cambio de contraseña</a>
@@ -86,22 +87,21 @@ li a:hover:not(.active) {
         <a href="#" class="w3-bar-item w3-button">Ayuda</a>
         <a href="/" class="w3-bar-item w3-button">Cerrar sesión   </a>
       </div>
-    </div>
-  </div>
+      </div>
+      </div>
     </nav>
 
 <!-- --------------------------------------------------------NAVBAR #2-------------------------------------------------------- -->
-    <nav  >
-
-        <ul style="border-right: 4px solid black; background-color: #0088cc;">
-            <br><li><a class="fst-italic text-white" href="/Empleados" class="w3-bar-item w3-button"><i class="fa fa-address-card-o"> Empleados</i></a> <br>
-            <li><a class="fst-italic text-white" href="/Proveedores" class="w3-bar-item w3-button"><i class="fa fa-truck"> Proveedores</i></a> <br>
-            <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-users"> Clientes</i></a> <br>
-            <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-file-text-o"> Facturación</i></a> <br>
-            <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-columns"> Inventario</i></a> <br>    
+    <nav>
+  
+      <ul style="height: 100%; border-right: 4px solid black; background-color: #0088cc;">
+        <br><li><a class="fst-italic text-white" href="/Empleados" class="w3-bar-item w3-button"><i class="fa fa-address-card-o"> Empleados</i></a> <br>
+        <li><a class="fst-italic text-white" href="/Proveedores" class="w3-bar-item w3-button"><i class="fa fa-truck"> Proveedores</i></a> <br>
+        <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-users"> Clientes</i></a> <br>
+        <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-file-text-o"> Facturación</i></a> <br>
+        <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-columns"> Inventario</i></a> <br>    
       </ul>
-
-    </nav>   
+    </nav>  
 </header>
 
 <main class="flex-shrink-0">
