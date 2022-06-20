@@ -33,6 +33,12 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/Lista', function () {
+    return view('listaempleados');
+});
+
+
+
 //Rutas para Detalles 
 
 Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])
@@ -42,6 +48,7 @@ Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])
 Route::get('/Empleados', function () {
     return view('VentanaEmpleados');
 });
+
 
 
 
