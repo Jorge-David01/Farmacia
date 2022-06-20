@@ -32,3 +32,9 @@ Route::get('/Proveedores', function () {
 Route::get('/Login', function () {
     return view('login');
 });
+
+//Rutas para Detalles 
+
+Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])
+    ->name('empleados.show');
+
