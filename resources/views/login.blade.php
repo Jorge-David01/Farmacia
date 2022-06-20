@@ -60,11 +60,11 @@ function entrar(){
 var usuar = document.getElementById("uses").value;
 var contra =  document.getElementById("pass").value;
 
-var usuario1 = "Manuel23";
-var contra1 = "Manu";
+var usuario1 = "admin";
+var contra1 = "admin";
 
 if(usuar == usuario1 && contra == contra1){
-    window.location.href="/";
+    window.location.href="/Principal";
 
 }
 
