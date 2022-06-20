@@ -32,7 +32,7 @@ div.gallery img {
 
 <div class="responsive" >
   <div class="gallery" style="border: 5px solid #000033;">
-    <a href="/ListaEmpleados">
+    <a href="/Lista">
       <img src="https://thumbs.dreamstime.com/b/cv-curr%C3%ADculum-vitae-como-del-empleado-para-vacantes-de-empleo-concepto-persona-diminuta-plana-proceso-hr-contrataci%C3%B3n-con-205990425.jpg" width="600" height="400">
     </a>
     <b style="font-size: 20px">Lista de empleados</b>
