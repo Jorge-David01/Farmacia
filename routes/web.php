@@ -28,3 +28,7 @@ Route::get('/Proveedores', function () {
 Route::get('/Login', function () {
     return view('login');
 });
+
+Route::get('/Lista', function () {
+    return view('listaempleados');
+});
