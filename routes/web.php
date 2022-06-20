@@ -49,6 +49,10 @@ Route::get('/Empleados', function () {
     return view('VentanaEmpleados');
 });
 
+Route::get('/ListaEmpleados', function () {
+    return view('listaempleados');
+});
+
 
 
 
