@@ -26,12 +26,12 @@
 @forelse($employee as $emple)
 
 <tr>
-
+<td>{{$emple->id}}</td>
 <td>{{$emple->nombres}}</td>
 <td>{{$emple->apellidos}}</td>
-<td>{{$emple->dni}}</td>
+<td>{{$emple->DNI}}</td>
 <td>{{$emple->telefono_personal}}</td>
-<td href="/showempleado" >Ver detalles</td>
+<td > <a class="btn btn-success" href="/Emple/{{$emple->id}}"> Ver detalles  </a></td>
 </tr>
 
 @empty

@@ -127,10 +127,12 @@ class EmpleadoController extends Controller
      */
     public function show($id)//mostrar
     {
-        $empleado = empleado::findOrFail($id);
-        return view('showEmpleado')->with('empleado', $empleado);
+        $empleado = Empleado::findOrFail($id);
+        return view('empleados/showempleado')->with('empleado', $empleado);
         //
     }
+
+   
 
     /**
      * Show the form for editing the specified resource.

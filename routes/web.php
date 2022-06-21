@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
-
+use App\Models\Empleado;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,23 +33,18 @@ Route::get('/', function () {
     return view('login');
 });
 
+
+//Ruta de la lista de empleados
 Route::get('/Lista',[EmpleadoController::class, 'list']) -> name ('lista');
 
 
+//Rutas para los detalles de cada empleado
 
-
-//Rutas para Detalles 
-
-Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])
-->name('empleados.show');
+Route::get('/Emple/{id}', [EmpleadoController::class, 'show']) -> name('empleado.detalles')-> where('id', '[0-9]+');
 
 
 Route::get('/Empleados', function () {
     return view('VentanaEmpleados');
-});
-
-Route::get('/ListaEmpleados', function () {
-    return view('listaempleados');
 });
 
 
