@@ -6,6 +6,7 @@ use App\Models\Empleado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreEmpleadoRequest;
+use Illuminate\Support\Facades\DB;
 
 class EmpleadoController extends Controller
 {
@@ -36,6 +37,13 @@ class EmpleadoController extends Controller
      * @param  \App\Http\Requests\StoreEmpleadoRequest  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function list(){
+        $employee = Empleado::paginate(10);
+        return view('listaempleados')->with('employee', $employee);    
+    }
+
+
     public function store(Request $request)
     {
         $fecha_actual = date("d-m-Y");
@@ -104,7 +112,7 @@ class EmpleadoController extends Controller
         $creado = $empleado->save();
 
         if ($creado) {
-            return redirect()->route('empleados.index')
+            return redirect()->route('lista')
                 ->with('mensaje', 'El empleado fue creado exitosamente');
         } else {
 
@@ -119,10 +127,12 @@ class EmpleadoController extends Controller
      */
     public function show($id)//mostrar
     {
-        $empleado = empleado::findOrFail($id);
-        return view('showEmpleado')->with('empleado', $empleado);
+        $empleado = Empleado::findOrFail($id);
+        return view('empleados/showempleado')->with('empleado', $empleado);
         //
     }
+
+   
 
     /**
      * Show the form for editing the specified resource.

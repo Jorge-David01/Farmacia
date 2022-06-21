@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'VentanaPrincipal')
+@section('pestania', 'Formulario de empleados')
 
 @section('titulo')
 Añadir Empleado
@@ -106,8 +106,8 @@ Añadir Empleado
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Genero: <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input type="radio" name="genero" id="genero" value="femenino">Femenino
-                <input type="radio" name="genero" id="genero" value="masculino">Masculino
+                <input type="radio" name="genero" id="genero" value="Femenino">Femenino
+                <input type="radio" name="genero" id="genero" value="Masculino">Masculino
             </div>
         </div>
 

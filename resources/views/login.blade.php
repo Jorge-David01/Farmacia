@@ -12,24 +12,22 @@
     
 
 
-   <style> 
-.still{
+<style> 
+ .still{
     border: 3px solid #0000ff;
-  border-radius: 5px;
-   
-}
+    border-radius: 5px; 
+  }
+
  .centrar{
     text-align: center;
  }
 
-
 </style>
+
 </head>
 
 
 <body style="background: #cce0ff" >
-
-
 
 
 <div style="width: 25%; height: 230px; margin: auto; margin-top: 15%; background: white"  class="still  " > 
@@ -64,14 +62,10 @@ var usuario1 = "admin";
 var contra1 = "admin";
 
 if(usuar == usuario1 && contra == contra1){
-    window.location.href="/Principal";
-
+  window.location.href="/Principal";
 }
 
 }
-
-
-
 
 </script>
 </body>

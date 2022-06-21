@@ -1,10 +1,18 @@
-@extends('madre')
+@extends('plantilla.principalpag')
+@section('pestania', 'Detalle de empleado')
 @section('contenido')
+
+<style>
+tr:nth-child(even) {
+  background-color: #b3e0ff;
+}
+</style>
+
     <br>
     <h2>Detalles del empleado: </h2>
-    <table class="table table-striped table-dark">
+    <table class="table">
         <thead>
-        <tr>
+        <tr style="background: #d9d9d9">
             <th scope="col">Campo</th>
             <th scope="col">Valor</th>
         </tr>
@@ -49,9 +57,9 @@
 </tbody>
 </table>
 
-<a class="btn btn-primary" href="/empleados">Volver</a>
+<a class="btn btn-primary" href="/Lista">Volver</a>
 <a class="btn btn-primary" href="">Actualizar</a>
 <a class="btn btn-primary" href="">Eliminar</a>
 
-
+@section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
-
+use App\Models\Empleado;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,16 +35,16 @@ Route::get('/Proveedores', function () {
 //----------------- RUTAS DE EMPLEADO -----------------------
 Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])->name('empleados.create');
 
-Route::post('/empleados/nuevos',[EmpleadoController::class, 'store'])->name('empleados.store');
+Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])->name('empleados.store');
 
 Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])->name('empleados.show');
 
-Route::get('/Lista', function () {
-    return view('listaempleados');
+Route::get('/Emple/{id}', [EmpleadoController::class, 'show']) -> name('empleado.detalles')-> where('id', '[0-9]+');
+
+Route::get('/Empleados', function () {
+    return view('VentanaEmpleados');
 });
 
-Route::get('/ListaEmpleados', function () {
-    return view('listaempleados');
-});
+Route::get('/Lista',[EmpleadoController::class, 'list']) -> name ('lista');
 
 //----------------- RUTAS DE PROVEEDORES -----------------------
