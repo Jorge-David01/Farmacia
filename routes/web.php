@@ -14,46 +14,37 @@ use App\Http\Controllers\EmpleadoController;
 |
 */
 
+
+//----------------- VENTANAS PRINCIPALES ---------------------
+Route::get('/', function () {
+    return view('login');
+});
+
 Route::get('/Principal', function () {
     return view('PaginaPrincipal');
 });
 
-//CREACION DE EMPLEADO
-Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])
-    ->name('empleados.create');
-
-Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])
-    ->name('empleados.store');
+Route::get('/Empleados', function () {
+    return view('VentanaEmpleados');
+});
 
 Route::get('/Proveedores', function () {
     return view('VentanaProveedores');
 });
 
-Route::get('/', function () {
-    return view('login');
-});
+//----------------- RUTAS DE EMPLEADO -----------------------
+Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])->name('empleados.create');
+
+Route::post('/empleados/nuevos',[EmpleadoController::class, 'store'])->name('empleados.store');
+
+Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])->name('empleados.show');
 
 Route::get('/Lista', function () {
     return view('listaempleados');
-});
-
-
-
-//Rutas para Detalles 
-
-Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])
-->name('empleados.show');
-
-
-Route::get('/Empleados', function () {
-    return view('VentanaEmpleados');
 });
 
 Route::get('/ListaEmpleados', function () {
     return view('listaempleados');
 });
 
-
-
-
-
+//----------------- RUTAS DE PROVEEDORES -----------------------

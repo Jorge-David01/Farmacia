@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'VentanaProveedores')
+@section('pestania', 'Ventana de proveedores')
 @section('contenido')
 
 <h1>Mensaje pendiente.</h1> <br><br> <hr><hr> <br>

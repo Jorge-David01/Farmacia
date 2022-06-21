@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'VentanaPrincipal')
+@section('pestania', 'Pagina principal')
 @section('contenido')
 
 <style>
@@ -14,6 +14,7 @@ body {
   padding-top: 170px;
   padding-left: 30%;
 }
+
 .FechaCentro {
   padding-top: 70px;
   padding-left: 30%;
