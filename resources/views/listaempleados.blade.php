@@ -5,20 +5,26 @@
 <style>
 tr:nth-child(even) {
   background-color: #b3e0ff;
+
+}
+</style>
+
+
+<style>
+th {
+    style="border: 2px solid #dddddd"
 }
 
 </style>
 
-<a style="color: #0088cc; text-decoration: none; margin-top: 2%;" href="/Empleados"> <img src="https://us.123rf.com/450wm/faysalfarhan/faysalfarhan1711/faysalfarhan171112773/89435989-%C3%ADcono-de-flecha-hacia-atr%C3%A1s-aislado-en-la-ilustraci%C3%B3n-abstracta-de-bot%C3%B3n-redondo-azul-cian-especial.jpg?ver=6" style="width: 3%; height: 3%; margin-left: 5%; margin-top: 2%; float: left;"  alt=""> <h3 style="float: left; paddign: 1%; margin-top: 2.3%;" >Atrás</h3></a>
-<br>
-<h1 style="text-align: center; margin-top: 1%; padding-top: 3%;">Empleados</h1>
+<h1 style="margin-left: 38% ; margin-top: 1%; margin-bottom: 3%; "> <u>Empleados</u> </h1>
 
 
 <div class="col-x1-12">
     <form action="{{route('lista')}}" method="GET">
         <div class="form-row">
-            <div class="col-sm-4">
-                <input type="text" class="form-control" placeholder="Ingrese el dato que desea buscar" name="texto" value="{{$texto}}">
+            <div style="margin-left: 4%" class="col-sm-2">
+                <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
             </div>
             <div class="col-auto">
         <input type="submit" class="btn btn-primary" value="Buscar">
@@ -28,16 +34,17 @@ tr:nth-child(even) {
 
 </div>
 
-<table  style="width: 85%; margin: auto; margin-top: 3%; " >
 
-< >
+
+<table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
+
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-<th style="border: 2px solid #dddddd" >Identificador</th>
-<th style="border: 2px solid #dddddd">Nombre</th>
-<th style="border: 2px solid #dddddd">Apellido</th>
-<th style="border: 2px solid #dddddd">Número de identidad</th>
-<th style="border: 2px solid #dddddd">Teléfono</th>
-<th style="border: 2px solid #dddddd">Ver detalles</th>
+<th >Identificador</th>
+<th >Nombre</th>
+<th >Apellido</th>
+<th >Número de identidad</th>
+<th >Teléfono</th>
+<th >Ver detalles</th>
 </tr>
 
 <tbody>
@@ -50,13 +57,13 @@ tr:nth-child(even) {
 
 @forelse($employee as $emple)
 
-<tr>
+<tr style="text-align: center; border: 2px solid #dddddd;" >
 <td>{{$emple->id}}</td>
 <td>{{$emple->nombres}}</td>
 <td>{{$emple->apellidos}}</td>
 <td>{{$emple->DNI}}</td>
 <td>{{$emple->telefono_personal}}</td>
-<td > <a class="btn btn-success" href="/Emple/{{$emple->id}}"> Ver detalles  </a></td>
+<td > <a class="btn btn-success" href="/Emple/{{$emple->id}}">  Detalles  </a></td>
 </tr>
 
 @empty

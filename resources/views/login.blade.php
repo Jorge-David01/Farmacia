@@ -27,7 +27,7 @@
 </head>
 
 
-<body style="background: #cce0ff" >
+<body style="background: #e6e6e6" >
 
 
 <div style="width: 25%; height: 230px; margin: auto; margin-top: 15%; background: white"  class="still  " > 
