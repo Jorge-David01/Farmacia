@@ -18,14 +18,12 @@
 
 
     @endif
-<<<<<<< HEAD
-=======
+
     <style>
         input{
             border-radius: 0px !important;
         }
     </style>
->>>>>>> 14591d021be3921f9ea88751410a94e521743bc5
 
     <form method="post" enctype="multipart/form-data">
         @csrf
@@ -196,16 +194,6 @@
                     }
                 </script>
 
-<<<<<<< HEAD
-        
-        <div class="item form-group">
-            <div class="col-md-6 col-sm-6 offset-md-3">
-                <button class="btn btn-regresar" type="button" onclick="window.location=''">Cancelar</button>
-                <a type="button" href="javascript:location.reload()" class="btn btn-limpiar">Limpiar</a>
-                <button type="submit" class="btn btn-guardar">Guardar</button>
-            </div>
-        </div>
-=======
                 <div class="ln_solid"></div>
                 <div class="item form-group">
                     <br><br>
@@ -215,7 +203,6 @@
                         <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
->>>>>>> 14591d021be3921f9ea88751410a94e521743bc5
 
     </form>
 </div>

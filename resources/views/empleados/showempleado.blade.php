@@ -55,15 +55,26 @@ tr:nth-child(even) {
 
          
 </tbody>
-</table>
+</table><br>
 
-<a class="btn btn-primary" href="/Lista">Volver</a>
+
+<button class="btn btn-success">
+<a class="btn btn-success" href="/Lista">Volver</a>
+</button>
+<button class="btn btn-primary">
 <a class="btn btn-primary" href="/Empleado/{{$empleado->id}}/editar">Actualizar</a>
+</button>
+<button class="btn btn-danger">
 <form method="post" action="{{route('empleados.delete',['id'=>$empleado->id])}}">
-                        @csrf
-                  @method('delete') <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el empleado?')"
- value="eliminar" class="btn btn-primary">
-                    </form>
+    @csrf
+    @method('delete') 
+    <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el empleado?')"
+    value="eliminar" class="btn btn-danger" >
+</form>
+</button>
+
+
+
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

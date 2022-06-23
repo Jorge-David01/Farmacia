@@ -55,11 +55,6 @@ td {
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 
-
-<<<<<<< HEAD
-<tbody>
-=======
->>>>>>> 14591d021be3921f9ea88751410a94e521743bc5
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Identificador</th>
 <th>Nombre</th>
@@ -79,11 +74,7 @@ td {
 
 @forelse($employee as $emple)
 
-<<<<<<< HEAD
-<tr >
-=======
 <tr style="border: 2px solid #dddddd;">
->>>>>>> 14591d021be3921f9ea88751410a94e521743bc5
 <td>{{$emple->id}}</td>
 <td>{{$emple->nombres}}</td>
 <td>{{$emple->apellidos}}</td>
