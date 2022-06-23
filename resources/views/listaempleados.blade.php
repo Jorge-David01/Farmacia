@@ -13,9 +13,24 @@ tr:nth-child(even) {
 <br>
 <h1 style="text-align: center; margin-top: 1%; padding-top: 3%;">Empleados</h1>
 
+
+<div class="col-x1-12">
+    <form action="{{route('lista')}}" method="GET">
+        <div class="form-row">
+            <div class="col-sm-4">
+                <input type="text" class="form-control" placeholder="Ingrese el dato que desea buscar" name="texto" value="{{$texto}}">
+            </div>
+            <div class="col-auto">
+        <input type="submit" class="btn btn-primary" value="Buscar">
+            </div>
+        </div>
+    </form>
+
+</div>
+
 <table  style="width: 85%; margin: auto; margin-top: 3%; " >
 
-<tbody >
+< >
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th style="border: 2px solid #dddddd" >Identificador</th>
 <th style="border: 2px solid #dddddd">Nombre</th>
@@ -23,10 +38,15 @@ tr:nth-child(even) {
 <th style="border: 2px solid #dddddd">Número de identidad</th>
 <th style="border: 2px solid #dddddd">Teléfono</th>
 <th style="border: 2px solid #dddddd">Ver detalles</th>
-
 </tr>
 
-
+<tbody>
+    @if (count($employee)<=0)
+        <tr>
+            <td colspan="6">No hay resultados</td>
+    </tr>
+    @endif
+</tbody>
 
 @forelse($employee as $emple)
 
