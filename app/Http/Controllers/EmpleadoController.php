@@ -66,8 +66,10 @@ class EmpleadoController extends Controller
             'personal'=> 'required|unique:empleados,telefono_personal|numeric|regex:([9,8,3,2]{1}[0-9]{7})',
             'email' => 'required|max:100|email|unique:empleados,correo_electronico',
             'direccion'=>'required|max:100',
+            'password'=>'required|min:8',
             'genero'=>'required',
-            'password'=>'required|max:15',
+
+
         ];
 
         $mensaje=[
@@ -94,10 +96,8 @@ class EmpleadoController extends Controller
             'email.unique' => 'El correo electrónico ingresado ya esta en uso',
             'direccion.required' => 'La dirección no puede ser vacía',
             'direccion.max' => 'La dirección es muy extenso',
-            'password.required' => 'El campo contraseña es obligatorio.',
-            'password.string' => 'El campo contraseña es invalido .',
-            'password.min' => 'El campo contraseña debe tener al menos 15 caracteres.',
-            'password.confirmed' => 'Las contraseñas ingresadas no coinciden.',
+
+
             'genero.required' => 'El campo genero es obligatorio.',
         ];
 
