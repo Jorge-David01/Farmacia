@@ -159,9 +159,12 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(Request $request, $id)//Actualizar
     {
-
+        $empleado = request()->except(['_token','_method']);
+        empleado::where('id','=',$id)->update($empleado);
+        return redirect('/empleados')->with('Dato Modificado con Exito');
+        //
     }
 
     /**
@@ -170,8 +173,11 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
+        Empleado::destroy($id);
 
+        return redirect()->route('lista')->with('Mensaje', 'El empleado fue eliminado exitosamente');
+        //
     }
 }
