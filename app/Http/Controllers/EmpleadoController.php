@@ -140,10 +140,7 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit()
-    {
-
-    }
+  
 
     /**
      * Update the specified resource in storage.
@@ -152,11 +149,11 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)//Actualizar
+    public function edit(Request $request, $id)//Actualizar
     {
-        $empleado = request()->except(['_token','_method']);
-        empleado::where('id','=',$id)->update($empleado);
-        return redirect('/empleados')->with('Dato Modificado con Exito');
+        $empleado = Empleado::find($id);
+        return view('empleados/editempleado') ->with('empleado',$empleado);
+
         //
     }
 
@@ -172,5 +169,47 @@ class EmpleadoController extends Controller
 
         return redirect()->route('lista')->with('Mensaje', 'El empleado fue eliminado exitosamente');
         //
+    
     }
-}
+
+    public function update(Request $request, $id){
+
+        $request->validate([
+            'nombres'=>'required',
+            'apellidos'=>'required',
+            'birthday'=>'required',
+            'dni'=>'required',
+            'personal'=>'required',
+            'email'=> 'required' ,
+             'direccion'=>'required',
+              'genero'=>'required',
+             'password'=>'required',
+            
+
+        ]);
+
+        $upda = Empleado::find($id);
+        
+        $upda -> nombres  = $request->input('nombres');
+        $upda -> apellidos  = $request->input('apellidos');
+        $upda -> fecha_de_nacimiento  = $request->input('birthday');
+        $upda -> DNI  = $request->input('dni');
+        $upda -> telefono_personal  = $request->input('personal');
+        $upda -> correo_electronico = $request->input('email');
+        $upda -> direccion = $request->input('direccion');
+        $upda -> genero = $request->input('genero');
+        $upda -> contraseña = $request->input('password');
+        
+
+        $actualizado= $upda ->save();
+  
+        if ($actualizado){
+            return redirect()->route('lista')->with('msj', 'El empleado se actulizo exitosamente');
+        } else {
+          //nada por ahorita
+        }
+  
+    }
+
+    }
+

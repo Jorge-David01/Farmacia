@@ -16,13 +16,13 @@
     @endif
 
     <h2>Editar empleado</h2>
-    <form method="post" action="{{route('empleados.edit',['id'=>$empleado->id])}}">
+    <form method="POST" action="">
     @method('put')
         @csrf
         <div class="form-group">
         <label for="nombres">Nombres:</label>
             <input type="text" class="form-control-file" name="nombres" id="nombres" 
-            placeholder="" value="{{$empleado->nombres}}">
+            placeholder="Nombres" value="{{$empleado->nombres}}">
         </div>
 
         <div class="form-group">
@@ -32,32 +32,51 @@
         </div>
         
         <div class="form-group">
-        <label for="fecha_de_nacimiento">Apellido:</label>
-            <input type="text" class="form-control-file" name="fecha_de_nacimiento" id="fecha_de_nacimiento" 
-            placeholder="Fecha de nacimiento" value="{{$empleado->fecha_de_nacimiento}}" >
+        <label for="birthday">Birthday:</label>
+            <input type="text" class="form-control-file" name="birthday" id="birthday" 
+            placeholder="birthday" value="{{$empleado->fecha_de_nacimiento}}" >
         </div>
         <div class="form-group">
-        <label for="identidad">Identidad:</label>
-            <input type="text" class="form-control-file" name="identidad" id="identidad" 
-            placeholder="Identidad" value="{{$empleado->identidad}}" >
+        <label for="dni">DNI:</label>
+            <input type="text" class="form-control-file" name="dni" id="dni" 
+            placeholder="dni" value="{{$empleado->DNI}}" >
         </div>
         <div class="form-group">
-        <label for="telefono_personal">Telefono personal:</label>
-            <input type="text" class="form-control-file" name="telefono_personal" id="telefono_personal" 
-            placeholder="telefono_personal" value="{{$empleado->telefono_personal}}" >
+        <label for="personal">Telefono personal:</label>
+            <input type="text" class="form-control-file" name="personal" id="personal" 
+            placeholder="personal" value="{{$empleado->telefono_personal}}" >
         </div>
         
         <div class="form-group">
-        <label for="correo_electronico">Correo electronico:</label>
-            <input type="text" class="form-control-file" name="correo_electronico" id="correo_electronico" 
-            placeholder="Correo electronico" value="{{$empleado->correo_electronico}}" >
+        <label for="email">Correo electronico:</label>
+            <input type="text" class="form-control-file" name="email" id="email" 
+            placeholder="email" value="{{$empleado->correo_electronico}}" >
         </div>
         <div class="form-group">
         <label for="direccion">Direccion:</label>
             <input type="text" class="form-control-file" name="direccion" id="direccion" 
             placeholder="Direccion" value="{{$empleado->direccion}}" >
         </div>
+     
+        <div class="form-group">
+        <label for="genero">Genero:</label>
+            <input type="text" class="form-control-file" name="genero" id="genero" 
+            placeholder="Genero" value="{{$empleado->genero}}" >
+        </div>
+      
+        <div class="form-group">
+        <label for="password">Contraseña:</label>
+            <input type="password" class="form-control-file" name="password" id="password" 
+            placeholder="Password" value="{{$empleado->contraseña}}" >
+        </div>
+      
 
+        <div class="text-center">
+<button type="submit" class="btn btn-primary">Guardar Datos</button>
+<input type="reset" class="btn btn-danger">
+
+</div>
+      
     </form>
     @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection
