@@ -50,5 +50,9 @@ Route::get('/Lista',[EmpleadoController::class, 'list']) -> name ('lista');
 
 Route::delete('/empleados/{id}/eliminar',[EmpleadoController::class, 'destroy'])->name('empleados.delete')-> where('id', '[0-9]+');
 
+Route::get('/Empleado/{id}/editar', [EmpleadoController::class, 'edit']) -> name('Editar.empleado')-> where('id', '[0-9]+');
+
+Route::put('/Empleado/{id}/editar', [EmpleadoController::class, 'update']) -> name('actualizar.empleado') -> where('id', '[0-9]+');
+
 
 //----------------- RUTAS DE PROVEEDORES -----------------------

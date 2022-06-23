@@ -58,7 +58,7 @@ tr:nth-child(even) {
 </table>
 
 <a class="btn btn-primary" href="/Lista">Volver</a>
-<a class="btn btn-primary" href="">Actualizar</a>
+<a class="btn btn-primary" href="/Empleado/{{$empleado->id}}/editar">Actualizar</a>
 <form method="post" action="{{route('empleados.delete',['id'=>$empleado->id])}}">
                         @csrf
                   @method('delete') <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el empleado?')"
