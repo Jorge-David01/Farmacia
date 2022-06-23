@@ -1,12 +1,10 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Formulario de empleados')
 
-@section('titulo')
-Añadir Empleado
-@stop
 @section('contenido')
+
 <div class="x_content">
-    <br />
+   
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -18,6 +16,7 @@ Añadir Empleado
             </ul>
         </div>
     @endif
+
     <form method="post" enctype="multipart/form-data">
         @csrf
         <div class="item form-group">
@@ -82,6 +81,7 @@ Añadir Empleado
 
             </div>
         </div>
+        
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Correo Electrónico: <span class="required">*</span>
             </label>
@@ -172,7 +172,7 @@ Añadir Empleado
                     }
                 </script>
 
-        <div class="ln_solid"></div>
+        
         <div class="item form-group">
             <div class="col-md-6 col-sm-6 offset-md-3">
                 <button class="btn btn-regresar" type="button" onclick="window.location=''">Cancelar</button>
@@ -183,4 +183,7 @@ Añadir Empleado
 
     </form>
 </div>
-@stop
+
+
+@section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
+@endsection

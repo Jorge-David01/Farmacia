@@ -15,7 +15,7 @@ tr:nth-child(even) {
 
 <table  style="width: 85%; margin: auto; margin-top: 3%; " >
 
-<tbody >
+<tbody>
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th style="border: 2px solid #dddddd" >Identificador</th>
 <th style="border: 2px solid #dddddd">Nombre</th>
@@ -30,7 +30,7 @@ tr:nth-child(even) {
 
 @forelse($employee as $emple)
 
-<tr>
+<tr >
 <td>{{$emple->id}}</td>
 <td>{{$emple->nombres}}</td>
 <td>{{$emple->apellidos}}</td>

@@ -37,8 +37,16 @@ li a:hover:not(.active) {
   display: block;
 }
 
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    background: #66ff33;
+  }
+}
 
 </style>
+
+
 
 <!-- ---------------------------------------------LINK DE  BOOTSTRAP--------------------------------------- -->
 <head>
@@ -64,16 +72,16 @@ li a:hover:not(.active) {
   <title>Farmacia - @yield('pestania')</title>
 </head>
 
-<body onload="startTime()">
+<body class="body" onload="startTime()">
 
 <header >
 
 <!-- ------------------------------------------------------------------------------------------------------------------------- -->
 <!-- --------------------------------------------------------NAVBAR #1-------------------------------------------------------- -->
-<nav style="background-color: #0088cc;  border-bottom: 4px solid black; margin-left:12%; height: 120px;" class="navbar navbar-expand-lg ">
+<nav style="background-color: #0088cc;  border-bottom: 4px solid black; margin-left:12%; height: 120px;" class="navbar navbar-expand-lg body">
 
   <div class="container-fluid">
-    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <h1 style="font-size: 60px; color: white; text-shadow: 3px 3px 3px black, 0 0 30px black, 0 0 5px black;" class="fst-italic">FARMACIA LA POPULAR</h1>   
       </div>
@@ -83,13 +91,13 @@ li a:hover:not(.active) {
  <!-- ------------------BOTÓN CONFIGURACIÓN---------------- -->
   <div class="w3-container">
     <div class="w3-dropdown-hover">
-      <button class="w3-button; fa fa-cog">Ajustes</button>
+      <button class="w3-button fa fa-cog fst-italic"> Ajustes</button>
       <div class="w3-dropdown-content ">
         <a href="#" class="w3-bar-item w3-button">Perfil</a>
         <a href="#" class="w3-bar-item w3-button">Cambio de contraseña</a>
         <a href="#" class="w3-bar-item w3-button">Modo oscuro</a>
         <a href="#" class="w3-bar-item w3-button">Ayuda</a>
-        <a href="/" class="w3-bar-item w3-button">Cerrar sesión   </a>
+        <a href="/" class="w3-bar-item w3-button">Cerrar sesión</a>
       </div> 
     </div>
   </div>
@@ -100,28 +108,32 @@ li a:hover:not(.active) {
 
 <!-- ------------------------------------------------------------------------------------------------------------------------- -->
 <!-- --------------------------------------------------------NAVBAR #2-------------------------------------------------------- -->
-<nav class="sticky">
+<nav class="sticky body">
 
   <ul style="height: 100%; border-right: 4px solid black; background-color: #0088cc; ">
 
    <!-- -------------------LOGO FARMACIA----------------- -->
+  <li>  
     <div class="container-fluid">
-      <a style="margin-left:-6%;" class="navbar-brand" href="/Principal"><img src="https://thumbs.dreamstime.com/b/logotipo-o-emblema-m%C3%A9dico-de-la-farmacia-bot%C3%B3n-cristal-azul-con-c-100946974.jpg" alt="logo" style="width:120px;"></a>
-    </div>
+      <a style="margin-left:-19%;"  href="/Principal"><img src="https://thumbs.dreamstime.com/b/logotipo-o-emblema-m%C3%A9dico-de-la-farmacia-bot%C3%B3n-cristal-azul-con-c-100946974.jpg
+" alt="logo de farmacia" style="width:120px;"></a>
+   </div>
+  </li>
 
    <!-- ------------------GRUPO DE BOTONES---------------- -->
-    <br><li><a class="fst-italic text-white" href="/Empleados" class="w3-bar-item w3-button"><i class="fa fa-address-card-o"> Empleados</i></a> <br>
-    <li><a class="fst-italic text-white" href="/Proveedores" class="w3-bar-item w3-button"><i class="fa fa-truck"> Proveedores</i></a> <br>
-    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-users"> Clientes</i></a> <br>
-    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-file-text-o"> Facturación</i></a> <br>
-    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-columns"> Inventario</i></a> <br> 
+    
+    <li><a class="fst-italic text-white" href="/Empleados" class="w3-bar-item w3-button"><i class="fa fa-address-card-o">Empleados</i></a></li>
+    <li><a class="fst-italic text-white" href="/Proveedores" class="w3-bar-item w3-button"><i class="fa fa-truck"> Proveedores</i></a></li>
+    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-users"> Clientes</i></a></li>
+    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-file-text-o"> Facturación</i></a></li>
+    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-columns"> Inventario</i></a></li>
 
   </ul>
 </nav>  
 
 
 
-<main class="flex-shrink-0">
+<main class="flex-shrink-0 body">
   <div class="container-fluid" style="margin-left:12%;">
     @yield('contenido')
   </div>
