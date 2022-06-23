@@ -38,9 +38,16 @@ class EmpleadoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function list(){
-        $employee = Empleado::paginate(10);
-        return view('listaempleados')->with('employee', $employee);    
+    public function list(Request $request){
+        $texto=trim($request->get('texto'));
+        $employee=DB::table('empleados')
+
+        ->where('DNI','like','%'.$texto.'%')
+        ->orwhere('nombres','like','%'.$texto.'%')
+        ->orWhere('apellidos','like','%'.$texto.'%')
+        ->orWhere('telefono_personal','like','%'.$texto.'%')
+        ->orderBy('DNI', 'asc')->paginate(10);
+        return view('listaempleados' , compact ('employee', 'texto'));
     }
 
 
@@ -52,15 +59,17 @@ class EmpleadoController extends Controller
         $maxima = date("d-m-Y",strtotime($max."+ 1 days"));
 
         $rules=[
-            'nombres' => 'required|max:100',
-            'apellidos' => 'required|max:100',
+            'nombres' => 'required|max:50',
+            'apellidos' => 'required|max:50',
             'birthday'=>'required|date|before:'.$maxima.'|after:'.$minima,
             'dni'=> 'required|unique:empleados,DNI|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
             'personal'=> 'required|unique:empleados,telefono_personal|numeric|regex:([9,8,3,2]{1}[0-9]{7})',
             'email' => 'required|max:100|email|unique:empleados,correo_electronico',
-            'direccion'=>'required|max:200',
+            'direccion'=>'required|max:100',
+            'password'=>'required|min:8',
             'genero'=>'required',
-            'password'=>'required|max:8',
+
+
         ];
 
         $mensaje=[
@@ -76,10 +85,10 @@ class EmpleadoController extends Controller
             'dni.regex' => 'El formato de la identidad no es valida',
             'dni.numeric' => 'La identidad debe de ser números',
             'dni.unique' => 'La identidad ya esta en uso',
-            'personal.required' => 'El teléfono personal no puede estar vacío',
-            'personal.regex' => 'El teléfono personal debe contener 8 dígitos e iniciar con 2,3,8 o 9',
-            'personal.numeric' => 'En teléfono personal no debe de incluir letras ni signos',
-            'personal.unique' => 'El teléfono personal ingresado ya esta en uso',
+            'personal.required' => 'El teléfono no puede estar vacío',
+            'personal.regex' => 'El teléfono debe contener 8 dígitos e iniciar con 2,3,8 o 9',
+            'personal.numeric' => 'En teléfono no debe de incluir letras ni signos',
+            'personal.unique' => 'El teléfono ingresado ya esta en uso',
             'email.required' => 'El correo electrónico no puede estar vacío',
             'email.regex' => 'El correo electrónico tiene un formato invalido',
             'email.max' => 'El correo electrónico es muy extenso',
@@ -87,10 +96,8 @@ class EmpleadoController extends Controller
             'email.unique' => 'El correo electrónico ingresado ya esta en uso',
             'direccion.required' => 'La dirección no puede ser vacía',
             'direccion.max' => 'La dirección es muy extenso',
-            'password.required' => 'El campo contraseña es obligatorio.',
-            'password.string' => 'El campo contraseña es invalido .',
-            'password.min' => 'El campo contraseña debe tener al menos 8 caracteres.',
-            'password.confirmed' => 'Las contraseñas ingresadas no coinciden.',
+
+
             'genero.required' => 'El campo genero es obligatorio.',
         ];
 
@@ -113,7 +120,7 @@ class EmpleadoController extends Controller
 
         if ($creado) {
             return redirect()->route('lista')
-                ->with('mensaje', 'El empleado fue creado exitosamente');
+                ->with('mensaje', 'El empleado fue creado con exito');
         } else {
 
         }
@@ -132,7 +139,7 @@ class EmpleadoController extends Controller
         //
     }
 
-   
+
 
     /**
      * Show the form for editing the specified resource.
@@ -140,10 +147,7 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit()
-    {
-
-    }
+  
 
     /**
      * Update the specified resource in storage.
@@ -152,9 +156,12 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function edit(Request $request, $id)//Actualizar
     {
+        $empleado = Empleado::find($id);
+        return view('empleados/editempleado') ->with('empleado',$empleado);
 
+        //
     }
 
     /**
@@ -163,8 +170,53 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
+        Empleado::destroy($id);
+
+        return redirect()->route('lista')->with('Mensaje', 'El empleado fue eliminado exitosamente');
+        //
+    
+    }
+
+    public function update(Request $request, $id){
+
+        $request->validate([
+            'nombres'=>'required',
+            'apellidos'=>'required',
+            'birthday'=>'required',
+            'dni'=>'required',
+            'personal'=>'required',
+            'email'=> 'required' ,
+             'direccion'=>'required',
+              'genero'=>'required',
+             'password'=>'required',
+            
+
+        ]);
+
+        $upda = Empleado::find($id);
+        
+        $upda -> nombres  = $request->input('nombres');
+        $upda -> apellidos  = $request->input('apellidos');
+        $upda -> fecha_de_nacimiento  = $request->input('birthday');
+        $upda -> DNI  = $request->input('dni');
+        $upda -> telefono_personal  = $request->input('personal');
+        $upda -> correo_electronico = $request->input('email');
+        $upda -> direccion = $request->input('direccion');
+        $upda -> genero = $request->input('genero');
+        $upda -> contraseña = $request->input('password');
+        
+
+        $actualizado= $upda ->save();
+  
+        if ($actualizado){
+            return redirect()->route('lista')->with('msj', 'El empleado se actulizo exitosamente');
+        } else {
+          //nada por ahorita
+        }
+  
+    }
 
     }
-}
+

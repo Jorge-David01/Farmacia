@@ -52,14 +52,18 @@ tr:nth-child(even) {
             <td>{{$empleado->genero}}</td>
             </tr>
             <tr>
-         
+
          
 </tbody>
 </table>
 
 <a class="btn btn-primary" href="/Lista">Volver</a>
-<a class="btn btn-primary" href="">Actualizar</a>
-<a class="btn btn-primary" href="">Eliminar</a>
+<a class="btn btn-primary" href="/Empleado/{{$empleado->id}}/editar">Actualizar</a>
+<form method="post" action="{{route('empleados.delete',['id'=>$empleado->id])}}">
+                        @csrf
+                  @method('delete') <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el empleado?')"
+ value="eliminar" class="btn btn-primary">
+                    </form>
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

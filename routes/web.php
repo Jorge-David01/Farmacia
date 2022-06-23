@@ -37,7 +37,7 @@ Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])->name('empl
 
 Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])->name('empleados.store');
 
-Route::get('/empleados/detalle',[EmpleadoController::class, 'show'])->name('empleados.show');
+
 
 Route::get('/Emple/{id}', [EmpleadoController::class, 'show']) -> name('empleado.detalles')-> where('id', '[0-9]+');
 
@@ -46,5 +46,13 @@ Route::get('/Empleados', function () {
 });
 
 Route::get('/Lista',[EmpleadoController::class, 'list']) -> name ('lista');
+
+
+Route::delete('/empleados/{id}/eliminar',[EmpleadoController::class, 'destroy'])->name('empleados.delete')-> where('id', '[0-9]+');
+
+Route::get('/Empleado/{id}/editar', [EmpleadoController::class, 'edit']) -> name('Editar.empleado')-> where('id', '[0-9]+');
+
+Route::put('/Empleado/{id}/editar', [EmpleadoController::class, 'update']) -> name('actualizar.empleado') -> where('id', '[0-9]+');
+
 
 //----------------- RUTAS DE PROVEEDORES -----------------------
