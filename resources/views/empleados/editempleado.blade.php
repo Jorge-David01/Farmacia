@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'Detalle de empleado')
+@section('pestania', 'Editar empleado')
 @section('contenido')
 
 <br>

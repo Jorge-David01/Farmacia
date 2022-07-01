@@ -55,7 +55,6 @@ td {
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 
-
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Identificador</th>
 <th>Nombre</th>

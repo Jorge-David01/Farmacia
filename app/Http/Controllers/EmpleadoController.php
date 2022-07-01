@@ -44,9 +44,9 @@ class EmpleadoController extends Controller
         $employee=DB::table('empleados')
 
         ->where('DNI','like','%'.$texto.'%')
-        ->orwhere('nombres','like','%'.$texto.'%')
-        ->orWhere('apellidos','like','%'.$texto.'%')
-        ->orWhere('telefono_personal','like','%'.$texto.'%')
+        ->orwhere('nombre_completo','like','%'.$texto.'%')
+        ->orWhere('numero_cel','like','%'.$texto.'%')
+        ->orWhere('numero_tel','like','%'.$texto.'%')
         ->orderBy('DNI', 'asc')->paginate(10);
         return view('listaempleados' , compact ('employee', 'texto'));
     }
@@ -60,66 +60,46 @@ class EmpleadoController extends Controller
 
     public function store(Request $request)
     {
-        $fecha_actual = date("d-m-Y");
-        $max = date('d-m-Y',strtotime($fecha_actual."- 18 year"));
-        $minima = date('d-m-Y',strtotime($fecha_actual."- 65 year"));
-        $maxima = date("d-m-Y",strtotime($max."+ 1 days"));
-
         $rules=[
-            'nombres' => 'required|max:50',
-            'apellidos' => 'required|max:50',
-            'birthday'=>'required|date|before:'.$maxima.'|after:'.$minima,
+            'nombre_completo' => 'required|max:110',
             'dni'=> 'required|unique:empleados,DNI|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
-            'personal'=> 'required|unique:empleados,telefono_personal|numeric|regex:([9,8,3,2]{1}[0-9]{7})',
-            'email' => 'required|max:100|email|unique:empleados,correo_electronico',
+            'numero_cel'=> 'required|unique:empleados,numero_cel|numeric|regex:([9,8,3]{1}[0-9]{7})',
+            'numero_tel'=> 'required|unique:empleados,numero_tel|numeric|regex:([2]{1}[0-9]{7})',
             'direccion'=>'required|max:100',
-            'password'=>'required|min:8',
-            'genero'=>'required',
-
+            'password' => 'required|confirmed|min:6',
 
         ];
 
         $mensaje=[
-            'nombres.required' => 'El nombre no puede estar vacío',
-            'nombres.max' => 'El nombre es muy extenso',
-            'apellidos.required' => 'El apellido no puede estar vacío',
-            'apellidos.max' => 'El apellido es muy extenso',
-            'birthday.required' => 'La fecha de nacimiento no puede estar vacía',
-            'birthday.date' => 'La fecha de nacimiento debe de ser una fecha valida',
-            'birthday.before' => 'La fecha de nacimiento debe de ser anterior a '.$maxima,
-            'birthday.after' => 'La fecha de nacimiento debe de ser posterior a '.$minima,
+            'nombre_completo.required' => 'El nombre no puede estar vacío',
+            'nombres.max' => 'El nombre es demasiado extenso',
             'dni.required' => 'La identidad no puede estar vacía',
             'dni.regex' => 'El formato de la identidad no es valida',
-            'dni.numeric' => 'La identidad debe de ser números',
-            'dni.unique' => 'La identidad ya esta en uso',
-            'personal.required' => 'El teléfono no puede estar vacío',
-            'personal.regex' => 'El teléfono debe contener 8 dígitos e iniciar con 2,3,8 o 9',
-            'personal.numeric' => 'En teléfono no debe de incluir letras ni signos',
-            'personal.unique' => 'El teléfono ingresado ya esta en uso',
-            'email.required' => 'El correo electrónico no puede estar vacío',
-            'email.regex' => 'El correo electrónico tiene un formato invalido',
-            'email.max' => 'El correo electrónico es muy extenso',
-            'email.email' => 'En el campo correo electrónico debe de ingresar un correo valido',
-            'email.unique' => 'El correo electrónico ingresado ya esta en uso',
+            'dni.numeric' => 'La identidad debe de ser solo números',
+            'dni.unique' => 'La identidad ya esta la uso',
+            'numero_cel.required' => 'El numero de celular no puede estar vacío',
+            'numero_cel' => 'El numero de celular debe tener 8 dígitos iniciar con 3,8 o 9',
+            'numero_cel' => 'En numero de celular solo debe tener numeros',
+            'numero_cel' => 'El numero de celular que ingreso ya lo uso',
+            'numero_tel.required' => 'El numero de telefono fijo no puede estar vacío',
+            'numero_tel' => 'El numero de telefono fijo debe tener 8 dígitos iniciar con 2',
+            'numero_tel' => 'En numero de telefono fijo solo debe tener numeros',
+            'numero_tel' => 'El numero de telefono fijo que ingreso ya lo uso',
             'direccion.required' => 'La dirección no puede ser vacía',
-            'direccion.max' => 'La dirección es muy extenso',
-
-
-            'genero.required' => 'El campo genero es obligatorio.',
+            'direccion.max' => 'La dirección es muy larga',
+            'password.required' => 'La contraseña no puede estar vacía',
+            'password.confirmed' => 'Las contraseñas que ingreso no coinciden.',
         ];
 
         $this->validate($request,$rules,$mensaje);
 
         $empleado = new Empleado();
 
-        $empleado->nombres = $request->input('nombres');
-        $empleado->apellidos= $request->input('apellidos');
-        $empleado->fecha_de_nacimiento= $request->input('birthday');
+        $empleado->nombre_completo = $request->input('nombre_completo');
         $empleado->DNI= $request->input('dni');
-        $empleado->telefono_personal= $request->input('personal');
-        $empleado->correo_electronico = $request->input('email');
+        $empleado->numero_cel= $request->input('numero_cel');
+        $empleado->numero_tel= $request->input('numero_tel');
         $empleado->direccion = $request->input('direccion');
-        $empleado->genero = $request->input('genero');
         $empleado->contraseña = $request->input('password');
 
 
@@ -154,7 +134,7 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-  
+
 
     /**
      * Update the specified resource in storage.
@@ -183,7 +163,7 @@ class EmpleadoController extends Controller
 
         return redirect()->route('lista')->with('Mensaje', 'El empleado fue eliminado exitosamente');
         //
-    
+
     }
 
     public function update(Request $request, $id){
@@ -198,12 +178,12 @@ class EmpleadoController extends Controller
              'direccion'=>'required',
               'genero'=>'required',
              'password'=>'required',
-            
+
 
         ]);
 
         $upda = Empleado::find($id);
-        
+
         $upda -> nombres  = $request->input('nombres');
         $upda -> apellidos  = $request->input('apellidos');
         $upda -> fecha_de_nacimiento  = $request->input('birthday');
@@ -213,16 +193,16 @@ class EmpleadoController extends Controller
         $upda -> direccion = $request->input('direccion');
         $upda -> genero = $request->input('genero');
         $upda -> contraseña = $request->input('password');
-        
+
 
         $actualizado= $upda ->save();
-  
+
         if ($actualizado){
             return redirect()->route('lista')->with('msj', 'El empleado se actulizo exitosamente');
         } else {
           //nada por ahorita
         }
-  
+
     }
 
     }
