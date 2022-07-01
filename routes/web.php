@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Models\Empleado;
+use App\Models\Proveedor;
+use App\Http\Controllers\ProveedorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +58,5 @@ Route::put('/Empleado/{id}/editar', [EmpleadoController::class, 'update']) -> na
 
 
 //----------------- RUTAS DE PROVEEDORES -----------------------
+
+Route::get('/Listpro',[ProveedorController::class, 'proveed']) -> name('lista.proveedor');
