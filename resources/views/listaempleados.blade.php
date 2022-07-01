@@ -59,7 +59,6 @@ td {
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Identificador</th>
 <th>Nombre</th>
-<th>Apellido</th>
 <th>Número de identidad</th>
 <th>Teléfono</th>
 <th>Ver detalles</th>
@@ -78,10 +77,9 @@ td {
 <tr style="border: 2px solid #dddddd;">
 <td>{{$emple->id}}</td>
 <td>{{$emple->nombres}}</td>
-<td>{{$emple->apellidos}}</td>
 <td>{{$emple->DNI}}</td>
 <td>{{$emple->telefono_personal}}</td>
-<td > <a style=" " class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles  </a></td>
+<td > <a  class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
 </tr>
 
 @empty

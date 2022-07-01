@@ -111,7 +111,7 @@ li a:hover:not(.active) {
 
    <!-- ------------------GRUPO DE BOTONES---------------- -->
     <br><li><a class="fst-italic text-white" href="/Empleados" class="w3-bar-item w3-button"><i class="fa fa-address-card-o"> Empleados</i></a> <br>
-    <li><a class="fst-italic text-white" href="/Proveedores" class="w3-bar-item w3-button"><i class="fa fa-truck"> Proveedores</i></a> <br>
+    <li><a class="fst-italic text-white" href="/Listpro" class="w3-bar-item w3-button"><i class="fa fa-truck"> Proveedores</i></a> <br>
     <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-users"> Clientes</i></a> <br>
     <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-file-text-o"> Facturación</i></a> <br>
     <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-columns"> Inventario</i></a> <br> 
