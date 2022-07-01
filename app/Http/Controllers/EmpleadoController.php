@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
-use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreEmpleadoRequest;
@@ -51,12 +50,6 @@ class EmpleadoController extends Controller
         return view('listaempleados' , compact ('employee', 'texto'));
     }
 
-    public function proveed(){
-
-        $pro = Proveedor::paginate(10);
-        return view('listaproveedores')->with('pro' , $pro);
-    }
-    
 
     public function store(Request $request)
     {
@@ -72,19 +65,19 @@ class EmpleadoController extends Controller
 
         $mensaje=[
             'nombre_completo.required' => 'El nombre no puede estar vacío',
-            'nombres.max' => 'El nombre es demasiado extenso',
+            'nombres_completo.max' => 'El nombre es demasiado extenso',
             'dni.required' => 'La identidad no puede estar vacía',
             'dni.regex' => 'El formato de la identidad no es valida',
             'dni.numeric' => 'La identidad debe de ser solo números',
-            'dni.unique' => 'La identidad ya esta la uso',
+            'dni.unique' => 'La identidad ya la uso',
             'numero_cel.required' => 'El numero de celular no puede estar vacío',
-            'numero_cel' => 'El numero de celular debe tener 8 dígitos iniciar con 3,8 o 9',
-            'numero_cel' => 'En numero de celular solo debe tener numeros',
-            'numero_cel' => 'El numero de celular que ingreso ya lo uso',
+            'numero_cel.regex' => 'El numero de celular debe tener 8 dígitos iniciar con 3,8 o 9',
+            'numero_cel.numeric' => 'En numero de celular solo debe tener numeros',
+            'numero_cel.unique' => 'El numero de celular que ingreso ya lo uso',
             'numero_tel.required' => 'El numero de telefono fijo no puede estar vacío',
-            'numero_tel' => 'El numero de telefono fijo debe tener 8 dígitos iniciar con 2',
-            'numero_tel' => 'En numero de telefono fijo solo debe tener numeros',
-            'numero_tel' => 'El numero de telefono fijo que ingreso ya lo uso',
+            'numero_tel.regex' => 'El numero de telefono fijo debe tener 8 dígitos iniciar con 2',
+            'numero_tel.numeric' => 'En numero de telefono fijo solo debe tener numeros',
+            'numero_tel.unique' => 'El numero de telefono fijo que ingreso ya lo uso',
             'direccion.required' => 'La dirección no puede ser vacía',
             'direccion.max' => 'La dirección es muy larga',
             'password.required' => 'La contraseña no puede estar vacía',

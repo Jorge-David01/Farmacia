@@ -13,7 +13,7 @@ tr:nth-child(even) {
 <style>
 td {
     text-align: center;
-  
+
 }
 
 
@@ -40,7 +40,7 @@ td {
 
 
 <div class="col-x1-12">
-    <form action="{{route('lista')}}" method="GET">
+    <form action="{{route('lista')}}" method="get">
         <div class="form-row">
             <div style="  margin-left: 4%" class="col-sm-2">
                 <input  type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
