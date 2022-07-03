@@ -13,7 +13,7 @@ tr:nth-child(even) {
 <style>
 td {
     text-align: center;
-  
+
 }
 
 
@@ -40,7 +40,7 @@ td {
 
 
 <div class="col-x1-12">
-    <form action="{{route('lista')}}" method="GET">
+    <form action="{{route('lista')}}" method="get">
         <div class="form-row">
             <div style="  margin-left: 4%" class="col-sm-2">
                 <input  type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
@@ -58,7 +58,6 @@ td {
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Identificador</th>
 <th>Nombre</th>
-<th>Apellido</th>
 <th>Número de identidad</th>
 <th>Teléfono</th>
 <th>Ver detalles</th>
@@ -77,10 +76,9 @@ td {
 <tr style="border: 2px solid #dddddd;">
 <td>{{$emple->id}}</td>
 <td>{{$emple->nombres}}</td>
-<td>{{$emple->apellidos}}</td>
 <td>{{$emple->DNI}}</td>
 <td>{{$emple->telefono_personal}}</td>
-<td > <a style=" " class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles  </a></td>
+<td > <a  class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
 </tr>
 
 @empty
