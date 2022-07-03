@@ -10,6 +10,7 @@ tr:nth-child(even) {
 
     <br>
     <h2>Detalles del empleado: </h2>
+
     <table class="table">
         <thead>
         <tr style="background: #d9d9d9">
@@ -51,7 +52,7 @@ tr:nth-child(even) {
             <th scope="row">Genero</th>
             <td>{{$empleado->genero}}</td>
             </tr>
-            <tr>
+        <tr>
 
          
 </tbody>

@@ -25,7 +25,7 @@ div.gallery img {
     <a href="/empleados/nuevo">
       <img src=" src/Nuevo.jpg" width="600" height="400" alt="Crear empleado nuevo">
     </a>
-    <b class="fst-italic" style=" font-size: 20px; ">Agregar nuevo empleado</b>
+    <b class="fst-italic" style=" font-size: 20px; ">Nuevo empleado</b>
   </div>
  </div>
 
