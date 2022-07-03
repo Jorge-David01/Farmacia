@@ -60,3 +60,5 @@ Route::put('/Empleado/{id}/editar', [EmpleadoController::class, 'update']) -> na
 //----------------- RUTAS DE PROVEEDORES -----------------------
 
 Route::get('/Listpro',[ProveedorController::class, 'proveed']) -> name('lista.proveedor');
+
+Route::get('/Verprovee/{id}',[ProveedorController::class, 'Ver']) -> name('show.proveedor')-> where('id', '[1-9]+');

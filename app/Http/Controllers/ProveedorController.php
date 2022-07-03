@@ -8,9 +8,14 @@ class ProveedorController extends Controller
 {
 
     public function proveed(){
-
         $pro = Proveedor::paginate(10);
         return view('listaproveedores')->with('pro' , $pro);
     }
-    //
+    
+
+    public function Ver($id){
+        $provee = Proveedor::findOrFail($id);
+        return view('showProvee')->with('provee', $provee);  
+    }
+
 }

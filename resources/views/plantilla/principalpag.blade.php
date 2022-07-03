@@ -1,56 +1,10 @@
 <!doctype html>
 <html lang="es">
 
-<!-- ------------------------------------ESTILO DEL NAVEGADOR VERTICAL-------------------------------------- -->
-<style>
-body {
-  margin: 0;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 12%;
-  background-color: #3385ff;  
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
-
-li a {
-  display: block;
-  color: #000;
-  padding: 18px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #006699;
-  color: white;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: block;
-}
-
-@media (max-width: 600px) {
-  body {
-    flex-direction: column;
-    background: #66ff33;
-  }
-}
-
-</style>
-
-
-
 <!-- ---------------------------------------------LINK DE  BOOTSTRAP--------------------------------------- -->
 <head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     
@@ -69,72 +23,215 @@ li a:hover:not(.active) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  
+<!-- loader-->
+<link href="assets/css/pace.min.css" rel="stylesheet"/>
+  <script src="assets/js/pace.min.js"></script>
+  <!--favicon-->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <!--Full Calendar Css-->
+  <link href="assets/plugins/fullcalendar/css/fullcalendar.min.css" rel='stylesheet'/>
+  <!-- simplebar CSS-->
+  <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="assets/css/app-style.css" rel="stylesheet"/>
+
+  
   <title>Farmacia - @yield('pestania')</title>
 </head>
 
-<body class="body" onload="startTime()">
+<body class="bg-theme bg-theme1";  onload="startTime()">
 
-<header >
+ 
+  <!-- Catgador de arranque -->
+  <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+ 
+  <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+  <!-- ----------------------------------------------------------NAVEGADOR #1-------------------------------------------------------- -->
+  <div id="wrapper">
 
-<!-- ------------------------------------------------------------------------------------------------------------------------- -->
-<!-- --------------------------------------------------------NAVBAR #1-------------------------------------------------------- -->
-<nav style="background-color: #0088cc;  border-bottom: 4px solid black; margin-left:12%; height: 120px;" class="navbar navbar-expand-lg body">
-
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <h1 style="font-size: 60px; color: white; text-shadow: 3px 3px 3px black, 0 0 30px black, 0 0 5px black;" class="fst-italic">FARMACIA LA POPULAR</h1>   
-      </div>
-    </div>
-  </div>
-
- <!-- ------------------BOTÓN CONFIGURACIÓN---------------- -->
-  <div class="w3-container">
-    <div class="w3-dropdown-hover">
-      <button class="w3-button fa fa-cog fst-italic"> Ajustes</button>
-      <div class="w3-dropdown-content ">
-        <a href="#" class="w3-bar-item w3-button">Perfil</a>
-        <a href="#" class="w3-bar-item w3-button">Cambio de contraseña</a>
-        <a href="#" class="w3-bar-item w3-button">Modo oscuro</a>
-        <a href="#" class="w3-bar-item w3-button">Ayuda</a>
-        <a href="/" class="w3-bar-item w3-button">Cerrar sesión</a>
-      </div> 
-    </div>
-  </div>
-
-</nav>
-
-</header>
-
-<!-- ------------------------------------------------------------------------------------------------------------------------- -->
-<!-- --------------------------------------------------------NAVBAR #2-------------------------------------------------------- -->
-<nav class="sticky body">
-
-  <ul style="height: 100%; border-right: 4px solid black; background-color: #0088cc; ">
-
-   <!-- -------------------LOGO FARMACIA----------------- -->
-  <li>  
-    <div class="container-fluid">
-      <a style="margin-left:-19%;"  href="/Principal"><img src="https://thumbs.dreamstime.com/b/logotipo-o-emblema-m%C3%A9dico-de-la-farmacia-bot%C3%B3n-cristal-azul-con-c-100946974.jpg
-" alt="logo de farmacia" style="width:120px;"></a>
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="/Principal">
+       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">LA POPULAR</h5>
+     </a>
    </div>
-  </li>
 
-   <!-- ------------------GRUPO DE BOTONES---------------- -->
-    <br><li><a class="fst-italic text-white" href="/Empleados" class="w3-bar-item w3-button"><i class="fa fa-address-card-o"> Empleados</i></a> <br>
-    <li><a class="fst-italic text-white" href="/Listpro" class="w3-bar-item w3-button"><i class="fa fa-truck"> Proveedores</i></a> <br>
-    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-users"> Clientes</i></a> <br>
-    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-file-text-o"> Facturación</i></a> <br>
-    <li><a class="fst-italic text-white" href="#" class="w3-bar-item w3-button"><i class="fa fa-columns"> Inventario</i></a> <br> 
+   <ul class="sidebar-menu do-nicescrol">
+      <li>
+        <a href="/Empleados">
+          <i class="fa fa-address-card-o"></i> <span>Empleados</span>
+        </a>
+      </li>
 
+      <li>
+        <a href="/Proveedores">
+          <i class="fa fa-truck"></i> <span>Proveedores</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-users"></i> <span>Clientes</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-file-text-o"></i> <span>Facturación</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-columns"></i> <span>Inventario</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="zmdi zmdi-face"></i> <span>Caja de alivio</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" >
+          <i class="zmdi zmdi-lock"></i> <span>Cardex</span>
+        </a>
+      </li>
+
+
+
+
+
+
+
+
+
+    </ul>
+
+
+
+    
+
+
+
+   </div>
+
+   
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ----------------------------------------------------------NAVEGADOR #2-------------------------------------------------------- -->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    
 
   </ul>
-</nav>  
+     
+  <ul class="navbar-nav align-items-center right-nav-link">
+
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-envelope-open-o"></i></a>
+    </li>
+
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-bell-o"></i></a>
+    </li>
+
+    
+    
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
+    <li class="nav-item">
+
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+      </a>
+
+      <ul class="dropdown-menu dropdown-menu-right">
+
+       <li class="dropdown-item user-details">
+        <a href="javaScript:void();">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title">Nombre Aqui</h6>
+            <p class="user-subtitle">Administrador</p>
+            </div>
+           </div>
+          </a>
+        </li>
+
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><a href="#" class="icon-settings mr-2 "> Cambio de contraseña</a> </li>
+
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><a href="#" class="icon-envelope mr-2 w3-button"> Ayuda</a> </li>
+
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><a href="/" class="icon-power mr-2 w3-button"> Cerrar sesión</a> </li>
+  
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+</header>
+
+ <!--COLORES A SELECCIONAR-->
+ <div class="right-sidebar">
+      
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+  
+      <div class="right-sidebar-content">
+  
+        <p class="mb-0">Varios colores o eso</p>
+        <hr>
+        
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+  
+        <p class="mb-0">Color unico</p>
+        <hr>
+        
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+        
+       </div>
+     </div>
 
 
-
-<main class="flex-shrink-0 body">
-  <div class="container-fluid" style="margin-left:12%;">
+<main>
+  <div class="container-fluid" style="margin-left:16%;">
     @yield('contenido')
   </div>
 </main>
@@ -146,6 +243,27 @@ li a:hover:not(.active) {
     </div>
 </footer>
 -->
+
+
+ 
+  <!-- Bootstrap core JavaScript-->
+  
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+	
+  <!-- simplebar js -->
+  <script src="assets/plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="assets/js/sidebar-menu.js"></script>
+  
+  <!-- Custom scripts -->
+  <script src="assets/js/app-script.js"></script>
+  
+  <!-- Full Calendar -->
+  <script src='assets/plugins/fullcalendar/js/moment.min.js'></script>
+  <script src='assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
+  <script src="assets/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>

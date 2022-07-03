@@ -5,21 +5,16 @@
 <style>
 tr:nth-child(even) {
   background-color: #b3e0ff;
-}
-
+}php
 </style>
 
 
 <style>
 td {
     text-align: center;
-
 }
-
-
-
-
 </style>
+
 @if (session('Mensaje'))
 <div class="alert alert-danger">
   {{session('Mensaje')}}

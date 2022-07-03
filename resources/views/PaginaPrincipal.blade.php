@@ -22,7 +22,7 @@ body {
 
 </style>
 
-  <h1 style="font-size: 60px; color: black; text-shadow: 2px 2px 2px #4db8ff, 0 0 5px #4db8ff;" class="fst-italic; HoraCentro" id="hora"></h1>
+<h1 style="font-size: 60px; color: black; text-shadow: 2px 2px 2px #4db8ff, 0 0 5px #4db8ff;" class="fst-italic; HoraCentro" id="hora"></h1>
 
   <script >
 
@@ -54,5 +54,4 @@ body {
     ?>
   </h1>
   
-
 @endsection
