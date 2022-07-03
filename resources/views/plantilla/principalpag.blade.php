@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <!-- ------------------------------------ESTILO DEL NAVEGADOR VERTICAL-------------------------------------- -->
 <style>
