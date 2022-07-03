@@ -24,7 +24,7 @@ td {
 @endif
 
 
-<a style="margin-left:4%" class="btn btn-warning" href="proveedor/nuevo">Nuevo Proveedor</a>
+
 
 
 <br><br>
