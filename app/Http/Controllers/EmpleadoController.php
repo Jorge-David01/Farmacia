@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
-use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreEmpleadoRequest;
@@ -51,11 +50,7 @@ class EmpleadoController extends Controller
         return view('listaempleados' , compact ('employee', 'texto'));
     }
 
-    public function proveed(){
-
-        $pro = Proveedor::paginate(10);
-        return view('listaproveedores')->with('pro' , $pro);
-    }
+  
     
 
     public function store(Request $request)

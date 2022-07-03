@@ -60,3 +60,5 @@ Route::put('/Empleado/{id}/editar', [EmpleadoController::class, 'update']) -> na
 //----------------- RUTAS DE PROVEEDORES -----------------------
 
 Route::get('/Listpro',[ProveedorController::class, 'proveed']) -> name('lista.proveedor');
+Route::get('/proveedor/nuevo',[ProveedorController::class, 'nuevo'])->name('proveedor.nuevo');
+Route::post('/proveedor/nuevo',[ProveedorController::class, 'crear'])->name('proveedor.crear');

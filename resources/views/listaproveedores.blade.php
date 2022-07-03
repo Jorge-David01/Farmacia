@@ -20,14 +20,10 @@ td {
 
 
 </style>
-@if (session('Mensaje'))
-<div class="alert alert-danger">
-  {{session('Mensaje')}}
-</div>
-@endif
+
 
 </style>
-@if (session('msj'))
+@if (session('mensaje'))
 <div class="alert alert-success">
   {{session('msj')}}
 </div>
@@ -39,7 +35,7 @@ td {
 <h1 style="margin-left: 38% ; margin-top: 1%; margin-bottom: 3%; "> <u>Proveedores</u> </h1>
 
 
-
+<a style="margin-left:4%" class="btn btn-warning" href="proveedor/nuevo">Nuevo Proveedor</a>
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 
@@ -64,7 +60,7 @@ td {
 <tr style="border: 2px solid #dddddd;">
 <td>{{$prove->Nombre_del_proveedor}}</td>
 <td>{{$prove->Nombre_del_distribuidor}}</td>
-<td>{{$prove->Telefono_del_proveedor}}</td>
+<td>{{$prove->Correo_electronico}}</td>
 <td > <a  class="btn btn-success" href="/Emple/{{$prove->id}}"> Detalles </a></td>
 </tr>
 
