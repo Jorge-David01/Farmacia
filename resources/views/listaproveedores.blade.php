@@ -6,7 +6,6 @@
 <style>
 td {
     text-align: center;
-  
 }
 </style>
 
@@ -24,7 +23,9 @@ td {
 </div>
 @endif
 
+
 <a style="margin-left:4%" class="btn btn-warning" href="proveedor/nuevo">Nuevo Proveedor</a>
+
 
 <br><br>
 <h1 style="margin-left: 37% ; margin-top: 1%; margin-bottom: 3%; "> <u>Proveedores</u> </h1>
@@ -49,7 +50,7 @@ td {
     @endif
 </tbody>
 
-@forelse($pro as $provee)
+@forelse($pro as $prove)
 
 <tr style="border: 2px solid #dddddd;">
 
@@ -57,8 +58,7 @@ td {
 <td>{{$prove->Nombre_del_distribuidor}}</td>
 <td>{{$prove->Correo_electronico}}</td>
 <td > <a  class="btn btn-success" href="/Verprovee/{{$prove->id}}"> Detalles </a></td>
-
-</tr>
+/tr>
 
 @empty
 

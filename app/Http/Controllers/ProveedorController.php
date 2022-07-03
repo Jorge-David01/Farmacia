@@ -18,6 +18,11 @@ class ProveedorController extends Controller
 
     //
 
+    public function Ver($id){
+        $provee = Proveedor::findOrFail($id);
+        return view('showProvee')->with('provee', $provee);  
+    }
+
     public function nuevo(){
 
      return view('/createproveedor');       
@@ -30,8 +35,8 @@ class ProveedorController extends Controller
             'nombrepro'=>'required | max:70'  ,
             'nombredis'=>'required | max:70',
             'telefonopro'=>'required|unique:proveedors,Telefono_del_proveedor|min:8| max:8',
-            'telefonodis'=>'required|unique:proveedors,Telefono_del_distribuidor|min:8|max:8 | regex:([9,8,3]{1}[0-9]{7})',
-            'correo'=>'required | unique:proveedors,Correo_electronico',
+            'telefonodis'=>'required|unique:proveedors,Telefono_del_distribuidor|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})',
+            'correo'=>'required|unique:proveedors,Correo_electronico',
             
 
         ]);
@@ -83,12 +88,4 @@ class ProveedorController extends Controller
 
   
 
-    public function Ver($id){
-        $prove = Proveedor::findOrFail($id);
-        return view('showProvee')->with('prove', $prove);  
     }
-
-
-    
-}
-

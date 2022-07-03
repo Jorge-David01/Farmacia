@@ -22,10 +22,10 @@ div.gallery img {
 <!-- ------------------IMG NUEVO PROVEEDOR---------------- -->
  <div class="responsive " >
   <div class="gallery" style="border: 5px solid #000033;">
-    <a href="#">
-      <img src=" src/Nuevo.jpg" width="600" height="400" alt="Crear proveedor nuevo">
+    <a href="proveedor/nuevo">
+      <img  src=" src/Nuevo.jpg" width="600" height="400" alt="Crear proveedor nuevo">
     </a>
-    <b class="fst-italic" style=" font-size: 20px; ">Nuevo proveedor</b>
+    <b class="fst-italic"  style=" font-size: 20px; ">Nuevo proveedor</b>
   </div>
  </div>
 
