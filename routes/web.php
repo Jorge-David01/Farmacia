@@ -67,3 +67,5 @@ Route::post('/proveedor/nuevo',[ProveedorController::class, 'crear'])->name('pro
 
 Route::get('/Verprovee/{id}',[ProveedorController::class, 'Ver']) -> name('show.proveedor')-> where('id', '[1-9]+');
 
+Route::post('/Prove/search', [ProveedorController::class, 'sear']) -> name ('funt');
+

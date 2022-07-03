@@ -86,6 +86,12 @@ class ProveedorController extends Controller
         }
     }
 
+    public function sear(Request $REQUEST){
+        $pro = Proveedor::where('Nombre_del_proveedor','like', '%'.$REQUEST->search.'%' )
+        ->orWhere('Nombre_del_distribuidor', 'like', '%'.$REQUEST->search.'%')->paginate(10);
+        return view('listaproveedores')->with('pro', $pro);
+    }
+
   
 
-    }
+}
