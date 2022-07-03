@@ -70,9 +70,9 @@ td {
 
 <tr style="border: 2px solid #dddddd;">
 <td>{{$emple->id}}</td>
-<td>{{$emple->nombres}}</td>
+<td>{{$emple->nombre_completo}}</td>
 <td>{{$emple->DNI}}</td>
-<td>{{$emple->telefono_personal}}</td>
+<td>{{$emple->numero_cel}}</td>
 <td > <a  class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
 </tr>
 

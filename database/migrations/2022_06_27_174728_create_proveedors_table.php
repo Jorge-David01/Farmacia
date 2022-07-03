@@ -17,10 +17,9 @@ class CreateProveedorsTable extends Migration
             $table->id();
             $table->string("Nombre_del_proveedor");
             $table->string("Nombre_del_distribuidor");
-            $table->string("Tipo_de_proveedor");
-            $table->string("Telefono_del_proveedor");
-            $table->string("Telefono_del_distribuidor");
-            $table->string("Correo_electronico");
+            $table->string("Telefono_del_proveedor")->unique();
+            $table->string("Telefono_del_distribuidor")->unique();
+            $table->string("Correo_electronico")->unique();
             $table->timestamps();
         });
     }
