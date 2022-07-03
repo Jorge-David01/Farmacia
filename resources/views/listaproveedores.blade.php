@@ -24,13 +24,6 @@ td {
 </div>
 @endif
 
-
-
-
-
-<h1 style="margin-left: 38% ; margin-top: 1%; margin-bottom: 3%; "> <u>Proveedores</u> </h1>
-
-
 <a style="margin-left:4%" class="btn btn-warning" href="proveedor/nuevo">Nuevo Proveedor</a>
 
 <br><br>
@@ -63,12 +56,7 @@ td {
 <td>{{$prove->Nombre_del_proveedor}}</td>
 <td>{{$prove->Nombre_del_distribuidor}}</td>
 <td>{{$prove->Correo_electronico}}</td>
-<td > <a  class="btn btn-success" href="/Emple/{{$prove->id}}"> Detalles </a></td>
-
-<td>{{$provee->Nombre_del_proveedor}}</td>
-<td>{{$provee->Nombre_del_distribuidor}}</td>
-<td>{{$provee->Telefono_del_proveedor}}</td>
-<td > <a  class="btn btn-success" href="/Verprovee/{{$provee->id}}"> Detalles </a></td>
+<td > <a  class="btn btn-success" href="/Verprovee/{{$prove->id}}"> Detalles </a></td>
 
 </tr>
 

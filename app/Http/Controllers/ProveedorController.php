@@ -83,15 +83,12 @@ class ProveedorController extends Controller
 
   
 
+    public function Ver($id){
+        $prove = Proveedor::findOrFail($id);
+        return view('showProvee')->with('prove', $prove);  
     }
 
 
     
-
-    public function Ver($id){
-        $provee = Proveedor::findOrFail($id);
-        return view('showProvee')->with('provee', $provee);  
-    }
-
 }
 
