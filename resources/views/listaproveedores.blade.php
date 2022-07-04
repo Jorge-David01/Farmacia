@@ -41,7 +41,7 @@ td {
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Nombre del proveedor</th>
 <th>Nombre del distribuidor</th>
-<th>Teléfono</th>
+<th>Correo Electronico</th>
 <th>Ver detalles</th>
 </tr>
 

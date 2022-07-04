@@ -44,7 +44,7 @@
 </button>
 
 <button class="btn btn-primary" style="margin-top: 1%; width: 7%; ">
-<a class="btn btn-primary" href="#">Actualizar</a>
+<a class="btn btn-primary" href="/Editprovee/{{$provee->id}}/editar">Actualizar</a>
 </button>
 
 <button class="btn btn-danger"  style="margin-top: 1%; width: 7%;">
