@@ -60,7 +60,7 @@ td {
 <td>{{$prove->Nombre_del_distribuidor}}</td>
 <td>{{$prove->Correo_electronico}}</td>
 <td > <a  class="btn btn-success" href="/Verprovee/{{$prove->id}}"> Detalles </a></td>
-/tr>
+</tr>
 
 @empty
 

@@ -38,5 +38,23 @@
         </tr>
 </table>
 
+
+<button class="btn btn-success" style="margin-top: 1%; width: 7%; margin-left: 4%;">
+<a class="btn btn-success" href="/Listpro">Volver</a>
+</button>
+
+<button class="btn btn-primary" style="margin-top: 1%; width: 7%; ">
+<a class="btn btn-primary" href="#">Actualizar</a>
+</button>
+
+<button class="btn btn-danger"  style="margin-top: 1%; width: 7%;">
+<form method="post" action="{{route('proveedores.delete',['id'=>$provee->id])}}">
+    @csrf
+    @method('delete') 
+    <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el empleado?')"
+    value="eliminar" class="btn btn-danger" >
+</form>
+</button>
+
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

@@ -81,6 +81,12 @@
 
       <li>
         <a href="#">
+          <i class="fa fa-medkit"></i> <span>Producto</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
           <i class="fa fa-users"></i> <span>Clientes</span>
         </a>
       </li>
@@ -110,22 +116,8 @@
       </li>
 
 
-
-
-
-
-
-
-
     </ul>
-
-
-
-    
-
-
-
-   </div>
+  </div>
 
    
 
