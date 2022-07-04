@@ -21,37 +21,26 @@ tr:nth-child(even) {
         <tbody>
        
         <tr>
-            <th scope="row">Nombres</th>
-            <td>{{$empleado->nombres}}</td>
+            <th scope="row">Nombre Completo</th>
+            <td>{{$empleado->nombre_completo}}</td>
         </tr>
         <tr>
-           <th scope="row">Apellidos</th>
-            <td>{{$empleado->apellidos}}</td>
+           <th scope="row">Numero de Celular</th>
+            <td>{{$empleado->numero_cel}}</td>
         </tr>
         <tr>
-           <th scope="row">Fecha de Nacimiento</th>
-            <td>{{$empleado->fecha_de_nacimiento}}</td>
+           <th scope="row">Numero de telefono</th>
+            <td>{{$empleado->numero_tel}}</td>
         </tr>
         <tr>
            <th scope="row">Identidad</th>
             <td>{{$empleado->DNI}}</td>
         </tr>
         <tr>
-            <th scope="row">Telefono Personal</th>
-            <td>{{$empleado->telefono_personal}}</td>
-        </tr>
-        <tr>
-            <th scope="row">Correo Electronico</th>
-            <td>{{$empleado->correo_electronico}}</td>
-        </tr>
-        <tr>
             <th scope="row">Direccion</th>
             <td>{{$empleado->direccion}}</td>
             </tr>
-            <tr>
-            <th scope="row">Genero</th>
-            <td>{{$empleado->genero}}</td>
-            </tr>
+          
         <tr>
 
          
@@ -73,8 +62,6 @@ tr:nth-child(even) {
     value="eliminar" class="btn btn-danger" >
 </form>
 </button>
-
-
 
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
