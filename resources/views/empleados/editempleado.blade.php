@@ -20,38 +20,28 @@
     @method('put')
         @csrf
         <div class="form-group">
-        <label for="nombres">Nombres:</label>
-            <input type="text" class="form-control-file" name="nombres" id="nombres" 
-            placeholder="Nombres" value="{{$empleado->nombres}}">
+        <label for="nombre_completo">Nombre Completo:</label>
+            <input type="text" class="form-control-file" name="nombre_completo" id="nombre_completo" 
+            placeholder="nombre_completo" value="{{$empleado->nombre_completo}}">
         </div>
 
         <div class="form-group">
-        <label for="apellidos">Apellidos:</label>
-            <input type="text" class="form-control-file" name="apellidos" id="apellidos" 
-            placeholder="Apellidos" value="{{$empleado->apellidos}}">
+        <label for="numero_cel">Numero de Celular:</label>
+            <input type="text" class="form-control-file" name="numero_cel" id="numero_cel" 
+            placeholder="numero_cel" value="{{$empleado->numero_cel}}">
         </div>
         
         <div class="form-group">
-        <label for="birthday">Birthday:</label>
-            <input type="text" class="form-control-file" name="birthday" id="birthday" 
-            placeholder="birthday" value="{{$empleado->fecha_de_nacimiento}}" >
+        <label for="numero_tel">Numero de Telefono:</label>
+            <input type="text" class="form-control-file" name="numero_tel" id="numero_tel" 
+            placeholder="numero_tel" value="{{$empleado->numero_tel}}" >
         </div>
         <div class="form-group">
-        <label for="dni">DNI:</label>
-            <input type="text" class="form-control-file" name="dni" id="dni" 
-            placeholder="dni" value="{{$empleado->DNI}}" >
+        <label for="DNI">DNI:</label>
+            <input type="text" class="form-control-file" name="DNI" id="DNI" 
+            placeholder="DNI" value="{{$empleado->DNI}}" >
         </div>
-        <div class="form-group">
-        <label for="personal">Telefono personal:</label>
-            <input type="text" class="form-control-file" name="personal" id="personal" 
-            placeholder="personal" value="{{$empleado->telefono_personal}}" >
-        </div>
-        
-        <div class="form-group">
-        <label for="email">Correo electronico:</label>
-            <input type="text" class="form-control-file" name="email" id="email" 
-            placeholder="email" value="{{$empleado->correo_electronico}}" >
-        </div>
+
         <div class="form-group">
         <label for="direccion">Direccion:</label>
             <input type="text" class="form-control-file" name="direccion" id="direccion" 
@@ -59,21 +49,16 @@
         </div>
      
         <div class="form-group">
-        <label for="genero">Genero:</label>
-            <input type="text" class="form-control-file" name="genero" id="genero" 
-            placeholder="Genero" value="{{$empleado->genero}}" >
-        </div>
-      
-        <div class="form-group">
-        <label for="password">Contraseña:</label>
-            <input type="password" class="form-control-file" name="password" id="password" 
-            placeholder="Password" value="{{$empleado->contraseña}}" >
+        <label for="contraseña">Contraseña:</label>
+            <input type="contraseña" class="form-control-file" name="contraseña" id="contraseña" 
+            placeholder="contraseña" value="{{$empleado->contraseña}}" >
         </div>
       
 
-        <div class="text-center">
-<button type="submit" class="btn btn-primary">Guardar Datos</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
 <input type="reset" class="btn btn-danger">
+ <a class="btn btn-success" href="/Lista">Regresar</a>
+
 
 </div>
       

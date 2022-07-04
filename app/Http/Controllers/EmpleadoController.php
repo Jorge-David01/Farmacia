@@ -162,30 +162,24 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id){
 
         $request->validate([
-            'nombres'=>'required',
-            'apellidos'=>'required',
-            'birthday'=>'required',
-            'dni'=>'required',
-            'personal'=>'required',
-            'email'=> 'required' ,
+            'nombre_completo'=>'required',
+            'numero_cel'=>'required',
+            'numero_tel'=>'required',
+            'DNI'=>'required',
              'direccion'=>'required',
-              'genero'=>'required',
-             'password'=>'required',
+             'contraseña'=>'required',
 
 
         ]);
 
         $upda = Empleado::find($id);
 
-        $upda -> nombres  = $request->input('nombres');
-        $upda -> apellidos  = $request->input('apellidos');
-        $upda -> fecha_de_nacimiento  = $request->input('birthday');
-        $upda -> DNI  = $request->input('dni');
-        $upda -> telefono_personal  = $request->input('personal');
-        $upda -> correo_electronico = $request->input('email');
+        $upda -> nombre_completo  = $request->input('nombre_completo');
+        $upda -> numero_cel  = $request->input('numero_cel');
+        $upda -> numero_tel  = $request->input('numero_tel');
+        $upda -> DNI  = $request->input('DNI');
         $upda -> direccion = $request->input('direccion');
-        $upda -> genero = $request->input('genero');
-        $upda -> contraseña = $request->input('password');
+        $upda -> contraseña = $request->input('contraseña');
 
 
         $actualizado= $upda ->save();
