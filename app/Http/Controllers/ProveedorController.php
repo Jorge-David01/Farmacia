@@ -86,6 +86,46 @@ class ProveedorController extends Controller
         }
     }
 
+    public function edit(Request $request, $id)//Editar
+    {
+        $proveedor = Proveedor::find($id);
+        return view('editProvee') ->with('proveedor',$proveedor);
+
+
+    }
+
+    public function update(Request $request, $id){
+
+        $request->validate([
+            'Nombre_del_proveedor'=>'required',
+            'Nombre_del_distribuidor'=>'required',
+            'Telefono_del_proveedor'=>'required',
+            'Telefono_del_distribuidor'=>'required',
+            'Correo_electronico'=>'required',
+
+        ]);
+
+        $upda = Proveedor::find($id);
+
+        $upda -> Nombre_del_proveedor = $request->input('Nombre_del_proveedor');
+        $upda -> Nombre_del_distribuidor  = $request->input('Nombre_del_distribuidor');
+        $upda -> Telefono_del_proveedor  = $request->input('Telefono_del_proveedor');
+        $upda -> Telefono_del_distribuidor = $request->input('Telefono_del_distribuidor');
+        $upda -> Correo_electronico  = $request->input('Correo_electronico');
+
+        $actualizado= $upda ->save();
+
+        if ($actualizado){
+            return redirect()->route('lista.proveedor')->with('msj', 'El proveedor se actualizo exitosamente');
+        } else {
+          
+        }
+
+    }
+
+
+
+
     public function sear(Request $REQUEST){
         $pro = Proveedor::where('Nombre_del_proveedor','like', '%'.$REQUEST->search.'%' )
         ->orWhere('Nombre_del_distribuidor', 'like', '%'.$REQUEST->search.'%')->paginate(10);
