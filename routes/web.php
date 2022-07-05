@@ -5,6 +5,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Models\Empleado;
 use App\Models\Proveedor;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,4 +74,11 @@ Route::put('/Editprovee/{id}/editar',[ProveedorController::class, 'Update']) -> 
 Route::delete('/Listpro/{id}/eliminar',[ProveedorController::class, 'Eliminar'])->name('proveedores.delete')-> where('id', '[0-9]+');
 
 Route::post('/Prove/search', [ProveedorController::class, 'sear']) -> name ('funt');
+
+Route::get('/productos/nuevo',[ProductoController::class, 'create'])
+->name('productos.create');
+
+//ruta guardar
+Route::post('/productos/nuevo',[ProductoController::class, 'store'])
+    ->name('productos.store');
 
