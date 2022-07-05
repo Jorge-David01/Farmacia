@@ -65,7 +65,7 @@ class EmpleadoController extends Controller
 
         $mensaje=[
             'nombre_completo.required' => 'El nombre no puede estar vacío',
-            'nombres_completo.max' => 'El nombre es demasiado extenso',
+            'nombre_completo.max' => 'El nombre es demasiado extenso',
             'dni.required' => 'La identidad no puede estar vacía',
             'dni.regex' => 'El formato de la identidad no es valida',
             'dni.numeric' => 'La identidad debe de ser solo números',

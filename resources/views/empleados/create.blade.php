@@ -8,9 +8,9 @@
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>
-                @foreach($errors->all() as $error)
+                @foreach($errors->all() as $mensaje)
                     <li>
-                        {{$error}}
+                        {{$mensaje}}
                     </li>
                 @endforeach
             </ul>
@@ -44,8 +44,6 @@
                 <input maxlength="13" type="text" id="dni" name="dni" required="required" class="form-control"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 value="{{old('dni')}}"
-                pattern="[0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9}"
-                title="Ingrese un numero de identidad valido"
                 placeholder="Ingrese la identidad sin guiones">
             </div>
         </div>
@@ -56,8 +54,6 @@
                 <input maxlength="8" type="tel" id="numero_cel" name="numero_cel" required="required" class="form-control"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 value="{{old('numero_cel')}}"
-                pattern="[9,8,3]{1}[0-9]{7}"
-                title="Ingrese un numero de celular que inicie con 3,8 o 9 y que sea de 8 digitos"
                 placeholder="Ingrese el número de celular">
             </div>
         </div>
@@ -69,8 +65,6 @@
                 <input maxlength="8" type="tel" id="numero_tel" name="numero_tel" required="required" class="form-control"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 value="{{old('numero_tel')}}"
-                pattern="[2]{1}[0-9]{7}"
-                title="Ingrese el telefono fijo que inicie con 2 y que sea de 8 digitos"
                 placeholder="Ingrese el teléfono fijo">
             </div>
         </div>
