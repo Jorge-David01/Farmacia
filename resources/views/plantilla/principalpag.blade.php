@@ -80,7 +80,7 @@
       </li>
 
       <li>
-        <a href="{{route('productos.create')}}">
+        <a href="/Producto">
           <i class="fa fa-medkit"></i> <span>Producto</span>
         </a>
       </li>

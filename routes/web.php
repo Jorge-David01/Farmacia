@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Models\Empleado;
 use App\Models\Proveedor;
+use App\Models\Producto;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
 /*
@@ -82,3 +83,11 @@ Route::get('/productos/nuevo',[ProductoController::class, 'create'])
 Route::post('/productos/nuevo',[ProductoController::class, 'store'])
     ->name('productos.store');
 
+    Route::get('/Producto',[ProductoController::class, 'lista']) -> name('lista.producto');
+
+    Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> name('detalles.producto')-> where('id', '[1-9]+');
+
+
+
+
+    Route::delete('/Producto/{id}/eliminar',[ProductoController::class, 'delete'])->name('delete.producto')-> where('id', '[0-9]+');
