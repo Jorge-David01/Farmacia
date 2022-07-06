@@ -20,6 +20,22 @@ class ProductoController extends Controller
     }
 
 
+    public function lista(){
+        $produc = Producto::paginate(10);
+        return view('listaproductos')->with('produc' , $produc);
+    }
+
+    public function detalles($id){
+        $details = Producto::findOrFail($id);
+        return view('productodetalles')->with('details', $details);  
+    }
+
+    public function delete($id){
+        Producto::destroy($id);
+        return redirect()->route('lista.producto')->with('Mensaje', 'El producto fue eliminado exitosamente');
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *

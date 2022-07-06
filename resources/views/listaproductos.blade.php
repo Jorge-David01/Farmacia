@@ -33,7 +33,7 @@ td {
 
 <h1 style="margin-left: 38% ; margin-top: 1%; margin-bottom: 3%; "> <u>Productos</u> </h1>
 
-
+<a style="margin-left: 4%;" class="btn btn-warning" href="/productos/nuevo">Nuevo</a>
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 
@@ -47,6 +47,7 @@ td {
 <tbody>
     @if (count($produc)<=0)
         <tr>
+        
             <td colspan="6">No hay resultados</td>
     </tr>
     @endif
@@ -55,10 +56,10 @@ td {
 @forelse($produc as $producto)
 
 <tr style="border: 2px solid #dddddd;">
-<td>{{$producto->Nombre_del_proveedor}}</td>
-<td>{{$producto->Nombre_del_distribuidor}}</td>
-<td>{{$producto->Principio_activo}}</td>
-<td > <a  class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
+<td>{{$producto->id_proveedor}}</td>
+<td>{{$producto->nombre_producto}}</td>
+<td>{{$producto->principio_activo}}</td>
+<td > <a  class="btn btn-success" href="/Detallesproduct/{{$producto->id}}"> Detalles </a></td>
 </tr>
 
 @empty
