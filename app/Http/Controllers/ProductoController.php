@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Proveedor;
 use App\Models\Producto;
+use App\Models\PrincipioActivo;
+use App\Models\ActivoProducto;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductoRequest;
 
@@ -16,7 +18,8 @@ class ProductoController extends Controller
     public function create()
     {
         $proveedors = Proveedor::all();
-        return view('productos/create')->with('proveedors', $proveedors);
+        $activo = PrincipioActivo::all();
+        return view('productos/create')->with('proveedors', $proveedors)->with('activo', $activo);
     }
 
 
@@ -45,28 +48,24 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
             $rules=[
-                'proveedors' => 'required|exists:proveedors,id',
+                'nombrepro' => 'required|exists:proveedors,id',
                 'nombre_producto' => 'required|max:100|unique:productos,nombre_producto',
-                'principio_activo'=> 'required|max:200',
+                'principio_activo'=> 'required|exists:principio_activos,id',
                 'descripcion'=> 'required|max:200',
 
 
 
         ];
         $mensaje=[
-            'proveedors.required' => 'Debe de seleccionar un proveedor',
-            'proveedors.exists' => 'El proveedor seleccionado es invalido',
+            'nombrepro.required' => 'Debe de seleccionar un proveedor',
+            'nombrepro.exists' => 'El proveedor seleccionado es invalido',
             'nombre_producto.required' => 'El nombre no puede estar vacío',
             'nombre_producto.unique' => 'El nombre ya esta en uso',
             'nombre_producto.max' => 'El nombre es muy extenso',
             'principio_activo.required' => 'El principio activo no puede estar vacío',
-            'principio_activo.max' => 'El principio activo es muy extenso',
+            'principio_activo.exists' => 'El principio activo no existe',
             'descripcion.required' => 'El descripción no puede estar vacío',
             'descripcion.max' => 'El descripción es muy extensa',
-
-
-
-
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -74,13 +73,19 @@ class ProductoController extends Controller
         $producto = new Producto();
 
         $producto->nombre_producto = $request->input('nombre_producto');
-        $producto->principio_activo = $request->input('principio_activo');
+        $producto->id_proveedor = $request->input('nombrepro');
         $producto->descripcion = $request->input('descripcion');
-
         $creado =  $producto->save();
 
+        foreach($request->principio_activo as $a){
+            $activo = new ActivoProducto();
+            $activo->id_producto = $producto->id;
+            $activo->id_principio_activos = $a;
+            $creado2 =  $activo->save();
+        }
+
         if ($creado) {
-            return redirect()->route('')
+            return redirect()->route('lista.producto')
                 ->with('mensaje', 'El producto fue creado con exito');
         } else {
 

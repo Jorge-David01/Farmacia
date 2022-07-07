@@ -82,7 +82,7 @@
             <label for="password" class="col-sm-3 col-form-label">{{ __('Contraseña:') }}</label>
             <div class="col-md-6 col-sm-6 ">
                 <div class="input-group" style="width: 100%;" >
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="current_password" required autocomplete="current-password" value="{{old('password')}}" placeholder="Ingrese la contraseña" >
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" value="{{old('password')}}" placeholder="Ingrese la contraseña" >
                         <span class="input-group-btn">
                             <button id="show_password" class="btn" style="background: #3385ff" type="button" onclick="mostrarPassword()">
                                 <span class="fa fa-eye-slash icon"></span>

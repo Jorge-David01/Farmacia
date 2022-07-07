@@ -79,7 +79,7 @@ class EmpleadoController extends Controller
             'numero_tel.numeric' => 'En numero de telefono fijo solo debe tener numeros',
             'numero_tel.unique' => 'El numero de telefono fijo que ingreso ya lo uso',
             'direccion.required' => 'La dirección no puede ser vacía',
-            'direccion.max' => 'La dirección es muy larga',
+            'direccion.min' => 'La dirección es muy corta',
             'password.required' => 'La contraseña no puede estar vacía',
             'password.confirmed' => 'Las contraseñas que ingreso no coinciden.',
         ];

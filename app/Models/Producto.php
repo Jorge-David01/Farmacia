@@ -12,4 +12,9 @@ class Producto extends Model
     public function proveedores(){
         return $this->belongsTo(Proveedor::class, 'id_proveedor', 'id');
     }
+
+    public function activos(){
+        return $this->belongsTo(ActivoProducto::class, 'id','id_producto');
+    }
+
 }
