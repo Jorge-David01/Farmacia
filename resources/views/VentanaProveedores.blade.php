@@ -12,6 +12,8 @@ div.gallery img {
   padding: 50px;
   float: left;
   width: 30%;
+  overflow-x: auto;
+  display: block;
 }
 </style>
 
@@ -20,6 +22,7 @@ div.gallery img {
 <div class="container" >
 
 <!-- ------------------IMG NUEVO PROVEEDOR---------------- -->
+<div style="display: block; width: 100%;  overflow-x: auto;">
  <div class="responsive " >
   <div class="gallery" style="border: 5px solid #000033;">
     <a href="proveedor/nuevo">
@@ -40,6 +43,7 @@ div.gallery img {
       
     </div>
   </div>
+</div>
 </div>
 
 

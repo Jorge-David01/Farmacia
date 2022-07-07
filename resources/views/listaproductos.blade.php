@@ -5,7 +5,7 @@
 <style>
 tr:nth-child(even) {
   background-color: #b3e0ff;
-}php
+}
 </style>
 
 
@@ -29,9 +29,7 @@ td {
 @endif
 
 
-
-
-<h1 style="margin-left: 38% ; margin-top: 1%; margin-bottom: 3%; "> <u>Productos</u> </h1>
+<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Lista de productos</u> </h1>
 
 <a style="margin-left: 4%;" class="btn btn-warning" href="/productos/nuevo">Nuevo</a>
 
@@ -55,7 +53,7 @@ td {
 
 @forelse($produc as $producto)
 
-<tr style="border: 2px solid #dddddd;">
+<tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <td>{{$producto->proveedores->Nombre_del_proveedor}}</td>
 <td>{{$producto->nombre_producto}}</td>
 <td>{{$producto->activos->principio->descripcion}}</td>

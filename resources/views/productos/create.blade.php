@@ -23,9 +23,10 @@
         }
     </style>
 
-    <form method="post" enctype="multipart/form-data">
+<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Creación de Productos</u> </h1>
+
+    <form style="margin-left: 3%;" method="post" enctype="multipart/form-data">
         @csrf
-        <center><h2>Creación de Productos</h2></center>
 
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del proveedor: <span class="required"></span>

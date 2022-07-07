@@ -23,14 +23,13 @@ input:invalid {
     </div>
 @endif
 
-<h1 style="margin-left: 32%">Creación De Proveedor</h1>  
+
+<h1 style="margin-left: 3% ; margin-top: 70px; margin-bottom: 3%; "> <u>Creación De Proveedor</u> </h1>
 
 
 
 
-
-
-<form method="POST" action="">
+<form  style="margin-left: 3%;" method="POST" action="">
 
     @csrf
 

@@ -23,10 +23,11 @@
         }
     </style>
 
-    <form method="post" enctype="multipart/form-data">
-        @csrf
-        <center><h2>Creación de Empleados</h2></center>
+     <h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Creación de Empleados</u> </h1>
 
+    <form style="margin-left: 3%;" method="post" enctype="multipart/form-data">
+        @csrf
+       
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre Completo: <span class="required"></span>
             </label>
@@ -157,7 +158,7 @@
                 <div class="ln_solid"></div>
                 <div class="item form-group">
                     <br><br>
-                    <div class="col-md-6 col-sm-6 offset-md-3">
+                    <div style="margin-left: 0%;" class="col-md-6 col-sm-6 offset-md-3">
                         <button class="btn btn-danger" type="button" onclick="window.location='/Empleados'">Cancelar</button>
                         <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
                         <button type="submit" class="btn btn-success">Guardar</button>

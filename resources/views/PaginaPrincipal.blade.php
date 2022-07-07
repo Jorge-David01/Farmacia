@@ -22,6 +22,10 @@ body {
 
 </style>
 
+
+
+<div style="display: block; width: 100%;  overflow-x: auto;">
+
 <h1 style="font-size: 60px; color: black; text-shadow: 2px 2px 2px #4db8ff, 0 0 5px #4db8ff;" class="fst-italic; HoraCentro" id="hora"></h1>
 
   <script >
@@ -53,5 +57,7 @@ body {
      echo "Fecha: " . date("d/m/y");
     ?>
   </h1>
+
+  </div>
   
 @endsection

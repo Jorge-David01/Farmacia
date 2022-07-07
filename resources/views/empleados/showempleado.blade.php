@@ -2,18 +2,13 @@
 @section('pestania', 'Detalle de empleado')
 @section('contenido')
 
-<style>
-tr:nth-child(even) {
-  background-color: #b3e0ff;
-}
-</style>
 
-    <br>
-    <h2>Detalles del empleado: </h2>
 
-    <table class="table">
+    <h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Detalles del empleado</u> </h1>
+
+    <table  class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;">
         <thead>
-        <tr style="background: #d9d9d9">
+        <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
             <th scope="col">Campo</th>
             <th scope="col">Valor</th>
         </tr>
@@ -48,7 +43,7 @@ tr:nth-child(even) {
 </table><br>
 
 
-<button class="btn btn-success">
+<button style="margin-left: 4%;" class="btn btn-success">
 <a class="btn btn-success" href="/Lista">Volver</a>
 </button>
 <button class="btn btn-primary">

@@ -2,12 +2,6 @@
 @section('pestania', 'Lista de empleados')
 @section('contenido')
 
-<style>
-tr:nth-child(even) {
-  background-color: #b3e0ff;
-}php
-</style>
-
 
 <style>
 td {
@@ -30,8 +24,7 @@ td {
 
 
 
-
-<h1 style="margin-left: 38% ; margin-top: 1%; margin-bottom: 3%; "> <u>Empleados</u> </h1>
+<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Lista de empleados</u> </h1>
 
 
 <div class="col-x1-12">
