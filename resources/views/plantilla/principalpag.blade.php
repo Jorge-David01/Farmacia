@@ -44,6 +44,12 @@
   <!-- Custom Style-->
   <link href="/assets/css/app-style.css" rel="stylesheet"/>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link href="{{ asset('css/select-multiple.css') }}" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+
 
   <title>Farmacia - @yield('pestania')</title>
 </head>
