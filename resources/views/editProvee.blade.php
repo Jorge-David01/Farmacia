@@ -24,31 +24,31 @@
 
         <div class="col-md-6 col-sm-6 ">
         <label for="Nombre_del_proveedor">Nombre del Proveedor:</label>
-            <input type="text" class="form-control-file" name="Nombre_del_proveedor" id="Nombre_del_proveedor" 
+            <input type="text" class="form-control-file" name="nombrepro" id="nombrepro" 
             placeholder="Nombre_del_proveedor" value="{{$proveedor->Nombre_del_proveedor}}">
         </div>
 
         <div class="col-md-6 col-sm-6 ">
         <label for="Nombre_del_distribuidor">Nombre del Distribuidor:</label>
-            <input type="text" class="form-control-file" name="Nombre_del_distribuidor" id="Nombre_del_distribuidor" 
+            <input type="text" class="form-control-file" name="nombredis" id="nombredis" 
             placeholder="Nombre_del_distribuidor" value="{{$proveedor->Nombre_del_distribuidor}}">
         </div>
         
         <div class="col-md-6 col-sm-6 ">
         <label for="Telefono_del_proveedor">Telefono del Proveedor:</label>
-            <input type="text" class="form-control-file" name="Telefono_del_proveedor" id="Telefono_del_proveedor" 
+            <input type="text" class="form-control-file" name="telefonopro" id="telefonopro" 
             placeholder="Telefono_del_proveedor" value="{{$proveedor->Telefono_del_proveedor}}" >
         </div>
 
         <div class="col-md-6 col-sm-6 ">
         <label for="Telefono_del_distribuidor">Telefono del Distribuidor:</label>
-            <input type="text" class="form-control-file" name="Telefono_del_distribuidor" id="Telefono_del_distribuidor" 
+            <input type="text" class="form-control-file" name="telefonodis" id="telefonodis" 
             placeholder="Telefono_del_distribuidor" value="{{$proveedor->Telefono_del_distribuidor}}" >
         </div>
 
         <div class="col-md-6 col-sm-6 ">
         <label for="Correo_electronico">Correo Electronico:</label>
-            <input type="text" class="form-control-file" name="Correo_electronico" id="Correo_electronico" 
+            <input type="text" class="form-control-file" name="correo" id="correo" 
             placeholder="Correo_electronico" value="{{$proveedor->Correo_electronico}}" >
         </div>      
 

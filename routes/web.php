@@ -88,6 +88,11 @@ Route::post('/productos/nuevo',[ProductoController::class, 'store'])
     Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> name('detalles.producto')-> where('id', '[1-9]+');
 
 
+    Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'Edit']) -> name('edit.producto');
+    Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto');
 
 
     Route::delete('/Producto/{id}/eliminar',[ProductoController::class, 'delete'])->name('delete.producto')-> where('id', '[0-9]+');
+
+
+

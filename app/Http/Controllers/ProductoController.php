@@ -53,8 +53,7 @@ class ProductoController extends Controller
                 'principio_activo'=> 'required|exists:principio_activos,id',
                 'descripcion'=> 'required|max:200',
 
-
-
+                
         ];
         $mensaje=[
             'nombrepro.required' => 'Debe de seleccionar un proveedor',
@@ -90,5 +89,58 @@ class ProductoController extends Controller
         } else {
 
         }
+    }
+
+    public function show($id)//mostrar
+    {
+        $producto = Producto::findOrFail($id);
+        return view('productos/productodetalles')->with('producto', $producto);
+        //
+    }
+
+    public function edit(Request $request, $id)//Actualizar
+    {
+        $producto = Producto::find($id);
+        return view('productoeditar') ->with('producto',$producto);
+
+        //
+    }
+
+    public function destroy($id)
+    {
+        Producto::destroy($id);
+
+        return redirect()->route('Producto')->with('Mensaje', 'El empleado fue eliminado exitosamente');
+        //
+
+    }
+
+    public function update(Request $request, $id){
+
+        $request->validate([
+            'id_proveedor'=>'required',
+            'nombre_producto'=>'required',
+            'principio_activo'=>'required',
+            'descripcion'=>'required',
+
+
+        ]);
+
+        $upda = Producto::find($id);
+
+        $upda -> id_proveedor  = $request->input('id_proveedor  ');
+        $upda -> nombre_producto  = $request->input('nombre_producto ');
+        $upda -> principio_activo  = $request->input('principio_activo');
+        $upda -> descripcion  = $request->input('descripcion ');
+
+
+        $actualizado= $upda ->save();
+
+        if ($actualizado){
+            return redirect()->route('lista.producto')->with('msj', 'El empleado se actulizo exitosamente');
+        } else {
+          
+        }
+
     }
 }
