@@ -7,6 +7,7 @@ use App\Models\Proveedor;
 use App\Models\Producto;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CompraController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,5 +95,19 @@ Route::post('/productos/nuevo',[ProductoController::class, 'store'])
 
     Route::delete('/Producto/{id}/eliminar',[ProductoController::class, 'delete'])->name('delete.producto')-> where('id', '[0-9]+');
 
+    Route::get('/compra/nuevo',[CompraController::class, 'create'])
+    ->name('compra.create');
 
+    //ruta guardar
+    Route::post('/compra/nuevo',[CompraController::class, 'store'])
+        ->name('compra.store');
+
+    Route::delete('/compra/eliminar/{id}',[CompraController::class, 'eliminar'])
+        ->name('compra.eliminar');
+
+    Route::get('/compra/eliminar/todo',[CompraController::class, 'destruir'])
+        ->name('compra.destruir');
+
+        Route::put('/compra/almacenar',[CompraController::class, 'almacenar'])
+        ->name('compra.almacenar');
 
