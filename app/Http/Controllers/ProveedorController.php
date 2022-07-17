@@ -103,7 +103,6 @@ class ProveedorController extends Controller
             'Telefono_del_proveedor'=>'required',
             'Telefono_del_distribuidor'=>'required',
             'Correo_electronico'=>'required',
-
         ]);
 
         $upda = Proveedor::find($id);
@@ -136,8 +135,5 @@ class ProveedorController extends Controller
     public function Eliminar($id){
         Proveedor::destroy($id);
         return redirect()->route('lista.proveedor')->with('Mensajes', 'El proveedor fue eliminado exitosamente');
-    }
-
-  
-
+    }  
 }

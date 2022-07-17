@@ -166,8 +166,8 @@ class EmpleadoController extends Controller
             'numero_cel'=>'required',
             'numero_tel'=>'required',
             'DNI'=>'required',
-             'direccion'=>'required',
-             'contraseña'=>'required',
+            'direccion'=>'required',
+            'contraseña'=>'required',
 
 
         ]);
