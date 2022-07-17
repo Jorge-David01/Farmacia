@@ -41,9 +41,7 @@
 
 
 
-<a style="display:inline-block;margin-left:1%;" class="btn btn-primary" href="">Actualizar</a>
-
-
+<a style="display:inline-block;margin-left:1%;" class="btn btn-primary" href="/productoeditar/{id}/editar">Actualizar</a>
 
 
 <form style=" float:left; margin-right:1%; margin-left:4%" method="post" action="{{route('delete.producto',['id'=>$details->id])}}">

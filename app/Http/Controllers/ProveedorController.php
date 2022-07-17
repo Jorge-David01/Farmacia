@@ -97,24 +97,56 @@ class ProveedorController extends Controller
 
     public function update(Request $request, $id){
 
+<<<<<<< HEAD
         $request->validate([
             'Nombre_del_proveedor'=>'required',
             'Nombre_del_distribuidor'=>'required',
             'Telefono_del_proveedor'=>'required',
             'Telefono_del_distribuidor'=>'required',
             'Correo_electronico'=>'required',
+=======
+        $rules= ([
+            'nombrepro'=>'required | max:70'  ,
+            'nombredis'=>'required | max:70',
+            'telefonopro'=>'required|min:8| max:8|unique:proveedors,Telefono_del_proveedor,'.$id,
+            'telefonodis'=>'required|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})|unique:proveedors,Telefono_del_distribuidor,'.$id,
+            'correo'=>'required|unique:proveedors,Correo_electronico,'.$id,
+            
+
+>>>>>>> 5fe1c70f80dd81cbeefe71a7fd7fee417bc8aedf
         ]);
 
-        $upda = Proveedor::find($id);
+        $mensaje =[
+            'nombrepro.required'=>'El nombre del proveedor es obligatorio',
+            'nombrepro.max'=>'El nombre del proveedor es demasiado largo',
+            'nombredis.required'=>'El nombre del distribuidor es obligatorio',
+            'nombrepro.max'=>'El nombre del proveedor es demasiado largo',
+            'telefonopro.required'=>'El teléfono del proveedor es obligatorio',
+            'telefonopro.unique'=>'El teléfono de proveedor que ingreso ya ha sido usado',
+            'telefonopro.min'=>'El teléfono del proveedor debe de tener un minimo de 8 digitos',
+            'telefonopro.max'=>'El teléfono del proveedor debe de tener un máximo de 8 digitos',
+            'telefonodis.required'=>'El teléfono del distribuidor es obligatorio',
+            'telefonodis.unique'=>'El teléfono de distribuidor que ingreso ya ha sido usado',
+            'telefonodis.min'=>'El teléfono del distribuidor debe de tener un minimo de 8 digitos',
+            'telefonodis.max'=>'El teléfono del distribuidor debe de tener un máximo de 8 digitos',
+            'correo.required'=>'El correo electrónico es obligatorio',
+            'correo.unique'=>'El correo electrónico que ingreso ya ha sido utilizado',
+        ];
 
-        $upda -> Nombre_del_proveedor = $request->input('Nombre_del_proveedor');
-        $upda -> Nombre_del_distribuidor  = $request->input('Nombre_del_distribuidor');
-        $upda -> Telefono_del_proveedor  = $request->input('Telefono_del_proveedor');
-        $upda -> Telefono_del_distribuidor = $request->input('Telefono_del_distribuidor');
-        $upda -> Correo_electronico  = $request->input('Correo_electronico');
 
-        $actualizado= $upda ->save();
+        $this->validate($request,$rules,$mensaje);
 
+        $proveedor = new Proveedor();
+
+        $proveedor->Nombre_del_proveedor = $request->input('nombrepro');
+        $proveedor->Nombre_del_distribuidor= $request->input('nombredis');
+        $proveedor->Telefono_del_proveedor= $request->input('telefonopro');
+        $proveedor->Telefono_del_distribuidor= $request->input('telefonodis');
+        $proveedor->Correo_electronico= $request->input('correo');
+     
+
+
+        $creado = $proveedor->save();
         if ($actualizado){
             return redirect()->route('lista.proveedor')->with('msj', 'El proveedor se actualizo exitosamente');
         } else {

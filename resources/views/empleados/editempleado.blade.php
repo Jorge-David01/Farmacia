@@ -40,7 +40,7 @@
         </div>
         <div class="col-md-6 col-sm-6 ">
         <label for="DNI">DNI:</label>
-            <input type="text" class="form-control-file" name="DNI" id="DNI" 
+            <input type="text" class="form-control-file" name="dni" id="dni" 
             placeholder="DNI" value="{{$empleado->DNI}}" >
         </div>
 
@@ -52,7 +52,7 @@
      
         <div class="col-md-6 col-sm-6 ">
         <label for="contraseña">Contraseña:</label>
-            <input type="contraseña" class="form-control-file" name="contraseña" id="contraseña" 
+            <input type="password" class="form-control-file" name="password" id="contraseña" 
             placeholder="contraseña" value="{{$empleado->contraseña}}" >
         </div>
       
