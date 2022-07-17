@@ -38,6 +38,8 @@ class ProductoController extends Controller
         return redirect()->route('lista.producto')->with('Mensaje', 'El producto fue eliminado exitosamente');
     }
 
+   
+
 
     /**
      * Store a newly created resource in storage.
@@ -143,4 +145,5 @@ class ProductoController extends Controller
         }
 
     }
+    
 }

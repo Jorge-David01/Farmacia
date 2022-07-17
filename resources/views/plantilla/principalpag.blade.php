@@ -52,6 +52,7 @@
 
 
   <title>Farmacia - @yield('pestania')</title>
+  
 </head>
 
 <body class="bg-theme bg-theme1";  onload="startTime()">
@@ -109,7 +110,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="/Inventario">
           <i class="fa fa-columns"></i> <span>Inventario</span>
         </a>
       </li>

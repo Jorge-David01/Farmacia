@@ -97,23 +97,13 @@ class ProveedorController extends Controller
 
     public function update(Request $request, $id){
 
-<<<<<<< HEAD
+
         $request->validate([
             'Nombre_del_proveedor'=>'required',
             'Nombre_del_distribuidor'=>'required',
             'Telefono_del_proveedor'=>'required',
             'Telefono_del_distribuidor'=>'required',
             'Correo_electronico'=>'required',
-=======
-        $rules= ([
-            'nombrepro'=>'required | max:70'  ,
-            'nombredis'=>'required | max:70',
-            'telefonopro'=>'required|min:8| max:8|unique:proveedors,Telefono_del_proveedor,'.$id,
-            'telefonodis'=>'required|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})|unique:proveedors,Telefono_del_distribuidor,'.$id,
-            'correo'=>'required|unique:proveedors,Correo_electronico,'.$id,
-            
-
->>>>>>> 5fe1c70f80dd81cbeefe71a7fd7fee417bc8aedf
         ]);
 
         $mensaje =[

@@ -161,15 +161,7 @@ class EmpleadoController extends Controller
 
     public function update(Request $request, $id){
 
-<<<<<<< HEAD
-        $request->validate([
-            'nombre_completo'=>'required',
-            'numero_cel'=>'required',
-            'numero_tel'=>'required',
-            'DNI'=>'required',
-            'direccion'=>'required',
-            'contraseña'=>'required',
-=======
+
        $rules=[
             'nombre_completo' => 'required|max:110',
             'dni'=> 'required|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})|unique:empleados,DNI,'.$id,
@@ -211,7 +203,7 @@ class EmpleadoController extends Controller
         $empleado->numero_tel= $request->input('numero_tel');
         $empleado->direccion = $request->input('direccion');
         $empleado->contraseña = $request->input('password');
->>>>>>> 5fe1c70f80dd81cbeefe71a7fd7fee417bc8aedf
+
 
 
         $creado = $empleado->save();
