@@ -199,17 +199,13 @@ class CompraController extends Controller
         $lista = Compra::paginate(10) ;
         
         
-        $proved = DB::table('compras')
-        ->join('proveedors', 'compras.id_proveedor', '=', 'proveedors.id')
-        ->where('compras.id_proveedor', '=', 'proveedors.id')
-        ->select('proveedors.Nombre_del_proveedor')
-        ->get();
+        
 
   
         
 
 
-        return view('compra/listacompra')->with('lista' , $lista)->with("proved", $proved);
+        return view('compra/listacompra')->with('lista' , $lista);
     }
 
     public function detailscompra($id){
@@ -218,13 +214,17 @@ class CompraController extends Controller
         
 
       
-
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);  
+        $deta = DB::table('compras')
+        ->join('detalle_compras', 'compras.id', '=', 'detalle_compras.id_compra')
+        ->where('detalle_compras.id_compra', '=', $id)
+        ->select('id_producto' , 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
+        ->get();
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);  
     }
 
     public function delete($id){
         DetalleCompra::destroy($id);
-
+        
         return redirect()->route('lista.compras')->with('Mensajes', 'La compra fue eliminada exitosamente');
     }
 
@@ -237,7 +237,7 @@ class CompraController extends Controller
     }
 
 
-
+  
   
 
 

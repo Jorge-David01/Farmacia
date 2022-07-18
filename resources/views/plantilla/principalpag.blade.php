@@ -92,7 +92,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="/listacompra">
           <i class="fa fa-cart-plus"></i> <span>Compras</span>
         </a>
       </li>
