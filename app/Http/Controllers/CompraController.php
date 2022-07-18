@@ -201,16 +201,21 @@ class CompraController extends Controller
         
         
 
+
   
         
 
 
         return view('compra/listacompra')->with('lista' , $lista);
+=======
+        return view('compra/listacompra')->with('lista' , $lista)->with("proved", $proved);
+
     }
 
     public function detailscompra($id){
         $details = DetalleCompra::findOrFail($id);
         $comp = Compra::findOrFail($id);
+
         
 
       
@@ -220,6 +225,10 @@ class CompraController extends Controller
         ->select('id_producto' , 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
         ->get();
         return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);  
+
+    
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);  
+
     }
 
     public function delete($id){
@@ -237,8 +246,22 @@ class CompraController extends Controller
     }
 
 
-  
-  
 
+  
+  
+=======
+
+    //---------------------------------------------- INVENTARIO ---------------------------------------
+
+    public function inven(){
+        $Inventa =  DetalleCompra::paginate(10) ;
+        return view('Inventario')->with('Inventa' , $Inventa);
+    }
+
+
+    public function buscador(Request $request){
+        $Inventa =  DetalleCompra::where('cantidad','like', '%'.$request->good.'%' )->paginate(10);
+        return view('Inventario')->with('Inventa', $Inventa);
+    }
 
 }
