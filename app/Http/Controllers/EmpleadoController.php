@@ -206,7 +206,10 @@ class EmpleadoController extends Controller
 
 
 
+        $actualizado = $empleado->save();
+
         $creado = $empleado->save();
+
 
         if ($actualizado){
             return redirect()->route('lista')->with('msj', 'El empleado se actulizo exitosamente');

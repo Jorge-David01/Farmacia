@@ -17,4 +17,5 @@ class Producto extends Model
         return $this->belongsTo(ActivoProducto::class, 'id','id_producto');
     }
 
+  
 }

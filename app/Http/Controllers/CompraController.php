@@ -10,6 +10,8 @@ use App\Models\DetalleCompra;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCompraRequest;
 use App\Http\Requests\UpdateCompraRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class CompraController extends Controller
 {
@@ -192,4 +194,51 @@ class CompraController extends Controller
 
         return redirect()->route('compra.create');
     }
+
+    public function listacompras(){
+        $lista = Compra::paginate(10) ;
+        
+        
+        $proved = DB::table('compras')
+        ->join('proveedors', 'compras.id_proveedor', '=', 'proveedors.id')
+        ->where('compras.id_proveedor', '=', 'proveedors.id')
+        ->select('proveedors.Nombre_del_proveedor')
+        ->get();
+
+  
+        
+
+
+        return view('compra/listacompra')->with('lista' , $lista)->with("proved", $proved);
+    }
+
+    public function detailscompra($id){
+        $details = DetalleCompra::findOrFail($id);
+        $comp = Compra::findOrFail($id);
+        
+
+      
+
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);  
+    }
+
+    public function delete($id){
+        DetalleCompra::destroy($id);
+
+        return redirect()->route('lista.compras')->with('Mensajes', 'La compra fue eliminada exitosamente');
+    }
+
+
+
+    public function busqueda(Request $request){
+        $lista = Compra::where('numero_factura','like', '%'.$request->missing.'%' )
+        ->orWhere('id_proveedor', 'like', '%'.$request->missing.'%')->paginate(10);
+        return view('compra/listacompra')->with('lista', $lista);
+    }
+
+
+
+  
+
+
 }
