@@ -123,9 +123,7 @@ Route::post('/productos/nuevo',[ProductoController::class, 'store'])->name('prod
         Route::post('/compra/buscar', [CompraController::class, 'busqueda']) -> name ('buscador');
 
 
-        
 //----------------- RUTAS Inventario -----------------------
-Route::get('Inventario', function () {
-    return view('Inventario');
-});
 
+Route::get('/inventarioVista',[CompraController::class, 'inven']) -> name('rio.Inventario');
+Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -> name ('busqueda');

@@ -110,7 +110,7 @@
       </li>
 
       <li>
-        <a href="/Inventario">
+        <a href="/inventarioVista">
           <i class="fa fa-columns"></i> <span>Inventario</span>
         </a>
       </li>

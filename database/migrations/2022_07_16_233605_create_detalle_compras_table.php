@@ -24,6 +24,7 @@ class CreateDetalleComprasTable extends Migration
             $table->date("fecha_vencimiento");
             $table->decimal("precio_farmacia");
             $table->decimal("precio_publico");
+           
             $table->timestamps();
         });
     }

@@ -205,20 +205,13 @@ class CompraController extends Controller
         ->select('proveedors.Nombre_del_proveedor')
         ->get();
 
-  
-        
-
-
         return view('compra/listacompra')->with('lista' , $lista)->with("proved", $proved);
     }
 
     public function detailscompra($id){
         $details = DetalleCompra::findOrFail($id);
         $comp = Compra::findOrFail($id);
-        
-
-      
-
+    
         return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);  
     }
 
@@ -238,7 +231,16 @@ class CompraController extends Controller
 
 
 
-  
+    //---------------------------------------------- INVENTARIO ---------------------------------------
 
+    public function inven(){
+        $Inventa =  DetalleCompra::paginate(10) ;
+        return view('Inventario')->with('Inventa' , $Inventa);
+    }
+
+    public function buscador(Request $request){
+        $Inventa =  DetalleCompra::where('cantidad','like', '%'.$request->good.'%' )->paginate(10);
+        return view('Inventario')->with('Inventa', $Inventa);
+    }
 
 }
