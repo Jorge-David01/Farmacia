@@ -207,7 +207,7 @@ class CompraController extends Controller
 
 
         return view('compra/listacompra')->with('lista' , $lista);
-=======
+
         return view('compra/listacompra')->with('lista' , $lista)->with("proved", $proved);
 
     }
@@ -249,7 +249,7 @@ class CompraController extends Controller
 
   
   
-=======
+
 
     //---------------------------------------------- INVENTARIO ---------------------------------------
 
