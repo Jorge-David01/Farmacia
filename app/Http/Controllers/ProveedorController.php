@@ -9,9 +9,10 @@ use App\Http\Requests\StoreProveedorRequest;
 
 
 
-class ProveedorController extends Controller
-{
+class ProveedorController extends Controller{
 
+//----------------------------------------------------------
+//----------------- EDITAR PROVEEDOR -----------------------
     public function proveed(){
         $pro = Proveedor::paginate(10);
         return view('listaproveedores')->with('pro' , $pro);
@@ -24,6 +25,9 @@ class ProveedorController extends Controller
         return view('showProvee')->with('provee', $provee);  
     }
 
+
+//----------------------------------------------------------
+//----------------- CREAR PROVEEDOR -----------------------
     public function nuevo(){
 
      return view('/createproveedor');       
@@ -87,6 +91,10 @@ class ProveedorController extends Controller
         }
     }
 
+
+    
+//----------------------------------------------------------
+//----------------- EDITAR PROVEEDOR -----------------------
     public function edit(Request $request, $id)//Editar
     {
         $proveedor = Proveedor::find($id);
@@ -146,8 +154,8 @@ class ProveedorController extends Controller
     }
 
 
-
-
+//-----------------------------------------------------------
+//------------- BUSCADOR Y BORRAR PROVEEDOR -----------------
     public function sear(Request $REQUEST){
         $pro = Proveedor::where('Nombre_del_proveedor','like', '%'.$REQUEST->search.'%' )
         ->orWhere('Nombre_del_distribuidor', 'like', '%'.$REQUEST->search.'%')->paginate(10);
