@@ -204,7 +204,7 @@ class EmpleadoController extends Controller
         $empleado->contraseña = $request->input('password');
 
 
-        $creado = $empleado->save();
+        $actualizado = $empleado->save();
 
         if ($actualizado){
             return redirect()->route('lista')->with('msj', 'El empleado se actulizo exitosamente');

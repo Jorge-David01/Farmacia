@@ -5,6 +5,8 @@ use App\Http\Controllers\EmpleadoController;
 use App\Models\Empleado;
 use App\Models\Proveedor;
 use App\Models\Producto;
+use App\Models\Compra;
+
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
@@ -111,3 +113,11 @@ Route::post('/productos/nuevo',[ProductoController::class, 'store'])
         Route::put('/compra/almacenar',[CompraController::class, 'almacenar'])
         ->name('compra.almacenar');
 
+        Route::get('/listacompra',[CompraController::class, 'listacompras']) -> name('lista.compras');
+
+        Route::get('/detallescompra/{id}',[CompraController::class, 'detailscompra']) -> name('details.compra')-> where('id', '[1-9]+');
+
+        
+        Route::delete('/listacompra/{id}/delete',[CompraController::class, 'delete'])->name('compra.delete')-> where('id', '[0-9]+');
+
+        Route::post('/compra/buscar', [CompraController::class, 'busqueda']) -> name ('buscador');
