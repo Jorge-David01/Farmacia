@@ -161,6 +161,7 @@ class EmpleadoController extends Controller
 
     public function update(Request $request, $id){
 
+
        $rules=[
             'nombre_completo' => 'required|max:110',
             'dni'=> 'required|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})|unique:empleados,DNI,'.$id,
@@ -204,7 +205,11 @@ class EmpleadoController extends Controller
         $empleado->contraseña = $request->input('password');
 
 
+
         $actualizado = $empleado->save();
+
+        $creado = $empleado->save();
+
 
         if ($actualizado){
             return redirect()->route('lista')->with('msj', 'El empleado se actulizo exitosamente');
