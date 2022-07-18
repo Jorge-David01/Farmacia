@@ -34,6 +34,8 @@ td {
 
 <a  style="margin-left: 4%; margin-bottom: 1%; margin-top: 1%; " class="btn btn-primary" href="/listacompra">Lista</a>
 
+<a class="btn btn-warning" style="aling-padding: right" href="/compra/nuevo">Ingresar compra</a>
+
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">

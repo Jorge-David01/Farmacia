@@ -10,44 +10,68 @@
 
 <table class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" >
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-            <th scope="col">Campo</th>
-            <th scope="col">Valor</th>
+        <th scope="row">Número de factura</th>
+            <td>{{$comp->numero_factura}} </td>
+          
         </tr>
        
         <tr>
-            <th scope="row">Número de factura</th>
-            <td>{{$comp->numero_factura}} </td>
+            <th>Nombre de producto</th>
+            <th>Cantidad</th>
+            <th>Lote</th>
+            <th>Fecha de vencimiento</th>
+            <th>Precio de compra</th>
+            <th>Precio de venta</th>
+            <th>Total</th>
         </tr>
 
-        <tr>
-           <th scope="row">Nombre del producto</th>
-            <td>{{$details->id_producto}}</td>
-        </tr>
+
+        <?php
+            $total =0;
+            ?>
+
+        @forelse ($deta as $det)
+
+
 
         <tr>
-           <th scope="row">Cantidad comprada</th>
-            <td>{{$details->cantidad}}</td>
-        </tr>
+           
+            <td>{{$det->id_producto}}</td>
+   
+            <td>{{$det->cantidad}}</td>
+     
+            <td>{{$det->lote}}</td>
+      
+            <td>{{$det->fecha_vencimiento}}</td>
+      
+            <td>{{$det->precio_farmacia}}</td>
+      
+            <td>{{$det->precio_publico}}</td>
+            <?php $total = $det->precio_farmacia*$det->cantidad;?>
+            <td>  {{$total }} </td>
+            
 
-        <tr>
-            <th scope="row">Número de lote</th>
-            <td>{{$details->lote}}</td>
-        </tr>
 
-        <tr>
-            <th scope="row">Fecha de vencimiento</th>
-            <td>{{$details->fecha_vencimiento}}</td>
         </tr>
+ 
+        @empty
 
-        <tr>
-            <th scope="row">Precio de compra</th>
-            <td>{{$details->precio_farmacia}}</td>
-        </tr>
-        <tr>
-            <th scope="row">Precio de venta</th>
-            <td>{{$details->precio_publico}}</td>
-        </tr>
+@endforelse
 
+
+<tr>
+
+
+
+    <td style="background-color: #ff0000">Total</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+
+    <td></td>
+</tr>
 </table>
 
 

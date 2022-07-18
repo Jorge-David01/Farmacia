@@ -199,25 +199,41 @@ class CompraController extends Controller
         $lista = Compra::paginate(10) ;
         
         
-        $proved = DB::table('compras')
-        ->join('proveedors', 'compras.id_proveedor', '=', 'proveedors.id')
-        ->where('compras.id_proveedor', '=', 'proveedors.id')
-        ->select('proveedors.Nombre_del_proveedor')
-        ->get();
+        
 
+
+  
+        
+
+
+        return view('compra/listacompra')->with('lista' , $lista);
+=======
         return view('compra/listacompra')->with('lista' , $lista)->with("proved", $proved);
+
     }
 
     public function detailscompra($id){
         $details = DetalleCompra::findOrFail($id);
         $comp = Compra::findOrFail($id);
+
+        
+
+      
+        $deta = DB::table('compras')
+        ->join('detalle_compras', 'compras.id', '=', 'detalle_compras.id_compra')
+        ->where('detalle_compras.id_compra', '=', $id)
+        ->select('id_producto' , 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
+        ->get();
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);  
+
     
         return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);  
+
     }
 
     public function delete($id){
         DetalleCompra::destroy($id);
-
+        
         return redirect()->route('lista.compras')->with('Mensajes', 'La compra fue eliminada exitosamente');
     }
 
@@ -231,12 +247,17 @@ class CompraController extends Controller
 
 
 
+  
+  
+=======
+
     //---------------------------------------------- INVENTARIO ---------------------------------------
 
     public function inven(){
         $Inventa =  DetalleCompra::paginate(10) ;
         return view('Inventario')->with('Inventa' , $Inventa);
     }
+
 
     public function buscador(Request $request){
         $Inventa =  DetalleCompra::where('cantidad','like', '%'.$request->good.'%' )->paginate(10);
