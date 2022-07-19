@@ -99,8 +99,23 @@ class EmpleadoController extends Controller
     }
 
 
+//-----------------------------------------------------------------
+//----------------------- LISTA EMPLEADO ---------------------------
+    public function list(Request $request){
+        $texto=trim($request->get('texto'));
+        $employee=DB::table('empleados')
+
+        ->where('DNI','like','%'.$texto.'%')
+        ->orwhere('nombre_completo','like','%'.$texto.'%')
+        ->orWhere('numero_cel','like','%'.$texto.'%')
+        ->orWhere('numero_tel','like','%'.$texto.'%')
+        ->orderBy('DNI', 'asc')->paginate(10);
+        return view('listaempleados' , compact ('employee', 'texto'));
+    }
+
+
 //----------------------------------------------------------------
-//--------------------- VER EMPLEADO -------------------------
+//----------------------- VER EMPLEADO ---------------------------
     public function show($id)//mostrar
     {
         $empleado = Empleado::findOrFail($id);

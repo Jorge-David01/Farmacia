@@ -2,23 +2,25 @@
 @section('pestania', 'Formulario de compra')
 
 @section('contenido')
+
 @if(session('mensaje'))
 <div id="mensaje" class="alert alert-success">
     {{session('mensaje')}}
 </div>
 @endif
-<br><br><br>
+
 <style>
     input{
         border-radius: 0px !important;
     }
 </style>
+<h2 style="margin-left: 3% ; margin-top: 70px; margin-bottom: 1%; "> <u>Datos de la factura compra.</u> </h2>
 
 <div style="width: 80%;margin-left: 3%">
     <div style="width: 100%">
         <form method="post">
             @csrf
-            <h2><center>Datos de la factura compra</center></h2>
+            
             <br>
             @if($errors->any())
             <div id="error" class="alert alert-danger">
@@ -122,16 +124,17 @@
                 title="Formato de precio incorrecto" value="{{old("venta")}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </div>
-            <div style="width: 100%; float: left;margin-top: 2%">
-                <button class="btn btn-success" type="submit" style="width: 100%">Agregar producto</button>
+            <div style="width: 100%; float: left;margin-top: 2%; margin-bottom: 1%;">
+                <button class="btn btn-success" type="submit" style="width: 100%">Agregar producto</button> <br><hr>
             </div>
         </form>
     </div>
-    <div>
+    <div> 
 
-        <h2><center>Productos Facturados</center></h2>
-    <table class="table table-bordered">
-        <tr>
+    <h2 style="margin-left: 0% ;  margin-bottom: 2%; "> <u>Productos Facturados.</u> </h2>
+    <table style="border: 2px solid #dddddd;" class="table table-bordered">
+
+        <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
             <th style="text-align: center">Eliminar</th>
            <th style="text-align: center">Producto</th>
            <th style="text-align: center">Lote</th>

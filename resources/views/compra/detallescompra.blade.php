@@ -9,13 +9,15 @@
 <h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Detalles de compra</u> </h1>
 
 <table class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" >
+
+
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
         <th scope="row">Número de factura</th>
-            <td>{{$comp->numero_factura}} </td>
+            <td style="background: #0088cc; border: 2px solid #dddddd;">{{$comp->numero_factura}} </td>
           
         </tr>
        
-        <tr>
+        <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
             <th>Nombre de producto</th>
             <th>Cantidad</th>
             <th>Lote</th>
@@ -77,15 +79,11 @@
 
 
 <button style="margin-left: 4%;" class="btn btn-success">
-<a class="btn btn-success" href="/Listpro">Volver</a>
-</button>
-
-<button class="btn btn-primary">
-<a class="btn btn-primary" href="">Actualizar</a>
+<a class="btn btn-success" href="/listacompra">Volver</a>
 </button>
 
 <button class="btn btn-danger">
-<form method="post" action="">
+<form method="post" action="{{route('compra.delete',['id'=>$details->id])}}">
     @csrf
     @method('delete') 
     <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar la compra?')"
