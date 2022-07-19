@@ -49,31 +49,34 @@
             <td>{{$det->precio_farmacia}}</td>
       
             <td>{{$det->precio_publico}}</td>
-            <?php $total = $det->precio_farmacia*$det->cantidad;?>
-            <td>  {{$total }} </td>
             
+            <?php $total = $det->precio_farmacia * $det->cantidad;
+        
+         
+            ?>
 
 
+            <td>  {{$total }} </td>
+
+            
         </tr>
  
         @empty
-
+       
 @endforelse
+
+
+
+<?php
+            $total_suma =0;
+            ?>
 
 
 <tr>
 
 
 
-    <td style="background-color: #ff0000">Total</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
 
-    <td></td>
-</tr>
 </table>
 
 
@@ -83,7 +86,11 @@
 </button>
 
 <button class="btn btn-danger">
+
+<form method="post" action="{{route('compra.delete',['id'=>$details->id_compra])}}">
+
 <form method="post" action="{{route('compra.delete',['id'=>$details->id])}}">
+
     @csrf
     @method('delete') 
     <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar la compra?')"

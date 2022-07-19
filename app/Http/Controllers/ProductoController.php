@@ -38,7 +38,8 @@ class ProductoController extends Controller
 //----------------- DETALLES PRODUCTO -----------------------
     public function detalles($id){
         $details = Producto::findOrFail($id);
-        return view('productodetalles')->with('details', $details);  
+        $principio= PrincipioActivo::findOrfail($id);
+        return view('productodetalles')->with('details', $details)->with('principio', $principio);  
     }
 
 
@@ -110,10 +111,11 @@ class ProductoController extends Controller
     public function edit(Request $request, $id)//Actualizar
     {
         $producto = Producto::find($id);
-        return view('productoeditar') ->with('producto',$producto);
+        return view('productoeditar') ->with('producto', $producto);
 
         //
     }
+
 
     public function update(Request $request, $id){
 

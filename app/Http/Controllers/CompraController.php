@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreCompraRequest;
 use App\Http\Requests\UpdateCompraRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+
 
 
 class CompraController extends Controller
@@ -251,8 +253,14 @@ class CompraController extends Controller
     }
 
 
+    public function delete($id_compra){
+        DetalleCompra::destroy($id);
+       
+
+
     public function delete($id){
         DetalleCompra::destroy($id);
+
 
         return redirect()->route('lista.compras')->with('Mensajes', 'La compra fue eliminada exitosamente');
     }
