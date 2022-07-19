@@ -100,12 +100,14 @@ Route::delete('/compra/eliminar/{id}',[CompraController::class, 'eliminar'])->na
 
 Route::get('/compra/eliminar/todo',[CompraController::class, 'destruir'])->name('compra.destruir');
 
+Route::get('/compra/cancelar',[CompraController::class, 'cancelar'])->name('compra.cancelar');
+
 Route::put('/compra/almacenar',[CompraController::class, 'almacenar'])->name('compra.almacenar');
 
 Route::get('/listacompra',[CompraController::class, 'listacompras']) -> name('lista.compras');
 
 Route::get('/detallescompra/{id}',[CompraController::class, 'detailscompra']) -> name('details.compra')-> where('id', '[1-9]+');
-   
+
 Route::delete('/listacompra/{id}/delete',[CompraController::class, 'delete'])->name('compra.delete')-> where('id', '[0-9]+');
 
 Route::post('/compra/buscar', [CompraController::class, 'busqueda']) -> name ('buscador');
