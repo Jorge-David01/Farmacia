@@ -18,7 +18,7 @@
     <div style="width: 100%">
         <form method="post">
             @csrf
-            <h2><center>Datos de la compra</center></h2>
+            <h2><center>Datos de la factura compra</center></h2>
             <br>
             @if($errors->any())
             <div id="error" class="alert alert-danger">
@@ -176,10 +176,8 @@
         </tr>
     </table>
 
-    <form style="float: left" action=""
-    method="post">
-    @method("PUT")
-    @csrf
+    <form style="float: left" action="{{route('compra.cancelar')}}"
+    method="get">
     <button class="btn btn-danger" type="submit">Cancelar</button>
     </form>
 

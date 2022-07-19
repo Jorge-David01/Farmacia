@@ -173,6 +173,15 @@ class CompraController extends Controller
         return redirect()->route('compra.create');
     }
 
+    public function cancelar(){
+        $temporal = Temporal::all();
+
+        foreach ($temporal as $temp) {
+            Temporal::destroy($temp->id);
+        }
+
+        return redirect()->route('lista.compras');
+    }
 
 //----------------------------------------------------------------
 //--------------------- ALMACENAR COMPRA -------------------------
@@ -206,7 +215,7 @@ class CompraController extends Controller
             Temporal::destroy($temp->id);
         }
 
-        return redirect()->route('compra.create');
+        return redirect()->route('lista.compras');
     }
 
 
@@ -215,7 +224,7 @@ class CompraController extends Controller
 
     public function listacompras(){
         $lista = Compra::paginate(10) ;
-        
+
         return view('compra/listacompra')->with('lista' , $lista);
 
         return view('compra/listacompra')->with('lista' , $lista)->with("proved", $proved);
@@ -235,16 +244,16 @@ class CompraController extends Controller
         ->where('detalle_compras.id_compra', '=', $id)
         ->select('id_producto' , 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
         ->get();
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);  
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);
 
-    
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);  
+
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);
     }
 
 
     public function delete($id){
         DetalleCompra::destroy($id);
-        
+
         return redirect()->route('lista.compras')->with('Mensajes', 'La compra fue eliminada exitosamente');
     }
 
@@ -255,7 +264,7 @@ class CompraController extends Controller
         return view('compra/listacompra')->with('lista', $lista);
     }
 
-  
+
 //---------------------------------------------------------------------
 //--------------------- INVENTARIO Y BUSCADOR -------------------------
 
