@@ -3,15 +3,8 @@
 @section('contenido')
 
 <style>
-tr:nth-child(even) {
-  background-color: #b3e0ff;
-}
-</style>
-
-
-<style>
 td {
-    text-align: center;
+  text-align: center;
 }
 </style>
 
@@ -53,7 +46,7 @@ td {
 
 @forelse($produc as $producto)
 
-<tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+<tr style="border: 2px solid #dddddd;">
 <td>{{$producto->proveedores->Nombre_del_proveedor}}</td>
 <td>{{$producto->nombre_producto}}</td>
 <td>{{$producto->activos->principio->descripcion}}</td>

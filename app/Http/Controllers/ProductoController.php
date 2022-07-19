@@ -15,6 +15,9 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+//----------------------------------------------------------
+//------------------- CREAR PRODUCTO -----------------------
     public function create()
     {
         $proveedors = Proveedor::all();
@@ -23,25 +26,33 @@ class ProductoController extends Controller
     }
 
 
+//----------------------------------------------------------
+//----------------- LISTA PRODUCTO -------------------------
     public function lista(){
         $produc = Producto::paginate(10);
         return view('listaproductos')->with('produc' , $produc);
     }
 
+
+//-----------------------------------------------------------
+//----------------- DETALLES PRODUCTO -----------------------
     public function detalles($id){
         $details = Producto::findOrFail($id);
         $principio= PrincipioActivo::findOrfail($id);
         return view('productodetalles')->with('details', $details)->with('principio', $principio);  
     }
 
+
+//----------------------------------------------------------
+//----------------- BORRAR PRODUCTO -----------------------
     public function delete($id){
         Producto::destroy($id);
         return redirect()->route('lista.producto')->with('Mensaje', 'El producto fue eliminado exitosamente');
     }
 
-   
-
-
+    
+//-------------------------------------------------------------
+//----------------- VALIDACIÓN PRODUCTO -----------------------
     /**
      * Store a newly created resource in storage.
      *
@@ -94,13 +105,9 @@ class ProductoController extends Controller
         }
     }
 
-    public function show($id)//mostrar
-    {
-        $producto = Producto::findOrFail($id);
-        return view('productos/productodetalles')->with('producto', $producto);
-        //
-    }
 
+//-------------------------------------------------------------
+//----------------- ACTUALIZAR PRODUCTO -----------------------
     public function edit(Request $request, $id)//Actualizar
     {
         $producto = Producto::find($id);
@@ -109,7 +116,6 @@ class ProductoController extends Controller
         //
     }
 
-  
 
     public function update(Request $request, $id){
 
@@ -118,8 +124,6 @@ class ProductoController extends Controller
             'nombre_producto'=>'required',
             'principio_activo'=>'required',
             'descripcion'=>'required',
-
-
         ]);
 
         $upda = Producto::find($id);

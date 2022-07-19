@@ -24,11 +24,7 @@ td {
 @endif
 
 
-
-<br><br>
-
-<h1 style="margin-left: 37% ; margin-top: 1%; margin-bottom: 3%; "> <u>Proveedores</u> </h1>
-
+<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Lista de proveedores</u> </h1>
 
 <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%;">
 @csrf

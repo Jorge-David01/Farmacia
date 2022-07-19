@@ -38,19 +38,11 @@ class EmpleadoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function list(Request $request){
-        $texto=trim($request->get('texto'));
-        $employee=DB::table('empleados')
-
-        ->where('DNI','like','%'.$texto.'%')
-        ->orwhere('nombre_completo','like','%'.$texto.'%')
-        ->orWhere('numero_cel','like','%'.$texto.'%')
-        ->orWhere('numero_tel','like','%'.$texto.'%')
-        ->orderBy('DNI', 'asc')->paginate(10);
-        return view('listaempleados' , compact ('employee', 'texto'));
-    }
 
 
+
+//----------------------------------------------------------------
+//------------------------ EMPLEADO -----------------------------
     public function store(Request $request)
     {
         $rules=[
@@ -106,12 +98,24 @@ class EmpleadoController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
+
+//-----------------------------------------------------------------
+//----------------------- LISTA EMPLEADO ---------------------------
+    public function list(Request $request){
+        $texto=trim($request->get('texto'));
+        $employee=DB::table('empleados')
+
+        ->where('DNI','like','%'.$texto.'%')
+        ->orwhere('nombre_completo','like','%'.$texto.'%')
+        ->orWhere('numero_cel','like','%'.$texto.'%')
+        ->orWhere('numero_tel','like','%'.$texto.'%')
+        ->orderBy('DNI', 'asc')->paginate(10);
+        return view('listaempleados' , compact ('employee', 'texto'));
+    }
+
+
+//----------------------------------------------------------------
+//----------------------- VER EMPLEADO ---------------------------
     public function show($id)//mostrar
     {
         $empleado = Empleado::findOrFail($id);
@@ -120,44 +124,27 @@ class EmpleadoController extends Controller
     }
 
 
+//----------------------------------------------------------------
+//--------------------- ELIMINAR EMPLEADO -------------------------
+public function destroy($id)
+{
+    Empleado::destroy($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
+    return redirect()->route('lista')->with('Mensaje', 'El empleado fue eliminado exitosamente');
+    //
+
+}
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateEmpleadoRequest  $request
-     * @param  \App\Models\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
+//----------------------------------------------------------------
+//--------------------- EDITAR EMPLEADO -------------------------
     public function edit(Request $request, $id)//Actualizar
     {
         $empleado = Empleado::find($id);
         return view('empleados/editempleado') ->with('empleado',$empleado);
-
-        //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        Empleado::destroy($id);
 
-        return redirect()->route('lista')->with('Mensaje', 'El empleado fue eliminado exitosamente');
-        //
-
-    }
 
     public function update(Request $request, $id){
 
@@ -204,8 +191,6 @@ class EmpleadoController extends Controller
         $empleado->direccion = $request->input('direccion');
         $empleado->contraseña = $request->input('password');
 
-
-
         $actualizado = $empleado->save();
 
         $creado = $empleado->save();
@@ -219,10 +204,5 @@ class EmpleadoController extends Controller
 
     }
 
-    
-
-
-
-
-    }
+}
 

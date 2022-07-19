@@ -32,6 +32,9 @@ class CompraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+//-------------------------------------------------
+//----------------- COMPRAS -----------------------
     public function create(Request $request)
     {
         $productos = Producto::all();
@@ -65,6 +68,10 @@ class CompraController extends Controller
      * @param  \App\Http\Requests\StoreCompraRequest  $request
      * @return \Illuminate\Http\Response
      */
+
+//------------------------------------------------------
+//--------------------- V-COMPRA -------------------------
+
     public function store(Request $request)
     {
         $compra = $request->input('compra')+0.01;
@@ -145,6 +152,9 @@ class CompraController extends Controller
         ->with('proveedornomb',$proveedornomb);
     }
 
+//----------------------------------------------------------------
+//--------------------- ELIMINAR COMPRA -------------------------
+
     public function eliminar(Request $request,$id){
         Temporal::destroy($id);
 
@@ -164,6 +174,19 @@ class CompraController extends Controller
 
         return redirect()->route('compra.create');
     }
+
+    public function cancelar(){
+        $temporal = Temporal::all();
+
+        foreach ($temporal as $temp) {
+            Temporal::destroy($temp->id);
+        }
+
+        return redirect()->route('lista.compras');
+    }
+
+//----------------------------------------------------------------
+//--------------------- ALMACENAR COMPRA -------------------------
 
     public function almacenar(Request $request){
 
@@ -194,19 +217,15 @@ class CompraController extends Controller
             Temporal::destroy($temp->id);
         }
 
-        return redirect()->route('compra.create');
+        return redirect()->route('lista.compras');
     }
+
+
+//------------------------------------------------------------
+//--------------------- LISTA COMPRA -------------------------
 
     public function listacompras(){
         $lista = Compra::paginate(10) ;
-        
-        
-        
-
-
-  
-        
-
 
         return view('compra/listacompra')->with('lista' , $lista);
 
@@ -214,31 +233,37 @@ class CompraController extends Controller
 
     }
 
+
+//-------------------------------------------------------------------------------
+//------------------ DETALLES ELIMINAR Y BUSCADOR COMPRAS -----------------------
+
     public function detailscompra($id){
         $details = DetalleCompra::findOrFail($id);
         $comp = Compra::findOrFail($id);
 
-        
-
-      
         $deta = DB::table('compras')
         ->join('detalle_compras', 'compras.id', '=', 'detalle_compras.id_compra')
         ->where('detalle_compras.id_compra', '=', $id)
         ->select('id_producto' , 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
         ->get();
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);  
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);
 
-    
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);  
 
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);
     }
+
 
     public function delete($id_compra){
         DetalleCompra::destroy($id);
        
+
+
+    public function delete($id){
+        DetalleCompra::destroy($id);
+
+
         return redirect()->route('lista.compras')->with('Mensajes', 'La compra fue eliminada exitosamente');
     }
-
 
 
     public function busqueda(Request $request){
@@ -248,12 +273,8 @@ class CompraController extends Controller
     }
 
 
-
-  
-  
-
-
-    //---------------------------------------------- INVENTARIO ---------------------------------------
+//---------------------------------------------------------------------
+//--------------------- INVENTARIO Y BUSCADOR -------------------------
 
     public function inven(){
         $Inventa =  DetalleCompra::paginate(10) ;
