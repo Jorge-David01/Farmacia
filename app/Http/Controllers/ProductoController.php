@@ -30,7 +30,8 @@ class ProductoController extends Controller
 
     public function detalles($id){
         $details = Producto::findOrFail($id);
-        return view('productodetalles')->with('details', $details);  
+        $principio= PrincipioActivo::findOrfail($id);
+        return view('productodetalles')->with('details', $details)->with('principio', $principio);  
     }
 
     public function delete($id){
@@ -103,19 +104,12 @@ class ProductoController extends Controller
     public function edit(Request $request, $id)//Actualizar
     {
         $producto = Producto::find($id);
-        return view('productoeditar') ->with('producto',$producto);
+        return view('productoeditar') ->with('producto', $producto);
 
         //
     }
 
-    public function destroy($id)
-    {
-        Producto::destroy($id);
-
-        return redirect()->route('Producto')->with('Mensaje', 'El empleado fue eliminado exitosamente');
-        //
-
-    }
+  
 
     public function update(Request $request, $id){
 

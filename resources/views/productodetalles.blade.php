@@ -22,10 +22,15 @@
             <td>{{$details->nombre_producto}}</td>
         </tr>
 
+
+     
         <tr>
+
            <th scope="row">Principio activo</th>
-            <td>{{$details->principio_activo}}</td>
+            <td>{{$principio->descripcion}}</td>
         </tr>
+    
+
 
         <tr>
             <th scope="row">Descripción</th>
@@ -47,7 +52,7 @@
 <form style=" float:left; margin-right:1%; margin-left:4%" method="post" action="{{route('delete.producto',['id'=>$details->id])}}">
     @csrf
     @method('delete') 
-    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Está seguro que desea eliminar el empleado?')"
+    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Está seguro que desea eliminar el producto?')"
     value="eliminar" class="btn btn-danger" >
 </form>
 </button>
