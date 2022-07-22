@@ -13,9 +13,4 @@ class Producto extends Model
         return $this->belongsTo(Proveedor::class, 'id_proveedor', 'id');
     }
 
-    public function activos(){
-        return $this->belongsTo(ActivoProducto::class, 'id','id_producto');
-    }
-
-  
 }

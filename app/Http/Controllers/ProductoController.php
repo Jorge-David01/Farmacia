@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\Proveedor;
 use App\Models\Producto;
-use App\Models\PrincipioActivo;
-use App\Models\ActivoProducto;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductoRequest;
 
@@ -21,8 +19,7 @@ class ProductoController extends Controller
     public function create()
     {
         $proveedors = Proveedor::all();
-        $activo = PrincipioActivo::all();
-        return view('productos/create')->with('proveedors', $proveedors)->with('activo', $activo);
+        return view('productos/create')->with('proveedors', $proveedors);
     }
 
 
@@ -38,8 +35,7 @@ class ProductoController extends Controller
 //----------------- DETALLES PRODUCTO -----------------------
     public function detalles($id){
         $details = Producto::findOrFail($id);
-        $principio= PrincipioActivo::findOrfail($id);
-        return view('productodetalles')->with('details', $details)->with('principio', $principio);  
+        return view('productodetalles')->with('details', $details);
     }
 
 
@@ -50,7 +46,7 @@ class ProductoController extends Controller
         return redirect()->route('lista.producto')->with('Mensaje', 'El producto fue eliminado exitosamente');
     }
 
-    
+
 //-------------------------------------------------------------
 //----------------- VALIDACIÓN PRODUCTO -----------------------
     /**
@@ -64,10 +60,10 @@ class ProductoController extends Controller
             $rules=[
                 'nombrepro' => 'required|exists:proveedors,id',
                 'nombre_producto' => 'required|max:100|unique:productos,nombre_producto',
-                'principio_activo'=> 'required|exists:principio_activos,id',
+                'principio_activo'=> 'required',
                 'descripcion'=> 'required|max:200',
 
-                
+
         ];
         $mensaje=[
             'nombrepro.required' => 'Debe de seleccionar un proveedor',
@@ -76,7 +72,6 @@ class ProductoController extends Controller
             'nombre_producto.unique' => 'El nombre ya esta en uso',
             'nombre_producto.max' => 'El nombre es muy extenso',
             'principio_activo.required' => 'El principio activo no puede estar vacío',
-            'principio_activo.exists' => 'El principio activo no existe',
             'descripcion.required' => 'El descripción no puede estar vacío',
             'descripcion.max' => 'El descripción es muy extensa',
         ];
@@ -87,15 +82,10 @@ class ProductoController extends Controller
 
         $producto->nombre_producto = $request->input('nombre_producto');
         $producto->id_proveedor = $request->input('nombrepro');
+        $producto->principio_activo = $request->input('principio_activo');
         $producto->descripcion = $request->input('descripcion');
         $creado =  $producto->save();
 
-        foreach($request->principio_activo as $a){
-            $activo = new ActivoProducto();
-            $activo->id_producto = $producto->id;
-            $activo->id_principio_activos = $a;
-            $creado2 =  $activo->save();
-        }
 
         if ($creado) {
             return redirect()->route('lista.producto')
@@ -139,13 +129,13 @@ class ProductoController extends Controller
         if ($actualizado){
             return redirect()->route('lista.producto')->with('msj', 'El empleado se actulizo exitosamente');
         } else {
-          
+
         }
 
     }
-    
 
-    
+
+
 
 
 }
