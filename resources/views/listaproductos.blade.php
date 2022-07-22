@@ -38,7 +38,7 @@ td {
 <tbody>
     @if (count($produc)<=0)
         <tr>
-        
+
             <td colspan="6">No hay resultados</td>
     </tr>
     @endif
@@ -49,7 +49,7 @@ td {
 <tr style="border: 2px solid #dddddd;">
 <td>{{$producto->proveedores->Nombre_del_proveedor}}</td>
 <td>{{$producto->nombre_producto}}</td>
-<td>{{$producto->activos->principio->descripcion}}</td>
+<td>{{$producto->principio_activo}}</td>
 <td > <a  class="btn btn-success" href="/Detallesproduct/{{$producto->id}}"> Detalles </a></td>
 </tr>
 

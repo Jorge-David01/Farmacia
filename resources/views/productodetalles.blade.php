@@ -3,17 +3,17 @@
 @section('contenido')
 
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Detalles de productos</u> </h1> 
+<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Detalles de productos</u> </h1>
 
 <table class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" >
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
             <th scope="col">Campo</th>
             <th scope="col">Valor</th>
         </tr>
-       
+
         <tr>
             <th scope="row">Nombre del proveedor</th>
-            <td>{{$details->id_proveedor}}</td>
+            <td>{{$details->proveedores->Nombre_del_proveedor}}</td>
         </tr>
 
         <tr>
@@ -22,13 +22,13 @@
         </tr>
 
 
-     
+
         <tr>
 
            <th scope="row">Principio activo</th>
-            <td>{{$principio->descripcion}}</td>
+           <td>{{$details->principio_activo}}</td>
         </tr>
-    
+
 
 
         <tr>
@@ -36,7 +36,7 @@
             <td>{{$details->descripcion}}</td>
         </tr>
 
-       
+
 </table>
 
 
@@ -50,7 +50,7 @@
 
 <form style=" float:left; margin-right:1%; margin-left:4%" method="post" action="{{route('delete.producto',['id'=>$details->id])}}">
     @csrf
-    @method('delete') 
+    @method('delete')
     <input class="btn btn-danger" type="submit" onclick="return confirm('¿Está seguro que desea eliminar el producto?')"
     value="eliminar" class="btn btn-danger" >
 </form>
