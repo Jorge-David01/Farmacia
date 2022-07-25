@@ -120,7 +120,7 @@ Route::get('/detallescompra/{id}',[CompraController::class, 'detailscompra']) ->
 
 Route::delete('/listacompra/{id}/delete',[CompraController::class, 'delete'])->name('compra.delete')-> where('id', '[0-9]+');
 
-Route::post('/compra/buscar', [CompraController::class, 'buscando']) -> name ('busqueda');
+Route::post('/compra/buscar', [CompraController::class, 'busqueda']) -> name ('buscador');
 
 
 //----------------------------------------------------------
