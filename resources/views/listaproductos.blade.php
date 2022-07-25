@@ -26,6 +26,15 @@ td {
 
 <a style="margin-left: 4%;" class="btn btn-warning" href="/productos/nuevo">Nuevo</a>
 
+<form action="{{route('producto.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%;">
+@csrf
+<input type="text" name="busca" id="busca" placeholder="Busqueda">
+<input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
+<a style="margin-left: 4%;" class="btn btn-warning" href="/Producto">Limpiar</a>
+
+</form>
+
+
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
@@ -38,7 +47,7 @@ td {
 <tbody>
     @if (count($produc)<=0)
         <tr>
-        
+
             <td colspan="6">No hay resultados</td>
     </tr>
     @endif
@@ -49,7 +58,7 @@ td {
 <tr style="border: 2px solid #dddddd;">
 <td>{{$producto->proveedores->Nombre_del_proveedor}}</td>
 <td>{{$producto->nombre_producto}}</td>
-<td>{{$producto->activos->principio->descripcion}}</td>
+<td>{{$producto->principio_activo}}</td>
 <td > <a  class="btn btn-success" href="/Detallesproduct/{{$producto->id}}"> Detalles </a></td>
 </tr>
 

@@ -253,8 +253,6 @@ class CompraController extends Controller
     }
 
 
- 
-
 
     public function delete($id){
         DetalleCompra::destroy($id);
@@ -283,6 +281,23 @@ class CompraController extends Controller
     public function buscador(Request $request){
         $Inventa =  DetalleCompra::where('cantidad','like', '%'.$request->good.'%' )->paginate(10);
         return view('Inventario')->with('Inventa', $Inventa);
+    }
+
+    public function edit(Request $request,$id){
+        if ($request->input('cantidad'.$id) != "" && $request->input('cantidad'.$id) > 0 ) {
+            $cambio = Temporal::findOrFail($id);
+
+        $cambio->cantidad = $request->input('cantidad'.$id);
+
+        $cambio->save();
+
+        }
+
+        $numero =  $request->get('factura');
+        $pago =  $request->get('pago');
+        $idproveedor = $request->get('proveedor');
+
+        return redirect()->route('compra.create',['factura'=>$numero,'pago'=>$pago,'proveedor'=>$idproveedor]);
     }
 
 }
