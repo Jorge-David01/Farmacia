@@ -30,7 +30,10 @@ td {
 @csrf
 <input type="text" name="busca" id="busca" placeholder="Busqueda">
 <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
+<a style="margin-left: 4%;" class="btn btn-warning" href="/Producto">Limpiar</a>
+
 </form>
+
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 

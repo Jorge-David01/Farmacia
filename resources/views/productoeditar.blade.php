@@ -18,15 +18,19 @@
     
     <h1 style="margin-left: 2% ; margin-top: 40px; margin-bottom: 3%; "> <u>Editar Producto</u> </h1>
 
-    <form style="margin-left: 2%;" method="POST" action="">
+    <form style="margin-left: 2%;" method="POST" action="{{route('update.producto',['id'=>$producto->id])}}">
         @method('put')
         @csrf
 
     
         <div class="col-md-6 col-sm-6 ">
         <label for="id_proveedor">Nombre del Proveedor:</label>
-            <input type="text" class="form-control-file" name="id_proveedor" id="id_proveedor" 
-            placeholder="id_proveedor" value="{{$producto->id_proveedor}}" maxlength="50">
+            <select name="nombre_proveedor" id="nombrepro" required="required" class="form-control selectpicker"
+                    data-live-search="true">
+                    @foreach ($proveedors as $pro)
+                    <option  {{ ($pro->id) == $producto->id_prov  ? 'selected' : '' }} value="{{$pro->id}}">{{$pro->Nombre_del_proveedor}}</option>
+                    @endforeach
+                </select>
         </div>
 
 
@@ -44,8 +48,8 @@
 
         <div class="col-md-6 col-sm-6 ">
         <label for="Descripcion">Descripcion:</label>
-            <input type="text" class="form-control-file" name="Descripcion" id="Descripcion" 
-            placeholder="Descripcion" value="{{$producto->Descripcion}}" maxlength="110" >
+            <input type="text" class="form-control-file" name="descripcion" id="descripcion" 
+            placeholder="Descripcion" value="{{$producto->descripcion}}" maxlength="110" >
         </div>
 
 
