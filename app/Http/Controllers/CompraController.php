@@ -253,9 +253,7 @@ class CompraController extends Controller
     }
 
 
-    public function delete($id_compra){
-        DetalleCompra::destroy($id);
-       
+ 
 
 
     public function delete($id){
