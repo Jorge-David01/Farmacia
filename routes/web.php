@@ -102,6 +102,10 @@ Route::post('/Produ/busca', [ProductoController::class, 'buscando']) -> name ('p
 Route::get('/compra/nuevo',[CompraController::class, 'create'])->name('compra.create');
 Route::post('/compra/nuevo',[CompraController::class, 'store'])->name('compra.store');
 
+Route::post('/compra/editar/{id}',[CompraController::class, 'edit'])->name('compra.editar');
+Route::get('/compra/editar/{id}',[CompraController::class, 'edit'])->name('compra.editar');
+
+
 Route::delete('/compra/eliminar/{id}',[CompraController::class, 'eliminar'])->name('compra.eliminar');
 
 Route::get('/compra/eliminar/todo',[CompraController::class, 'destruir'])->name('compra.destruir');

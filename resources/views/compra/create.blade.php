@@ -14,13 +14,13 @@
         border-radius: 0px !important;
     }
 </style>
-<h2 style="margin-left: 3% ; margin-top: 70px; margin-bottom: 1%; "> <u>Datos de la factura compra.</u> </h2>
+<h2 style="margin-left: 3% ; margin-top: 70px; margin-bottom: 1%; "> <u>Datos de la factura de compra</u> </h2>
 
 <div style="width: 80%;margin-left: 3%">
     <div style="width: 100%">
         <form method="post">
             @csrf
-            
+
             <br>
             @if($errors->any())
             <div id="error" class="alert alert-danger">
@@ -33,28 +33,28 @@
                 </ul>
             </div>
         @endif
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 24%; float: left;margin-right: 1%">
                 <center><label for="" >Número de factura:</label></center>
                 <input placeholder="Número de factura" class="form-control" id="factura" name="factura"
                 maxlength="10" type="text"  required value="@if(isset($numero)){{$numero}}@else{{old("factura")}}@endif">
             </div>
             <?php $fecha_actual = date("Y-m-d");?>
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 24%; float: left;margin-right: 1%">
                 <center><label for="" >Fecha de compra:</label></center>
                 <input type="date" class="form-control" id="fecha" name="fecha"
                 disabled value="{{$fecha_actual}}" >
             </div>
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 24%; float: left;margin-right: 1%">
                 <center><label for="" >Fecha de pago:</label></center>
                 <input type="date" class="form-control" id="pago" name="pago"
                 min="{{$fecha_actual}}"
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."+ 10 year"));?>"
                 required value="@if(isset($pago)){{$pago}}@else{{old("pago")}}@endif">
             </div>
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 24%; float: left;margin-right: 1%">
                 <center><label for="" >Nombre del proveedor:</label></center>
                 <select name="proveedor" id="proveedor" class="form-control selectpicker"
-                data-live-search="true">
+                data-live-search="true" onchange="llenar()">
                 @if(old('proveedor'))
                 @foreach ($proveedor as $p)
                     @if (old('proveedor') == $p->id)
@@ -73,6 +73,11 @@
                     @endforeach
                 </select>
             </div>
+
+            <div style="width: 100%; float: left; height: 30px;">
+            </div>
+
+
             <div style="width: 19%; float: left;margin-right: 1%">
                 <center><label for="" >Producto:</label></center>
             <select name="productos" id="productos" class="form-control selectpicker"
@@ -86,38 +91,35 @@
                 @else
                     <option style="display: none" value="">Seleccione el producto</option>
                 @endif
-                    @foreach ($productos as $p)
-                        <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
-                    @endforeach
                 </select>
             </div>
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 15%; float: left;margin-right: 1%">
                 <center><label for="" >Cantidad:</label></center>
                 <input type="number" placeholder="0" class="form-control" id="cantidad" name="cantidad"
                 min="0" maxlength="7" max="999999999" required value="{{old("cantidad")}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </div>
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 15%; float: left;margin-right: 1%">
                 <center><label for="" >Lote:</label></center>
                 <input type="number" placeholder="0" class="form-control" id="lote" name="lote"
                 min="0" maxlength="7" max="999999999" required value="{{old("lote")}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </div>
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 15%; float: left;margin-right: 1%">
                 <center><label for="" >Fecha de vencimiento:</label></center>
                 <input type="date" class="form-control" id="vencimiento" name="vencimiento"
                 min="<?php echo date('Y-m-d',strtotime($fecha_actual."+ 30 days"));?>"
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."+ 10 year"));?>"
                 required value="{{old("vencimiento")}}" >
             </div>
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 15%; float: left;margin-right: 1%">
                 <center><label for="" >Precio Farmacia:</label></center>
                 <input placeholder="0.00" class="form-control" id="compra" name="compra"
                 min="0" max="999999.99" maxlength="10" type="number" step="any" required
                 title="Formato de precio incorrecto" value="{{old("compra")}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </div>
-            <div style="width: 19%; float: left;margin-right: 1%">
+            <div style="width: 15%; float: left;margin-right: 1%">
                 <center><label for="" >Precio Público:</label></center>
                 <input placeholder="0.00" class="form-control" id="venta" name="venta"
                 min="0" max="999999.99" maxlength="10" type="number" step="any" required
@@ -129,9 +131,38 @@
             </div>
         </form>
     </div>
-    <div> 
+    <div>
 
-    <h2 style="margin-left: 0% ;  margin-bottom: 2%; "> <u>Productos Facturados.</u> </h2>
+        <script>
+            window.onload=llenar();
+            function llenar(){
+                $("#productos").find('option').not(':first').remove();
+
+                var select = document.getElementById("proveedor");
+                var valor = select.value;
+                var selectnw = document.getElementById("productos");
+
+                @foreach ($productos as $p)
+                    if ({{ $p->id_proveedor }} == valor) {
+
+                        // creando la nueva option
+                        var opt = document.createElement('option');
+
+                        // Añadiendo texto al elemento (opt)
+                        opt.innerHTML = "{{ $p->nombre_producto }}";
+
+                        //Añadiendo un valor al elemento (opt)
+                        opt.value = "{{ $p->id }}";
+
+                        // Añadiendo opt al final del selector (sel)
+                        selectnw.appendChild(opt);
+
+                    }
+                @endforeach
+            }
+        </script>
+
+    <h2 style="margin-left: 0% ;  margin-bottom: 2%; "> <u>Productos Facturados</u> </h2>
     <table style="border: 2px solid #dddddd;" class="table table-bordered">
 
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
@@ -139,7 +170,7 @@
            <th style="text-align: center">Producto</th>
            <th style="text-align: center">Lote</th>
            <th style="text-align: center">Fecha de Vencimiento</th>
-           <th style="text-align: center">Precio de Compra</th>
+           <th style="text-align: center">Precio de Farmacia</th>
            <th style="text-align: center">Cantidad</th>
            <th style="text-align: center">Total</th>
         </tr>
@@ -154,7 +185,7 @@
                             @csrf
                             @method('delete')
                             <center>
-                                <button type="submit" class="btn-desactivar">
+                                <button type="submit" class="btn btn-danger">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </center>
@@ -163,14 +194,46 @@
                     <td>{{$p->productos->nombre_producto}}</td>
                     <td style="text-align: right">{{$p->lote}}</td>
                     <td style="text-align: center">{{$p->fecha_vencimiento}}</td>
-                    <td style="text-align: right">L.{{ number_format($p->precio_publico,2)}}</td>
-                    <td style="text-align: right">{{$p->cantidad}}</td>
-                    <td style="text-align: right">L.{{ number_format($p->precio_publico*$p->cantidad,2)}}</td>
-                    <?php $total += $p->precio_publico*$p->cantidad;?>
+                    <td style="text-align: right">L.{{ number_format($p->precio_farmacia,2)}}</td>
+                    <td style="text-align: left;">
+
+                        <form method="post" style="display: none" id="oculto{{$p->id}}"
+                        action="{{route('compra.editar',['id'=>$p->id,'factura'=>$numero,'pago'=>$pago,'proveedor'=>$idproveedor])}}">
+                            @csrf
+                            @method('post')
+                            <input style="float: left" type="text" min="1" name="cantidad{{$p->id}}" id="cantidad" value="{{$p->cantidad}}">
+
+                                <button style="float: right" type="submit" class="btn btn-success">
+                                    <i class="fa fa-save" aria-hidden="true"></i>
+                                </button>
+                        </form>
+
+
+                        <div id="mostrar{{$p->id}}">
+                            <button style="float: left" type="submit" class="btn btn-warning" onclick="cambio{{$p->id}}()">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+
+                            <div style="text-align: right; float: right;">{{$p->cantidad}}</div>
+                        </div>
+
+                        <script>
+                            function cambio{{$p->id}}(){
+                                var x = document.getElementById("oculto{{$p->id}}");
+                                var y = document.getElementById("mostrar{{$p->id}}");
+
+                                x.style.display = "block";
+                                y.style.display = "none";
+                            }
+                        </script>
+
+                    </td>
+                    <td style="text-align: right">L.{{ number_format($p->precio_farmacia*$p->cantidad,2)}}</td>
+                    <?php $total += $p->precio_farmacia*$p->cantidad;?>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8"><center>No hay datos</center></td>
+                    <td colspan="8"><center>No hay datos ingresados</center></td>
                 </tr>
             @endforelse
         <tr>
@@ -220,3 +283,4 @@
 </div>
 
 @stop
+
