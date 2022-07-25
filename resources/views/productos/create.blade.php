@@ -55,23 +55,12 @@
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Principio Activo: <span class="required"></span>
             </label> <div class="col-md-6 col-sm-6 ">
-                <select name="principio_activo[]" id="principio_activo" required="required" 
-                class="form-control js-example-basic-multiple" multiple >
-                    @foreach ($activo as $act)
-                    <option value="{{$act->id}}">{{$act->descripcion}}</option>
-                    @endforeach
-                </select>
+                <textarea maxlength="200" type="text" id="principio_activo" name="principio_activo" required="required" class="form-control"
+                value="{{old('principio_activo')}}"
+                placeholder="Ingrese el principio activo ">{{old('principio_activo')}}</textarea>
             </div>
         </div>
 
-        <script>
-            $(document).ready(function() {
-            $('.js-example-basic-multiple').select2({
-                width: '100%',
-                placeholder: "Seleccione una opcion",
-            });
-            });
-        </script>
 
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Descripción: <span class="required"></span>
