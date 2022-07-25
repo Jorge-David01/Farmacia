@@ -13,7 +13,7 @@
        
         <tr>
             <th scope="row">Nombre del proveedor</th>
-            <td>{{$details->id_proveedor}}</td>
+            <td>{{$details->Nombre_del_proveedor}}</td>
         </tr>
 
         <tr>

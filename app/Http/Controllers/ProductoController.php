@@ -6,7 +6,9 @@ use App\Models\Producto;
 use App\Models\PrincipioActivo;
 use App\Models\ActivoProducto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreProductoRequest;
+use Illuminate\Support\Facades\Validator;
 
 class ProductoController extends Controller
 {
@@ -37,9 +39,14 @@ class ProductoController extends Controller
 //-----------------------------------------------------------
 //----------------- DETALLES PRODUCTO -----------------------
     public function detalles($id){
-        $details = Producto::findOrFail($id);
+ 
+        $details = DB::table('productos')
+                    ->join('proveedors', 'productos.id_proveedor', '=', 'proveedors.id')
+                    ->select('productos.*', 'proveedors.Nombre_del_proveedor')
+                    ->where('productos.id','=',$id)
+                    ->get();
         $principio= PrincipioActivo::findOrfail($id);
-        return view('productodetalles')->with('details', $details)->with('principio', $principio);  
+        return view('productodetalles')->with('details', $details[0])->with('principio', $principio);  
     }
 
 
@@ -119,33 +126,68 @@ class ProductoController extends Controller
 
     public function update(Request $request, $id){
 
-        $request->validate([
-            'id_proveedor'=>'required',
-            'nombre_producto'=>'required',
+        $validator = Validator::make($request->all(), [
+            'nombre_producto'=>'required|max:110',
+            'nombrepro'=>'required|max:110',
             'principio_activo'=>'required',
-            'descripcion'=>'required',
+            'descripcion'=>'required|max:110',
         ]);
 
-        $upda = Producto::find($id);
+        if($validator->fails()){
+        
+            $rules=[
 
+                'nombre_producto' => 'required|max:110|min:5',
+                'nombrepro'=> 'required|max:110|min:5',
+                'principio_activo'=> 'required',
+                'descripcion'=> 'required|max:110',
+                
+            ];
+
+            $mensaje=[
+                'nombrepro.required' => 'Debe de seleccionar un proveedor',
+                'nombrepro.exists' => 'El proveedor seleccionado es invalido',
+                'nombre_producto.required' => 'El nombre no puede estar vacío',
+                'nombre_producto.unique' => 'El nombre ingresado ya está en uso',
+                'nombre_producto.max' => 'El nombre ingresado es muy extenso',
+                'nombre_producto.min' => 'El nombre del producto debe de tener al menos seis caracteres',
+                'principio_activo.required' => 'El principio activo no puede estar vacío',
+                'principio_activo.exists' => 'El principio activo no existe',
+                'descripcion.required' => 'La descripción no puede estar vacío',
+                'descripcion.max' => 'La descripción ingresada es muy extensa',
+            ];
+
+            $this->validate($request,$rules,$mensaje);
+
+        }
+        
+        $upda = Producto::find($id);
         $upda -> id_proveedor  = $request->input('id_proveedor  ');
         $upda -> nombre_producto  = $request->input('nombre_producto ');
         $upda -> principio_activo  = $request->input('principio_activo');
         $upda -> descripcion  = $request->input('descripcion ');
+        $creado= $upda ->save();
+
+            return redirect()->route('lista.producto')->with('msj', 'El empleado se actualizo exitosamente');
+       
+}
+
+//-----------------------------------------------------------
+//------------- BUSCADOR  -----------------
 
 
-        $actualizado= $upda ->save();
-
-        if ($actualizado){
-            return redirect()->route('lista.producto')->with('msj', 'El empleado se actulizo exitosamente');
-        } else {
-          
-        }
-
-    }
+public function buscando(Request $REQUEST){
+    $prod = Producto::where('nombrepro','like', '%'.$REQUEST->busca.'%' )
+    ->orWhere('nombre_producto', 'like', '%'.$REQUEST->busca.'%')
+    ->orWhere('principio_activos.descripcion', 'like', '%'.$REQUEST->busca.'%')
+    ->join("activo_productos","activo_productos.id_producto","=","productos.id")
+    ->join("principio_activos","principio_activos.id","=","activo_productos.id_principio_activos")
+    ->join("proveedors ","productos.id_proveedor","=","proveedors.id")
+    ->paginate(10);
+   
+    return view('listaproductos')->with('prod', $prod);
     
-
+}
     
-
 
 }

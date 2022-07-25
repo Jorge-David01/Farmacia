@@ -5,13 +5,13 @@
 <br>
     @if($errors->any())
         <div class="alert alert-danger">
-            <ul>
+            
                 @foreach($errors->all() as $error)
-                    <li>
+                    <p>
                         {{$error}}
-                    </li>
+                   </p>
                 @endforeach
-            </ul>
+           
         </div>
     @endif
 
@@ -25,15 +25,15 @@
     
         <div class="col-md-6 col-sm-6 ">
         <label for="id_proveedor">Nombre del Proveedor:</label>
-            <input type="text" class="form-control-file" name="nombrepro" id="nombrepro" 
-            placeholder="id_proveedor" value="{{$producto->id_proveedor}}">
+            <input type="text" class="form-control-file" name="id_proveedor" id="id_proveedor" 
+            placeholder="id_proveedor" value="{{$producto->id_proveedor}}" maxlength="50">
         </div>
 
 
         <div class="col-md-6 col-sm-6 ">
         <label for="nombre_producto">Nombre del Producto:</label>
             <input type="text" class="form-control-file" name="nombre_producto" id="nombre_producto" 
-            placeholder="nombre_producto" value="{{$producto->nombre_producto}}">
+            placeholder="nombre_producto" value="{{$producto->nombre_producto}}" maxlength="50">
         </div>
         
         <div class="col-md-6 col-sm-6 ">
@@ -45,7 +45,7 @@
         <div class="col-md-6 col-sm-6 ">
         <label for="Descripcion">Descripcion:</label>
             <input type="text" class="form-control-file" name="Descripcion" id="Descripcion" 
-            placeholder="Descripcion" value="{{$producto->Descripcion}}" >
+            placeholder="Descripcion" value="{{$producto->Descripcion}}" maxlength="110" >
         </div>
 
 
