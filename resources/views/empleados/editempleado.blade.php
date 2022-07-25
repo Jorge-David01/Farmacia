@@ -5,13 +5,13 @@
 <br>
     @if($errors->any())
         <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $mensaje)
-                    <li>
-                        {{$mensaje}}
-                    </li>
+            
+                @foreach($errors->all() as $error)
+                    <p>                        
+                      &nbsp;&nbsp;{{$error}}
+                    </p>                                       
                 @endforeach
-            </ul>
+            
         </div>
     @endif
 
@@ -23,37 +23,37 @@
         @csrf
         <div class="col-md-6 col-sm-6 ">
         <label for="nombre_completo">Nombre Completo:</label>
-            <input type="text" class="form-control-file" name="nombre_completo" id="nombre_completo" 
-            placeholder="nombre_completo" value="{{$empleado->nombre_completo}}">
+            <input type="text" class="form-control-file" name="nombre_completo" id="nombre_completo " 
+             placeholder="nombre_completo" value="{{$empleado->nombre_completo}}" maxlength="50">
         </div>
 
         <div class="col-md-6 col-sm-6 ">
         <label for="numero_cel">Numero de Celular:</label>
             <input type="text" class="form-control-file" name="numero_cel" id="numero_cel" 
-            placeholder="numero_cel" value="{{$empleado->numero_cel}}">
+            placeholder="numero_cel" value="{{$empleado->numero_cel}} " maxlength="8">
         </div>
         
         <div class="col-md-6 col-sm-6 ">
         <label for="numero_tel">Numero de Telefono:</label>
             <input type="text" class="form-control-file" name="numero_tel" id="numero_tel" 
-            placeholder="numero_tel" value="{{$empleado->numero_tel}}" >
+            placeholder="numero_tel" value="{{$empleado->numero_tel}}" maxlength="8" >
         </div>
         <div class="col-md-6 col-sm-6 ">
         <label for="DNI">DNI:</label>
             <input type="text" class="form-control-file" name="dni" id="dni" 
-            placeholder="DNI" value="{{$empleado->DNI}}" >
+            placeholder="DNI" value="{{$empleado->DNI}}" maxlength="13">
         </div>
 
         <div class="col-md-6 col-sm-6 ">
         <label for="direccion">Direccion:</label>
             <input type="text" class="form-control-file" name="direccion" id="direccion" 
-            placeholder="Direccion" value="{{$empleado->direccion}}" >
+            placeholder="Direccion" value="{{$empleado->direccion}}"maxlength="100" >
         </div>
      
         <div class="col-md-6 col-sm-6 ">
         <label for="contraseña">Contraseña:</label>
             <input type="password" class="form-control-file" name="password" id="contraseña" 
-            placeholder="contraseña" value="{{$empleado->contraseña}}" >
+            placeholder="contraseña" value="{{$empleado->contraseña}}" maxlength="30" >
         </div>
       
 
