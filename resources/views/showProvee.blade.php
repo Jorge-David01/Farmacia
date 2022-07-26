@@ -48,13 +48,5 @@
 <a class="btn btn-primary" href="/Editprovee/{{$provee->id}}/editar">Actualizar</a>
 </button>
 
-<button class="btn btn-danger">
-<form method="post" action="{{route('proveedores.delete',['id'=>$provee->id])}}">
-    @csrf
-    @method('delete') 
-    <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el proveedor?')"
-    value="Eliminar" class="btn btn-danger" >
-</form>
-</button>
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

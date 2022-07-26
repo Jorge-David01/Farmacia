@@ -71,7 +71,6 @@ Route::get('/Verprovee/{id}',[ProveedorController::class, 'Ver']) -> name('show.
 Route::get('/Editprovee/{id}/editar',[ProveedorController::class, 'Edit']) -> name('edit.proveedor')-> where('id', '[1-9]+');
 Route::put('/Editprovee/{id}/editar',[ProveedorController::class, 'Update']) -> name('update.proveedor')-> where('id', '[1-9]+');
 
-Route::delete('/Listpro/{id}/eliminar',[ProveedorController::class, 'Eliminar'])->name('proveedores.delete')-> where('id', '[0-9]+');
 
 Route::post('/Prove/search', [ProveedorController::class, 'sear']) -> name ('funt');
 
@@ -91,8 +90,6 @@ Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> n
 // Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'Edit']) -> name('edit.producto');
 // Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto');
 
-
-Route::delete('/Producto/{id}/eliminar',[ProductoController::class, 'delete'])->name('delete.producto')-> where('id', '[0-9]+');
 
 Route::post('/Produ/busca', [ProductoController::class, 'buscando']) -> name ('producto.busqueda');
 

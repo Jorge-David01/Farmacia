@@ -66,7 +66,7 @@
   <div id="wrapper">
 
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-     <div class="brand-logo" width="100" height="500">
+     <div class="brand-logo">
       <a href="/Principal">
        <img src="/assets/images/Logo.jpeg" width="100" height="50" class="logo-icon" alt="logo icon"> 
      </a>

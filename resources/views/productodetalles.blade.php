@@ -47,13 +47,6 @@
 
 <a style="display:inline-block;margin-left:1%;" class="btn btn-primary" href="/productoeditar/{{$details->id}}/editar">Actualizar</a>
 
-
-<form style=" float:left; margin-right:1%; margin-left:4%" method="post" action="{{route('delete.producto',['id'=>$details->id])}}">
-    @csrf
-    @method('delete')
-    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Está seguro que desea eliminar el producto?')"
-    value="eliminar" class="btn btn-danger" >
-</form>
 </button>
 
 
