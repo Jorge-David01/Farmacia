@@ -3,7 +3,7 @@
 @section('contenido')
 
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Detalles de productos</u> </h1>
+<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Detalles de productos </h1>
 
 <table class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" >
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">

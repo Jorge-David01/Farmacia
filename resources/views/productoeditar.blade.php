@@ -16,7 +16,7 @@
     @endif
 
     
-    <h1 style="margin-left: 2% ; margin-top: 40px; margin-bottom: 3%; "> <u>Editar Producto</u> </h1>
+    <h1 style="margin-left: 2% ;margin-bottom: 3%; "> Editar Producto </h1>
 
     <form style="margin-left: 2%;" method="POST" action="{{route('update.producto',['id'=>$producto->id])}}">
         @method('put')

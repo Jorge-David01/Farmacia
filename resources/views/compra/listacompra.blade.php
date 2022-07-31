@@ -24,7 +24,7 @@ td {
 
 
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%;"> <u>Listado de compras realizadas</u> </h1>
+<h1 style="margin-left: 4% ; margin-bottom: 3%;"> Listado de compras realizadas </h1>
 
 <form action="{{route('buscador')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%">
 @csrf

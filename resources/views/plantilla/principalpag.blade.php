@@ -205,9 +205,11 @@
  <!--COLORES A SELECCIONAR-->
  <div class="right-sidebar">
 
+      <!--
       <div class="switcher-icon">
         <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-      </div>
+      </div> 
+      -->
 
       <div class="right-sidebar-content">
 

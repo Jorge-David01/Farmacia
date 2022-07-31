@@ -228,10 +228,10 @@ class EmpleadoController extends Controller
 
     }
 
-    
 
-
-
+    public function Principal() {return view('PaginaPrincipal');}
+    public function VPEmpleado() {return view('VentanaEmpleados');}
+    public function VPProveedor() {return view('VentanaProveedores');}
 
     }
 

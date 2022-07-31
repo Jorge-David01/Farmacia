@@ -27,9 +27,9 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/Principal', function () {
-    return view('PaginaPrincipal');
-});
+Route::get('/Principal',[EmpleadoController::class, 'Principal']);
+Route::get('/VentanaEmpleados',[EmpleadoController::class, 'VPEmpleado']);
+Route::get('/VPProveedor',[EmpleadoController::class, 'VPProveedor']);
 
 Route::get('/Empleados', function () {
     return view('VentanaEmpleados');
