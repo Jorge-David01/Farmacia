@@ -11,7 +11,7 @@ div.gallery img {
 .responsive {
   padding: 50px;
   float: left;
-  width: 30%;
+  width: 40%;
 }
 </style>
 
@@ -25,26 +25,32 @@ div.gallery img {
  <div class="responsive " >
   <div class="gallery" style="border: 5px solid #000033;">
     <a href="/empleados/nuevo">
-      <img src=" src/Nuevo.jpg" width="600" height="400" alt="Crear empleado nuevo">
+      <img src=" src/Nuevo.jpg" alt="Crear empleado nuevo">
     </a>
-    <b class="fst-italic" style=" font-size: 20px; ">Nuevo empleado</b>
+    <div class="card-body text-center">
+      <a href="/empleados/nuevo" class="btn btn-warning">Agregar empleado</a>
+    </div>
   </div>
  </div>
  
- <!-- ------------------IMG LISTA DE EMPLEADO---------------- -->
+
+<!-- ------------------IMG LISTA DE EMPLEADO---------------- -->
  <div class="responsive" >
     <div class="gallery" style="border: 5px solid #000033;">
-
       <a href="/Lista">
-        <img  src="src/imgLista.jpg" width="600" height="400" alt="Lista empleados">
+        <img  src="src/imgLista.jpg" alt="Lista empleados">
       </a>
-      <b class="fst-italic " style="font-size: 20px; text-align: center;">Lista de empleados</b>
-      
+      <div class="card-body text-center">
+        <a href="/Lista" class="btn btn-warning">lista de empleado</a>
+      </div> 
     </div>
   </div>
+
 </div>
 </div>
 <div class="clearfix"></div>
+
+
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

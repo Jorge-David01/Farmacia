@@ -176,8 +176,5 @@ class ProveedorController extends Controller{
         return view('listaproveedores')->with('pro', $pro);
     }
 
-    public function Eliminar($id){
-        Proveedor::destroy($id);
-        return redirect()->route('lista.proveedor')->with('Mensajes', 'El proveedor fue eliminado exitosamente');
-    }  
+    
 }

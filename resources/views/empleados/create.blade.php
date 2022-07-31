@@ -23,7 +23,7 @@
         }
     </style>
 
-     <h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Creación de Empleados</u> </h1>
+     <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Creación de Empleados </h1>
 
     <form style="margin-left: 3%;" method="post" enctype="multipart/form-data">
         @csrf

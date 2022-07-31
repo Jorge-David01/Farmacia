@@ -24,7 +24,7 @@ td {
 
 
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Lista de empleados</u> </h1>
+<h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de empleados </h1>
 
 
 <div class="col-x1-12">

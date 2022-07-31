@@ -52,14 +52,6 @@ class ProductoController extends Controller
     }
 
 
-//----------------------------------------------------------
-//----------------- BORRAR PRODUCTO -----------------------
-    public function delete($id){
-        Producto::destroy($id);
-        return redirect()->route('lista.producto')->with('Mensaje', 'El producto fue eliminado exitosamente');
-    }
-
-
 //-------------------------------------------------------------
 //----------------- VALIDACIÓN PRODUCTO -----------------------
     /**

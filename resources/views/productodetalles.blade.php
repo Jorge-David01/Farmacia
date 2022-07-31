@@ -3,7 +3,7 @@
 @section('contenido')
 
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Detalles de productos</u> </h1>
+<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Detalles de productos </h1>
 
 <table class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" >
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
@@ -47,13 +47,6 @@
 
 <a style="display:inline-block;margin-left:1%;" class="btn btn-primary" href="/productoeditar/{{$details->id}}/editar">Actualizar</a>
 
-
-<form style=" float:left; margin-right:1%; margin-left:4%" method="post" action="{{route('delete.producto',['id'=>$details->id])}}">
-    @csrf
-    @method('delete')
-    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Está seguro que desea eliminar el producto?')"
-    value="eliminar" class="btn btn-danger" >
-</form>
 </button>
 
 

@@ -11,9 +11,7 @@ div.gallery img {
 .responsive {
   padding: 50px;
   float: left;
-  width: 30%;
-  overflow-x: auto;
-  display: block;
+  width: 40%;
 }
 </style>
 
@@ -23,12 +21,17 @@ div.gallery img {
 
 <!-- ------------------IMG NUEVO PROVEEDOR---------------- -->
 <div style="display: block; width: 100%;  overflow-x: auto;">
+
  <div class="responsive " >
   <div class="gallery" style="border: 5px solid #000033;">
+
     <a href="proveedor/nuevo">
-      <img  src=" src/Nuevo.jpg" width="600" height="400" alt="Crear proveedor nuevo">
+      <img  src=" src/Nuevo.jpg" alt="Crear proveedor nuevo">
     </a>
-    <b class="fst-italic"  style=" font-size: 20px; ">Nuevo proveedor</b>
+    <div class="card-body text-center">
+      <a href="proveedor/nuevo" class="btn btn-warning">Nuevo Proveedor</a>
+    </div> 
+
   </div>
  </div>
 
@@ -37,10 +40,13 @@ div.gallery img {
     <div class="gallery" style="border: 5px solid #000033;">
 
       <a href="/Listpro">
-        <img  src="src/imgLista.jpg" width="600" height="400" alt="Lista proveedores">
+        <img  src="src/imgLista.jpg" alt="Lista proveedores">
       </a>
-      <b class="fst-italic " style="font-size: 20px; text-align: center;">Lista de proveedores</b>
       
+      <div class="card-body text-center">
+      <a href="/Listpro" class="btn btn-warning">Lista Proveedores</a>
+    </div>
+
     </div>
   </div>
 </div>
