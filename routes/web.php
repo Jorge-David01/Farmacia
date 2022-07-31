@@ -24,12 +24,20 @@ use App\Http\Controllers\CompraController;
 //------------------------------------------------------------
 //----------------- VENTANAS PRINCIPALES ---------------------
 Route::get('/', function () {
-    return view('login');
+    return view('auth.login');
+});
+
+
+
+
+Route::get('/Principal', function () {
+    return view('PaginaPrincipal');
 });
 
 Route::get('/Principal',[EmpleadoController::class, 'Principal']);
 Route::get('/VentanaEmpleados',[EmpleadoController::class, 'VPEmpleado']);
 Route::get('/VPProveedor',[EmpleadoController::class, 'VPProveedor']);
+
 
 Route::get('/Empleados', function () {
     return view('VentanaEmpleados');
@@ -124,3 +132,12 @@ Route::post('/compra/buscar', [CompraController::class, 'busqueda']) -> name ('b
 //----------------- RUTAS INVENTARIO------------------------
 Route::get('/inventarioVista',[CompraController::class, 'inven']) -> name('rio.Inventario');
 Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -> name ('busqueda');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/registro', function () {
+    return view('auth/register');
+});
+

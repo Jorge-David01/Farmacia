@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Validator;
 
 class ProveedorController extends Controller{
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
 //----------------------------------------------------------
 //----------------- EDITAR PROVEEDOR -----------------------
     public function proveed(){
