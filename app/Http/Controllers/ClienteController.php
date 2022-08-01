@@ -137,10 +137,79 @@ public function Ver($id){
      * @param  \App\Models\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(cliente $cliente)
+    public function actualizar(cliente $cliente)
     {
         //
     }
+
+
+
+    public function formulario(Request $request, $id)//Actualizar
+    {
+        $client = cliente::find($id);
+        return view('clienteupdate') ->with('client',$client);
+
+        //
+    }
+
+
+
+
+    public function update(Request $request, $id){
+
+        $rules= ([
+            'nombre_cliente'=>'required | |min:6 | max:70 '  ,
+            'numero_identidad'=>'required |min:13 | max:13 ',
+            'numero_tel'=>'required||min:8| max:8 |regex:([2,9,8,3]{1}[0-9]{7})',
+            'direccion'=>'required|min:10|max:50',
+           
+            
+
+        ]);
+
+        $messages =[
+            'nombre_cliente.required'=>'El nombre del cliente es obligatorio' ,
+            'nombre_cliente.min'=>'El nombre del cliente es demasiado corto' ,
+            'nombre_cliente.max'=>'El nombre del cliente es demasiado largo' ,
+
+            'numero_identidad.required'=>'El número de identidad es obligatorio' ,
+            'numero_identidad.min'=>'El número de identidad debe de tener 13 digitos' ,
+            'numero_identidad.max'=>'El número de identidad debe de tener 13 digitos' ,
+
+
+            'numero_tel.required'=>'El número de identidad es obligatorio' ,
+            'numero_tel.min'=>'El número de teléfono debe contener 8 digitos' ,
+            'numero_tel.max'=>'El número de teléfono debe contener 8 digitos' ,
+            'numero_tel.regex'=>'El número de teléfono debe iniciar con 2, 9, 8 o 3 y debe de contener 8 digitos' ,
+
+
+
+            'direccion.required'=>'El dirección del cliente es obligatoria' ,
+            'direccion.min'=>'El dirección debe contener como mínimo 10 caracteres' ,
+            'direccion.max'=>'El dirección debe contener como máximo 50 caracteres' ,  
+        
+        ];
+
+
+        $this->validate($request, $rules, $messages);
+
+        $clienteup =cliente::findorFail($id);
+        $clienteup->nombre_cliente = $request->input('nombre_cliente');
+        $clienteup->numero_id = $request->input('numero_identidad');
+      
+        $clienteup->telefono= $request->input('numero_tel');
+        $clienteup->direccion = $request->input('direccion');
+    
+        $actualizado = $clienteup->save();
+
+        if ($actualizado){
+            return redirect()->route('lista.clientes')->with('msj', 'El cliente fue actualizó exitosamente');
+         } else {
+          
+         }
+
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -149,10 +218,7 @@ public function Ver($id){
      * @param  \App\Models\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateclienteRequest $request, cliente $cliente)
-    {
-        //
-    }
+    
 
     /**
      * Remove the specified resource from storage.

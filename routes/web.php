@@ -35,9 +35,6 @@ Route::get('/', function () {
 
 
 
-Route::get('/Principal', function () {
-    return view('PaginaPrincipal');
-});
 
 Route::get('/Principal',[EmpleadoController::class, 'Principal']);
 Route::get('/VentanaEmpleados',[EmpleadoController::class, 'VPEmpleado']);
@@ -138,9 +135,18 @@ Route::post('/compra/buscar', [CompraController::class, 'busqueda']) -> name ('b
 Route::get('/inventarioVista',[CompraController::class, 'inven']) -> name('rio.Inventario');
 Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -> name ('busqueda');
 
+
+
+//Route::get('/vencimiento',[CompraController::class, 'Vencimientos']);
 Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
 //----------------------------------------------------------
 //--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
+
+=======
+Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
+//----------------------------------------------------------
+//--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
+
 
 //----------------------------------------------------------
 //----------------- RUTAS CLIENTES------------------------
@@ -150,10 +156,17 @@ Route::post('/clientes/nuevo',[ClienteController::class, 'store'])->name('client
 Route::get('/Cliente',[ClienteController::class, 'list'])->name('lista.clientes');
 Route::get('/Vercliente/{id}',[ClienteController::class, 'Ver']) -> name('show.cliente')-> where('id', '[1-9]+');
 
+Route::get('/cliente/{id}/update', [ClienteController::class, 'formulario']) -> name('update.cliente')-> where('id', '[0-9]+');
+Route::put('/cliente/{id}/update', [ClienteController::class, 'update']) -> name('cliente.actualizado') -> where('id', '[0-9]+');
+=======
+
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 
 Route::get('/registro', function () {
     return view('auth/register');
