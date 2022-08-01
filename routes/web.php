@@ -41,13 +41,7 @@ Route::get('/VentanaEmpleados',[EmpleadoController::class, 'VPEmpleado']);
 Route::get('/VPProveedor',[EmpleadoController::class, 'VPProveedor']);
 
 
-Route::get('/Empleados', function () {
-    return view('VentanaEmpleados');
-});
 
-Route::get('/Proveedores', function () {
-    return view('VentanaProveedores');
-});
 
 
 //-----------------------------------------------------------
@@ -142,7 +136,7 @@ Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> wher
 //----------------------------------------------------------
 //--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
 
-=======
+
 Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
 //----------------------------------------------------------
 //--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
@@ -158,7 +152,7 @@ Route::get('/Vercliente/{id}',[ClienteController::class, 'Ver']) -> name('show.c
 
 Route::get('/cliente/{id}/update', [ClienteController::class, 'formulario']) -> name('update.cliente')-> where('id', '[0-9]+');
 Route::put('/cliente/{id}/update', [ClienteController::class, 'update']) -> name('cliente.actualizado') -> where('id', '[0-9]+');
-=======
+
 
 
 
