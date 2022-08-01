@@ -80,6 +80,15 @@
       </li>
 
       <li>
+
+      <a href="/registro">
+          <i class="fa fa-address-card-o"></i> <span>Registrar</span>
+        </a>
+      </li>
+                   
+        </li>
+
+      <li>
         <a href="/Proveedores">
           <i class="fa fa-truck"></i> <span>Proveedores</span>
         </a>
@@ -179,7 +188,7 @@
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/Logo.jpeg" alt="user avatar"></div>
             <div class="media-body">
-            <h6 class="mt-2 user-title">Nombre Aqui</h6>
+            <h6 class="mt-2 user-title"></h6>
             <p class="user-subtitle">Administrador</p>
             </div>
            </div>
@@ -193,8 +202,15 @@
         <li class="dropdown-item"><a href="#" class="icon-envelope mr-2 w3-button"> Ayuda</a> </li>
 
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><a href="/" class="icon-power mr-2 w3-button"> Cerrar sesión</a> </li>
+        <li class="dropdown-item"><a href="{{ route('logout') }}" 
+        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                              
+        class="icon-power mr-2 w3-button"> Cerrar sesión</a> </li>
 
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
       </ul>
     </li>
 
@@ -205,9 +221,11 @@
  <!--COLORES A SELECCIONAR-->
  <div class="right-sidebar">
 
+      <!--
       <div class="switcher-icon">
         <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-      </div>
+      </div> 
+      -->
 
       <div class="right-sidebar-content">
 
@@ -278,5 +296,11 @@
   <script src="assets/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+<script>
+
+
+</script>
+
 </body>
 </html>

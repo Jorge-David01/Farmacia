@@ -11,7 +11,7 @@ td {
 
 
 
-<h1 style="margin-left: 4% ; margin-top: 55px; margin-bottom: 3%; "> <u>Lista de inventario disponible</u> </h1>
+<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Inventario </h1>
 
 <form action="{{route('busqueda')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%">
 @csrf
@@ -42,9 +42,11 @@ td {
 <tr style="border: 2px solid #dddddd;">
 <td> {{$listaInv->id_producto}} </td>
 <td> {{$listaInv->cantidad}}</td>
-<td> {{$listaInv->precio_publico}}</td>
+<!--  <td> {{$listaInv->precio_publico}}</td> -->
 
-<td > <a  class="btn btn-success" href=""> Expiración </a></td>
+<td> <a  class="btn btn-success" href=""> Precio unitario </a></td>
+<td > <a  class="btn btn-success" href=""> fecha de vencimiento </a></td>
+
 </tr>
 
 

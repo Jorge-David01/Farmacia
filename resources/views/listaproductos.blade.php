@@ -22,7 +22,7 @@ td {
 @endif
 
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Lista de productos</u> </h1>
+<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Lista de productos </h1>
 
 <a style="margin-left: 4%;" class="btn btn-warning" href="/productos/nuevo">Nuevo</a>
 

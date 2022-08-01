@@ -62,6 +62,7 @@
 			  </div>
 			<div class="form-row">
 			
+  
 			
 			 <button onclick="entrar()" type="button" class="btn btn-light btn-block">Acceder</button>
 			
@@ -142,6 +143,10 @@ if(usuar == usuario1 && contra == contra1){
 }
 
 </script>
+
+
+
+
 
 </body>
 </html>

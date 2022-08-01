@@ -6,7 +6,7 @@
 
 
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Detalles de compra</u> </h1>
+<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Detalles de compra </h1>
 
 <table class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" >
 

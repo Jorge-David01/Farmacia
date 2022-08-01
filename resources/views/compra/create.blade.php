@@ -14,7 +14,7 @@
         border-radius: 0px !important;
     }
 </style>
-<h2 style="margin-left: 3% ; margin-top: 70px; margin-bottom: 1%; "> <u>Datos de la factura de compra</u> </h2>
+<h2 style="margin-left: 3% ; margin-bottom: 1%; "> Datos de la factura de compra </h2>
 
 <div style="width: 80%;margin-left: 3%">
     <div style="width: 100%">
@@ -162,7 +162,7 @@
             }
         </script>
 
-    <h2 style="margin-left: 0% ;  margin-bottom: 2%; "> <u>Productos Facturados</u> </h2>
+    <h2 style="margin-left: 0% ;  margin-bottom: 2%; "> Productos Facturados </h2>
     <table style="border: 2px solid #dddddd;" class="table table-bordered">
 
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">

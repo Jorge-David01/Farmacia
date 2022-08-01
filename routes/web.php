@@ -29,12 +29,20 @@ use App\Http\Controllers\ClienteController;
 //------------------------------------------------------------
 //----------------- VENTANAS PRINCIPALES ---------------------
 Route::get('/', function () {
-    return view('login');
+    return view('auth.login');
 });
+
+
+
 
 Route::get('/Principal', function () {
     return view('PaginaPrincipal');
 });
+
+Route::get('/Principal',[EmpleadoController::class, 'Principal']);
+Route::get('/VentanaEmpleados',[EmpleadoController::class, 'VPEmpleado']);
+Route::get('/VPProveedor',[EmpleadoController::class, 'VPProveedor']);
+
 
 Route::get('/Empleados', function () {
     return view('VentanaEmpleados');
@@ -138,3 +146,13 @@ Route::post('/clientes/nuevo',[ClienteController::class, 'store'])->name('client
 
 Route::get('/Cliente',[ClienteController::class, 'list'])->name('lista.clientes');
 Route::get('/Vercliente/{id}',[ClienteController::class, 'Ver']) -> name('show.cliente')-> where('id', '[1-9]+');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/registro', function () {
+    return view('auth/register');
+});
+

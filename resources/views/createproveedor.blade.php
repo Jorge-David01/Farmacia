@@ -13,6 +13,7 @@ input:invalid {
   border: 2px solid #4da9ff;
 }
 </style>
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -24,7 +25,7 @@ input:invalid {
 @endif
 
 
-<h1 style="margin-left: 3% ; margin-top: 70px; margin-bottom: 3%; "> <u>Creación De Proveedor</u> </h1>
+<h1 style="margin-left: 3% ; margin-bottom: 3%; "> Creación De Proveedor </h1>
 
 
 

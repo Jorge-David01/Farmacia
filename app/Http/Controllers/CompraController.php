@@ -17,6 +17,10 @@ use Illuminate\Database\Eloquent\Builder;
 
 class CompraController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

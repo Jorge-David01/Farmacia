@@ -2,7 +2,7 @@
 @section('pestania', 'Editar empleado')
 @section('contenido')
 
-<br>
+
     @if($errors->any())
         <div class="alert alert-danger">
             
@@ -16,7 +16,7 @@
     @endif
 
 
-    <h1 style="margin-left: 3% ; margin-top: 40px; margin-bottom: 3%; "> <u>Editar Empleados</u> </h1>
+    <h1 style="margin-left: 3% ;  margin-bottom: 3%; ">Editar Empleados </h1>
     
     <form style="margin-left: 2%;" method="POST" action="">
     @method('put')
