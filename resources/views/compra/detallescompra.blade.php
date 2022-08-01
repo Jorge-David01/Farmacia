@@ -34,11 +34,11 @@
 
         @forelse ($deta as $det)
 
-
+        @forelse ($namep as $nombre)
 
         <tr>
            
-            <td>{{$det->id_producto}}</td>
+            <td>{{$nombre->nombre_producto}}</td>
    
             <td>{{$det->cantidad}}</td>
      
@@ -60,6 +60,10 @@
 
             
         </tr>
+        
+        @empty
+       
+@endforelse
  
         @empty
        

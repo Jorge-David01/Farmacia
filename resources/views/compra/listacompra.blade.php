@@ -53,16 +53,24 @@ td {
     @endif
 </tbody>
 
-@forelse($lista as $list)
-
+@forelse($lista as $list )
+@forelse($name as $nam )
 
 <tr style="border: 2px solid #dddddd;">
 <td> {{$list->numero_factura}} </td>
-<td>  {{$list->id_proveedor}} </td>
+<td>  {{$nam->Nombre_del_proveedor}} </td>
 <td>  {{$list->fecha_pago}}             </td>
 
 <td > <a  class="btn btn-success" href="/detallescompra/{{$list->id}}"> Detalles </a></td>
 </tr>
+
+
+@empty
+
+
+
+@endforelse
+
 
 @empty
 

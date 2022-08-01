@@ -232,10 +232,12 @@ class CompraController extends Controller
 
     public function listacompras(){
         $lista = Compra::paginate(10) ;
+       $name = Proveedor::paginate(10);
+        
 
-        return view('compra/listacompra')->with('lista' , $lista);
+        return view('compra/listacompra')->with('lista' , $lista)->with('name', $name);
 
-        return view('compra/listacompra')->with('lista' , $lista)->with("proved", $proved);
+      
 
     }
 
@@ -246,6 +248,8 @@ class CompraController extends Controller
     public function detailscompra($id){
         $details = DetalleCompra::findOrFail($id);
         $comp = Compra::findOrFail($id);
+        $namep = Producto::paginate($id);
+
 
         $deta = DB::table('compras')
         ->join('detalle_compras', 'compras.id', '=', 'detalle_compras.id_compra')
@@ -255,7 +259,7 @@ class CompraController extends Controller
         return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);
 
 
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp);
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('namep', $namep);
     }
 
 
