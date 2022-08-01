@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compra;
+use App\Models\Inventario;
+use App\Models\Vencimiento;
 use App\Models\Producto;
 use App\Models\Proveedor;
 use App\Models\Temporal;
@@ -277,15 +279,50 @@ class CompraController extends Controller
 //--------------------- INVENTARIO Y BUSCADOR -------------------------
 
     public function inven(){
-        $Inventa =  DetalleCompra::paginate(10) ;
+        $Inventa =  inventario::paginate(20) ;
         return view('Inventario')->with('Inventa' , $Inventa);
     }
 
 
     public function buscador(Request $request){
-        $Inventa =  DetalleCompra::where('cantidad','like', '%'.$request->good.'%' )->paginate(10);
+        $Inventa =  inventario::where('cantidad','like', '%'.$request->good.'%' )->paginate(10);
         return view('Inventario')->with('Inventa', $Inventa);
     }
+
+   // public function Vencimientos() {return view('Vencimiento');}
+
+
+    public function Vencimiento($id){
+        $fecha = DetalleCompra::findOrFail($id);
+    
+        $detas = DB::table('productos')
+        ->join('detalle_compras', 'id_producto', '=', 'detalle_compras.id_producto')
+        ->where('detalle_compras.id_producto', '=', $id)
+        ->select('id_producto' ,'lote' , 'fecha_vencimiento')
+        ->get();
+
+        return view('vencimiento')->with('fecha', $fecha)->with('detas', $detas);
+    }
+
+/*
+    public function  Vencimientos($id){
+        $fecha = DetalleCompra::findOrFail($id);
+       // $rela = Escuela::findOrFail($id);
+        
+        $fecha->DetalleCompras;
+        
+        $detas = DB::table('Vencimientos')
+        ->join('detalle_compras', 'id_producto', '=', 'detalle_compras.id_producto')
+        ->where('detalle_compras.id_producto', '=', $id)
+        ->select('detalle_compras.id_producto' ,'detalle_compras.lote' , 'detalle_compras.fecha_vencimiento')
+        ->get();
+
+        return view('vencimiento', compact('detas'))->with('fecha', $fecha);
+
+    }
+*/
+    //---------------------------------------------------------------------
+    //--------------------- Agreguen titulos -------------------------
 
     public function edit(Request $request,$id){
         if ($request->input('cantidad'.$id) != "" && $request->input('cantidad'.$id) > 0 ) {

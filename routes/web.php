@@ -133,6 +133,11 @@ Route::post('/compra/buscar', [CompraController::class, 'busqueda']) -> name ('b
 Route::get('/inventarioVista',[CompraController::class, 'inven']) -> name('rio.Inventario');
 Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -> name ('busqueda');
 
+//Route::get('/vencimiento',[CompraController::class, 'Vencimientos']);
+Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
+//----------------------------------------------------------
+//--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -140,4 +145,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/registro', function () {
     return view('auth/register');
 });
+
 
