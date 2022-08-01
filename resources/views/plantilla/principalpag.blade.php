@@ -107,7 +107,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="/Cliente">
           <i class="fa fa-users"></i> <span>Clientes</span>
         </a>
       </li>
