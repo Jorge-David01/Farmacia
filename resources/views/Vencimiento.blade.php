@@ -8,18 +8,16 @@
 
 
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-        <th scope="row">Nombre del producto</th>
-            <td style="background: #0088cc; border: 2px solid #dddddd;"></td>
+            <th scope="row">Nombre del producto</th>
+            <td style="background: #0088cc; border: 2px solid #dddddd;">{{$abc->nombre_producto}} </td>
         </tr>
-
-       
        
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;"> 
             <th>Lote</th>
             <th>Fecha de vencimiento</th>
         </tr>
 
-        @forelse ($detas as $det)
+        @forelse ($detas  as $det)
 
         <tr>
             <td>{{$det->lote}}</td>
@@ -30,6 +28,8 @@
        
 @endforelse
 
+
+ 
 </table>
 
 <button  style="margin-left: 4%;" class="btn btn-success">

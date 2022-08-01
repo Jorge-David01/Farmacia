@@ -283,7 +283,8 @@ class CompraController extends Controller
 //--------------------- INVENTARIO Y BUSCADOR -------------------------
 
     public function inven(){
-        $Inventa =  inventario::paginate(20) ;
+        $Inventa =  Inventario::paginate(20) ;
+      
         return view('Inventario')->with('Inventa' , $Inventa);
     }
 
@@ -293,11 +294,23 @@ class CompraController extends Controller
         return view('Inventario')->with('Inventa', $Inventa);
     }
 
-   // public function Vencimientos() {return view('Vencimiento');}
-
 
     public function Vencimiento($id){
+        $abc = Producto::findOrFail($id);
+    
+        $detas = DB::table('productos')
+        ->join('detalle_compras', 'productos.id', '=', 'detalle_compras.id_producto')
+        ->where('detalle_compras.id_producto', '=', $id)
+        ->select('id_producto' ,'lote' , 'fecha_vencimiento')
+        ->get();
+
+        return view('vencimiento')->with('detas', $detas)->with('abc', $abc);
+    }
+
+    /*
+    public function Vencimiento($id){
         $fecha = DetalleCompra::findOrFail($id);
+        $abc = Producto::findOrFail($id);
     
         $detas = DB::table('productos')
         ->join('detalle_compras', 'id_producto', '=', 'detalle_compras.id_producto')
@@ -305,26 +318,10 @@ class CompraController extends Controller
         ->select('id_producto' ,'lote' , 'fecha_vencimiento')
         ->get();
 
-        return view('vencimiento')->with('fecha', $fecha)->with('detas', $detas);
-    }
+        return view('vencimiento')->with('fecha', $fecha)->with('detas', $detas)->with('abc', $abc);
+    } 
+    */
 
-/*
-    public function  Vencimientos($id){
-        $fecha = DetalleCompra::findOrFail($id);
-       // $rela = Escuela::findOrFail($id);
-        
-        $fecha->DetalleCompras;
-        
-        $detas = DB::table('Vencimientos')
-        ->join('detalle_compras', 'id_producto', '=', 'detalle_compras.id_producto')
-        ->where('detalle_compras.id_producto', '=', $id)
-        ->select('detalle_compras.id_producto' ,'detalle_compras.lote' , 'detalle_compras.fecha_vencimiento')
-        ->get();
-
-        return view('vencimiento', compact('detas'))->with('fecha', $fecha);
-
-    }
-*/
     //---------------------------------------------------------------------
     //--------------------- Agreguen titulos -------------------------
 

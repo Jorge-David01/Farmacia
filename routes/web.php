@@ -136,7 +136,13 @@ Route::get('/inventarioVista',[CompraController::class, 'inven']) -> name('rio.I
 Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -> name ('busqueda');
 
 
+
 //Route::get('/vencimiento',[CompraController::class, 'Vencimientos']);
+Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
+//----------------------------------------------------------
+//--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
+
+=======
 Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
 //----------------------------------------------------------
 //--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
@@ -149,8 +155,12 @@ Route::post('/clientes/nuevo',[ClienteController::class, 'store'])->name('client
 
 Route::get('/Cliente',[ClienteController::class, 'list'])->name('lista.clientes');
 Route::get('/Vercliente/{id}',[ClienteController::class, 'Ver']) -> name('show.cliente')-> where('id', '[1-9]+');
+
 Route::get('/cliente/{id}/update', [ClienteController::class, 'formulario']) -> name('update.cliente')-> where('id', '[0-9]+');
 Route::put('/cliente/{id}/update', [ClienteController::class, 'update']) -> name('cliente.actualizado') -> where('id', '[0-9]+');
+=======
+
+
 
 Auth::routes();
 
