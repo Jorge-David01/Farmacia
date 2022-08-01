@@ -6,10 +6,12 @@ use App\Models\Empleado;
 use App\Models\Proveedor;
 use App\Models\Producto;
 use App\Models\Compra;
+use App\Models\Cliente;
 
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\ClienteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +22,9 @@ use App\Http\Controllers\CompraController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// to only migrate a migrations	
+// php artisan migrate --path=/database/migrations/2022_07_27_174905_create_clientes_table
 
 //------------------------------------------------------------
 //----------------- VENTANAS PRINCIPALES ---------------------
@@ -129,6 +134,16 @@ Route::post('/compra/buscar', [CompraController::class, 'busqueda']) -> name ('b
 //----------------- RUTAS INVENTARIO------------------------
 Route::get('/inventarioVista',[CompraController::class, 'inven']) -> name('rio.Inventario');
 Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -> name ('busqueda');
+
+
+//----------------------------------------------------------
+//----------------- RUTAS CLIENTES------------------------
+Route::get('/clientes/nuevo',[ClienteController::class, 'create'])->name('clientes.create');
+Route::post('/clientes/nuevo',[ClienteController::class, 'store'])->name('clientes.store');
+
+Route::get('/Cliente',[ClienteController::class, 'list'])->name('lista.clientes');
+Route::get('/Vercliente/{id}',[ClienteController::class, 'Ver']) -> name('show.cliente')-> where('id', '[1-9]+');
+
 
 Auth::routes();
 

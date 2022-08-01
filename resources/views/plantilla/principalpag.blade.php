@@ -107,7 +107,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="/Cliente">
           <i class="fa fa-users"></i> <span>Clientes</span>
         </a>
       </li>
@@ -188,7 +188,11 @@
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/Logo.jpeg" alt="user avatar"></div>
             <div class="media-body">
+
             <h6 class="mt-2 user-title"> </h6>
+
+         
+
             <p class="user-subtitle">Administrador</p>
             </div>
            </div>
