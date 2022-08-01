@@ -37,17 +37,10 @@ Route::get('/', function () {
 
 
 Route::get('/Principal',[EmpleadoController::class, 'Principal']);
-Route::get('/VentanaEmpleados',[EmpleadoController::class, 'VPEmpleado']);
-Route::get('/VPProveedor',[EmpleadoController::class, 'VPProveedor']);
+Route::get('/Empleados',[EmpleadoController::class, 'VPEmpleado']);
+Route::get('/Proveedores',[EmpleadoController::class, 'VPProveedor']);
 
 
-Route::get('/Empleados', function () {
-    return view('VentanaEmpleados');
-});
-
-Route::get('/Proveedores', function () {
-    return view('VentanaProveedores');
-});
 
 
 //-----------------------------------------------------------
@@ -57,8 +50,6 @@ Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])->name('empl
 Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])->name('empleados.store');
 
 Route::get('/Emple/{id}', [EmpleadoController::class, 'show']) -> name('empleado.detalles')-> where('id', '[0-9]+');
-
-Route::get('/Empleados', function () { return view('VentanaEmpleados');});
 
 Route::get('/Lista',[EmpleadoController::class, 'list']) -> name ('lista');
 
@@ -139,13 +130,7 @@ Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -
 
 //Route::get('/vencimiento',[CompraController::class, 'Vencimientos']);
 Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
-//----------------------------------------------------------
-//--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
 
-=======
-Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
-//----------------------------------------------------------
-//--------- RUTAS REGISTROS Y AUTENTIFICACIÓN --------------
 
 
 //----------------------------------------------------------
@@ -158,7 +143,7 @@ Route::get('/Vercliente/{id}',[ClienteController::class, 'Ver']) -> name('show.c
 
 Route::get('/cliente/{id}/update', [ClienteController::class, 'formulario']) -> name('update.cliente')-> where('id', '[0-9]+');
 Route::put('/cliente/{id}/update', [ClienteController::class, 'update']) -> name('cliente.actualizado') -> where('id', '[0-9]+');
-=======
+
 
 
 
