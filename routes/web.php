@@ -30,9 +30,6 @@ Route::get('/', function () {
 
 
 
-Route::get('/Principal', function () {
-    return view('PaginaPrincipal');
-});
 
 Route::get('/Principal',[EmpleadoController::class, 'Principal']);
 Route::get('/VentanaEmpleados',[EmpleadoController::class, 'VPEmpleado']);
@@ -136,6 +133,8 @@ Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 
 Route::get('/registro', function () {
     return view('auth/register');

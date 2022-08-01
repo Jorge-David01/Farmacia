@@ -136,7 +136,7 @@
         </a>
       </li>
 
-
+    
     </ul>
   </div>
 
@@ -188,7 +188,7 @@
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/Logo.jpeg" alt="user avatar"></div>
             <div class="media-body">
-            <h6 class="mt-2 user-title"> {{ Auth::user()->name }}</h6>
+            <h6 class="mt-2 user-title"> </h6>
             <p class="user-subtitle">Administrador</p>
             </div>
            </div>
