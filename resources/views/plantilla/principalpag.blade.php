@@ -208,13 +208,13 @@
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><a href="{{ route('logout') }}" 
         onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
+        document.getElementById('logout-form').submit();"
                               
         class="icon-power mr-2 w3-button"> Cerrar sesión</a> </li>
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+        @csrf
+        </form>
       </ul>
     </li>
 

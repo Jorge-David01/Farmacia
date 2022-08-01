@@ -16,14 +16,17 @@ class CreateInventariosTable extends Migration
         Schema::create('inventarios', function (Blueprint $table) {
             $table->id();
 
-         //   $table->string("nombre_producto");
-         //   $table->integer("cantidad");
+         
+            $table->integer("id_producto");
 
+            $table->integer("cantidad");
+
+          //   $table->string("nombre_producto");
+          //   $table->integer("cantidad");
           //  $table->unsignedBigInteger('id_producto');
           //  $table->foreign("id_producto")->references("id")->on("productos");
 
-          // $table->unsignedBigInteger('id_producto');
-          // $table->foreign("id_producto")->references("id")->on("detalle_compras");
+           
 
             $table->timestamps();
         });

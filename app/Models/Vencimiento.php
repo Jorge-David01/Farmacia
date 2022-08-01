@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Vencimiento extends Model
 {
     use HasFactory;
+
+    public function DetalleCompra(){
+        return $this-> belongsTo(DetalleCompra::class);
+    }
 }

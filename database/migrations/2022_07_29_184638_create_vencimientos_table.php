@@ -15,6 +15,13 @@ class CreateVencimientosTable extends Migration
     {
         Schema::create('vencimientos', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('id_producto');
+            
+
+            $table->integer("lote");
+            $table->date("fecha_vencimiento");
+
             $table->timestamps();
         });
     }
