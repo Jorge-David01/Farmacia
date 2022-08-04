@@ -12,6 +12,7 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VentaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +24,7 @@ use App\Http\Controllers\ClienteController;
 |
 */
 
-// to only migrate a migrations	
+// to only migrate a migrations
 // php artisan migrate --path=/database/migrations/2022_07_27_174905_create_clientes_table
 
 //------------------------------------------------------------
@@ -144,6 +145,22 @@ Route::get('/Vercliente/{id}',[ClienteController::class, 'Ver']) -> name('show.c
 Route::get('/cliente/{id}/update', [ClienteController::class, 'formulario']) -> name('update.cliente')-> where('id', '[0-9]+');
 Route::put('/cliente/{id}/update', [ClienteController::class, 'update']) -> name('cliente.actualizado') -> where('id', '[0-9]+');
 
+//----------------------------------------------------------
+//----------------- RUTAS DE VENTAS -----------------------
+Route::get('/venta/nuevo',[VentaController::class, 'create'])->name('venta.create');
+Route::post('/venta/nuevo',[VentaController::class, 'store'])->name('venta.store');
+
+Route::post('/venta/editar/{id}',[VentaController::class, 'edit'])->name('venta.editar');
+Route::get('/venta/editar/{id}',[VentaController::class, 'edit'])->name('venta.editar');
+
+
+Route::delete('/venta/eliminar/{id}',[VentaController::class, 'eliminar'])->name('venta.eliminar');
+
+Route::get('/venta/eliminar/todo',[VentaController::class, 'destruir'])->name('venta.destruir');
+
+Route::get('/venta/cancelar',[VentaController::class, 'cancelar'])->name('venta.cancelar');
+
+Route::put('/venta/almacenar',[VentaController::class, 'almacenar'])->name('venta.almacenar');
 
 
 
