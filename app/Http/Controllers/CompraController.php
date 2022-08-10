@@ -94,6 +94,7 @@ class CompraController extends Controller
             "pago" => "required|date|after:'.$fecha_actual.",
             "compra" => 'required|numeric|min:1',
             "venta" => 'required|numeric|max:999999.99|min:'.$compra,
+            "laboratorio" => 'required',
 
         ], [
             'factura.required' => 'Debe de ingresar el numero de factura',
@@ -122,7 +123,8 @@ class CompraController extends Controller
             'venta.min' => 'El precio de venta debe de ser mayor al precio de compra',
             'compra.required' => 'El precio de compra es obligatorio',
             'compra.min' => 'El precio de compra debe de ser mayor a 0',
-            'compra.numeric' => 'El precio de compra es invalido',
+            'laboratorio.numeric' => 'El laboratorio es obligatorio',
+
         ]);
 
         $temporals = new Temporal();
@@ -131,6 +133,7 @@ class CompraController extends Controller
         $temporals->fecha_vencimiento = $request->input('vencimiento');
         $temporals->cantidad = $request->input('cantidad');
         $temporals->lote = $request->input('lote');
+        $temporals->laboratorio = $request->input('laboratorio');
         $temporals->precio_farmacia = $request->input('compra');
         $temporals->precio_publico = $request->input('venta');
 
@@ -214,6 +217,7 @@ class CompraController extends Controller
             $detalle->id_producto = $temp->id_producto;
             $detalle->cantidad = $temp->cantidad;
             $detalle->lote = $temp->lote;
+            $detalle->laboratorio = $temp->laboratorio;
             $detalle->fecha_vencimiento = $temp->fecha_vencimiento;
             $detalle->precio_farmacia =  $temp->precio_farmacia;
             $detalle->precio_publico = $temp->precio_publico;

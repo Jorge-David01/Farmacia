@@ -18,6 +18,7 @@ class CreateTemporalVentasTable extends Migration
             $table->unsignedBigInteger('id_producto');
             $table->foreign("id_producto")->references("id")->on("productos");
             $table->integer("cantidad");
+            $table->decimal("descuento");
             $table->decimal("precio");
             $table->timestamps();
         });

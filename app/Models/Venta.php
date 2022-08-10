@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Venta extends Model
 {
     use HasFactory;
+    
+    public function clientes(){
+        return $this->belongsTo(Cliente::class, 'id_cliente', 'id');
+    }
+
+    public function detalles(){
+        return $this->hasMany(DetalleVenta::class,'id_venta', 'id');
+    }
 }

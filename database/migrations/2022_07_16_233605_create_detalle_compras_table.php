@@ -19,7 +19,7 @@ class CreateDetalleComprasTable extends Migration
             $table->foreign("id_compra")->references("id")->on("compras");
             $table->unsignedBigInteger('id_producto');
             $table->foreign("id_producto")->references("id")->on("productos");
-            
+            $table->string("laboratorio");
             $table->integer("cantidad");
             $table->integer("lote");
             $table->date("fecha_vencimiento");
