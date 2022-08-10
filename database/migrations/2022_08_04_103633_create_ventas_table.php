@@ -16,10 +16,9 @@ class CreateVentasTable extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->string("numero_factura")->unique();
-            $table->boolean("tipo_pago");
-            $table->date("fecha_pago");
             $table->unsignedBigInteger('id_cliente');
             $table->foreign("id_cliente")->references("id")->on("clientes");
+            $table->string("pago");
             $table->timestamps();
         });
     }

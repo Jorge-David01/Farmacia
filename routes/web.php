@@ -162,7 +162,7 @@ Route::get('/venta/cancelar',[VentaController::class, 'cancelar'])->name('venta.
 
 Route::put('/venta/almacenar',[VentaController::class, 'almacenar'])->name('venta.almacenar');
 
-
+Route::get('/venta/factura/{id}',[VentaController::class, 'factura'])->name('venta.factura');
 
 Auth::routes();
 

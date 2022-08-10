@@ -18,6 +18,7 @@ class CreateTemporalsTable extends Migration
             $table->unsignedBigInteger('id_producto');
             $table->foreign("id_producto")->references("id")->on("productos");
             $table->integer("cantidad");
+            $table->string("laboratorio");
             $table->integer("lote");
             $table->date("fecha_vencimiento");
             $table->decimal("precio_farmacia");

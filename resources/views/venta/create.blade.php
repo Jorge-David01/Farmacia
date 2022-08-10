@@ -33,19 +33,37 @@
                 </ul>
             </div>
         @endif
-            <div style="width: 32%; float: left;margin-right: 1%">
+            <div style="width: 24%; float: left;margin-right: 1%">
                 <center><label for="" >Número de factura:</label></center>
                 <input placeholder="Número de factura" class="form-control" id="factura" name="factura"
-                maxlength="10" type="text"  required value="@if(isset($numero)){{$numero}}@else{{old("factura")}}@endif">
+                maxlength="10" type="text"  required value="@if(isset($numero)){{$numero}}@else{{old("factura")}}@endif" readonly>
             </div>
             <?php $fecha_actual = date("Y-m-d");?>
-            <div style="width: 32%; float: left;margin-right: 1%">
+            <div style="width: 24%; float: left;margin-right: 1%">
                 <center><label for="" >Fecha de venta:</label></center>
                 <input type="date" class="form-control" id="fecha" name="fecha"
                 disabled value="{{$fecha_actual}}" >
             </div>
 
-            <div style="width: 32%; float: left;margin-right: 1%">
+            <div style="width: 24%; float: left;margin-right: 1%">
+                <center><label for="" >Tipo de pago:</label></center>
+                <select name="pago" id="pago" class="form-control selectpicker"
+                data-live-search="true">
+                @if(old('pago'))
+                <option value="{{old('pago')}}" style="display:none">{{old('pago')}}</option>
+                @else
+                    @if (isset($idpago))
+                        <option value="{{$idpago}}" style="display:none">{{$idpago}}</option>
+                    @else
+                        <option value="" style="display:none">Seleccione</option>
+                    @endif
+                @endif
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Tarjeta">Tarjeta</option>
+                </select>
+            </div>
+
+            <div style="width: 24%; float: left;margin-right: 1%">
                 <center><label for="" >Nombre del cliente:</label></center>
                 <select name="cliente" id="cliente" class="form-control selectpicker"
                 data-live-search="true">
@@ -71,8 +89,7 @@
             <div style="width: 100%; float: left; height: 30px;">
             </div>
 
-
-            <div style="width: 32%; float: left;margin-right: 1%">
+            <div style="width:32%; float: left;margin-right: 1%">
                 <center><label for="" >Producto:</label></center>
             <select name="productos" id="productos" class="form-control selectpicker"
                 data-live-search="true">
@@ -100,10 +117,10 @@
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </div>
             <div style="width: 32%; float: left;margin-right: 1%">
-                <center><label for="" >Precio:</label></center>
-                <input placeholder="0.00" class="form-control" id="compra" name="compra"
-                min="0" max="999999.99" maxlength="10" type="number" step="any" disabled
-                title="Formato de precio incorrecto" value="{{old("compra")}}"
+                <center><label for="" >Descuento:</label></center>
+                <input placeholder="0.00" class="form-control" id="descuento" name="descuento"
+                min="0" max="100" maxlength="3" type="number" step="any" 
+                title="Formato de descuento incorrecto" value="{{old("descuento")}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </div>
             <div style="width: 100%; float: left;margin-top: 2%; margin-bottom: 1%;">
@@ -121,6 +138,8 @@
            <th style="text-align: center">Producto</th>
            <th style="text-align: center">Precio</th>
            <th style="text-align: center">Cantidad</th>
+           <th style="text-align: center">Sub Total</th>
+           <th style="text-align: center">Descuento</th>
            <th style="text-align: center">Total</th>
         </tr>
             <?php
@@ -130,7 +149,7 @@
                 <tr>
                     <td>
                         <form method="post"
-                        action="{{route('venta.eliminar',['id'=>$p->id,'factura'=>$numero,'cliente'=>$idcliente])}}">
+                        action="{{route('venta.eliminar',['id'=>$p->id,'factura'=>$numero,'cliente'=>$idcliente,'pago'=>$idpago])}}">
                             @csrf
                             @method('delete')
                             <center>
@@ -145,7 +164,7 @@
                     <td style="text-align: left;">
 
                         <form method="post" style="display: none" id="oculto{{$p->id}}"
-                        action="{{route('compra.editar',['id'=>$p->id,'factura'=>$numero,'cliente'=>$idcliente])}}">
+                        action="{{route('venta.editar',['id'=>$p->id,'factura'=>$numero,'cliente'=>$idcliente,'pago'=>$idpago])}}">
                             @csrf
                             @method('post')
                             <input style="float: left" type="text" min="1" name="cantidad{{$p->id}}" id="cantidad" value="{{$p->cantidad}}">
@@ -176,15 +195,17 @@
 
                     </td>
                     <td style="text-align: right">L.{{ number_format($p->precio*$p->cantidad,2)}}</td>
-                    <?php $total += $p->precio*$p->cantidad;?>
+                    <td style="text-align: right">L.{{ number_format(($p->precio*$p->cantidad)*($p->descuento/100),2)}}</td>
+                    <td style="text-align: right">L.{{ number_format(($p->precio*$p->cantidad)*(1-$p->descuento/100),2)}}</td>
+                    <?php $total += ($p->precio*$p->cantidad)*(1-$p->descuento/100);?>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6"><center>No hay datos ingresados</center></td>
+                    <td colspan="8"><center>No hay datos ingresados</center></td>
                 </tr>
             @endforelse
         <tr>
-            <td style="text-align: right" colspan="4">Total</td>
+            <td style="text-align: right" colspan="6">Total</td>
             <td style="text-align: right">L.{{ number_format($total,2)}}</td>
         </tr>
     </table>
@@ -209,16 +230,19 @@
         function actualizar(){
             var a = document.getElementById('factura').value;
             var c = document.getElementById('cliente').value;
+            var p = document.getElementById('pago').value;
 
             document.getElementById('factura2').value = a;
             document.getElementById('cliente2').value = c;
+            document.getElementById('pago2').value = p;
         }
 
     </script>
     <input type="text" name="factura" id="factura2" value="{{$numero}}" readonly style="display: none" >
     <input type="text" name="cliente" id="cliente2" value="{{$idcliente}}" readonly style="display: none">
+    <input type="text" name="pago" id="pago2" value="{{$idpago}}" readonly style="display: none">
     @if (count($temporal) != 0)
-    <button type="submit" class="btn btn-success">Vender</button>
+    <button type="submit" target="_blank" class="btn btn-success">Vender</button>
     @else
     <button type="submit" class="btn btn-success" disabled>Vender</button>
     @endif

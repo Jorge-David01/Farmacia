@@ -93,13 +93,13 @@
                 @endif
                 </select>
             </div>
-            <div style="width: 15%; float: left;margin-right: 1%">
+            <div style="width: 11%; float: left;margin-right: 1%">
                 <center><label for="" >Cantidad:</label></center>
                 <input type="number" placeholder="0" class="form-control" id="cantidad" name="cantidad"
                 min="0" maxlength="7" max="999999999" required value="{{old("cantidad")}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </div>
-            <div style="width: 15%; float: left;margin-right: 1%">
+            <div style="width: 12%; float: left;margin-right: 1%">
                 <center><label for="" >Lote:</label></center>
                 <input type="number" placeholder="0" class="form-control" id="lote" name="lote"
                 min="0" maxlength="7" max="999999999" required value="{{old("lote")}}"
@@ -112,19 +112,25 @@
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."+ 10 year"));?>"
                 required value="{{old("vencimiento")}}" >
             </div>
-            <div style="width: 15%; float: left;margin-right: 1%">
+            <div style="width: 12%; float: left;margin-right: 1%">
                 <center><label for="" >Precio Farmacia:</label></center>
                 <input placeholder="0.00" class="form-control" id="compra" name="compra"
                 min="0" max="999999.99" maxlength="10" type="number" step="any" required
                 title="Formato de precio incorrecto" value="{{old("compra")}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </div>
-            <div style="width: 15%; float: left;margin-right: 1%">
+            <div style="width: 12%; float: left;margin-right: 1%">
                 <center><label for="" >Precio Público:</label></center>
                 <input placeholder="0.00" class="form-control" id="venta" name="venta"
                 min="0" max="999999.99" maxlength="10" type="number" step="any" required
                 title="Formato de precio incorrecto" value="{{old("venta")}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </div>
+            <div style="width: 12%; float: left;margin-right: 1%">
+                <center><label for="" >Laboratorio:</label></center>
+                <input placeholder="ingrese laboratorio" class="form-control" id="laboratorio" name="laboratorio"
+                maxlength="10" type="text" step="any" required
+                value="{{old("laboratorio")}}">
             </div>
             <div style="width: 100%; float: left;margin-top: 2%; margin-bottom: 1%;">
                 <button class="btn btn-success" type="submit" style="width: 100%">Agregar producto</button> <br><hr>

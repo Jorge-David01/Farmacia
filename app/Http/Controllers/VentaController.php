@@ -9,6 +9,7 @@ use App\Models\TemporalVenta;
 use App\Models\DetalleVenta;
 use App\Models\DetalleCompra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreVentaRequest;
 use App\Http\Requests\UpdateVentaRequest;
 
@@ -36,6 +37,18 @@ class VentaController extends Controller
         $temporal = TemporalVenta::all();
         $numero =  $request->get('factura');
         $idcliente = $request->get('cliente');
+        $idpago = $request->get('pago');
+
+        $venta = Venta::select(DB::raw("max(numero_factura) as factura"))->first();
+
+            $numero = $venta->factura+1;
+
+            if ($numero == "") {
+                $numero = 1;
+            }
+
+
+
 
         if (isset($idcliente)) {
             $cli = cliente::select('nombre_cliente')
@@ -51,7 +64,9 @@ class VentaController extends Controller
         ->with('clientes',$clientes)
         ->with('numero',$numero)
         ->with('idcliente',$idcliente)
-        ->with('clientenomb',$clientenomb);
+        ->with('idpago',$idpago)
+        ->with('clientenomb',$clientenomb)
+        ->with('numero',$numero);
     }
 
     /**
@@ -67,10 +82,11 @@ class VentaController extends Controller
         $fecha_actual = date("d-m-Y");
         $maxima = date("d-m-Y",strtotime($fecha_actual."+ 30 days"));
         $this->validate($request, [
-            'factura' => 'required|unique:compras,numero_factura',
+            'factura' => 'required|unique:ventas,numero_factura',
             'productos' => 'required|exists:productos,id',
             'cliente' => 'required|exists:clientes,id',
             "cantidad" => "required|min:1|numeric|max:999999999",
+            "descuento" => "required|min:0|numeric|max:100",
 
         ], [
             'factura.required' => 'Debe de ingresar el numero de factura',
@@ -83,6 +99,10 @@ class VentaController extends Controller
             'cantidad.max' => 'La cantidad ingresada es demasiado grande',
             'cantidad.min' => 'La cantidad no puede ser negativa',
             'cantidad.numeric' => 'La cantidad debe de ser un valor numérico',
+            'descuento.required' => 'El descuento es obligatorio',
+            'descuento.max' => 'El descuento ingresada es demasiado grande',
+            'descuento.min' => 'El descuento no puede ser negativa',
+            'descuento.numeric' => 'El descuento debe de ser un valor numérico',
         ]);
 
         $temporals = new TemporalVenta();
@@ -91,12 +111,14 @@ class VentaController extends Controller
 
         $temporals->id_producto = $request->input('productos');
         $temporals->cantidad = $request->input('cantidad');
+        $temporals->descuento = $request->input('descuento');
         $temporals->precio = $pre->precio_publico;
 
         $temporals->save();
 
         $numero =  $request->get('factura');
         $idcliente = $request->get('cliente');
+        $idpago = $request->get('pago');
         $cli = cliente::select('nombre_cliente')
             ->where('id',$idcliente)->first();
             $clientenomb = $cli->nombre_cliente;
@@ -112,6 +134,7 @@ class VentaController extends Controller
         ->with('clientes',$clientes)
         ->with('numero',$numero)
         ->with('idcliente',$idcliente)
+        ->with('idpago',$idpago)
         ->with('clientenomb',$clientenomb);
     }
 
@@ -119,9 +142,9 @@ class VentaController extends Controller
         TemporalVenta::destroy($id);
 
         $numero =  $request->get('factura');
-        $idproveedor = $request->get('proveedor');
-
-        return redirect()->route('venta.create',['factura'=>$numero,'proveedor'=>$idproveedor]);
+        $idcliente = $request->get('cliente');
+        $idpago = $request->get('pago');
+        return redirect()->route('venta.create',['factura'=>$numero,'cliente'=>$idcliente,'pago'=>$idpago]);
     }
 
     public function destruir(){
@@ -144,48 +167,57 @@ class VentaController extends Controller
         return redirect()->route('venta.create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Venta  $venta
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Venta $venta)
-    {
-        //
+    public function almacenar(Request $request){
+
+        $venta = new Venta();
+
+        $venta->numero_factura = $request->get('factura');
+        $venta->id_cliente = $request->get('cliente');
+        $venta->pago = $request->get('pago');
+
+        $venta->save();
+
+        $temporal = TemporalVenta::all();
+
+        foreach ($temporal as $temp) {
+
+            $detalle = new DetalleVenta();
+
+            $detalle->id_venta = $venta->id;
+            $detalle->id_producto = $temp->id_producto;
+            $detalle->cantidad = $temp->cantidad;
+            $detalle->descuento = $temp->descuento;
+            $detalle->precio =  $temp->precio;
+
+            $detalle->save();
+
+            TemporalVenta::destroy($temp->id);
+        }
+
+        return redirect()->route('venta.factura',["id"=>$venta->id]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Venta  $venta
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Venta $venta)
+    public function factura($id)
     {
-        //
+        $venta = Venta::findOrFail($id);
+        return view('venta/factura')->with('venta', $venta);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateVentaRequest  $request
-     * @param  \App\Models\Venta  $venta
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateVentaRequest $request, Venta $venta)
-    {
-        //
+    public function edit(Request $request,$id){
+        if ($request->input('cantidad'.$id) != "" && $request->input('cantidad'.$id) > 0 ) {
+            $cambio = TemporalVenta::findOrFail($id);
+
+        $cambio->cantidad = $request->input('cantidad'.$id);
+
+        $cambio->save();
+
+        }
+
+        $numero =  $request->get('factura');
+        $idcliente = $request->get('cliente');
+        $idpago = $request->get('pago');
+
+        return redirect()->route('venta.create',['factura'=>$numero,'cliente'=>$idcliente,'pago'=>$idpago]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Venta  $venta
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Venta $venta)
-    {
-        //
-    }
 }
