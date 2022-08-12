@@ -34,10 +34,7 @@ Route::get('/', function () {
 });
 
 
-
-
-
-Route::get('/Principal',[EmpleadoController::class, 'Principal']);
+Route::get('/Principal',[EmpleadoController::class, 'Principal'])->name('principal');
 Route::get('/Empleados',[EmpleadoController::class, 'VPEmpleado']);
 Route::get('/Proveedores',[EmpleadoController::class, 'VPProveedor']);
 
