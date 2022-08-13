@@ -311,20 +311,18 @@ class CompraController extends Controller
         return view('vencimiento')->with('detas', $detas)->with('abc', $abc);
     }
 
-    /*
-    public function Vencimiento($id){
-        $fecha = DetalleCompra::findOrFail($id);
+    public function Precio($id){
         $abc = Producto::findOrFail($id);
     
-        $detas = DB::table('productos')
-        ->join('detalle_compras', 'id_producto', '=', 'detalle_compras.id_producto')
+        $detasv = DB::table('productos')
+        ->join('detalle_compras', 'productos.id', '=', 'detalle_compras.id_producto')
         ->where('detalle_compras.id_producto', '=', $id)
-        ->select('id_producto' ,'lote' , 'fecha_vencimiento')
+        ->select('id_producto' ,'lote' , 'precio_publico')
         ->get();
 
-        return view('vencimiento')->with('fecha', $fecha)->with('detas', $detas)->with('abc', $abc);
-    } 
-    */
+        return view('Precio')->with('detasv', $detasv)->with('abc', $abc);
+    }
+
 
     //---------------------------------------------------------------------
     //--------------------- Agreguen titulos -------------------------

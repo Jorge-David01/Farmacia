@@ -128,7 +128,7 @@ Route::post('//inventarioVista/buscar', [CompraController::class, 'buscador']) -
 
 //Route::get('/vencimiento',[CompraController::class, 'Vencimientos']);
 Route::get('/vencimiento/{id}',[CompraController::class, 'Vencimiento']) -> where('id', '[1-9]+');
-
+Route::get('/Precio/{id}',[CompraController::class, 'Precio']) -> where('id', '[1-9]+');
 
 
 //----------------------------------------------------------
