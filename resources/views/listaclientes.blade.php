@@ -25,7 +25,7 @@ td {
 
 <h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Clientes</u> </h1>
 
-<a style="margin-left: 4%;" class="btn btn-warning" href="/clientes/nuevo">Registrar</a>
+<a style="margin-left: 4%;" class="btn btn-warning" href="/clientes/nuevo">Registrar cliente</a>
 
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >

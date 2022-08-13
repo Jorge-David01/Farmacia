@@ -26,8 +26,9 @@ td {
 
 <h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de empleados </h1>
 
+<a style="margin-left: 4%;" class="btn btn-warning" href="/empleados/nuevo">Nuevo empleado</a>
 
-<div class="col-x1-12">
+<div class="col-x1-12" style="margin-top: 1%;">
     <form action="{{route('lista')}}" method="get">
         <div class="form-row">
             <div style="  margin-left: 4%" class="col-sm-2">

@@ -30,7 +30,7 @@ body {
 
 <h1 style="font-size: 60px; color: black; text-shadow: 2px 2px 2px #4db8ff, 0 0 5px #4db8ff;" class="fst-italic; HoraCentro" id="hora"></h1>
 
-  <script >
+  <script style="text-align:center;">
 
     function startTime() {
       const Momento = new Date();
@@ -53,7 +53,7 @@ body {
 
   </script>
 
-  <h1 style="font-size: 60px; color: black; text-shadow: 2px 2px 2px #4db8ff, 0 0 5px #4db8ff;" class="fst-italic; FechaCentro">
+  <h1 style="font-size: 60px; color: black; text-shadow: 2px 2px 2px #4db8ff, 0 0 5px #4db8ff;" style="text-align:center;" class="fst-italic; FechaCentro">
     <?php 
      date_default_timezone_set("America/El_Salvador");
      echo "Fecha: " . date("d/m/y");

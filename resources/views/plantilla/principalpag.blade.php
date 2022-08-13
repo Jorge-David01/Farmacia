@@ -74,7 +74,7 @@
 
    <ul class="sidebar-menu do-nicescrol">
       <li>
-        <a href="/Empleados">
+        <a href="/Lista">
           <i class="fa fa-address-card-o"></i> <span>Empleados</span>
         </a>
       </li>
@@ -92,7 +92,7 @@
         </li>
 
       <li>
-        <a href="/Proveedores">
+        <a href="/Listpro">
           <i class="fa fa-truck"></i> <span>Proveedores</span>
         </a>
       </li>
@@ -188,34 +188,33 @@
       <ul class="dropdown-menu dropdown-menu-right">
 
        <li class="dropdown-item user-details">
-        <a href="javaScript:void();">
+         <a href="javaScript:void();">
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/Logo.jpeg" alt="user avatar"></div>
             <div class="media-body">
 
-            <h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6>
+            <strong><h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6></strong>
+            <strong> <p class="user-subtitle">Administrador</p> </strong>
 
-
-
-            <p class="user-subtitle">Administrador</p>
             </div>
            </div>
           </a>
         </li>
 
+        <!-- ---------BOTONES DE CONFIGURACIÓN---------- -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><a href="#" class="icon-settings mr-2 "> Cambio de contraseña</a> </li>
+        <li class="dropdown-item"> <a href="#" class="icon-settings"> Cambio de contraseña</a> </li>
+        
 
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><a href="#" class="icon-envelope mr-2 w3-button"> Ayuda</a> </li>
+        <li class="dropdown-item"><a href="#" class="icon-envelope"> Ayuda</a> </li>
 
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><a href="{{ route('logout') }}"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
 
-        class="icon-power mr-2 w3-button"> Cerrar sesión</a> </li>
-
+        class="icon-power"> Cerrar sesión</a> </li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
         @csrf
         </form>

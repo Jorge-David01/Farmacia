@@ -24,7 +24,7 @@ td {
 
 <h1 style="margin-left: 4% ; margin-bottom: 3%; "> Lista de productos </h1>
 
-<a style="margin-left: 4%;" class="btn btn-warning" href="/productos/nuevo">Nuevo</a>
+<a style="margin-left: 4%;" class="btn btn-warning" href="/productos/nuevo">Nuevo Producto</a>
 
 <form action="{{route('producto.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%;">
 @csrf
