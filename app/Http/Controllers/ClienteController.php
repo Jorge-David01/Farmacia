@@ -165,7 +165,7 @@ public function Ver($id){
 
         $rules= ([
             'nombre_cliente'=>'required | |min:6 | max:70 '  ,
-            'numero_identidad'=>'required |min:13 | max:13 ',
+            'numero_identidad'=>'required |min:13 | max:13 |regex:([0,9]{13})',
             'numero_tel'=>'required||min:8| max:8 |regex:([2,9,8,3]{1}[0-9]{7})',
             'direccion'=>'required|min:10|max:50',
            
@@ -181,6 +181,7 @@ public function Ver($id){
             'numero_identidad.required'=>'El número de identidad es obligatorio' ,
             'numero_identidad.min'=>'El número de identidad debe de tener 13 digitos' ,
             'numero_identidad.max'=>'El número de identidad debe de tener 13 digitos' ,
+            'numero_identidad.regex'=>'El número de identidad solo debe contener números' ,
 
 
             'numero_tel.required'=>'El número de identidad es obligatorio' ,

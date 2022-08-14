@@ -30,7 +30,8 @@
         <div class="col-md-6 col-sm-6 ">
         <label for="numero_identidad">Numero de identidad:</label>
             <input type="text" class="form-control-file" name="numero_identidad" id="numero_identidad" 
-            placeholder="Número de identidad " value="{{$client->numero_id}} "  minlength="13" maxlength="13">
+            placeholder="Número de identidad " value="{{$client->numero_id}} "  minlength="13" maxlength="13"
+            pattern="[0-1]{1}[0-9]{1}[0-2]{1}[0-9]{10}" >
         </div>
         
         <div class="col-md-6 col-sm-6 ">
