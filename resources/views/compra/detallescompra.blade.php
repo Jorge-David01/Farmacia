@@ -34,7 +34,7 @@
 
         @forelse ($deta as $det)
 
-        @forelse ($namep as $nombre)
+        @forelse ($name as $nombre)
 
         <tr>
            

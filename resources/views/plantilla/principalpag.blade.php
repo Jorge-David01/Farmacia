@@ -52,7 +52,7 @@
 
 
   <title>Farmacia - @yield('pestania')</title>
-  
+
 </head>
 
 <body class="bg-theme bg-theme1";  onload="startTime()">
@@ -68,13 +68,13 @@
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="/Principal">
-       <img src="/assets/images/Logo.jpeg" width="100" height="50" class="logo-icon" alt="logo icon"> 
+       <img src="/assets/images/Logo.jpeg" width="100" height="50" class="logo-icon" alt="logo icon">
      </a>
    </div>
 
    <ul class="sidebar-menu do-nicescrol">
       <li>
-        <a href="/Empleados">
+        <a href="/Lista">
           <i class="fa fa-address-card-o"></i> <span>Empleados</span>
         </a>
       </li>
@@ -82,17 +82,17 @@
       <li>
 
 
-      <!-- 
+      <!--
       <a href="/registro">
           <i class="fa fa-address-card-o"></i> <span>Registrar</span>
         </a>
       </li>
       -->
-                   
+
         </li>
 
       <li>
-        <a href="/Proveedores">
+        <a href="/Listpro">
           <i class="fa fa-truck"></i> <span>Proveedores</span>
         </a>
       </li>
@@ -116,7 +116,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="/venta/nuevo">
           <i class="fa fa-file-text-o"></i> <span>Facturación</span>
         </a>
       </li>
@@ -133,13 +133,14 @@
         </a>
       </li>
 
+
       <li>
         <a href="#" >
           <i class="zmdi zmdi-lock"></i> <span>Cardex</span>
         </a>
       </li>
 
-    
+
     </ul>
   </div>
 
@@ -153,14 +154,14 @@
   <ul class="navbar-nav mr-auto align-items-center">
     <li class="nav-item">
       <a class="nav-link toggle-menu" href="javascript:void();">
-     
+
      </a>
     </li>
   </ul>
 
   <ul class="navbar-nav align-items-center right-nav-link">
 
-  
+
 
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
@@ -172,7 +173,7 @@
       <i class="fa fa-bell-o"></i></a>
     </li>
 
-    
+
 
 
 
@@ -187,34 +188,33 @@
       <ul class="dropdown-menu dropdown-menu-right">
 
        <li class="dropdown-item user-details">
-        <a href="javaScript:void();">
+         <a href="javaScript:void();">
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/Logo.jpeg" alt="user avatar"></div>
             <div class="media-body">
 
-            <h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6>
+            <strong><h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6></strong>
+            <strong> <p class="user-subtitle">Administrador</p> </strong>
 
-         
-
-            <p class="user-subtitle">Administrador</p>
             </div>
            </div>
           </a>
         </li>
 
+        <!-- ---------BOTONES DE CONFIGURACIÓN---------- -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><a href="#" class="icon-settings mr-2 "> Cambio de contraseña</a> </li>
+        <li class="dropdown-item"> <a href="#" class="icon-settings"> Cambio de contraseña</a> </li>
+        
 
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><a href="#" class="icon-envelope mr-2 w3-button"> Ayuda</a> </li>
+        <li class="dropdown-item"><a href="#" class="icon-envelope"> Ayuda</a> </li>
 
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><a href="{{ route('logout') }}" 
+        <li class="dropdown-item"><a href="{{ route('logout') }}"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
-                              
-        class="icon-power mr-2 w3-button"> Cerrar sesión</a> </li>
 
+        class="icon-power"> Cerrar sesión</a> </li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
         @csrf
         </form>
@@ -231,7 +231,7 @@
       <!--
       <div class="switcher-icon">
         <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-      </div> 
+      </div>
       -->
 
       <div class="right-sidebar-content">

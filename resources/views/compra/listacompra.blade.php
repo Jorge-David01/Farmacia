@@ -26,15 +26,15 @@ td {
 
 <h1 style="margin-left: 4% ; margin-bottom: 3%;"> Listado de compras realizadas </h1>
 
+<a style="margin-left: 4%;" class="btn btn-warning" href="/compra/nuevo">Ingresar compra</a>
+
 <form action="{{route('buscador')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%">
 @csrf
 <input type="text" name="missing" id="missing" placeholder="Busqueda">
 <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
 </form>
 
-<a  style="margin-left: 4%; margin-bottom: 1%; margin-top: 1%; " class="btn btn-primary" href="/listacompra">Lista</a>
 
-<a class="btn btn-warning" style="aling-padding: right" href="/compra/nuevo">Ingresar compra</a>
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 

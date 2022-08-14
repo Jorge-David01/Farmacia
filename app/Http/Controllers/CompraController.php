@@ -94,6 +94,7 @@ class CompraController extends Controller
             "pago" => "required|date|after:'.$fecha_actual.",
             "compra" => 'required|numeric|min:1',
             "venta" => 'required|numeric|max:999999.99|min:'.$compra,
+            "laboratorio" => 'required',
 
         ], [
             'factura.required' => 'Debe de ingresar el numero de factura',
@@ -122,7 +123,8 @@ class CompraController extends Controller
             'venta.min' => 'El precio de venta debe de ser mayor al precio de compra',
             'compra.required' => 'El precio de compra es obligatorio',
             'compra.min' => 'El precio de compra debe de ser mayor a 0',
-            'compra.numeric' => 'El precio de compra es invalido',
+            'laboratorio.numeric' => 'El laboratorio es obligatorio',
+
         ]);
 
         $temporals = new Temporal();
@@ -131,6 +133,7 @@ class CompraController extends Controller
         $temporals->fecha_vencimiento = $request->input('vencimiento');
         $temporals->cantidad = $request->input('cantidad');
         $temporals->lote = $request->input('lote');
+        $temporals->laboratorio = $request->input('laboratorio');
         $temporals->precio_farmacia = $request->input('compra');
         $temporals->precio_publico = $request->input('venta');
 
@@ -214,6 +217,7 @@ class CompraController extends Controller
             $detalle->id_producto = $temp->id_producto;
             $detalle->cantidad = $temp->cantidad;
             $detalle->lote = $temp->lote;
+            $detalle->laboratorio = $temp->laboratorio;
             $detalle->fecha_vencimiento = $temp->fecha_vencimiento;
             $detalle->precio_farmacia =  $temp->precio_farmacia;
             $detalle->precio_publico = $temp->precio_publico;
@@ -248,7 +252,7 @@ class CompraController extends Controller
     public function detailscompra($id){
         $details = DetalleCompra::findOrFail($id);
         $comp = Compra::findOrFail($id);
-        $namep = Producto::paginate($id);
+        $name = Producto::paginate($id);
 
 
         $deta = DB::table('compras')
@@ -256,10 +260,10 @@ class CompraController extends Controller
         ->where('detalle_compras.id_compra', '=', $id)
         ->select('id_producto' , 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
         ->get();
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);
+        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta)->with('name', $name);
 
 
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('namep', $namep);
+      
     }
 
 
@@ -307,20 +311,18 @@ class CompraController extends Controller
         return view('vencimiento')->with('detas', $detas)->with('abc', $abc);
     }
 
-    /*
-    public function Vencimiento($id){
-        $fecha = DetalleCompra::findOrFail($id);
+    public function Precio($id){
         $abc = Producto::findOrFail($id);
     
-        $detas = DB::table('productos')
-        ->join('detalle_compras', 'id_producto', '=', 'detalle_compras.id_producto')
+        $detasv = DB::table('productos')
+        ->join('detalle_compras', 'productos.id', '=', 'detalle_compras.id_producto')
         ->where('detalle_compras.id_producto', '=', $id)
-        ->select('id_producto' ,'lote' , 'fecha_vencimiento')
+        ->select('id_producto' ,'lote' , 'precio_publico')
         ->get();
 
-        return view('vencimiento')->with('fecha', $fecha)->with('detas', $detas)->with('abc', $abc);
-    } 
-    */
+        return view('Precio')->with('detasv', $detasv)->with('abc', $abc);
+    }
+
 
     //---------------------------------------------------------------------
     //--------------------- Agreguen titulos -------------------------

@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'Fecha de vencimiento')
+@section('pestania', 'Precios')
 @section('contenido')
 
 <h1 style="margin-left: 4% ; margin-bottom: 3%; ">Fecha de vencimientos</h1>
@@ -14,14 +14,14 @@
        
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;"> 
             <th>Lote</th>
-            <th>Fecha de vencimiento</th>
+            <th>Precio al cliente</th>
         </tr>
 
-        @forelse ($detas  as $det)
+        @forelse ($detasv  as $det)
 
         <tr>
             <td>{{$det->lote}}</td>
-            <td>{{$det->fecha_vencimiento}}</td>
+            <td>{{$det->precio_publico}}</td>
         </tr>
  
         @empty
@@ -33,7 +33,7 @@
 </table>
 
 
-<a  style="margin-left: 4%;" class="btn btn-success" href="/inventarioVista">Volver</a>
+<a style="margin-left: 4%;" class="btn btn-success" href="/inventarioVista">Volver</a>
 
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')

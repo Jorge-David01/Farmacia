@@ -44,7 +44,7 @@ td {
 <td> {{$listaInv->cantidad}}</td>
 
 
-<td> <a  class="btn btn-success" href=""> Precio unitario </a></td>
+<td> <a  class="btn btn-success" href="/Precio/{{$listaInv->id}}"> Precio unitario </a></td>
 <td > <a  class="btn btn-success" href="/vencimiento/{{$listaInv->id}}"> fecha de vencimiento </a></td>
 
 </tr>

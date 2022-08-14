@@ -26,6 +26,8 @@ td {
 
 <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Lista de proveedores </h1>
 
+<a style="margin-left: 4%;" class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
+
 <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%;">
 @csrf
 <input type="text" name="search" id="search" placeholder="Busqueda">
