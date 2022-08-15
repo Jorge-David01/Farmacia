@@ -207,7 +207,7 @@
         
 
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><a href="#" class="icon-envelope"> Ayuda</a> </li>
+        <li class="dropdown-item"><a href="/Ayuda" class="icon-envelope"> Ayuda</a> </li>
 
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><a href="{{ route('logout') }}"
