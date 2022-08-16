@@ -220,4 +220,41 @@ class VentaController extends Controller
         return redirect()->route('venta.create',['factura'=>$numero,'cliente'=>$idcliente,'pago'=>$idpago]);
     }
 
+    public function listaventa(){
+        $lista = Venta::paginate(10) ;
+       
+     
+         return view('venta/listaventa')->with('lista' , $lista);
+
+    }
+
+
+    public function detallesventa($id){
+     
+       
+        $factu = Venta::findOrfail($id);
+
+
+
+    
+
+        
+ 
+       
+
+        $detalles = DB::table('ventas')
+        ->join('detalle_ventas', 'ventas.id', '=', 'detalle_ventas.id_venta')
+        ->where('detalle_ventas.id_venta', '=', $id)
+        ->select('id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio')
+        ->get();
+
+     
+
+
+         return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu)->with('name' , $name);
+
+    }
+
+
+
 }

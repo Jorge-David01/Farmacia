@@ -169,6 +169,12 @@ Route::put('/venta/almacenar',[VentaController::class, 'almacenar'])->name('vent
 
 Route::get('/venta/factura/{id}',[VentaController::class, 'factura'])->name('venta.factura');
 
+Route::get('/listaventa',[VentaController::class, 'listaventa']) -> name('lista.venta');
+
+Route::get('/detallesventa/{id}',[VentaController::class, 'detallesventa']) -> name('detalles.venta')-> where('id', '[1-9]+');
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
