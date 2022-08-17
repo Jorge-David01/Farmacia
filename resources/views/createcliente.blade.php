@@ -38,6 +38,7 @@
             </div>
         </div>
 
+     
 
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Numero de Identidad: <span class="required"></span>
@@ -63,6 +64,18 @@
             </div>
         </div>
 
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Numero de Carnet: <span class="required"></span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                <input maxlength="8" type="carnet" id="num_carnet" name="num_carnet" required="required" class="form-control"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                value="{{old('num_carnet')}}"
+                placeholder="Ingrese el número de carnet">
+            </div>
+        </div>
+
+
 
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Dirección: <span class="required"></span>
@@ -72,6 +85,8 @@
                 class="form-control">{{old('direccion')}}</textarea>
             </div>
         </div>
+
+      
 
 
         <div class="ln_solid"></div>

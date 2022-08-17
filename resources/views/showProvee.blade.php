@@ -40,13 +40,11 @@
 
 
 
-<button style="margin-left: 4%;" class="btn btn-success">
-<a class="btn btn-success" href="/Listpro">Volver</a>
-</button>
 
-<button class="btn btn-primary">
+<a class="btn btn-success" href="/Listpro">Volver</a>
+
 <a class="btn btn-primary" href="/Editprovee/{{$provee->id}}/editar">Actualizar</a>
-</button>
+
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

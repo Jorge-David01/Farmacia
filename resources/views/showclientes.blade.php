@@ -36,12 +36,10 @@
 
 
 
-<button style="margin-left: 4%;" class="btn btn-success">
 <a class="btn btn-success" href="/Cliente">Volver</a>
-</button>
-<button class="btn btn-primary">
+
 <a class="btn btn-primary" href="/cliente/{{$cliente->id}}/update">Actualizar</a>
-</button>
+
 
 <!-- <button class="btn btn-primary">
 <a class="btn btn-primary" href="">Actualizar</a>

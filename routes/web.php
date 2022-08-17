@@ -149,6 +149,8 @@ Route::get('/Vercliente/{id}',[ClienteController::class, 'Ver']) -> name('show.c
 Route::get('/cliente/{id}/update', [ClienteController::class, 'formulario']) -> name('update.cliente')-> where('id', '[0-9]+');
 Route::put('/cliente/{id}/update', [ClienteController::class, 'update']) -> name('cliente.actualizado') -> where('id', '[0-9]+');
 
+Route::post('/Cliente/busca',[ClienteController::class, 'buscando'])->name('cliente.busqueda');
+
 //----------------------------------------------------------
 //----------------- RUTAS DE VENTAS -----------------------
 Route::get('/venta/nuevo',[VentaController::class, 'create'])->name('venta.create');

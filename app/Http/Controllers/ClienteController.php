@@ -57,7 +57,9 @@ class ClienteController extends Controller
             'nombre_cliente' => 'required|max:110|min:5',
             'numero_id'=> 'required|unique:clientes,numero_id|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
             'telefono'=> 'required|unique:clientes,Telefono|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})',
-            'direccion'=> 'required|max:200'
+            'direccion'=> 'required|max:200',
+            'num_carnet'=> 'required|unique:clientes,num_carnet|min:8|max:8|'
+           
         ];
     $mensaje=[
         'nombre_cliente.required' => 'El nombre no puede estar vacío',
@@ -68,19 +70,18 @@ class ClienteController extends Controller
         'numero_id.numeric' => 'La identidad debe de ser solo números',
         'numero_id.unique' => 'La identidad ya la uso anteriormente',
         'telefono.required'=>'El teléfono del cliente es obligatorio' ,
-        'telefono.unique'=>'El teléfono de cliente  que ingreso ya ha sido usado' ,
-        'telefono.min'=>'El teléfono del cliente  debe de tener un minimo de 8 digitos' ,
-        'telefono.max'=>'El teléfono del cliente  debe de tener un máximo de 8 digitos' ,
+        'telefono.unique'=>'El teléfono de cliente  que ingreso ya ha sido usado',
+        'telefono.min'=>'El teléfono del cliente  debe de tener un minimo de 8 digitos',
+        'telefono.max'=>'El teléfono del cliente  debe de tener un máximo de 8 digitos',
         'direccion.required' => 'La dirección del cliente no puede estar vacía',
-        'direccion.max' => 'La dirección que ingresó es muy extensa'
+        'direccion.max' => 'La dirección que ingresó es muy extensa',
+        'num_carnet.required'=>'El numero el carnet es obligatorio',
+        'num_carnet.unique'=>'El numero el carnet que ingreso ya ha sido usado',
+        'num_carnet.min'=>'El numero el carnet debe de tener un minimo de 8 caracteres',
+        'num_carnet.max'=>'El num_carnet debe de tener un máximo de 8 caracteres',
     ];
 
     $this->validate($request,$rules,$mensaje);
-
-    $carnets = Cliente::select('num_carnet')->get();    
-    $carnet_comp =  $this->comprobar_unicocarnet($carnets);
-
-     
 
 
     $cliente = new Cliente();
@@ -88,7 +89,7 @@ class ClienteController extends Controller
     $cliente->numero_id = $request->input('numero_id');
     $cliente->telefono = $request->input('telefono');
     $cliente->direccion = $request->input('direccion');
-    $cliente->num_carnet = $carnet_comp;
+    $cliente->num_carnet = $request->input('num_carnet');
     
 
     $creado =  $cliente->save();
@@ -100,24 +101,6 @@ class ClienteController extends Controller
     }
 }
 
-function comprobar_unicocarnet($carnets){
-
-    $codautogenerate = random_int(100000000, 999999999);
-
-    $exist = 0;
-    foreach ($carnets as $key) {
-        if($key->num_carnet == $codautogenerate){
-            $exist ++;
-        }
-    }
-
-    if($exist > 0){
-        $this->comprobar_unicocarnet($carnets);
-    }else{
-        return $codautogenerate;
-    }
-
-}
 
 
 public function Ver($id){
@@ -237,4 +220,22 @@ public function Ver($id){
     {
         //
     }
-}
+
+    public function buscando(Request $REQUEST){
+        $liscliente = Cliente::select('*')
+     ->orWhere(
+        'nombre_cliente','like', '%'.$REQUEST->busca.'%'
+     )->orWhere(
+        'telefono','like', '%'.$REQUEST->busca.'%'
+     )->orWhere(
+        'numero_id','like', '%'.$REQUEST->busca.'%'
+     )
+        ->paginate(10);
+       
+        return view('listaclientes')->with('liscliente', $liscliente);
+        
+    }
+        
+    
+    }
+

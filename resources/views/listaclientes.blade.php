@@ -27,8 +27,16 @@ td {
 
 <a style="margin-left: 4%;" class="btn btn-warning" href="/clientes/nuevo">Registrar cliente</a>
 
+<form action="{{route('cliente.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%;">
+@csrf
+<input type="text" name="busca" id="busca" placeholder="Busqueda">
+<input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
+<a style="margin-left: 4%;" class="btn btn-warning" href="/Cliente">Limpiar</a>
+
+</form>
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
+
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Nombre Completo</th>
