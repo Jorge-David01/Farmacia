@@ -13,6 +13,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\CotizacionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -174,6 +175,24 @@ Route::get('/listaventa',[VentaController::class, 'listaventa']) -> name('lista.
 
 Route::get('/detallesventa/{id}',[VentaController::class, 'detallesventa']) -> name('detalles.venta')-> where('id', '[1-9]+');
 
+//----------------------------------------------------------
+//----------------- RUTAS DE COTIZACION -----------------------
+Route::get('/cotizacion/nuevo',[CotizacionController::class, 'create'])->name('cotizacion.create');
+Route::post('/cotizacion/nuevo',[CotizacionController::class, 'store'])->name('cotizacion.store');
+
+Route::post('/cotizacion/editar/{id}',[CotizacionController::class, 'edit'])->name('cotizacion.editar');
+Route::get('/cotizacion/editar/{id}',[CotizacionController::class, 'edit'])->name('cotizacion.editar');
+
+
+Route::delete('/cotizacion/eliminar/{id}',[CotizacionController::class, 'eliminar'])->name('cotizacion.eliminar');
+
+Route::get('/cotizacion/eliminar/todo',[CotizacionController::class, 'destruir'])->name('cotizacion.destruir');
+
+Route::get('/cotizacion/cancelar',[CotizacionController::class, 'cancelar'])->name('cotizacion.cancelar');
+
+Route::put('/cotizacion/almacenar',[CotizacionController::class, 'almacenar'])->name('cotizacion.almacenar');
+
+Route::get('/cotizacion/imprimir/{id}',[CotizacionController::class, 'imprimir'])->name('cotizacion.imprimir');
 
 
 Auth::routes();

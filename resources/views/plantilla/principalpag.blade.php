@@ -142,6 +142,11 @@
         </a>
       </li>
 
+      <li>
+        <a href="/cotizacion/nuevo" >
+          <i class="fa fa-file-text-o"></i> <span>Cotizacion</span>
+        </a>
+      </li>
 
     </ul>
   </div>
@@ -206,7 +211,7 @@
         <!-- ---------BOTONES DE CONFIGURACIÓN---------- -->
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"> <a href="#" class="icon-settings"> Cambio de contraseña</a> </li>
-        
+
 
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><a href="/Ayuda" class="icon-envelope"> Ayuda</a> </li>
