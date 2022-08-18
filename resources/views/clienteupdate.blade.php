@@ -3,6 +3,17 @@
 @section('contenido')
 
 
+<style>
+    input:valid {
+  border: 2px solid green;
+}
+input:invalid {
+  border: 2px solid #ff0000;
+}
+</style>
+
+
+
     @if($errors->any())
         <div class="alert alert-danger">
             
@@ -24,14 +35,15 @@
         <div class="col-md-6 col-sm-6 ">
         <label for="nombre_cliente">Nombre del cliente:</label>
             <input type="text" class="form-control-file" name="nombre_cliente" id="nombre_cliente" 
-             placeholder="Nombre del cliente" value="{{$client->nombre_cliente}}" maxlength="6" maxlength="50">
+             placeholder="Nombre del cliente" value="{{$client->nombre_cliente}}" minlength="6" maxlength="50">
         </div>
 
         <div class="col-md-6 col-sm-6 ">
         <label for="numero_identidad">Numero de identidad:</label>
-            <input type="text" class="form-control-file" name="numero_identidad" id="numero_identidad" 
-            placeholder="Número de identidad " value="{{$client->numero_id}} "  minlength="13" maxlength="13"
-            pattern="[0-1]{1}[0-9]{1}[0-2]{1}[0-9]{10}" >
+            <input type="number" class="form-control-file" name="numero_identidad" id="numero_identidad" 
+            placeholder="Número de identidad " value="{{$client->numero_id}}"  minlength="13" maxlength="13"
+             
+            pattern="[0-1]{1}[0-9]{1}[0-2]{1}[0-9]{10}">
         </div>
         
         <div class="col-md-6 col-sm-6 ">
@@ -39,6 +51,7 @@
             <input type="text" class="form-control-file" name="numero_tel" id="numero_tel" 
             placeholder="Número de teléfono" value="{{$client->telefono}}"  minlength="8" maxlength="8"  pattern="[2,9,8,3]{1}[0-9]{7}" >
         </div>
+        
         <div class="col-md-6 col-sm-6 ">
         <label for="direccion">Dirección</label>
             <input type="text" class="form-control-file" name="direccion" id="direccion" 

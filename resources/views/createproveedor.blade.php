@@ -10,7 +10,7 @@
   border: 2px solid green;
 }
 input:invalid {
-  border: 2px solid #4da9ff;
+  border: 2px solid #ff0000;
 }
 </style>
 

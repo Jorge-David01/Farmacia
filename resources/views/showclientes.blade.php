@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'Ventana de proveedores')
+@section('pestania', 'Detalles del cliente')
 @section('contenido')
 
 

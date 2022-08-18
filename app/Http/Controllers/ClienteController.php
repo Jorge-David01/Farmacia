@@ -147,8 +147,8 @@ public function Ver($id){
     public function update(Request $request, $id){
 
         $rules= ([
-            'nombre_cliente'=>'required | |min:6 | max:70 '  ,
-            'numero_identidad'=>'required |min:13 | max:13 |regex:([0,9]{13})',
+            'nombre_cliente'=>'required  |min:6 | max:70 '  ,
+            'numero_identidad'=>'required |min:13 | max:13 |regex:([[0-1]{1}[0-9]{1}[0-2]{1}[0-9]{10})',
             'numero_tel'=>'required||min:8| max:8 |regex:([2,9,8,3]{1}[0-9]{7})',
             'direccion'=>'required|min:10|max:50',
            
