@@ -251,7 +251,7 @@ class VentaController extends Controller
      
 
 
-         return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu)->with('name' , $name);
+         return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu);
 
     }
 
