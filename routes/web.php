@@ -14,6 +14,7 @@ use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CotizacionController;
+use App\Http\Controllers\KardexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -194,6 +195,7 @@ Route::put('/cotizacion/almacenar',[CotizacionController::class, 'almacenar'])->
 
 Route::get('/cotizacion/imprimir/{id}',[CotizacionController::class, 'imprimir'])->name('cotizacion.imprimir');
 
+Route::get('/kardex',[KardexController::class, 'index'])->name('kardex.index');
 
 Auth::routes();
 

@@ -137,7 +137,7 @@
 
 
       <li>
-        <a href="#" >
+        <a href="/kardex" >
           <i class="zmdi zmdi-lock"></i> <span>Cardex</span>
         </a>
       </li>
