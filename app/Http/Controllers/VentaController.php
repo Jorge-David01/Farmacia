@@ -234,12 +234,6 @@ class VentaController extends Controller
        
         $factu = Venta::findOrfail($id);
 
-
-
-    
-
-        
- 
        
 
         $detalles = DB::table('ventas')
@@ -251,7 +245,7 @@ class VentaController extends Controller
      
 
 
-         return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu)->with('name' , $name);
+         return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu);
 
     }
 

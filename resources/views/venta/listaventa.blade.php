@@ -41,7 +41,7 @@ td {
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Número de factura</th>
 <th>Nombre del proveedor</th>
-<th>Fecha de pago</th>
+<th>Método de pago</th>
 <th>Detalles de compra</th>
 </tr>
 
