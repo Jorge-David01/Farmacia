@@ -277,9 +277,15 @@ class CompraController extends Controller
 
 
     public function busqueda(Request $request){
+        $name = Proveedor::where('Nombre_del_proveedor','like', '%'.$request->missing.'%' )->paginate(10);
+       
+
+        
         $lista = Compra::where('numero_factura','like', '%'.$request->missing.'%' )
         ->orWhere('id_proveedor', 'like', '%'.$request->missing.'%')->paginate(10);
-        return view('compra/listacompra')->with('lista', $lista);
+
+        
+        return view('compra/listacompra')->with('lista', $lista)->with('name', $name);
     }
 
 
