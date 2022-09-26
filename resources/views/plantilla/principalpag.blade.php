@@ -146,6 +146,11 @@
         </a>
       </li>
 
+<li>
+      <a href="permissions/">
+        <i class="fa fa-address-card-o"></i> <span>Permisos</span>
+      </a>
+    </li>
     </ul>
   </div>
 

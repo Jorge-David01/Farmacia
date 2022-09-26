@@ -15,6 +15,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\KardexController;
+use App\Http\Controllers\PermissionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -201,6 +202,17 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//----------------------------------------------------------
+//----------------- RUTAS DE PERMISOS ---------------------
+
+//Ruta lista permiso
+Route::get('permissions/',[PermissionController::class,'index'])-> name('permissions.index');
+
+//Ruta para crear nuevo permiso
+Route::get('permissionsnuevo',[PermissionController::class,'create'])-> name('permissions.create');
+
+//Ruta guardar el nuevo permiso
+Route::post('permissionsnuevo',[PermissionController::class,'store']) ->name('permissions.store');
 
 
 Route::get('/registro', function () {
