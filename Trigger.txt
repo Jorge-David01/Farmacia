@@ -6,21 +6,21 @@ begin
 Declare var int default 0;
 Declare suma int default 0;
 
+
 	if new.cantidad < 0 then
 		set new.cantidad= 0;
     end if;
     
-    if exists(select id_producto from invent where id_producto = new.id_producto) then
-	select id into var from invent where id_producto = new.id_producto;
-	update invent set cantidad =  cantidad + new.cantidad  where id = var;
+    if exists(select id_producto from inventarios where id_producto = new.id_producto) then
+	select id into var from inventarios where id_producto = new.id_producto;
+	update inventarios set cantidad =  cantidad + new.cantidad  where id = var;
 	else
-        insert into invent(id_producto, cantidad)
+        insert into inventarios(id_producto, cantidad)
 		values (new.id_producto, new.cantidad);
     end if;
     
 end $$
-DELIMITER ;
-
+DELIMITER ; 
 
 
 

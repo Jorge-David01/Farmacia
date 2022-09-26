@@ -18,15 +18,13 @@ class CreateInventariosTable extends Migration
 
          
             $table->integer("id_producto");
-
             $table->integer("cantidad");
+           
 
           //   $table->string("nombre_producto");
           //   $table->integer("cantidad");
           //  $table->unsignedBigInteger('id_producto');
           //  $table->foreign("id_producto")->references("id")->on("productos");
-
-           
 
             $table->timestamps();
         });

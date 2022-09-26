@@ -21,11 +21,14 @@ td {
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 
-<tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-<th>id producto</th>
-<th>Cantidad</th>
-<th>Precio</th>
-<th>Vencimiento</th>
+<tr style="background: #0088cc; text-align: center;  border: 2px solid #dddddd;">
+<th >id producto</th>
+<th >Cantidad</th>
+
+
+
+<!--<th>Precio</th>
+<th>Vencimiento</th> -->
 </tr>
 
 <tbody>
@@ -40,13 +43,13 @@ td {
 @forelse($Inventa as $listaInv)
 
 <tr style="border: 2px solid #dddddd;">
-<td> {{$listaInv->id_producto}} </td>
-<td> {{$listaInv->cantidad}}</td>
+<td> {{$listaInv->  id_producto}} </td>
+<td> {{$listaInv->  cantidad}}</td>
 
 
-<td> <a  class="btn btn-success" href="/Precio/{{$listaInv->id}}"> Precio unitario </a></td>
-<td > <a  class="btn btn-success" href="/vencimiento/{{$listaInv->id}}"> fecha de vencimiento </a></td>
 
+<!--  <td> <a  class="btn btn-success" href="/Precio/{{$listaInv->id}}"> Precio unitario </a></td>
+<td > <a  class="btn btn-success" href="/vencimiento/{{$listaInv->id}}"> fecha de vencimiento </a></td> 
 </tr>
 
 

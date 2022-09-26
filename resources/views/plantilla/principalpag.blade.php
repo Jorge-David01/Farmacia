@@ -4,8 +4,6 @@
 <!-- ---------------------------------------------LINK DE  BOOTSTRAP--------------------------------------- -->
 <head>
 
-
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -180,10 +178,6 @@
       <i class="fa fa-bell-o"></i></a>
     </li>
 
-
-
-
-
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
     <li class="nav-item">
@@ -219,7 +213,7 @@
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><a href="{{ route('logout') }}"
         onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();"
+        document.getElementById('logout-form').submit();" 
 
         class="icon-power"> Cerrar sesión</a> </li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -231,47 +225,6 @@
   </ul>
 </nav>
 </header>
-
- <!--COLORES A SELECCIONAR-->
- <div class="right-sidebar">
-
-      <!--
-      <div class="switcher-icon">
-        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-      </div>
-      -->
-
-      <div class="right-sidebar-content">
-
-        <p class="mb-0">Varios colores o eso</p>
-        <hr>
-
-        <ul class="switcher">
-          <li id="theme1"></li>
-          <li id="theme2"></li>
-          <li id="theme3"></li>
-          <li id="theme4"></li>
-          <li id="theme5"></li>
-          <li id="theme6"></li>
-        </ul>
-
-        <p class="mb-0">Color unico</p>
-        <hr>
-
-        <ul class="switcher">
-          <li id="theme7"></li>
-          <li id="theme8"></li>
-          <li id="theme9"></li>
-          <li id="theme10"></li>
-          <li id="theme11"></li>
-          <li id="theme12"></li>
-          <li id="theme13"></li>
-          <li id="theme14"></li>
-          <li id="theme15"></li>
-        </ul>
-
-       </div>
-     </div>
 
 
 <main>
