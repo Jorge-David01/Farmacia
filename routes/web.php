@@ -16,6 +16,7 @@ use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\KardexController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -213,6 +214,18 @@ Route::get('permissionsnuevo',[PermissionController::class,'create'])-> name('pe
 
 //Ruta guardar el nuevo permiso
 Route::post('permissionsnuevo',[PermissionController::class,'store']) ->name('permissions.store');
+
+//----------------------------------------------------------
+//----------------- RUTAS DE ROLES ---------------------
+
+//Ruta para lista roles
+Route::get('roles/',[RoleController::class,'index'])-> name('roles.index');
+
+//Ruta para crear nuevo Rol
+Route::get('rolesnuevo',[RoleController::class,'create'])-> name('roles.create');
+
+//Ruta guardar el nuevo rol
+Route::post('rolesnuevo',[RoleController::class,'store']) ->name('roles.store');
 
 
 Route::get('/registro', function () {
