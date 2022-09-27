@@ -294,8 +294,16 @@ class CompraController extends Controller
 
     public function inven(){
         $Inventa =  Inventario::paginate(20) ;
-      
-        return view('Inventario')->with('Inventa' , $Inventa);
+        
+        
+        $nombre = DB::table('inventarios')
+        ->join('productos', 'inventarios.id_producto', '=', 'productos.id')
+        ->where('productos.id', '=', 'inventarios.id_producto')
+        ->select('nombre_producto')
+        ->get();
+
+
+        return view('Inventario')->with('Inventa' , $Inventa)->with('nombre', $nombre);
     }
 
 

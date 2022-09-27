@@ -179,16 +179,7 @@
 
 
 
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
-    </li>
-
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
-    </li>
-
+    
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
     <li class="nav-item">

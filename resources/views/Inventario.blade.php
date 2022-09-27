@@ -40,6 +40,9 @@ td {
 </tbody>
 
 
+
+
+
 @forelse($Inventa as $listaInv)
 
 <tr style="border: 2px solid #dddddd;">
@@ -50,7 +53,7 @@ td {
 
 <!--  <td> <a  class="btn btn-success" href="/Precio/{{$listaInv->id}}"> Precio unitario </a></td>
 <td > <a  class="btn btn-success" href="/vencimiento/{{$listaInv->id}}"> fecha de vencimiento </a></td> 
-</tr>
+</tr> -->
 
 
 
