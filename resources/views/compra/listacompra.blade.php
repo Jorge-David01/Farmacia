@@ -40,7 +40,7 @@ td {
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Número de factura</th>
-<th>Nombre del proveedor</th>
+
 <th>Fecha de pago</th>
 <th>Detalles de compra</th>
 </tr>
@@ -54,22 +54,17 @@ td {
 </tbody>
 
 @forelse($lista as $list )
-@forelse($name as $nam )
 
 <tr style="border: 2px solid #dddddd;">
 <td> {{$list->numero_factura}} </td>
-<td>  {{$nam->Nombre_del_proveedor}} </td>
+
 <td>  {{$list->fecha_pago}}             </td>
 
 <td > <a  class="btn btn-success" href="/detallescompra/{{$list->id}}"> Detalles </a></td>
 </tr>
 
 
-@empty
 
-
-
-@endforelse
 
 
 @empty
