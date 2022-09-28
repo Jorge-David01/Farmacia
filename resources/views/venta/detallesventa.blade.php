@@ -6,7 +6,7 @@
 
 
 
-<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Detalles de compra </h1>
+<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Detalles de venta </h1>
 
 <table class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" >
 
@@ -24,6 +24,7 @@
             <th>Nombre del producto</th>
             <th>Cantidad</th>
             <th>Precio</th>
+           
             <th>Descuento</th>
             <th>Total</th>
             
@@ -36,36 +37,43 @@
             ?>
 
      
+@forelse ($name as $nombre)
+<tr>
+<td>{{$nombre->nombre_producto}}</td>
+</tr>
+ 
+@empty
+@endforelse
+
+
+
+
 @forelse ($detalles as $det)
         
 
-        <tr>
-           
-            
-            <td>{{$det->id_producto}}</td>
+        <tr> 
      
+             <td></td>
             <td>{{$det->cantidad}}</td>
       
             <td>{{$det->precio}}</td>
-            <td>{{$det->descuento}}</td>
-      
-      
-            
-            <?php $total = ($det->precio * $det->cantidad) - $det->descuento ;
+
+            <?php $real = (($det->precio * $det->cantidad) * $det->descuento )/100 ;
         
          
             ?>
-
-
+        
+            <td> {{$real }}</td>
+            <?php $total = ($det->precio * $det->cantidad) - $real ;
+            ?>
             <td>  {{$total }} </td>
-
-            
         </tr>
         
-    
-       
+     
+      
+
         @empty
-       
+       <td>No hay resultados</td>
 @endforelse
 
 
