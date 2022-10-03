@@ -68,7 +68,7 @@
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="/Principal">
-       <img src="/assets/images/Logo.jpeg" width="100" height="50" class="logo-icon" alt="logo icon">
+       <img src="/assets/images/Logo.jpeg" class="logo-icon" alt="logo icon">
      </a>
    </div>
 
@@ -79,17 +79,10 @@
         </a>
       </li>
 
-      <li>
-
-
-      <!--
-      <a href="/registro">
+      <!-- <a href="/registro">
           <i class="fa fa-address-card-o"></i> <span>Registrar</span>
-        </a>
-      </li>
-      -->
-
-        </li>
+          </a>
+      </li> -->
 
       <li>
         <a href="/Listpro">
@@ -170,44 +163,39 @@
   <ul class="navbar-nav mr-auto align-items-center">
     <li class="nav-item">
       <a class="nav-link toggle-menu" href="javascript:void();">
-
+      <i class="icon-menu menu-icon"></i>
      </a>
     </li>
   </ul>
 
   <ul class="navbar-nav align-items-center right-nav-link">
-
-
-
-    
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
     <li class="nav-item">
 
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="/assets/images/Logo.jpeg" class="img-circle" alt="user avatar"></span>
+        <span class="user-profile"><img src="/assets/images/Logoim.png" class="img-circle" alt="user avatar"></span>
       </a>
+
 
       <ul class="dropdown-menu dropdown-menu-right">
 
-       <li class="dropdown-item user-details">
+        <li class="dropdown-item user-details">
          <a href="javaScript:void();">
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/Logo.jpeg" alt="user avatar"></div>
             <div class="media-body">
 
-            <strong><h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6></strong>
-            <strong> <p class="user-subtitle">Administrador</p> </strong>
+            <h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6>
+            <p class="user-subtitle">Administrador</p>
 
             </div>
            </div>
           </a>
         </li>
 
-        <!-- ---------BOTONES DE CONFIGURACIÓN---------- -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"> <a href="#" class="icon-settings"> Cambio de contraseña</a> </li>
-
+        <li class="dropdown-item"> <a href="#" class="icon-settings"> Cambio de contraseña</a></li>
 
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><a href="/Ayuda" class="icon-envelope"> Ayuda</a> </li>
@@ -221,16 +209,36 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
         @csrf
         </form>
+
       </ul>
-    </li>
+
+      </li>
 
   </ul>
+
 </nav>
 </header>
 
 
+
+
+
+<ul class="dropdown-menu dropdown-menu-right">
+
+       
+
+        <!-- ---------BOTONES DE CONFIGURACIÓN---------- -->
+        
+
+
+        
+      </ul>
+    </li>
+    </ul>
+
+
 <main>
-  <div class="container-fluid" style="margin-left:16%;">
+  <div style="margin-left:16%;">
     @yield('contenido')
   </div>
 </main>

@@ -69,4 +69,4 @@ input:invalid {
       
     </form>
     @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
-@endsection
+@endsection                                                 
