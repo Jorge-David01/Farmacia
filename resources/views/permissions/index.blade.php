@@ -46,4 +46,7 @@
     @endforeach
     </tbody>
     </table>
+<br>
+    <div style="margin-left: 4% ; margin-bottom: 3%; " {!! $permissions->links()!!} </div>
+
 @stop

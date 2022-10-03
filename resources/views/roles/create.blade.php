@@ -84,9 +84,15 @@
           <!--End body-->
 
           <!--Footer-->
-          <div class="card-footer ml-auto mr-auto">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-          </div>
+          <div class="ln_solid"></div>
+                <div class="item form-group">
+                    <div class="col-md-6 col-sm-6 offset-md-3">
+                        <button class="btn btn-danger" type="button" onclick="window.location='/roles'">Cancelar</button>
+                        <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </div>
+        </div>
           <!--End footer-->
         </div>
       </form>

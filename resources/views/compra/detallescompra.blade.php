@@ -32,13 +32,23 @@
             $total =0;
             ?>
 
+
+@forelse ($name as $nombre)
+<tr> 
+<td>{{$nombre->nombre_producto}}</td>
+</tr>
+@empty
+       
+       @endforelse
+
+       
         @forelse ($deta as $det)
 
-        @forelse ($name as $nombre)
+  
 
         <tr>
            
-            <td>{{$nombre->nombre_producto}}</td>
+    <td></td>
    
             <td>{{$det->cantidad}}</td>
      
@@ -51,8 +61,6 @@
             <td>{{$det->precio_publico}}</td>
             
             <?php $total = $det->precio_farmacia * $det->cantidad;
-        
-         
             ?>
 
 
@@ -61,9 +69,7 @@
             
         </tr>
         
-        @empty
-       
-@endforelse
+   
  
         @empty
        

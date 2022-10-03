@@ -140,13 +140,13 @@
       </li>
 
 <li>
-      <a href="permissions/">
+      <a href="/permissions">
         <i class="fa fa-address-card-o"></i> <span>Permisos</span>
       </a>
     </li>
 
     <li>
-        <a href="roles/">
+        <a href="/roles">
           <i class="fa fa-file-text-o"></i> <span>Roles</span>
         </a>
       </li>
