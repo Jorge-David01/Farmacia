@@ -24,9 +24,9 @@ td {
 
 
 
-<h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de empleados </h1>
+<h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de Usuarios </h1>
 
-<a style="margin-left: 4%;" class="btn btn-warning" href="/empleados/nuevo">Nuevo empleado</a>
+<a style="margin-left: 4%;" class="btn btn-warning" href="/empleados/nuevo">Nuevo Usuario</a>
 
 <div class="col-x1-12" style="margin-top: 1%;">
     <form action="{{route('lista')}}" method="get">
@@ -44,11 +44,12 @@ td {
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-<th>Identificador</th>
+<th>#</th>
 <th>Nombre</th>
-<th>Número de identidad</th>
-<th>Teléfono</th>
+<th>Email</th>
+<th>Rol</th>
 <th>Ver detalles</th>
+<th></th>
 </tr>
 
 <tbody>
@@ -62,11 +63,13 @@ td {
 @forelse($employee as $emple)
 
 <tr style="border: 2px solid #dddddd;">
-<td>{{$emple->id}}</td>
-<td>{{$emple->nombre_completo}}</td>
-<td>{{$emple->DNI}}</td>
-<td>{{$emple->numero_cel}}</td>
+<!-- <td>{{$emple->id}}</td> -->
+<td>{{$loop->index+1}}</td>
+<td>{{$emple->name}}</td>
+<td>{{$emple->email}}</td>
+<td>{{$emple->role}}</td>
 <td > <a  class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
+<td > <a  class="btn btn-success" href="/contrasenia/{{$emple->id}}/listausuarios"> Cambiar Contrasena </a></td>
 </tr>
 
 @empty

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreEmpleadoRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class EmpleadoController extends Controller
 {
@@ -46,14 +48,15 @@ class EmpleadoController extends Controller
 
     public function list(Request $request){
         $texto=trim($request->get('texto'));
-        $employee=DB::table('empleados')
+        $employee=DB::table('users')
 
-        ->where('DNI','like','%'.$texto.'%')
-        ->orwhere('nombre_completo','like','%'.$texto.'%')
+        ->where('dni','like','%'.$texto.'%')
+        ->orwhere('name','like','%'.$texto.'%')
+        ->orWhere('email','like','%'.$texto.'%')
         ->orWhere('numero_cel','like','%'.$texto.'%')
-        ->orWhere('numero_tel','like','%'.$texto.'%')
-        ->orderBy('DNI', 'asc')->paginate(10);
-        return view('listaempleados' , compact ('employee', 'texto'));
+        ->orderBy('id', 'desc')
+        ->paginate(10);
+        return view('listausuarios' , compact ('employee', 'texto'));
     }
 
 
@@ -63,10 +66,8 @@ class EmpleadoController extends Controller
             'nombre_completo' => 'required|max:110',
             'dni'=> 'required|unique:empleados,DNI|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
             'numero_cel'=> 'required|unique:empleados,numero_cel|numeric|regex:([9,8,3]{1}[0-9]{7})',
-            'numero_tel'=> 'required|unique:empleados,numero_tel|numeric|regex:([2]{1}[0-9]{7})',
             'direccion'=>'required|max:100',
             'password' => 'required|confirmed|min:6',
-
         ];
 
         $mensaje=[
@@ -80,10 +81,6 @@ class EmpleadoController extends Controller
             'numero_cel.regex' => 'El numero de celular debe tener 8 dígitos iniciar con 3,8 o 9',
             'numero_cel.numeric' => 'En numero de celular solo debe tener numeros',
             'numero_cel.unique' => 'El numero de celular que ingreso ya lo uso',
-            'numero_tel.required' => 'El numero de telefono fijo no puede estar vacío',
-            'numero_tel.regex' => 'El numero de telefono fijo debe tener 8 dígitos iniciar con 2',
-            'numero_tel.numeric' => 'En numero de telefono fijo solo debe tener numeros',
-            'numero_tel.unique' => 'El numero de telefono fijo que ingreso ya lo uso',
             'direccion.required' => 'La dirección no puede ser vacía',
             'direccion.min' => 'La dirección es muy corta',
             'password.required' => 'La contraseña no puede estar vacía',
@@ -92,24 +89,38 @@ class EmpleadoController extends Controller
 
         $this->validate($request,$rules,$mensaje);
 
-        $empleado = new Empleado();
-
-        $empleado->nombre_completo = $request->input('nombre_completo');
-        $empleado->DNI= $request->input('dni');
-        $empleado->numero_cel= $request->input('numero_cel');
-        $empleado->numero_tel= $request->input('numero_tel');
-        $empleado->direccion = $request->input('direccion');
-        $empleado->contraseña = $request->input('password');
 
 
-        $creado = $empleado->save();
+      
+        User::create([
+            'name' => $request['nombre_completo'],
+            'email' => $request['email'],
+            'role' => $request['role'],
+            'dni' => $request['dni'],
+            'numero_cel' => $request['numero_cel'],
+            'numero_tel' => $request['numero_tel'],
+            'direccion' => $request['direccion'],
+            'password' => Hash::make($request['password']),
+        ]);          
+    
+       
+        // $empleado = new Empleado();
+        // $empleado->nombre_completo = $request->input('nombre_completo');
+        // $empleado->DNI= $request->input('dni');
+        // $empleado->numero_cel= $request->input('numero_cel');
+        // $empleado->numero_tel= $request->input('numero_tel');
+        // $empleado->direccion = $request->input('direccion');
+        // $empleado->contraseña = $request->input('password');
+        // $creado = $empleado->save();
 
-        if ($creado) {
-            return redirect()->route('lista')
-                ->with('mensaje', 'El empleado fue creado con exito');
-        } else {
 
-        }
+            $texto='';
+            $employee=DB::table('users')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+            return view('listausuarios' , compact ('employee', 'texto'))
+                ->with('mensaje', 'El usuario fue creado con exito');
+   
     }
 
     /**

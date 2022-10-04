@@ -73,14 +73,16 @@
    </div>
 
    <ul class="sidebar-menu do-nicescrol">
+
+   @if( Auth::user()->role == 'Administrador')
       <li>
-        <a href="/Lista">
-          <i class="fa fa-address-card-o"></i> <span>Empleados</span>
+        <a href="/ListaUsuarios">
+          <i class="fa fa-address-card-o"></i> <span>Usuarios</span>
         </a>
       </li>
 
       <li>
-
+   @endif()
 
       <!--
       <a href="/registro">
@@ -118,6 +120,11 @@
       <li>
         <a href="/listaventa">
           <i class="fa fa-file-text-o"></i> <span>Facturación</span>
+        </a>
+      </li>
+      <li>
+        <a href="/devolucion">
+          <i class="fa fa-cart-plus"></i> <span>Devolucion de Producto</span>
         </a>
       </li>
 
@@ -197,7 +204,9 @@
             <div class="media-body">
 
             <strong><h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6></strong>
-            <strong> <p class="user-subtitle">Administrador</p> </strong>
+
+   
+            <strong> <p class="user-subtitle">{{ Auth::user()->role }}</p> </strong>
 
             </div>
            </div>
@@ -206,7 +215,8 @@
 
         <!-- ---------BOTONES DE CONFIGURACIÓN---------- -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"> <a href="#" class="icon-settings"> Cambio de contraseña</a> </li>
+        <li class="dropdown-item"> <a href="/contrasenia/{{Auth::user()->id}}/navbar"
+         class="icon-settings"> Cambio de contraseña</a> </li>
 
 
         <li class="dropdown-divider"></li>

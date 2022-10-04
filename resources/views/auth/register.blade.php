@@ -1,8 +1,13 @@
-@extends('layouts.app')
+ <!-- @extends('layouts.app') -->
 
-@section('pestania', 'Registrar')
+<!--@section('pestania', 'Registrar') -->
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- @extends('plantilla.principalpag')
+@section('pestania', 'Lista de empleados')
+@section('contenido') -->
+
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
@@ -15,61 +20,47 @@
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-<!-- loader-->
 <link href="/assets/css/pace.min.css" rel="stylesheet"/>
   <script src="/assets/js/pace.min.js"></script>
-  <!--favicon-->
   <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-  <!--Full Calendar Css-->
   <link href="/assets/plugins/fullcalendar/css/fullcalendar.min.css" rel='stylesheet'/>
-  <!-- simplebar CSS-->
   <link href="/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
-  <!-- Bootstrap core CSS-->
   <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
-  <!-- animate CSS-->
   <link href="/assets/css/animate.css" rel="stylesheet" type="text/css"/>
-  <!-- Icons CSS-->
   <link href="/assets/css/icons.css" rel="stylesheet" type="text/css"/>
-  <!-- Sidebar CSS-->
   <link href="/assets/css/sidebar-menu.css" rel="stylesheet"/>
-  <!-- Custom Style-->
   <link href="/assets/css/app-style.css" rel="stylesheet"/>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <link href="{{ asset('css/select-multiple.css') }}" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> -->
 
 
 
   <title>Farmacia - @yield('pestania')</title>
 
 </head>
+<h1 style="margin-left: 4% ;margin-bottom: 3%; "> Registrar Usuarios </h1>
 
 <body class="bg-theme bg-theme1";  onload="startTime()">
 
 
   <!-- Catgador de arranque -->
-  <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+  <!-- <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div> -->
 
 
-@section('content')
+<!-- @section('content') -->
 
 
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                
-                <div class="card-header">{{ __('Registrar') }}</div>
+            <div class="card">               
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -151,30 +142,26 @@
 
 
 
-  <!-- Bootstrap core JavaScript-->
 
-  <script src="assets/js/jquery.min.js"></script>
+  <!-- <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
 
-  <!-- simplebar js -->
   <script src="assets/plugins/simplebar/js/simplebar.js"></script>
-  <!-- sidebar-menu js -->
   <script src="assets/js/sidebar-menu.js"></script>
 
-  <!-- Custom scripts -->
   <script src="assets/js/app-script.js"></script>
 
-  <!-- Full Calendar -->
   <script src='assets/plugins/fullcalendar/js/moment.min.js'></script>
   <script src='assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
   <script src="assets/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script> -->
 
 
 
 
-
+<!-- @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection
-@section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
+ @endsection -->
+<!--@section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.') -->
