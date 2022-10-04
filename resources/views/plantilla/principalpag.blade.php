@@ -164,10 +164,13 @@
     <li class="nav-item">
       <a class="nav-link toggle-menu" href="javascript:void();">
       <i class="icon-menu menu-icon"></i>
-     </a>
+      </a>
     </li>
   </ul>
 
+  
+  
+  
   <ul class="navbar-nav align-items-center right-nav-link">
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
@@ -218,43 +221,31 @@
 
 </nav>
 </header>
-
-
-
-
-
 <ul class="dropdown-menu dropdown-menu-right">
-
-       
-
-        <!-- ---------BOTONES DE CONFIGURACIÓN---------- -->
-        
+</ul></li></ul>
 
 
-        
-      </ul>
-    </li>
-    </ul>
+<!-- CON LA NUEVA PLANTILLA -->
+<!-- 
+<main>
+  <div >
+    @yield('contenido')
+  </div>
+</main>
+-->
 
 
+<!-- CON LA VIEJA PLANTILLA --> 
 <main>
   <div style="margin-left:16%;">
     @yield('contenido')
   </div>
 </main>
 
-<!--
-<footer class="footer mt-auto py-3 bg-light" style="margin-left:12%;">
-    <div class="container">
-        <span class="text-muted">@yield('pie_pagina')</span>
-    </div>
-</footer>
--->
 
 
 
   <!-- Bootstrap core JavaScript-->
-
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
