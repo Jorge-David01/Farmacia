@@ -36,7 +36,7 @@ td {
   <div class="content-wrapper">
   <div class="container-fluid">
 
-  <h1 style="margin-bottom: 3%;"> Lista de empleados </h1>
+<h1 style="margin-bottom: 3%;"> Lista de empleados </h1>
 
 <a  class="btn btn-warning" href="/empleados/nuevo">Nuevo empleado</a>
 
