@@ -19,8 +19,12 @@ use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\KardexController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+
 use App\Http\Controllers\CajaAlivioController;
 
+
+
+use App\Http\Controllers\ContraseniaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +57,14 @@ Route::get('/Proveedores',[EmpleadoController::class, 'VPProveedor']);
 Route::get('/Ayuda',[EmpleadoController::class, 'Ayuda']);
 
 //-----------------------------------------------------------
+//----------------- RUTAS DE CONTRASENIA -----------------------
+
+Route::get('/contrasenia/{id}/{from}',[ContraseniaController::class, 'show'])->name('contrasenia.cambio');
+Route::post('/contrasenia/cambio',[ContraseniaController::class, 'cambio'])->name('contrasenia.cambiopost');
+
+
+
+//-----------------------------------------------------------
 //----------------- RUTAS DE EMPLEADO -----------------------
 Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])->name('empleados.create');
 
@@ -60,13 +72,19 @@ Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])->name('empl
 
 Route::get('/Emple/{id}', [EmpleadoController::class, 'show']) -> name('empleado.detalles')-> where('id', '[0-9]+');
 
-Route::get('/Lista',[EmpleadoController::class, 'list']) -> name ('lista');
 
 Route::delete('/empleados/{id}/eliminar',[EmpleadoController::class, 'destroy'])->name('empleados.delete')-> where('id', '[0-9]+');
 
 Route::get('/Empleado/{id}/editar', [EmpleadoController::class, 'edit']) -> name('Editar.empleado')-> where('id', '[0-9]+');
 
 Route::put('/Empleado/{id}/editar', [EmpleadoController::class, 'update']) -> name('actualizar.empleado') -> where('id', '[0-9]+');
+
+Route::get('/ListaUsuarios',[EmpleadoController::class, 'list']) -> name ('lista');
+//-------------------------------------------------------------
+//----------------- RUTAS DE USUARIOS -----------------------
+
+
+
 
 
 //-------------------------------------------------------------
@@ -239,6 +257,7 @@ Route::get('/registro', function () {
 
 
 
+
 //----------------- Caja De Alivio ---------------------
 
 Route::get('/CajaAlivio',[CajaAlivioController::class, 'caja'])->name('caja.alivio');
@@ -246,3 +265,9 @@ Route::get('/CajaAlivio',[CajaAlivioController::class, 'caja'])->name('caja.aliv
 Route::get('/CajaPregunta/respuesta',[CajaAlivioController::class, 'pregunta'])->name('caja.pregunta');
 
 Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta'])->name('caja.respuestas');
+=======
+//----------------------------------------------------------
+//----------------- RUTAS DE DEVOLUCION ---------------------
+
+//falta hacer
+

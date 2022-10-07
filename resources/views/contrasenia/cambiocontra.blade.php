@@ -1,9 +1,9 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'Formulario de empleados')
+@section('pestania', 'Cambio Contrasena')
 
 @section('contenido')
 
-<div class="x_content">
+ <div class="x_content">
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -23,88 +23,16 @@
         }
     </style>
 
-     <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Creación de Empleados </h1>
+     <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Cambio Contrasena </h1>
 
-    <form style="margin-left: 3%;" method="post" enctype="multipart/form-data">
+    <form style="margin-left: 3%;" method="post" enctype="multipart/form-data" 
+    action="{{route('contrasenia.cambiopost')}}" method="POST" 
+    >
         @csrf
-       
-        <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre Completo: <span class="required"></span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-                <input maxlength="110" type="text" id="nombre_completo" name="nombre_completo" required="required" class="form-control "
-                value="{{old('nombre_completo')}}"
-                placeholder="Ingrese el nombre completo">
-            </div>
-        </div>
 
-        <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Rol: <span class="required"></span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-            <select required="required" class="form-control" name="role" value="{{old('role')}}">
-                <option value="Empleado">Empleado</option>
-                <option value="Administrador">Administrador</option>
-            </select>                
-            </div>
-        </div>
+        <input hidden  name="id" value="{{$user->id}}" />
+        <input hidden  name="from" value="{{$from}}" />
 
-        <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Correo Electronico: <span class="required"></span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-                <input placeholder="Ingrese el correo electronico" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-            </div>
-        </div>
-
-
-
-        <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Identidad: <span class="required"></span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-                <input maxlength="13" type="text" id="dni" name="dni" required="required" class="form-control"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                value="{{old('dni')}}"
-                pattern="[0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9}"
-                title="Ingrese un numero de identidad valido"
-                placeholder="Ingrese la identidad sin guiones">
-            </div>
-        </div>
-        <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Número de celular: <span class="required"></span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-                <input maxlength="8" type="tel" id="numero_cel" name="numero_cel" required="required" class="form-control"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                value="{{old('numero_cel')}}"
-                pattern="[9,8,3]{1}[0-9]{7}"
-                title="Ingrese un numero de celular que inicie con 3,8 o 9 y que sea de 8 digitos"
-                placeholder="Ingrese el número de celular">
-            </div>
-        </div>
-
-        <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Teléfono fijo: <span class="required"></span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-                <input maxlength="8" type="tel" id="numero_tel" name="numero_tel"  class="form-control"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                value="{{old('numero_tel')}}"
-                pattern="[2]{1}[0-9]{7}"
-                title="Ingrese el telefono fijo que inicie con 2 y que sea de 8 digitos"
-                placeholder="Ingrese el teléfono fijo">
-            </div>
-        </div>
-
-        <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Dirección: <span class="required"></span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-                <textarea maxlength="200" placeholder="Ingrese la dirección" name="direccion" id="direccion" name="direccion" cols="1" rows="3" required="required"
-                class="form-control">{{old('direccion')}}</textarea>
-            </div>
-        </div>
 
         <div class="item form-group">
             <label for="password" class="col-sm-3 col-form-label">{{ __('Contraseña:') }}</label>
@@ -123,7 +51,7 @@
                 @enderror
             </div>
         </div>
-    </div>
+
 
         <div class="item form-group">
             <label for="confirm_password" class="col-sm-3 col-form-label">{{ __('Confirmar Contraseña:') }}</label>
@@ -188,6 +116,9 @@
 
     </form>
 </div>
+            
+
+
 
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
