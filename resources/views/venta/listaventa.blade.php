@@ -84,12 +84,18 @@
 
 
 
+
               {{$lista -> links() }}
 
+
+
+</table>
+{{$lista -> links() }}
 
               
 
             </table>
+
 
 
           </div>

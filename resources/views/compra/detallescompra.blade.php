@@ -91,22 +91,22 @@
 
 
 
-<button style="margin-left: 4%;" class="btn btn-success">
+
 <a class="btn btn-success" href="/listacompra">Volver</a>
-</button>
 
-<button class="btn btn-danger">
 
-<form method="post" action="{{route('compra.delete',['id'=>$details->id_compra])}}">
 
-<form method="post" action="{{route('compra.delete',['id'=>$details->id])}}">
+
+
+
+<form style="display:inline-block;" method="post" action="{{route('compra.delete',['id'=>$details->id])}}">
 
     @csrf
     @method('delete') 
     <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar la compra?')"
     value="Eliminar" class="btn btn-danger" >
 </form>
-</button>
+
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection
 

@@ -204,6 +204,21 @@
                     <td colspan="8"><center>No hay datos ingresados</center></td>
                 </tr>
             @endforelse
+
+            <?php  
+            $caja= 3000;
+
+                 $caja= $caja + $total;
+               
+            if ($caja >= 6000){
+                  echo '<script>alert("La caja de alivio se ha llenado")</script>';            
+            $caja = 3000;
+        }
+            ?>
+
+
+
+
         <tr>
             <td style="text-align: right" colspan="6">Total</td>
             <td style="text-align: right">L.{{ number_format($total,2)}}</td>
