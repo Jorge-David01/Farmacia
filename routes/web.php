@@ -7,6 +7,8 @@ use App\Models\Proveedor;
 use App\Models\Producto;
 use App\Models\Compra;
 use App\Models\Cliente;
+use App\Models\Caja;
+use App\Models\caja_respuesta;
 
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
@@ -17,6 +19,9 @@ use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\KardexController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\CajaAlivioController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -233,3 +238,11 @@ Route::get('/registro', function () {
 });
 
 
+
+//----------------- Caja De Alivio ---------------------
+
+Route::get('/CajaAlivio',[CajaAlivioController::class, 'caja'])->name('caja.alivio');
+
+Route::get('/CajaPregunta/respuesta',[CajaAlivioController::class, 'pregunta'])->name('caja.pregunta');
+
+Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta'])->name('caja.respuestas');

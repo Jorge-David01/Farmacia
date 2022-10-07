@@ -76,14 +76,14 @@ td {
 
 
 
-{{$lista -> links() }}
+
 
 
 
 </tbody>
 
 </table>
-
+{{$lista -> links() }}
 
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
