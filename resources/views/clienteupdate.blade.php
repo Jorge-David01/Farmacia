@@ -7,9 +7,11 @@
     input:valid {
   border: 2px solid green;
 }
+
 input:invalid {
   border: 2px solid #ff0000;
 }
+
 </style>
 
 
@@ -40,7 +42,7 @@ input:invalid {
 
         <div class="col-md-6 col-sm-6 ">
         <label for="numero_identidad">Numero de identidad:</label>
-            <input type="number" class="form-control-file" name="numero_identidad" id="numero_identidad" 
+            <input type="number " class="form-control-file" name="numero_identidad" id="numero_identidad" 
             placeholder="Número de identidad " value="{{$client->numero_id}}"  minlength="13" maxlength="13"
              
             pattern="[0-1]{1}[0-9]{1}[0-2]{1}[0-9]{10}">
@@ -69,4 +71,4 @@ input:invalid {
       
     </form>
     @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
-@endsection
+@endsection                                                 

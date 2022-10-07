@@ -22,20 +22,32 @@ td {
 @endif
 
 
-<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Lista de productos </h1>
 
-<a style="margin-left: 4%;" class="btn btn-warning" href="/productos/nuevo">Nuevo Producto</a>
 
-<form action="{{route('producto.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%;">
+<div class="clearfix"></div>
+  <div class="content-wrapper">
+  <div class="container-fluid">
+
+
+<h1 style=" margin-bottom: 3%; "> Lista de productos </h1>
+
+<a class="btn btn-warning" href="/productos/nuevo">Nuevo Producto</a>
+
+<form action="{{route('producto.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
 @csrf
 <input type="text" name="busca" id="busca" placeholder="Busqueda">
 <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
 <a style="margin-left: 4%;" class="btn btn-warning" href="/Producto">Limpiar</a>
 
 </form>
+<h1 style="margin-bottom: 2%;"></h1>
 
-
-<table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
+	<div class="row" >
+	<div class="col-12 col-lg-12">
+	<div class="card" >
+		 
+	<div class="table-responsive">
+  <table class="table align-items-center table-flush table-borderless">
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Nombre del proveedor</th>
@@ -62,6 +74,9 @@ td {
 <td > <a  class="btn btn-success" href="/Detallesproduct/{{$producto->id}}"> Detalles </a></td>
 </tr>
 
+
+
+
 @empty
 
 @endforelse
@@ -70,10 +85,15 @@ td {
 {{$produc -> links() }}
 
 
-
 </tbody>
 
 </table>
+
+                
+</div>
+</div>
+</div>
+</div>
 
 
 

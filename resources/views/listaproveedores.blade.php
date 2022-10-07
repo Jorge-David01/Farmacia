@@ -24,17 +24,33 @@ td {
 @endif
 
 
-<h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Lista de proveedores </h1>
 
-<a style="margin-left: 4%;" class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
+<div class="clearfix"></div>
+  <div class="content-wrapper">
+  <div class="container-fluid">
 
-<form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%;">
+<h1 style="margin-bottom: 3%;"> Lista de proveedores </h1>
+
+<a  class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
+
+<form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; ">
 @csrf
 <input type="text" name="search" id="search" placeholder="Busqueda">
 <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
 </form>
 
-<table  style="margin-top: 1%; width: 78%; margin-left: 4%;" >
+
+
+
+<h1 style="margin-bottom: 2%;"></h1>
+<div class="row" >
+<div class="col-12 col-lg-12">
+<div class="card" >
+
+<div class="table-responsive">
+<table class="table align-items-center table-flush table-borderless">
+
+
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Nombre del proveedor</th>
@@ -73,6 +89,19 @@ td {
 </tbody>
 
 </table>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
 
 
 

@@ -222,7 +222,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //----------------- RUTAS DE PERMISOS ---------------------
 
 //Ruta lista permiso
-Route::get('permissions/',[PermissionController::class,'index'])-> name('permissions.index');
+Route::get('/permissions',[PermissionController::class,'index'])-> name('permissions.index');
 
 //Ruta para crear nuevo permiso
 Route::get('permissionsnuevo',[PermissionController::class,'create'])-> name('permissions.create');
@@ -234,7 +234,7 @@ Route::post('permissionsnuevo',[PermissionController::class,'store']) ->name('pe
 //----------------- RUTAS DE ROLES ---------------------
 
 //Ruta para lista roles
-Route::get('roles/',[RoleController::class,'index'])-> name('roles.index');
+Route::get('/roles',[RoleController::class,'index'])-> name('roles.index');
 
 //Ruta para crear nuevo Rol
 Route::get('rolesnuevo',[RoleController::class,'create'])-> name('roles.create');

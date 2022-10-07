@@ -234,37 +234,47 @@ class CompraController extends Controller
 //------------------------------------------------------------
 //--------------------- LISTA COMPRA -------------------------
 
-    public function listacompras(){
-        $lista = Compra::paginate(10) ;
-       $name = Proveedor::paginate(10);
-        
+   
+public function listacompras(){
+    $lista = Compra::paginate(10) ;
+   $name = Proveedor::paginate(10);
+    
 
-        return view('compra/listacompra')->with('lista' , $lista)->with('name', $name);
+    return view('compra/listacompra')->with('lista' , $lista)->with('name', $name);
 
-      
+  
 
-    }
+}
 
 
 //-------------------------------------------------------------------------------
 //------------------ DETALLES ELIMINAR Y BUSCADOR COMPRAS -----------------------
 
-    public function detailscompra($id){
-        $details = DetalleCompra::findOrFail($id);
-        $comp = Compra::findOrFail($id);
-        $name = Producto::paginate($id);
+public function detailscompra($id){
+    $details = DetalleCompra::findOrFail($id);
+    $comp = Compra::findOrFail($id);
+  
 
 
-        $deta = DB::table('compras')
-        ->join('detalle_compras', 'compras.id', '=', 'detalle_compras.id_compra')
-        ->where('detalle_compras.id_compra', '=', $id)
-        ->select('id_producto' , 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
-        ->get();
-        return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta)->with('name', $name);
+    $name = DB::table('detalle_compras')
+    ->join('Productos', 'detalle_compras.id_producto', '=', 'Productos.id')
+    ->where('detalle_compras.id_compra', '=', $id)
+    ->select('nombre_producto')
+    ->get();
 
 
-      
-    }
+    $deta = DB::table('compras')
+    ->join('detalle_compras', 'compras.id', '=', 'detalle_compras.id_compra')
+    ->where('detalle_compras.id_compra', '=', $id)
+    ->select('id_producto' , 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
+    ->get();
+
+    
+    return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta)->with('name', $name);
+
+
+  
+}
 
 
 

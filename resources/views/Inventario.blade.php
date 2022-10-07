@@ -10,18 +10,32 @@ td {
 </style>
 
 
+<div class="clearfix"></div>
+  <div class="content-wrapper">
+  <div class="container-fluid">
 
-<h1 style="margin-left: 4% ; margin-bottom: 3%; "> Inventario </h1>
+<h1 style=" margin-bottom: 3%; "> Inventario </h1>
 
-<form action="{{route('busqueda')}}" method="POST" style="margin-top: 1%; width: 78%; margin-left: 4%">
+<form action="{{route('busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
 @csrf
 <input type="text" name="good" id="good" placeholder="Busqueda">
 <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
 </form>
 
-<table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
+<h1 style="margin-bottom: 2%;"></h1>
 
-<tr style="background: #0088cc; text-align: center;  border: 2px solid #dddddd;">
+	<div class="row" >
+	<div class="col-12 col-lg-12">
+	<div class="card" >
+		 
+
+	<div class="table-responsive">
+
+  <table class="table align-items-center table-flush table-borderless">
+
+
+
+<tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th >id producto</th>
 <th >Cantidad</th>
 
@@ -73,6 +87,12 @@ td {
 </tbody>
 
 </table>
+
+                
+</div>
+</div>
+</div>
+</div>
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection
