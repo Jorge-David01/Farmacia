@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProveedorRequest;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Gate;
 
 
 
@@ -18,6 +18,7 @@ class ProveedorController extends Controller{
 //----------------------------------------------------------
 //----------------- EDITAR PROVEEDOR -----------------------
     public function proveed(){
+        abort_if(Gate::denies('proveedor_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $pro = Proveedor::paginate(10);
         return view('listaproveedores')->with('pro' , $pro);
     }
@@ -25,6 +26,7 @@ class ProveedorController extends Controller{
     //
 
     public function Ver($id){
+        abort_if(Gate::denies('proveedor_detalle'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $provee = Proveedor::findOrFail($id);
         return view('showProvee')->with('provee', $provee);  
     }
@@ -33,13 +35,13 @@ class ProveedorController extends Controller{
 //----------------------------------------------------------
 //----------------- CREAR PROVEEDOR -----------------------
     public function nuevo(){
-
+        abort_if(Gate::denies('proveedor_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
      return view('/createproveedor');       
     }
 
 
     public function crear(Request $request){
-  
+        abort_if(Gate::denies('proveedor_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $rules= ([
             'nombrepro'=>'required | max:70'  ,
             'nombredis'=>'required | max:70',
@@ -101,6 +103,7 @@ class ProveedorController extends Controller{
 //----------------- EDITAR PROVEEDOR -----------------------
     public function edit(Request $request, $id)//Editar
     {
+        abort_if(Gate::denies('proveedor_actualizar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $proveedor = Proveedor::find($id);
         return view('editProvee') ->with('proveedor',$proveedor);
 

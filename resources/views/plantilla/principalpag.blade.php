@@ -82,9 +82,13 @@
       <ul class="sidebar-menu do-nicescrol">
 
         @if( Auth::user()->role == 'Administrador')
+    @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar')
         <li>
           <a href="/ListaUsuarios">
             <i class="fa fa-address-card-o"></i> <span>Usuarios</span>
+            </a>
+    </li>
+    @endcan
 
             <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
               <div class="brand-logo">
@@ -102,78 +106,94 @@
           </a>
        </li> -->
 
+       @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
         <li>
           <a href="/Listpro">
             <i class="fa fa-truck"></i> <span>Proveedores</span>
           </a>
         </li>
+        @endcan
 
+        @can('producto_listado', 'producto_nuevo','producto_actualizar','producto_detalle')
         <li>
           <a href="/Producto">
             <i class="fa fa-medkit"></i> <span>Producto</span>
           </a>
         </li>
+        @endcan
 
+        @can('compra_listado', 'compra_nuevo','compra_detalle')
         <li>
           <a href="/listacompra">
             <i class="fa fa-cart-plus"></i> <span>Compras</span>
           </a>
         </li>
+        @endcan
 
+        @can('cliente_listado', 'cliente_nuevo','cliente_actualizar','cliente_detalle')
         <li>
           <a href="/Cliente">
             <i class="fa fa-users"></i> <span>Clientes</span>
           </a>
         </li>
+        @endcan
 
+        @can('venta_listado', 'venta_nuevo','venta_detalle', 'factura')
         <li>
           <a href="/listaventa">
             <i class="fa fa-file-text-o"></i> <span>Facturación</span>
           </a>
         </li>
+        @endcan
 
+      @can('devolucion')
         <li>
           <a href="/devolucion">
             <i class="fa fa-cart-plus"></i> <span>Devolucion de Producto</span>
           </a>
         </li>
+        @endcan
 
+        @can('inventario')
         <li>
           <a href="/inventarioVista">
             <i class="fa fa-columns"></i> <span>Inventario</span>
           </a>
         </li>
+        @endcan
 
+        @can('caja_nuevo', 'caja_pregunta', 'caja_respuesta')
         <li>
           <a href="/CajaAlivio">
             <i class="zmdi zmdi-face"></i> <span>Caja de alivio</span>
           </a>
         </li>
+        @endcan
 
-
+        @can('kardex')
         <li>
           <a href="/kardex">
             <i class="zmdi zmdi-lock"></i> <span>Cardex</span>
           </a>
         </li>
+        @endcan
 
+        @can('cotizacion_nuevo', 'cotizacion_imprimir')
         <li>
           <a href="/cotizacion/nuevo">
             <i class="fa fa-file-text-o"></i> <span>Cotizacion</span>
           </a>
         </li>
+        @endcan
 
-        <li>
-          <a href="/permissions">
-            <i class="fa fa-address-card-o"></i> <span>Permisos</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="/roles">
-            <i class="fa fa-file-text-o"></i> <span>Roles</span>
-          </a>
-        </li>
+        
+        @can('role_nuevo','role_listado','role_actualizar','role_eliminar')
+    <li>
+        <a href="/roles">
+          <i class="fa fa-file-text-o"></i> <span>Roles</span>
+        </a>
+      </li>
+      @endcan
       </ul>
     </div>
 

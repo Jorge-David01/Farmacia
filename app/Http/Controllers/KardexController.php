@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreTemporalVentaRequest;
 use App\Http\Requests\UpdateTemporalVentaRequest;
 use App\Http\Requests\TemporalVentaRequest;
-
+use Illuminate\Support\Facades\Gate;
 
 class KardexController extends Controller
 {
@@ -17,6 +17,8 @@ class KardexController extends Controller
      */
     public function index(Request $request)
     {
+
+        abort_if(Gate::denies('kardex'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $fecha = $request->input('fecha');
 
         if($fecha == null){

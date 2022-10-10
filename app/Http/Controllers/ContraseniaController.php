@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class ContraseniaController extends Controller
 {
     public function show($id,$from)
     {
-
+ //abort_if(Gate::denies('cambio_contraseña'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $user = User::findOrFail($id);
         return view('contrasenia/cambiocontra')->with('user', $user)->with('from', $from);
         
@@ -19,7 +20,7 @@ class ContraseniaController extends Controller
 
     public function cambio(Request $request)
     {
-
+ //abort_if(Gate::denies('cambio_contraseña'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
 
         $password = Hash::make($request->password_confirmation);
 
