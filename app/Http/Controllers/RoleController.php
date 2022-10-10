@@ -16,7 +16,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //abort_if(Gate::denies('role_index'), redirect()->route('welcome')->with('denegar','No tiene acceso a esta seccion'));
+        abort_if(Gate::denies('role_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
 
         $roles = Role::paginate(10);
 
@@ -30,7 +30,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //abort_if(Gate::denies('role_create'), redirect()->route('welcome')->with('denegar','No tiene acceso a esta seccion'));
+        abort_if(Gate::denies('role_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
 
         $permissions = Permission::all()->pluck('name', 'id');
         // dd($permissions);
@@ -53,4 +53,18 @@ class RoleController extends Controller
         return redirect()->route('roles.index');
     }
 
+    public function edit($id)
+    {
+        abort_if(Gate::denies('role_actualizar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+
+    }
+
+
+    public function destroy($id)
+    {
+        abort_if(Gate::denies('role_eliminar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        Role::destroy($id);
+
+        return redirect()->route('roles.index');
+    }
 }
