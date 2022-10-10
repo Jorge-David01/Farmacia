@@ -75,28 +75,10 @@
 
               @empty
 
-
-
               @endforelse
 
-
-
-
-
-
-
-              {{$lista -> links() }}
-
-
-
-</table>
-{{$lista -> links() }}
-
-              
-
             </table>
-
-
+            {{$lista -> links() }}
 
           </div>
         </div>

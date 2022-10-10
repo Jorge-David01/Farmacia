@@ -12,7 +12,7 @@
 
 
 
-<h1 style="margin-bottom: 3%; "> Detalles del proveedor </h1>
+<h1 style=" margin-left: 2%; margin-bottom: 3%; "> Detalles del proveedor </h1>
 
 <h1 style="margin-bottom: 2%;"></h1>
 
