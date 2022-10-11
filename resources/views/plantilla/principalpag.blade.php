@@ -122,7 +122,7 @@
         </li>
         @endcan
 
-        @can('compra_listado', 'compra_nuevo','compra_detalle')
+        @can('compra_listado', 'compra_nuevo','compra_detalle','compra_eliminar','compra_destruir','compra_cancelar','compra_almacenar')
         <li>
           <a href="/listacompra">
             <i class="fa fa-cart-plus"></i> <span>Compras</span>
@@ -186,7 +186,7 @@
         </li>
         @endcan
 
-        
+
         @can('role_nuevo','role_listado','role_actualizar','role_eliminar')
     <li>
         <a href="/roles">
@@ -261,7 +261,7 @@
       </nav>
     </header>
     <ul class="dropdown-menu dropdown-menu-right"></ul>
-    
+
 
 
     <!-- CON LA NUEVA PLANTILLA -->
@@ -275,7 +275,7 @@
 
 
     <!-- CON LA VIEJA PLANTILLA -->
-    <!-- 
+    <!--
     <main>
     <div style="margin-left:16%;">
     @yield('contenido')
