@@ -56,7 +56,12 @@ class RoleController extends Controller
     public function edit($id)
     {
         abort_if(Gate::denies('role_actualizar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        $role = Role::find($id);
 
+        $permissions = Permission::all()->pluck('name', 'id');
+        $role->load('permissions');
+        //dd($role);
+        return view('roles.edit', compact('role', 'permissions'));
     }
 
 

@@ -19,14 +19,19 @@ class PermissionSeeder extends Seeder
 
         $permissions = [
             //doctor
-            'cliente_lista',
             'compra_listado',
             'compra_detalle',
             'kardex',
             'producto_listado',
             'producto_detalle',
+            'cliente_lista',
+            'venta_nuevo',
             'venta_listado',
             'venta_detalle',
+            'factura',
+            'caja_nuevo',
+            'caja_pregunta',
+            'caja_respuesta',
             //vendedor
             'cliente_nuevo',
             'cliente_actualizar',
@@ -40,11 +45,7 @@ class PermissionSeeder extends Seeder
             'proveedor_detalle',
             'proveedor_nuevo',
             'proveedor_actualizar',
-            'venta_nuevo',
-            'factura',
-            'caja_nuevo',
-            'caja_pregunta',
-            'caja_respuesta',
+
             //admin
             'role_listado',
             'role_nuevo',

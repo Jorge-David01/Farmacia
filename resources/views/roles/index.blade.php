@@ -42,13 +42,20 @@
                     @endforelse
                   </td>
                   <td>
-
-                    <a href="" class="btn btn-success"> <i class="material-icons">editar</i> </a>
-
-                    <button type="submit" rel="tooltip" class="btn btn-danger">
-                      <i class="material-icons">Eliminar</i>
-                    </button>
+                    @if ($role->id != 1)
+                    <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-success"> <i
+                      class="material-icons">editar</i> </a>
+                    @endif
+                  @if ($role->id != 1)
+                    <form action="{{ route('roles.destroy', $role->id) }}" method="post"
+                      onsubmit="return confirm('Desea eliminar este rol')" style="display: inline-block;">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" rel="tooltip" class="btn btn-danger">
+                        <i class="material-icons">Eliminar</i>
+                      </button>
                     </form>
+                    @endif
                   </td>
 
                 </tr>
