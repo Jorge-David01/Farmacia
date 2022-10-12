@@ -265,7 +265,7 @@ Route::get('/CajaAlivio',[CajaAlivioController::class, 'caja'])->name('caja.aliv
 Route::get('/CajaPregunta/respuesta',[CajaAlivioController::class, 'pregunta'])->name('caja.pregunta');
 
 Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta'])->name('caja.respuestas');
-=======
+
 //----------------------------------------------------------
 //----------------- RUTAS DE DEVOLUCION ---------------------
 

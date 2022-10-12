@@ -1,3 +1,7 @@
+<?php  
+session_start();
+?>
+
 @extends('plantilla.principalpag')
 @section('pestania', 'Formulario de venta')
 
@@ -198,6 +202,7 @@
                     <td style="text-align: right">L.{{ number_format(($p->precio*$p->cantidad)*($p->descuento/100),2)}}</td>
                     <td style="text-align: right">L.{{ number_format(($p->precio*$p->cantidad)*(1-$p->descuento/100),2)}}</td>
                     <?php $total += ($p->precio*$p->cantidad)*(1-$p->descuento/100);?>
+                  
                 </tr>
             @empty
                 <tr>
@@ -205,25 +210,18 @@
                 </tr>
             @endforelse
 
-            <?php  
-            $caja= 3000;
+<?php   
 
-                 $caja= $caja + $total;
-               
-            if ($caja >= 6000){
-                  echo '<script>alert("La caja de alivio se ha llenado")</script>';            
-            $caja = 3000;
-        }
-            ?>
+$variable = $total;
 
-
-
+?>
 
         <tr>
             <td style="text-align: right" colspan="6">Total</td>
             <td style="text-align: right">L.{{ number_format($total,2)}}</td>
         </tr>
     </table>
+  
 
     <form style="float: left" action="{{route('venta.cancelar')}}"
     method="get">
@@ -257,12 +255,73 @@
     <input type="text" name="cliente" id="cliente2" value="{{$idcliente}}" readonly style="display: none">
     <input type="text" name="pago" id="pago2" value="{{$idpago}}" readonly style="display: none">
     @if (count($temporal) != 0)
-    <button type="submit" target="_blank" class="btn btn-success">Vender</button>
+    <button onclick="caja()" type="submit" target="_blank" class="btn btn-success">Vender</button>
+
     @else
     <button type="submit" class="btn btn-success" disabled>Vender</button>
     @endif
     </form>
     </div>
+
+  
+    
+
+    <script>
+       
+
+    function caja(){
+
+ 
+var caja = '<?=$variable?>' ;
+
+
+        
+        var caja_total;
+
+
+if ( caja < 3000){
+   
+
+    caja_total = caja_total + caja; 
+   
+
+    if (caja_total >= 3000 ) {
+        window.alert("La caja de alivio se ha llenado");
+            caja_total = 0;
+             
+    }
+
+}else{
+    caja_total = caja ;
+   
+}
+
+
+if (caja_total >= 3000){
+
+   
+    window.alert("La caja de alivio se ha llenado");
+
+  caja_total = 0;
+
+ 
+}
+
+
+}
+
+
+
+document.write(caja_total);
+
+
+
+
+</script>
+
+
+
+
 </div>
 
 @stop

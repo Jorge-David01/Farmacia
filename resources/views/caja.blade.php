@@ -38,7 +38,7 @@ td {
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>Descripción</th>
-<th>Saldo</th>
+<th>Veces</th>
 <th>Fecha</th>
 </tr>
 
@@ -48,7 +48,7 @@ td {
 
 <tr style="border: 2px solid #dddddd;">
 <td>{{$datos->Descripcion}}</td>
-<td>{{$datos->Saldo}}</td>
+<td>{{$datos->id}}</td>
 <td>{{$datos->Fecha}}</td>
 </tr>
 @empty
