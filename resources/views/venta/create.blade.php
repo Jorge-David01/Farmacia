@@ -188,9 +188,10 @@
                                         <script>
                                             function cambio {
                                                 {
-                                                    $p - > id
+                                                    $p = id
                                                 }
-                                            }() {
+                                            }
+                                            {
                                                 var x = document.getElementById("oculto{{$p->id}}");
                                                 var y = document.getElementById("mostrar{{$p->id}}");
 
@@ -214,14 +215,7 @@
                                 @endforelse
 
                                 <?php
-                                $caja = 3000;
-
-                                $caja = $caja + $total;
-
-                                if ($caja >= 6000) {
-                                    echo '<script>alert("La caja de alivio se ha llenado")</script>';
-                                    $caja = 3000;
-                                }
+                                $variable = $total;
                                 ?>
 
 
@@ -262,14 +256,55 @@
                                 <input type="text" name="cliente" id="cliente2" value="{{$idcliente}}" readonly style="display: none">
                                 <input type="text" name="pago" id="pago2" value="{{$idpago}}" readonly style="display: none">
                                 @if (count($temporal) != 0)
-                                <button type="submit" target="_blank" class="btn btn-success">Vender</button>
+                                <button type="submit" onclick="caja()" target="_blank" class="btn btn-success">Vender</button>
                                 @else
                                 <button type="submit" class="btn btn-success" disabled>Vender</button>
                                 @endif
-                                
+
                             </form>
-                            
+
+                            <script>
+                                function caja() {
+
+
+                                    var caja = '$variable';
+
+
+                                    var caja_total;
+
+
+                                    if (caja < 3000) {
+
+
+                                        caja_total = caja_total + caja;
+
+
+                                        if (caja_total >= 3000) {
+                                            window.alert("La caja de alivio se ha llenado");
+                                            caja_total = 0;
+
+                                        }
+
+                                    } else {
+                                        caja_total = caja;
+
+                                    }
+
+
+                                    if (caja_total >= 3000) {
+
+
+                                        window.alert("La caja de alivio se ha llenado");
+
+                                        caja_total = 0;
+
+                                    }
+
+                                }
+                            </script>
                         </div>
+
+
                     </div>
 
                 </div>

@@ -16,7 +16,7 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h2 style="margin-left: 2%; margin-bottom: 3%; "> Datos de la factura de compra </h2>
+        <h2 style="margin-left: 3%; margin-bottom: 3%; ">Datos de la factura de compra </h2>
 
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">
