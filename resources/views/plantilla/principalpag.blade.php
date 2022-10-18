@@ -77,7 +77,7 @@
 
 
 
-       @if( Auth::user()->role == 'Administrador')
+       @if( Auth::user()->role == 'Admin')
        <li>
           <a href="/ListaUsuarios">
             <i class="fa fa-users"></i> <span>Usuarios</span>
