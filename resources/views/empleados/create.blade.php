@@ -23,7 +23,10 @@
         }
     </style>
 
-     <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Creación de Empleados </h1>
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+     <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Creación de Usuario </h1>
 
     <form style="margin-left: 3%;" method="post" enctype="multipart/form-data">
         @csrf
@@ -43,8 +46,8 @@
             </label>
             <div class="col-md-6 col-sm-6 ">
             <select required="required" class="form-control" name="role" value="{{old('role')}}">
-                <option value="Empleado">Empleado</option>
-                <option value="Administrador">Administrador</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Admin">Admin</option>
             </select>                
             </div>
         </div>
@@ -187,6 +190,8 @@
                 </div>
 
     </form>
+</div>
+</div>
 </div>
 
 
