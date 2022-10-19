@@ -60,8 +60,8 @@
 
 
         <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Identidad: <span class="required"></span>
-            </label>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Identidad: <span class="required"></span></label>
+            
             <div class="col-md-6 col-sm-6 ">
                 <input maxlength="13" type="text" id="dni" name="dni" required="required" class="form-control"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
@@ -71,6 +71,8 @@
                 placeholder="Ingrese la identidad sin guiones">
             </div>
         </div>
+
+
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Número de celular: <span class="required"></span>
             </label>
