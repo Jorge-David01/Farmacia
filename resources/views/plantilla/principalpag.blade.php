@@ -73,30 +73,18 @@
 
       <ul class="sidebar-menu do-nicescrol">
 
-        @if( Auth::user()->role == 'Administrador')
-    @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar')
-        <li>
-          <a href="/ListaUsuarios">
-            <i class="fa fa-address-card-o"></i> <span>Usuarios</span>
-            </a>
-    </li>
-    @endcan
+    <!-- @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar') -->    
+    <!-- @endcan -->
 
-            <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-              <div class="brand-logo">
-                <a href="/Principal">
-                  <img src="/assets/images/Logo.jpeg" class="logo-icon" alt="logo icon">
-                </a>
-              </div>
-            </div>
+
+
+       @if( Auth::user()->role == 'Admin')
+       <li>
+          <a href="/ListaUsuarios">
+            <i class="fa fa-users"></i> <span>Usuarios</span>
           </a>
         </li>
         @endif()
-
-        <!-- <a href="/registro">
-          <i class="fa fa-address-card-o"></i> <span>Registrar</span>
-          </a>
-       </li> -->
 
        @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
         <li>
@@ -105,6 +93,8 @@
           </a>
         </li>
         @endcan
+
+
 
         @can('producto_listado', 'producto_nuevo','producto_actualizar','producto_detalle')
         <li>
@@ -224,7 +214,7 @@
                     <div class="media-body">
 
                       <h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6>
-                      <p class="user-subtitle">Administrador</p>
+                      <p class="user-subtitle"> {{Auth::user()->role}}</p>
 
                     </div>
                   </div>
@@ -232,7 +222,7 @@
               </li>
 
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"> <a href="#" class="icon-settings"> Cambio de contraseña</a></li>
+              <li class="dropdown-item"> <a  href="/contrasenia/{{Auth::user()->id}}/navbar" class="icon-settings"> Cambio de contraseña</a></li>
 
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><a href="/Ayuda" class="icon-envelope"> Ayuda</a> </li>

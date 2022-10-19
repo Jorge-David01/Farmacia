@@ -23,7 +23,10 @@
         }
     </style>
 
-     <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Creación de Empleados </h1>
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+     <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Creación de Usuario </h1>
 
     <form style="margin-left: 3%;" method="post" enctype="multipart/form-data">
         @csrf
@@ -43,8 +46,8 @@
             </label>
             <div class="col-md-6 col-sm-6 ">
             <select required="required" class="form-control" name="role" value="{{old('role')}}">
-                <option value="Empleado">Empleado</option>
-                <option value="Administrador">Administrador</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Admin">Admin</option>
             </select>                
             </div>
         </div>
@@ -182,13 +185,15 @@
                 <div class="item form-group">
                     <br><br>
                     <div style="margin-left: 0%;" class="col-md-6 col-sm-6 offset-md-3">
-                        <button class="btn btn-danger" type="button" onclick="window.location='/Empleados'">Cancelar</button>
+                        <button class="btn btn-danger" type="button" onclick="window.location='/ListaUsuarios'">Cancelar</button>
                         <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
                         <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
 
     </form>
+</div>
+</div>
 </div>
 
 
