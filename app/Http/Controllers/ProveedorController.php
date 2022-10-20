@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProveedorRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
-
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 
 class ProveedorController extends Controller{
@@ -15,6 +16,22 @@ class ProveedorController extends Controller{
     public function __construct(){
         $this->middleware('auth');
     }
+
+    public function createPDF(){
+        $pro = Proveedor::all();
+
+        $data = [
+            'title' => 'Listado de proveedores',
+            'date' => date('m/d/Y'),
+            'pro' =>$pro,
+        ];
+        return PDF::loadView('proveedores/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Proveedor_'.date('m_d_Y').'.pdf');
+
+    }
+
+    
 //----------------------------------------------------------
 //----------------- EDITAR PROVEEDOR -----------------------
     public function proveed(){

@@ -31,6 +31,12 @@ td {
 
 <h1 style=" margin-bottom: 3%; "> Lista de productos </h1>
 
+<div style="float: right;margin-right: 10px; width: 250px">
+  <center><a class="btn btn-danger" href="{{route('productos.pdf')}}">Descargar PDF</a></center>
+
+</div>
+
+
 <a class="btn btn-warning" href="/productos/nuevo">Nuevo Producto</a>
 
 <form action="{{route('producto.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">

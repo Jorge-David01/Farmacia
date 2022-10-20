@@ -31,6 +31,10 @@
 
     <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Lista de proveedores </h1>
 
+    <div style="float: right;margin-right: 10px; width: 250px">
+      <center><a class="btn btn-danger" href="{{route('proveedores.pdf')}}">Descargar PDF</a></center>
+    </div>
+    
     <a class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
 
     <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; ">

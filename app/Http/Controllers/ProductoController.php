@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreProductoRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class ProductoController extends Controller
 {
@@ -20,6 +22,20 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function createPDF(){
+        $produc = Producto::all();
+
+        $data = [
+            'title' => 'Listado de Productos',
+            'date' => date('m/d/Y'),
+            'produc' =>$produc,
+        ];
+        return PDF::loadView('productos/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Producto_'.date('m_d_Y').'.pdf');
+
+    }
+    
 //----------------------------------------------------------
 //------------------- CREAR PRODUCTO -----------------------
     public function create()
