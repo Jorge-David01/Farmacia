@@ -72,7 +72,7 @@
 
       <ul class="sidebar-menu do-nicescrol">
 
-    <!-- @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar') -->    
+    <!-- @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar') -->
     <!-- @endcan -->
 
 
@@ -259,7 +259,6 @@
     <!--
     <main>
     <div style="margin-left:16%;">
-    @yield('contenido')
     </div>
     </main>
      -->
