@@ -25,7 +25,7 @@
           <table class="table-bordered align-items-center">
             <thead>
               <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Nombre </th>
-              <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd; width: 72%" class="text-center"> Permisos </th>
+              <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Descripcion </th>
               <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Acciones </th>
             </thead>
             <tbody>
@@ -34,14 +34,10 @@
                 @forelse ($roles as $role)
                 <tr>
                   <td>{{ $role->name }}</td>
+                  <td>{{ $role->descripcion }}</td>
                   <td>
-                    @forelse ($role->permissions as $permission)
-                    <span class="badge badge-info">{{ $permission->name }}</span>
-                    @empty
-                    <span class="badge badge-danger">No permission added</span>
-                    @endforelse
-                  </td>
-                  <td>
+                    <a href="{{ route('roles.show', $role->id) }}" class="btn btn-success"> <i
+                      class="material-icons">detalles</i> </a>
                     @if ($role->id != 1)
                     <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-success"> <i
                       class="material-icons">editar</i> </a>

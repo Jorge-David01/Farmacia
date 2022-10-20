@@ -45,13 +45,22 @@
                     @csrf
 
                     <label style="margin-left: 1%;" for="name" class="col-sm-2 col-form-label">Nombre del rol</label>
-                    
+
                     <div class="col-sm-7">
                       <div class="form-group">
                         <input  style="margin-left: 1%;" type="text" class="form-control" name="name" autocomplete="off" autofocus>
                       </div>
                     </div>
 
+                    <div class="card-body">
+                        <div class="row">
+                          <label for="name" class="col-sm-2 col-form-label">Descripcion</label>
+                          <div class="col-sm-7">
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="descripcion" autocomplete="off" autofocus>
+                            </div>
+                          </div>
+                        </div>
                     <div class="row">
                       <label style="margin-left: 1%;" for="name" class="col-sm-2 col-form-label">Permisos</label>
                       <div class="col-sm-7">
