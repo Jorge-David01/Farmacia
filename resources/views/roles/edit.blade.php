@@ -54,6 +54,21 @@
               </div>
             </div>
 
+            <div class="card-body">
+                <div class="row">
+                  <label for="name" class="col-sm-2 col-form-label">Descripcion</label>
+                  <div class="col-sm-7">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="descripcion" autocomplete="off" autofocus
+                      @if(old('name'))
+                    value="{{old('descripcion')}}"
+                    @else
+                    value="{{$role->descripcion}}"
+                 @endif>
+                    </div>
+                  </div>
+                </div>
+
             <div class="row">
               <label for="name" class="col-sm-2 col-form-label">Permisos</label>
               <div class="col-sm-7">

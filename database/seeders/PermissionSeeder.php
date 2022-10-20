@@ -18,13 +18,14 @@ class PermissionSeeder extends Seeder
         app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
         $permissions = [
-            //doctor
             'compra_listado',
             'compra_detalle',
-            'kardex',
             'producto_listado',
             'producto_detalle',
-            'cliente_lista',
+            'cliente_nuevo',
+            'cliente_actualizar',
+            'cliente_detalle',
+            'cliente_listado',
             'venta_nuevo',
             'venta_listado',
             'venta_detalle',
@@ -33,12 +34,11 @@ class PermissionSeeder extends Seeder
             'caja_pregunta',
             'caja_respuesta',
             //vendedor
-            'cliente_nuevo',
-            'cliente_actualizar',
             'inventario',
             'cotizacion_nuevo',
             'cotizacion_imprimir',
             'cotizacion_editar',
+            'kardex',
             'producto_nuevo',
             'producto_actualizar',
             'proveedor_listado',
@@ -51,6 +51,7 @@ class PermissionSeeder extends Seeder
             'role_nuevo',
             'role_actualizar',
             'role_eliminar',
+            'role_detalle',
             'usuario_lista',
             'empleado_nuevo',
             'empleado_detalles',
