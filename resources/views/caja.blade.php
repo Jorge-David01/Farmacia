@@ -4,9 +4,9 @@
 
 
 <style>
-td {
+  td {
     text-align: center;
-}
+  }
 </style>
 
 
@@ -18,19 +18,45 @@ td {
 </div>
 @endif
 
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <h1 style=" margin-bottom: 3%; "> Caja De Alivio </h1>
+    <a  class="btn btn-warning" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
+    <h1 style="margin-bottom: 2%;"></h1>
+    <div class="row">
+      <div class="col-12 col-lg-12">
+        <div class="card">
 
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Caja De Alivio</u> </h1>
+          <table style="text-align: center; " class="table table-bordered align-items-center table-flush table-borderless">
 
 
-<a style="margin-left: 4%;" class="btn btn-warning" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
+            <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+              <th>Descripción</th>
+              <th>Saldo</th>
+              <th>Fecha</th>
+            </tr>
 
+            @forelse($cajadatos as $datos)
 
+            <tr style="border: 2px solid #dddddd;">
+              <td>{{$datos->Descripcion}}</td>
+              <td>{{$datos->Saldo}}</td>
+              <td>{{$datos->Fecha}}</td>
+            </tr>
+            @empty
 
+            @endforelse
 
+            {{$cajadatos -> links() }}
 
-        
-</form>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
 
 
 <table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
@@ -59,6 +85,10 @@ td {
 
 </tbody>
 </table>
+
+  </div>
+</div>
+
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

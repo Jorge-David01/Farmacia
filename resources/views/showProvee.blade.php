@@ -12,7 +12,8 @@
 
 
 
-<h1 style="margin-bottom: 3%; "> Detalles del proveedor </h1>
+<h1 style=" margin-left: 2%; margin-bottom: 3%; "> Detalles del proveedor </h1>
+
 
 <h1 style="margin-bottom: 2%;"></h1>
 
@@ -25,7 +26,7 @@
 
     <table style="text-align: center; " class="table table-bordered align-items-center table-flush table-borderless">  
 
-   
+
     <thead>
         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
             <th scope="col">Campo</th>
@@ -59,9 +60,18 @@
             <th scope="row">Correo Electronico</th>
             <td>{{$provee->Correo_electronico}}</td>
         </tr>
+      
+        <tr>
+            <th scope="row">Catálogo</th>
+            <td><a href="/Archivos/{{$provee->Archivo}}" target="blank_"> {{$provee->Archivo}}</a></td>
+        </tr>
+      
+   
         </tbody>
 
 </table><br>
+
+              
 
 </div>
 
@@ -69,6 +79,8 @@
 <a class="btn btn-success" href="/Listpro">Volver</a>
 
 <a class="btn btn-primary" href="/Editprovee/{{$provee->id}}/editar">Actualizar</a>
+
+
 </div>
 
 

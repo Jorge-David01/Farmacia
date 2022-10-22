@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreProductoRequest;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Gate;
 
 class ProductoController extends Controller
 {
@@ -23,6 +24,7 @@ class ProductoController extends Controller
 //------------------- CREAR PRODUCTO -----------------------
     public function create()
     {
+        abort_if(Gate::denies('producto_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $proveedors = Proveedor::all();
         return view('productos/create')->with('proveedors', $proveedors);
     }
@@ -31,6 +33,7 @@ class ProductoController extends Controller
 //----------------------------------------------------------
 //----------------- LISTA PRODUCTO -------------------------
     public function lista(){
+        abort_if(Gate::denies('producto_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $produc = Producto::paginate(10);
 
         return view('listaproductos')->with('produc' , $produc);
@@ -40,7 +43,8 @@ class ProductoController extends Controller
 //-----------------------------------------------------------
 //----------------- DETALLES PRODUCTO -----------------------
     public function detalles($id){    
- 
+        abort_if(Gate::denies('producto_detalle'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+
         $details = DB::table('productos')
                     ->join('proveedors', 'productos.id_proveedor', '=', 'proveedors.id')
                     ->select('productos.*', 'proveedors.Nombre_del_proveedor')
@@ -62,6 +66,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        abort_if(Gate::denies('producto_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
             $rules=[
                 'nombrepro' => 'required|exists:proveedors,id',
                 'nombre_producto' => 'required|max:100|unique:productos,nombre_producto',
@@ -105,6 +110,7 @@ class ProductoController extends Controller
 //----------------- ACTUALIZAR PRODUCTO -----------------------
     public function edit(Request $request, $id)//Actualizar
     {
+        abort_if(Gate::denies('producto_actualizar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $proveedors = Proveedor::all();
 
         $producto = DB::table('productos')

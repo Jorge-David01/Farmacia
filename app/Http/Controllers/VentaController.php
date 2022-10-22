@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreVentaRequest;
 use App\Http\Requests\UpdateVentaRequest;
+use Illuminate\Support\Facades\Gate;
 
 class VentaController extends Controller
 {
@@ -32,6 +33,7 @@ class VentaController extends Controller
      */
     public function create(Request $request)
     {
+        abort_if(Gate::denies('venta_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $productos = Producto::all();
         $clientes = cliente::all();
         $temporal = TemporalVenta::all();
@@ -77,7 +79,7 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-
+        abort_if(Gate::denies('venta_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
 
         $fecha_actual = date("d-m-Y");
         $maxima = date("d-m-Y",strtotime($fecha_actual."+ 30 days"));
@@ -199,6 +201,7 @@ class VentaController extends Controller
 
     public function factura($id)
     {
+        abort_if(Gate::denies('factura'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $venta = Venta::findOrFail($id);
         return view('venta/factura')->with('venta', $venta);
     }
@@ -221,6 +224,7 @@ class VentaController extends Controller
     }
 
     public function listaventa(){
+        abort_if(Gate::denies('venta_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $lista = Venta::paginate(10) ;
        
      
@@ -230,7 +234,7 @@ class VentaController extends Controller
 
 
     public function detallesventa($id){
-     
+        abort_if(Gate::denies('venta_detalle'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
        
         $factu = Venta::findOrfail($id);
 

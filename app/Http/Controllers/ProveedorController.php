@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProveedorRequest;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use DB;
+ 
 
 
 
@@ -18,6 +24,7 @@ class ProveedorController extends Controller{
 //----------------------------------------------------------
 //----------------- EDITAR PROVEEDOR -----------------------
     public function proveed(){
+        abort_if(Gate::denies('proveedor_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $pro = Proveedor::paginate(10);
         return view('listaproveedores')->with('pro' , $pro);
     }
@@ -25,27 +32,36 @@ class ProveedorController extends Controller{
     //
 
     public function Ver($id){
+        abort_if(Gate::denies('proveedor_detalle'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $provee = Proveedor::findOrFail($id);
         return view('showProvee')->with('provee', $provee);  
     }
 
+public function store(Request $request ){
 
+}
 //----------------------------------------------------------
 //----------------- CREAR PROVEEDOR -----------------------
     public function nuevo(){
-
+        abort_if(Gate::denies('proveedor_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
      return view('/createproveedor');       
     }
 
 
     public function crear(Request $request){
-  
+     //dd($request);
+
+      
+
+        abort_if(Gate::denies('proveedor_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $rules= ([
             'nombrepro'=>'required | max:70'  ,
             'nombredis'=>'required | max:70',
             'telefonopro'=>'required|unique:proveedors,Telefono_del_proveedor|min:8| max:8',
             'telefonodis'=>'required|unique:proveedors,Telefono_del_distribuidor|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})',
             'correo'=>'required|unique:proveedors,Correo_electronico',
+            'files'=>'mimes:pdf,docx,pptx'
+         
             
 
         ]);
@@ -70,10 +86,17 @@ class ProveedorController extends Controller{
 
             'correo.required'=>'El correo electrónico es obligatorio' ,
             'correo.unique'=>'El correo electrónico que ingreso ya ha sido utilizado' ,
+            'files.mimes'=>'El tipo de archivo no es compatible',
+     
+       
         ];
 
 
+
         $this->validate($request, $rules, $messages);
+
+
+       
 
         $proveedor = new Proveedor();
 
@@ -82,7 +105,13 @@ class ProveedorController extends Controller{
         $proveedor->Telefono_del_proveedor= $request->input('telefonopro');
         $proveedor->Telefono_del_distribuidor= $request->input('telefonodis');
         $proveedor->Correo_electronico= $request->input('correo');
-     
+      if ($request->hasFile('files')){
+      $archivo = $request->file('files');
+      $archivo->move(public_path().'/Archivos/',$archivo->getClientOriginalName());
+      $proveedor->Archivo=$archivo->getClientOriginalName();
+
+      }
+
 
 
         $creado = $proveedor->save();
@@ -101,32 +130,39 @@ class ProveedorController extends Controller{
 //----------------- EDITAR PROVEEDOR -----------------------
     public function edit(Request $request, $id)//Editar
     {
+        abort_if(Gate::denies('proveedor_actualizar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $proveedor = Proveedor::find($id);
         return view('editProvee') ->with('proveedor',$proveedor);
 
 
     }
 
+
+    
     public function update(Request $request, $id){
 
+        $pro = Proveedor::find($id);
 
         $validator = Validator::make($request->all(), [
             'nombrepro'=>'required|max:110',
             'nombredis'=>'required|max:110',
             'telefonopro'=>'required|numeric|regex:([9,8,3]{1}[0-9]{7})',
             'telefonodis'=>'required|numeric|regex:([9,8,3]{1}[0-9]{7})',
-            'correo'=>'required',
+            'correo'=>"required|unique:proveedors,Correo_electronico,$id",
+            'files'=>'mimes:pdf,docx,pptx'
         ]);
 
         if($validator->fails()){
         
+            
             $rules=[
 
                 'nombrepro' => 'required|max:110|min:5',
                 'nombredis'=> 'required|max:110|min:5',
-                'telefonopro'=> 'required|numeric|regex:([9,8,3]{1}[0-9]{7})|min:8',
+                'telefonopro'=> 'required|numeric|regex:([9,8,3,2]{1}[0-9]{7})|min:8',
                 'telefonodis'=> 'required|numeric|regex:([9,8,3]{1}[0-9]{7})|min:8',
-                'correo'=>'required|max:100',
+                'correo'=>"required|max:100|unique:proveedors,Correo_electronico, $id",
+                'files'=>'mimes:pdf,docx,pptx'
             ];
 
         $mensaje =[
@@ -142,12 +178,15 @@ class ProveedorController extends Controller{
             'telefonopro.unique'=>'El teléfono de proveedor que ingreso ya ha sido usado anteriormente',
             'telefonopro.min'=>'El teléfono del proveedor debe de tener un minimo de 8 digitos',
             'telefonodis.required'=>'El teléfono del distribuidor es obligatorio',
-            'telefonodis.regex' => 'El número de teléfono  debe de tener 8 dígitos iniciar con 3,8 o 9',
-            'telefonodis.numeric' => 'En número de teléfono solo debe de tener números',
+            'telefonodis.regex' => 'El número de teléfono  debe de tener 8 dígitos iniciar con 2,3,8 o 9',
+            'telefonodis.numeric' => 'El número de teléfono solo debe de tener números',
             'telefonodis.unique'=>'El teléfono de distribuidor que ingreso ya ha sido usado',
             'telefonodis.min'=>'El teléfono del distribuidor debe de tener un minimo de 8 digitos',
             'correo.required'=>'El correo electrónico es obligatorio',
             'correo.unique'=>'El correo electrónico que ingreso ya ha sido utilizado',
+            'files.mimes'=>'El tipo de archivo no es compatible',
+   
+            
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -160,6 +199,13 @@ class ProveedorController extends Controller{
         $proveedor->Telefono_del_proveedor= $request->input('telefonopro');
         $proveedor->Telefono_del_distribuidor= $request->input('telefonodis');
         $proveedor->Correo_electronico= $request->input('correo');
+        if ($request->hasFile('files')){
+            $archivo = $request->file('files');
+            $archivo->move(public_path().'/Archivos/',$archivo->getClientOriginalName());
+            $proveedor->Archivo=$archivo->getClientOriginalName();
+      
+            }
+
         $creado = $proveedor->save();
     
             return redirect()->route('lista.proveedor')->with('msj', 'El proveedor se actualizo exitosamente');

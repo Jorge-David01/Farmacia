@@ -211,9 +211,7 @@ session_start();
             @endforelse
 
 <?php   
-
 $variable = $total;
-
 ?>
 
         <tr>
@@ -272,7 +270,7 @@ $variable = $total;
     function caja(){
 
  
-var caja = '<?=$variable?>' ;
+var caja = '$variable' ;
 
 
         

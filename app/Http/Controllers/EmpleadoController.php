@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Gate;
 
 class EmpleadoController extends Controller
 {
@@ -36,6 +37,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('empleado_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         return view('empleados/create');
     }
 
@@ -47,6 +49,7 @@ class EmpleadoController extends Controller
      */
 
     public function list(Request $request){
+        abort_if(Gate::denies('usuario_lista'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $texto=trim($request->get('texto'));
         $employee=DB::table('users')
 
@@ -62,6 +65,7 @@ class EmpleadoController extends Controller
 
     public function store(Request $request)
     {
+        abort_if(Gate::denies('empleado_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $rules=[
             'nombre_completo' => 'required|max:110',
             'dni'=> 'required|unique:empleados,DNI|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
@@ -131,6 +135,7 @@ class EmpleadoController extends Controller
      */
     public function show($id)//mostrar
     {
+        abort_if(Gate::denies('empleado_detalles'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $empleado = Empleado::findOrFail($id);
         return view('empleados/showempleado')->with('empleado', $empleado);
         //
@@ -155,6 +160,7 @@ class EmpleadoController extends Controller
      */
     public function edit(Request $request, $id)//Actualizar
     {
+        abort_if(Gate::denies('empleado_actualizar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $empleado = Empleado::find($id);
         return view('empleados/editempleado') ->with('empleado',$empleado);
 

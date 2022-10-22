@@ -14,7 +14,7 @@ use App\Http\Requests\StoreCompraRequest;
 use App\Http\Requests\UpdateCompraRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
-
+use Illuminate\Support\Facades\Gate;
 
 
 class CompraController extends Controller
@@ -43,6 +43,7 @@ class CompraController extends Controller
 //----------------- COMPRAS -----------------------
     public function create(Request $request)
     {
+        abort_if(Gate::denies('compra_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $productos = Producto::all();
         $proveedor = Proveedor::all();
         $temporal = Temporal::all();
@@ -80,6 +81,7 @@ class CompraController extends Controller
 
     public function store(Request $request)
     {
+        abort_if(Gate::denies('compra_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $compra = $request->input('compra')+0.01;
 
         $fecha_actual = date("d-m-Y");
@@ -165,6 +167,8 @@ class CompraController extends Controller
 //--------------------- ELIMINAR COMPRA -------------------------
 
     public function eliminar(Request $request,$id){
+        abort_if(Gate::denies('compra_eliminar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+
         Temporal::destroy($id);
 
         $numero =  $request->get('factura');
@@ -175,6 +179,7 @@ class CompraController extends Controller
     }
 
     public function destruir(){
+        abort_if(Gate::denies('compra_destruir'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $temporal = Temporal::all();
 
         foreach ($temporal as $temp) {
@@ -185,6 +190,8 @@ class CompraController extends Controller
     }
 
     public function cancelar(){
+        abort_if(Gate::denies('compra_cancelar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+
         $temporal = Temporal::all();
 
         foreach ($temporal as $temp) {
@@ -198,6 +205,7 @@ class CompraController extends Controller
 //--------------------- ALMACENAR COMPRA -------------------------
 
     public function almacenar(Request $request){
+        abort_if(Gate::denies('compra_almacenar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
 
         $compra = new Compra();
 
@@ -236,6 +244,7 @@ class CompraController extends Controller
 
    
 public function listacompras(){
+    abort_if(Gate::denies('compra_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
     $lista = Compra::paginate(10) ;
    $name = Proveedor::paginate(10);
     
@@ -251,6 +260,7 @@ public function listacompras(){
 //------------------ DETALLES ELIMINAR Y BUSCADOR COMPRAS -----------------------
 
 public function detailscompra($id){
+    abort_if(Gate::denies('compra_detalle'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
     $details = DetalleCompra::findOrFail($id);
     $comp = Compra::findOrFail($id);
   
@@ -303,6 +313,7 @@ public function detailscompra($id){
 //--------------------- INVENTARIO Y BUSCADOR -------------------------
 
     public function inven(){
+        abort_if(Gate::denies('inventario'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $Inventa =  Inventario::paginate(20) ;
         
         

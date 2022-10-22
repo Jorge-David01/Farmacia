@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreCotizacionRequest;
 use App\Http\Requests\UpdateCotizacionRequest;
+use Illuminate\Support\Facades\Gate;
 
 class CotizacionController extends Controller
 {
@@ -32,6 +33,7 @@ class CotizacionController extends Controller
      */
     public function create(Request $request)
     {
+        abort_if(Gate::denies('cotizacion_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $productos = Producto::all();
         $clientes = cliente::all();
         $temporal = TemporalCotizacion::all();
@@ -63,7 +65,7 @@ class CotizacionController extends Controller
     public function store(Request $request)
     {
 
-
+        abort_if(Gate::denies('cotizacion_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $fecha_actual = date("d-m-Y");
         $maxima = date("d-m-Y",strtotime($fecha_actual."+ 30 days"));
         $this->validate($request, [
@@ -172,11 +174,13 @@ class CotizacionController extends Controller
 
     public function imprimir($id)
     {
+        abort_if(Gate::denies('cotizacion_imprimir'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $cotizacion = Cotizacion::findOrFail($id);
         return view('cotizacion/imprimir')->with('cotizacion', $cotizacion);
     }
 
     public function edit(Request $request,$id){
+        abort_if(Gate::denies('cotizacion_editar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         if ($request->input('cantidad'.$id) != "" && $request->input('cantidad'.$id) > 0 ) {
             $cambio = TemporalCotizacion::findOrFail($id);
 

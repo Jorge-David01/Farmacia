@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 
-<!-----------------------------------------------LINK DE  BOOTSTRAP--------------------------------------- -->
+<!-- ---------------------------------------------LINK DE  BOOTSTRAP--------------------------------------- -->
 
 <head>
 
@@ -72,249 +72,130 @@
   <!-- ----------------------------------------------------------NAVEGADOR #1-------------------------------------------------------- -->
   <div id="wrapper">
 
-
-   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-     <div class="brand-logo">
-      <a href="/Principal">
-       <img src="/assets/images/Logo.jpeg" width="100" height="50" class="logo-icon" alt="logo icon">
-     </a>
-   </div>
-
-   <ul class="sidebar-menu do-nicescrol">
-
-   @if( Auth::user()->role == 'Administrador')
-      <li>
-        <a href="/ListaUsuarios">
-          <i class="fa fa-address-card-o"></i> <span>Usuarios</span>
-
     <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
       <div class="brand-logo">
         <a href="/Principal">
           <img src="/assets/images/Logo.jpeg" class="logo-icon" alt="logo icon">
-
         </a>
       </div>
 
-
-      <li>
-   @endif()
-
-      <!--
-      <a href="/registro">
-          <i class="fa fa-address-card-o"></i> <span>Registrar</span>
-        </a>
-      </li>
-      -->
-
-        </li>
-
-      <li>
-        <a href="/Listpro">
-          <i class="fa fa-truck"></i> <span>Proveedores</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/Producto">
-          <i class="fa fa-medkit"></i> <span>Producto</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/listacompra">
-          <i class="fa fa-cart-plus"></i> <span>Compras</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/Cliente">
-          <i class="fa fa-users"></i> <span>Clientes</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/listaventa">
-          <i class="fa fa-file-text-o"></i> <span>Facturación</span>
-        </a>
-      </li>
-      <li>
-        <a href="/devolucion">
-          <i class="fa fa-cart-plus"></i> <span>Devolucion de Producto</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/inventarioVista">
-          <i class="fa fa-columns"></i> <span>Inventario</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/CajaAlivio">
-          <i class="zmdi zmdi-face"></i> <span>Caja de alivio</span>
-        </a>
-      </li>
-
-
-      <li>
-        <a href="/kardex" >
-          <i class="zmdi zmdi-lock"></i> <span>Cardex</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/cotizacion/nuevo" >
-          <i class="fa fa-file-text-o"></i> <span>Cotizacion</span>
-        </a>
-      </li>
-
-<li>
-      <a href="permissions/">
-        <i class="fa fa-address-card-o"></i> <span>Permisos</span>
-      </a>
-    </li>
-
-    <li>
-        <a href="roles/">
-          <i class="fa fa-file-text-o"></i> <span>Roles</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-
-
-<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
-<!-- ----------------------------------------------------------NAVEGADOR #2-------------------------------------------------------- -->
-<header class="topbar-nav">
- <nav class="navbar navbar-expand fixed-top">
-
-  <ul class="navbar-nav mr-auto align-items-center">
-    <li class="nav-item">
-      <a class="nav-link toggle-menu" href="javascript:void();">
-
-     </a>
-    </li>
-  </ul>
-
-  <ul class="navbar-nav align-items-center right-nav-link">
-
-
-
-    
-<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
-<!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
-    <li class="nav-item">
-
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="/assets/images/Logo.jpeg" class="img-circle" alt="user avatar"></span>
-      </a>
-
-      <ul class="dropdown-menu dropdown-menu-right">
-
-       <li class="dropdown-item user-details">
-         <a href="javaScript:void();">
-           <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/Logo.jpeg" alt="user avatar"></div>
-            <div class="media-body">
-
-            <strong><h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6></strong>
-
-   
-            <strong> <p class="user-subtitle">{{ Auth::user()->role }}</p> </strong>
-
-            </div>
-           </div>
-          </a>
-        </li>
-
-        <!-- ---------BOTONES DE CONFIGURACIÓN---------- -->
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"> <a href="/contrasenia/{{Auth::user()->id}}/navbar"
-         class="icon-settings"> Cambio de contraseña</a> </li>
-=======
       <ul class="sidebar-menu do-nicescrol">
+
+        @if( Auth::user()->role == 'Administrador')
+    @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar')
         <li>
-          <a href="/Lista">
-            <i class="fa fa-address-card-o"></i> <span>Empleados</span>
+          <a href="/ListaUsuarios">
+            <i class="fa fa-address-card-o"></i> <span>Usuarios</span>
+            </a>
+    </li>
+    @endcan
+
+            <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+              <div class="brand-logo">
+                <a href="/Principal">
+                  <img src="/assets/images/Logo.jpeg" class="logo-icon" alt="logo icon">
+                </a>
+              </div>
+            </div>
           </a>
         </li>
+        @endif()
 
         <!-- <a href="/registro">
           <i class="fa fa-address-card-o"></i> <span>Registrar</span>
           </a>
-      </li> -->
+       </li> -->
 
+       @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
         <li>
           <a href="/Listpro">
             <i class="fa fa-truck"></i> <span>Proveedores</span>
           </a>
         </li>
+        @endcan
 
+        @can('producto_listado', 'producto_nuevo','producto_actualizar','producto_detalle')
         <li>
           <a href="/Producto">
             <i class="fa fa-medkit"></i> <span>Producto</span>
           </a>
         </li>
+        @endcan
 
+        @can('compra_listado', 'compra_nuevo','compra_detalle','compra_eliminar','compra_destruir','compra_cancelar','compra_almacenar')
         <li>
           <a href="/listacompra">
             <i class="fa fa-cart-plus"></i> <span>Compras</span>
           </a>
         </li>
+        @endcan
 
+        @can('cliente_listado', 'cliente_nuevo','cliente_actualizar','cliente_detalle')
         <li>
           <a href="/Cliente">
             <i class="fa fa-users"></i> <span>Clientes</span>
           </a>
         </li>
+        @endcan
 
+        @can('venta_listado', 'venta_nuevo','venta_detalle', 'factura')
         <li>
           <a href="/listaventa">
             <i class="fa fa-file-text-o"></i> <span>Facturación</span>
           </a>
         </li>
+        @endcan
 
+      @can('devolucion')
+        <li>
+          <a href="/devolucion">
+            <i class="fa fa-cart-plus"></i> <span>Devolucion de Producto</span>
+          </a>
+        </li>
+        @endcan
+
+        @can('inventario')
         <li>
           <a href="/inventarioVista">
             <i class="fa fa-columns"></i> <span>Inventario</span>
           </a>
         </li>
+        @endcan
 
+        @can('caja_nuevo', 'caja_pregunta', 'caja_respuesta')
         <li>
-          <a href="#">
+          <a href="/CajaAlivio">
             <i class="zmdi zmdi-face"></i> <span>Caja de alivio</span>
           </a>
         </li>
->>>>>>> 82ae9e71e29ee65d79479b360f1922fa61706ec5
+        @endcan
 
-
+        @can('kardex')
         <li>
           <a href="/kardex">
             <i class="zmdi zmdi-lock"></i> <span>Cardex</span>
           </a>
         </li>
+        @endcan
 
+        @can('cotizacion_nuevo', 'cotizacion_imprimir')
         <li>
           <a href="/cotizacion/nuevo">
             <i class="fa fa-file-text-o"></i> <span>Cotizacion</span>
           </a>
         </li>
+        @endcan
 
-        <li>
-          <a href="/permissions">
-            <i class="fa fa-address-card-o"></i> <span>Permisos</span>
-          </a>
-        </li>
 
-        <li>
-          <a href="/roles">
-            <i class="fa fa-file-text-o"></i> <span>Roles</span>
-          </a>
-        </li>
+        @can('role_nuevo','role_listado','role_actualizar','role_eliminar')
+    <li>
+        <a href="/roles">
+          <i class="fa fa-file-text-o"></i> <span>Roles</span>
+        </a>
+      </li>
+      @endcan
       </ul>
     </div>
-
 
 
     <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
@@ -331,15 +212,14 @@
         </ul>
 
 
-
+        <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+        <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
 
         <ul class="navbar-nav align-items-center right-nav-link">
-          <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
-          <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
           <li class="nav-item">
 
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-              <span class="user-profile"><img src="/assets/images/Logoim.png" class="img-circle" alt="user avatar"></span>
+              <span class="user-profile"><img src="/assets/images/li.jpg" class="img-circle" alt="user avatar"></span>
             </a>
 
 
@@ -348,7 +228,7 @@
               <li class="dropdown-item user-details">
                 <a href="javaScript:void();">
                   <div class="media">
-                    <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/Logo.jpeg" alt="user avatar"></div>
+                    <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/LogoDos.png" alt="user avatar"></div>
                     <div class="media-body">
 
                       <h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6>
@@ -380,10 +260,8 @@
 
       </nav>
     </header>
-    <ul class="dropdown-menu dropdown-menu-right">
-    </ul>
-    </li>
-    </ul>
+    <ul class="dropdown-menu dropdown-menu-right"></ul>
+
 
 
     <!-- CON LA NUEVA PLANTILLA -->
@@ -397,11 +275,21 @@
 
 
     <!-- CON LA VIEJA PLANTILLA -->
+
 <main>
   <div style="margin-left:16%;">
     @yield('contenido')
   </div>
 </main>
+
+    <!--
+    <main>
+    <div style="margin-left:16%;">
+    @yield('contenido')
+    </div>
+    </main>
+     -->
+
 
 
 
@@ -426,8 +314,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <script>
-
-
     </script>
 
 </body>

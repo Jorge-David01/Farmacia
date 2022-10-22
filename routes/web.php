@@ -17,7 +17,6 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\KardexController;
-use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 
 use App\Http\Controllers\CajaAlivioController;
@@ -114,6 +113,8 @@ Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> n
 
     Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'edit']) -> name('edit.producto')-> where('id', '[0-9]+');;
     Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto')-> where('id', '[0-9]+');;
+
+
 
 // Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'Edit']) -> name('edit.producto');
 // Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto');
@@ -226,17 +227,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//----------------------------------------------------------
-//----------------- RUTAS DE PERMISOS ---------------------
-
-//Ruta lista permiso
-Route::get('/permissions',[PermissionController::class,'index'])-> name('permissions.index');
-
-//Ruta para crear nuevo permiso
-Route::get('permissionsnuevo',[PermissionController::class,'create'])-> name('permissions.create');
-
-//Ruta guardar el nuevo permiso
-Route::post('permissionsnuevo',[PermissionController::class,'store']) ->name('permissions.store');
 
 //----------------------------------------------------------
 //----------------- RUTAS DE ROLES ---------------------
@@ -250,6 +240,14 @@ Route::get('rolesnuevo',[RoleController::class,'create'])-> name('roles.create')
 //Ruta guardar el nuevo rol
 Route::post('rolesnuevo',[RoleController::class,'store']) ->name('roles.store');
 
+Route::get('roles/{id}/editar',[RoleController::class,'edit']) ->name('roles.edit');
+
+//Ruta para actualizar
+Route::put('roles/{id}/editar',[RoleController::class, 'update'])->name('roles.update');
+
+Route::get('roles/{id}',[RoleController::class,'show'])->name('roles.show')->where('id','[0-9]+');
+
+Route::delete('roles/{id}',[RoleController::class,'destroy'])->name('roles.destroy')->where('id','[0-9]+');
 
 Route::get('/registro', function () {
     return view('auth/register');

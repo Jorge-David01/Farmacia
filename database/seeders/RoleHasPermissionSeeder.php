@@ -18,8 +18,8 @@ class RoleHasPermissionSeeder extends Seeder
         app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
         $admin_permissions = Permission::all();
-        $doctor_permissions = Permission::whereBetween('id', [1, 18]);
-        $vendedor_permissions = Permission::whereBetween('id', [1, 26]);
+        $doctor_permissions = Permission::whereBetween('id', [1, 13]);
+        $vendedor_permissions = Permission::whereBetween('id', [1, 30]);
 
         // Admin
             Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
