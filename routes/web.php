@@ -114,6 +114,8 @@ Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> n
     Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'edit']) -> name('edit.producto')-> where('id', '[0-9]+');;
     Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto')-> where('id', '[0-9]+');;
 
+
+
 // Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'Edit']) -> name('edit.producto');
 // Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto');
 

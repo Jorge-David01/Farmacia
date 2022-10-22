@@ -247,22 +247,30 @@
 
 
     <!-- CON LA NUEVA PLANTILLA -->
-
+<!--
     <main>
       <div>
         @yield('contenido')
       </div>
     </main>
-
+-->
 
 
     <!-- CON LA VIEJA PLANTILLA -->
+
+<main>
+  <div style="margin-left:16%;">
+    @yield('contenido')
+  </div>
+</main>
+
     <!--
     <main>
     <div style="margin-left:16%;">
     </div>
     </main>
      -->
+
 
 
 

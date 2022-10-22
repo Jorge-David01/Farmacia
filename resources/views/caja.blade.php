@@ -58,8 +58,37 @@
       </div>
     </div>
 
+
+<table  style="margin-top: 1%; width: 80%; margin-left: 4%;" >
+
+
+<tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+<th>Descripción</th>
+<th>Veces</th>
+<th>Fecha</th>
+</tr>
+
+
+
+@forelse($cajadatos as $datos)
+
+<tr style="border: 2px solid #dddddd;">
+<td>{{$datos->Descripcion}}</td>
+<td>{{$datos->id}}</td>
+<td>{{$datos->Fecha}}</td>
+</tr>
+@empty
+
+@endforelse
+
+{{$cajadatos -> links() }}
+
+</tbody>
+</table>
+
   </div>
 </div>
+
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

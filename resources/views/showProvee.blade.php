@@ -15,14 +15,27 @@
         <h1 style=" margin-left: 2%; margin-bottom: 3%; ">Detalles del proveedor </h1>
         <h1 style="margin-bottom: 2%;"></h1>
 
+
+
+<h1 style="margin-bottom: 2%;"></h1>
+
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="card">
 
 
+
                     <div class="table-responsive">
 
                         <table style="text-align: center; " class="table table-bordered align-items-center table-flush table-borderless">
+
+
+    <thead>
+        <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+            <th scope="col">Campo</th>
+            <th scope="col">Valor</th>
+        </tr>
+
 
 
                             <thead>
@@ -44,15 +57,35 @@
                                     <td>{{$provee->Nombre_del_distribuidor}}</td>
                                 </tr>
 
+
+        <tr>
+            <th scope="row">Correo Electronico</th>
+            <td>{{$provee->Correo_electronico}}</td>
+        </tr>
+      
+        <tr>
+            <th scope="row">Catálogo</th>
+            <td><a href="/Archivos/{{$provee->Archivo}}" target="blank_"> {{$provee->Archivo}}</a></td>
+        </tr>
+      
+   
+        </tbody>
+
                                 <tr>
                                     <th scope="row">Telefono del proveedor</th>
                                     <td>{{$provee->Telefono_del_proveedor}}</td>
                                 </tr>
 
+
                                 <tr>
                                     <th scope="row">Telefono del distribuidor</th>
                                     <td>{{$provee->Telefono_del_distribuidor}}</td>
                                 </tr>
+
+
+              
+
+</div>
 
                                 <tr>
                                     <th scope="row">Correo Electronico</th>
@@ -60,9 +93,16 @@
                                 </tr>
                             </tbody>
 
+
                         </table><br>
 
+<a class="btn btn-primary" href="/Editprovee/{{$provee->id}}/editar">Actualizar</a>
+
+
+</div>
+
                     </div>
+
 
                     <div style="text-align: center">
                         <a class="btn btn-success" href="/Listpro">Volver</a>
