@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', '')
+@section('pestania', 'La popular')
 
 @section('contenido')
 
@@ -13,7 +13,7 @@
   <div class="container-fluid">
 
 
-    <h1 style=" margin-bottom: 3%; "> Entradas y Salidas </h1>
+    <h1 style=" margin-bottom: 3%; margin-left: 2%;"> Entradas y salidas </h1>
 
     <form action="{{route('kardex.index')}}" method="GET">
       <div style="width: 18%;">

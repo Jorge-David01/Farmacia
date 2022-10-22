@@ -18,7 +18,7 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h2 style=" margin-bottom: 1%; "> Datos de la factura de venta </h2>
+        <h1 style=" margin-bottom: 1%; margin-left: 2%;"> Datos de la factura</h1>
 
         <h1 style="margin-bottom: 2%;"></h1>
 

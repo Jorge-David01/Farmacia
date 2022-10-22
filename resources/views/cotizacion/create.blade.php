@@ -18,7 +18,7 @@
   <div class="content-wrapper">
   <div class="container-fluid">
 
-<h1 style="margin-bottom: 4%;"> Datos de la cotizacion</h1>
+<h1 style="margin-bottom: 4%; margin-left: 2%;"> Datos de la cotizacion</h1>
 
         <form method="post">
             @csrf

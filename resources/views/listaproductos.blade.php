@@ -29,7 +29,7 @@ td {
   <div class="container-fluid">
 
 
-<h1 style=" margin-bottom: 3%; "> Lista de productos </h1>
+<h1 style=" margin-bottom: 3%; margin-left: 2%;"> Lista de productos </h1>
 
 <div style="float: right;margin-right: 10px; width: 250px">
   <center><a class="btn btn-danger" href="{{route('productos.pdf')}}">Descargar PDF</a></center>

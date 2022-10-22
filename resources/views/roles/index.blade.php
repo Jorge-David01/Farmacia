@@ -13,7 +13,7 @@
 
 
 
-    <h1 style="  margin-bottom: 3%;"> Lista de Roles </h1>
+    <h1 style="  margin-bottom: 3%; margin-left: 2%;"> Lista de roles </h1>
     <a class="btn btn-warning" href='/rolesnuevo'>Nuevo rol</a>
     <h1 style="margin-bottom: 2%;"></h1>
 

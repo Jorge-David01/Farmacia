@@ -4,7 +4,7 @@
 
 <div class="content-wrapper">
     <div class="container-fluid">
-        <h1>Vaciar caja de alivio</h1>
+        <h1 style="margin-left: 2%;">Vaciar caja de alivio</h1>
 
         <h1 style="margin-bottom: 2%;"></h1>
         <div class="row">

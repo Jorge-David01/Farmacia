@@ -21,7 +21,7 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style=" margin-left: 2%; margin-bottom: 2%;"> Registro de Clientes </h1>
+        <h1 style=" margin-left: 2%; margin-bottom: 2%;"> Registro de clientes </h1>
 
         <div style="margin: auto;" class="col-lg-6">
             <div class="card">

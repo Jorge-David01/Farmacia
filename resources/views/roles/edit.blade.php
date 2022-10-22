@@ -25,7 +25,7 @@
         }
     </style>
 
-    <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Creación de Roles </h1>
+    <h1 style="margin-left: 2% ;  margin-bottom: 3%; "> Creación de roles </h1>
 
     <form id="form_permissions" enctype="multipart/form-data"
     action="{{ route('roles.update', $role->id) }}"
