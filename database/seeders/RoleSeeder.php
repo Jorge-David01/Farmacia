@@ -18,46 +18,33 @@ class RoleSeeder extends Seeder
         app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
         Role::create([
-            'name' => 'Admin',
+            'name' => 'Administrador',
+            'descripcion' => 'Este rol sera el rol maestro con todos los permisos,
+            se encargara de la organización, de la dirección y control de la farmacia',
         ]);
-
-        Role::create([
-            'name' => 'Doctor',
-        ]);
-
         Role::create([
             'name' => 'Vendedor',
+            'descripcion' => 'Este rol sera el rol para los vendedores, no se limita simplemente a vender
+            y brindar el servicio al cliente, sino que tambien lograr determinados objetivos',
         ]);
-
         $user1 = User::create(
             [
                 'name' => 'Usuario 1',
                 'email_verified_at'=> null,
-                'email' => 'admin01@gmail.com',
+                'email' => 'admin@gmail.com',
                 'password' => '$2y$10$AluNc8YndjBpdof62Q4wAesLlvzCLwgkUh.QzutYZjfi8Y8YZN4KC',
             ]
         );
-
         $user2 = User::create(
             [
                 'name' => 'Usuario 2',
                 'email_verified_at'=> null,
-                'email' => 'admin02@gmail.com',
+                'email' => 'vendedor@gmail.com',
                 'password' => '$2y$10$AluNc8YndjBpdof62Q4wAesLlvzCLwgkUh.QzutYZjfi8Y8YZN4KC',
             ]
         );
 
-        $user3 = User::create(
-            [
-                'name' => 'Usuario 3',
-                'email_verified_at'=> null,
-                'email' => 'admin03@gmail.com',
-                'password' => '$2y$10$AluNc8YndjBpdof62Q4wAesLlvzCLwgkUh.QzutYZjfi8Y8YZN4KC',
-            ]
-        );
-
-        $user1->assignRole('Admin');
-        $user2->assignRole('Doctor');
-        $user3->assignRole('Vendedor');
+        $user1->assignRole('Administrador');
+        $user2->assignRole('Vendedor');
     }
 }

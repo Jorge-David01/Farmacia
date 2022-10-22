@@ -29,7 +29,7 @@ td {
 
 
 
-<h1 style=" margin-bottom: 3%; "> Clientes </h1>
+<h1 style=" margin-bottom: 3%; margin-left: 2%; "> Clientes </h1>
 
 <a class="btn btn-warning" href="/clientes/nuevo">Registrar cliente</a>
 

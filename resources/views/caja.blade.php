@@ -21,7 +21,7 @@
 <div class="content-wrapper">
   <div class="container-fluid">
 
-    <h1 style=" margin-bottom: 3%; "> Caja De Alivio </h1>
+    <h1 style=" margin-bottom: 3%; margin-left: 2%;"> Caja de alivio </h1>
     <a  class="btn btn-warning" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
     <h1 style="margin-bottom: 2%;"></h1>
     <div class="row">
@@ -34,7 +34,7 @@
 
             <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
               <th>Descripción</th>
-              <th>Saldo</th>
+              <th>Veces</th>
               <th>Fecha</th>
             </tr>
 
@@ -42,7 +42,7 @@
 
             <tr style="border: 2px solid #dddddd;">
               <td>{{$datos->Descripcion}}</td>
-              <td>{{$datos->Saldo}}</td>
+              <td>{{$datos->id}}</td>
               <td>{{$datos->Fecha}}</td>
             </tr>
             @empty

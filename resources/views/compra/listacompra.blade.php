@@ -28,7 +28,8 @@ td {
   <div class="container-fluid">
 
 
-<h1 style="margin-bottom: 3%;"> Listado de compras realizadas </h1>
+<h1 style="margin-bottom: 2%; margin-left: 2%
+;"> Listado de compras realizadas </h1>
 
 <a class="btn btn-warning" href="/compra/nuevo">Ingresar compra</a>
 

@@ -64,6 +64,19 @@ class RoleController extends Controller
         return view('roles.edit', compact('role', 'permissions'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $role = Role::find($id);
+        $role->name = $request->input('name');
+        $role->descripcion= $request->input('descripcion');
+
+        $role->save();
+
+        // $role->permissions()->sync($request->input('permissions', []));
+        $role->syncPermissions($request->input('permissions', []));
+
+        return redirect()->route('roles.index');
+    }
 
     public function destroy($id)
     {
@@ -71,5 +84,16 @@ class RoleController extends Controller
         Role::destroy($id);
 
         return redirect()->route('roles.index');
+    }
+
+    public function show($id)
+    {
+        abort_if(Gate::denies('role_detalle'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        $role = Role::find($id);
+
+        $permissions = Permission::all()->pluck('name', 'id');
+        $role->load('permissions');
+        //dd($role);
+        return view('roles.show', compact('role', 'permissions'));
     }
 }

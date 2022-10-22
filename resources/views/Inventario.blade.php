@@ -14,7 +14,7 @@ td {
   <div class="content-wrapper">
   <div class="container-fluid">
 
-<h1 style=" margin-bottom: 3%; "> Inventario </h1>
+<h1 style=" margin-bottom: 3%; margin-left: 2%;"> Inventario </h1>
 
 <form action="{{route('busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
 @csrf

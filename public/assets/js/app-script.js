@@ -9,6 +9,7 @@ $.sidebarMenu($('.sidebar-menu'));
 // === toggle-menu js
 $(".toggle-menu").on("click", function(e) {
         e.preventDefault();
+        console.log('llego aqui ');
         $("#wrapper").toggleClass("toggled");
     });	 
 	   

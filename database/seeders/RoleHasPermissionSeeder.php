@@ -17,16 +17,13 @@ class RoleHasPermissionSeeder extends Seeder
     {
         app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
-        $admin_permissions = Permission::all();
-        $doctor_permissions = Permission::whereBetween('id', [1, 13]);
-        $vendedor_permissions = Permission::whereBetween('id', [1, 30]);
+        $administrador_permissions = Permission::all();
+        $vendedor_permissions = Permission::whereBetween('id', [1, 19]);
 
         // Admin
-            Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
-        // doctor
-            Role::findOrFail(2)->permissions()->sync($doctor_permissions->pluck('id'));
+            Role::findOrFail(1)->permissions()->sync($administrador_permissions->pluck('id'));
         //vendedor
-            Role::findOrFail(3)->permissions()->sync($vendedor_permissions->pluck('id'));
+            Role::findOrFail(2)->permissions()->sync($vendedor_permissions->pluck('id'));
 
 
     }

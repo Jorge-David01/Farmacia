@@ -30,7 +30,11 @@
 
                         <div class="form-group">
                             <label for="nombrepro">Nombre del proveedor:</label>
+
                             <input maxlength="70"  class="form-control" type="text" id="nombrepro" name="nombrepro" title="Ingrese el nombre del proveedor" required="required" placeholder="Ingrese el nombre del proveedor"  value="{{old('nombrepro')}}">
+
+
+                            <input maxlength="70" class="form-control" type="text" id="nombrepro" name="nombrepro" title="Ingrese el nombre del proveedor" required="required" placeholder="Ingrese el nombre del proveedor">
 
                         </div>
 
