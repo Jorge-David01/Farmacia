@@ -48,7 +48,7 @@
 
     <a class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
 
-    <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; ">
+    <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; margin-bottom:2%; ">
       @csrf
       <input type="text" name="search" id="search" placeholder="Busqueda">
       <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
@@ -57,7 +57,7 @@
 
 
 
-    <h1 style="margin-bottom: 2%;"></h1>
+
     <div class="row">
       <div class="col-12 col-lg-12">
         <div class="card">
@@ -89,8 +89,8 @@
                 <td>{{$prove->Nombre_del_proveedor}}</td>
                 <td>{{$prove->Nombre_del_distribuidor}}</td>
             
-                <td> <a class="btn btn-info" href="Archivos/{{$prove->Archivo}}" target="blank_"> Documentos </a></td>
-                <td> <a class="btn btn-success" href="/Verprovee/{{$prove->id}}" > Detalles </a></td>
+                <td> <a class="btn btn-info" href="Archivos/{{$prove->Archivo}}" target="blank_">Documentos</a></td>
+                <td> <a class="btn btn-success" href="/Verprovee/{{$prove->id}}">Detalles</a></td>
                
               </tr>
 
@@ -98,18 +98,11 @@
 
               @endforelse
 
-
-              {{$pro -> links() }}
-
-
-
               </tbody>
 
             </table>
 
-
-
-
+            {{$pro-> links() }}
           </div>
         </div>
       </div>

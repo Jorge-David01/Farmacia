@@ -57,9 +57,7 @@ class ProveedorController extends Controller{
         return view('showProvee')->with('provee', $provee);  
     }
 
-public function store(Request $request ){
 
-}
 //----------------------------------------------------------
 //----------------- CREAR PROVEEDOR -----------------------
     public function nuevo(){
@@ -80,7 +78,7 @@ public function store(Request $request ){
             'telefonopro'=>'required|unique:proveedors,Telefono_del_proveedor|min:8| max:8',
             'telefonodis'=>'required|unique:proveedors,Telefono_del_distribuidor|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})',
             'correo'=>'required|unique:proveedors,Correo_electronico',
-            'files'=>'mimes:pdf,docx,pptx'
+            'files'=>'mimes:pdf'
          
             
 
@@ -182,7 +180,7 @@ public function store(Request $request ){
                 'telefonopro'=> 'required|numeric|regex:([9,8,3,2]{1}[0-9]{7})|min:8',
                 'telefonodis'=> 'required|numeric|regex:([9,8,3]{1}[0-9]{7})|min:8',
                 'correo'=>"required|max:100|unique:proveedors,Correo_electronico, $id",
-                'files'=>'mimes:pdf,docx,pptx'
+                'files'=>'mimes:pdf'
             ];
 
         $mensaje =[

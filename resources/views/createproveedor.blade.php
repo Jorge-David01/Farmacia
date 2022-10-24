@@ -6,7 +6,7 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style=" margin-left: 2%; margin-bottom: 2%;">Creación De Proveedor </h1>
+        <h1 style=" margin-left: 2%; margin-bottom: 2%;">Registro de proveedor </h1>
 
         
         @if ($errors->any())
@@ -34,7 +34,7 @@
                             <input maxlength="70"  class="form-control" type="text" id="nombrepro" name="nombrepro" title="Ingrese el nombre del proveedor" required="required" placeholder="Ingrese el nombre del proveedor"  value="{{old('nombrepro')}}">
 
 
-                            <input maxlength="70" class="form-control" type="text" id="nombrepro" name="nombrepro" title="Ingrese el nombre del proveedor" required="required" placeholder="Ingrese el nombre del proveedor">
+                            
 
                         </div>
 
@@ -67,7 +67,7 @@
 
                         <div class="form-group">
                             <label for="files">Subir PDF</label>
-                            <input class="form-control" type="file"  id="files" accept="application/pdf" name="files" multiple >
+                            <input class="form-control" type="file"  id="files" accept="application/pdf" name="files"  >
 
                         </div>
 

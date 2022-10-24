@@ -31,13 +31,7 @@
 
 
     <thead>
-        <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-            <th scope="col">Campo</th>
-            <th scope="col">Valor</th>
-        </tr>
-
-
-
+     
                             <thead>
                                 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                                     <th scope="col">Campo</th>
@@ -96,7 +90,7 @@
 
                         </table><br>
 
-<a class="btn btn-primary" href="/Editprovee/{{$provee->id}}/editar">Actualizar</a>
+
 
 
 </div>

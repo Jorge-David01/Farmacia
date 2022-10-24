@@ -78,13 +78,13 @@
 
 
 
-       @if( Auth::user()->role == 'Admin')
+      
        <li>
           <a href="/ListaUsuarios">
             <i class="fa fa-users"></i> <span>Usuarios</span>
           </a>
         </li>
-        @endif()
+        
 
        @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
         <li>
@@ -247,19 +247,14 @@
 
 
     <!-- CON LA NUEVA PLANTILLA -->
-<!--
-    <main>
-      <div>
-        @yield('contenido')
-      </div>
-    </main>
--->
+    
+
 
 
     <!-- CON LA VIEJA PLANTILLA -->
 
 <main>
-  <div style="margin-left:16%;">
+  <div >
     @yield('contenido')
   </div>
 </main>
