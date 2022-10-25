@@ -112,7 +112,7 @@
                     <div class="item form-group">
                         <br><br>
                         <div style="margin-left: 0%;" class="col-md-6 col-sm-6 offset-md-3">
-                            <button class="btn btn-danger" type="button" onclick="window.location='/Empleados'">Cancelar</button>
+                            <button class="btn btn-danger" type="button" onclick="window.location='/ListaUsuarios'">Cancelar</button>
                             <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
                             <button type="submit" class="btn btn-success">Guardar</button>
                         </div>

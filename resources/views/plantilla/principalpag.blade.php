@@ -72,7 +72,7 @@
 
       <ul class="sidebar-menu do-nicescrol">
 
-    <!-- @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar') -->
+    <!-- @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar') -->    
     <!-- @endcan -->
 
 
@@ -85,14 +85,21 @@
         </li>
         @endif()
 
-       @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
+        @can('empleado_listado', 'empleado_nuevo','empleado_actualizar','empleado_detalle')
+        <li>
+          <a href="/Listempleado">
+            <i class="fa fa-truck"></i> <span>Empleados</span>
+          </a>
+        </li>
+        @endcan
+
+        @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
         <li>
           <a href="/Listpro">
             <i class="fa fa-truck"></i> <span>Proveedores</span>
           </a>
         </li>
         @endcan
-
 
 
         @can('producto_listado', 'producto_nuevo','producto_actualizar','producto_detalle')
@@ -259,6 +266,7 @@
     <!--
     <main>
     <div style="margin-left:16%;">
+    @yield('contenido')
     </div>
     </main>
      -->

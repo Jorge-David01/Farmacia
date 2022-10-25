@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Usuario;
 use App\Http\Controllers\EmpleadoController;
 use App\Models\Empleado;
 use App\Models\Proveedor;
@@ -10,6 +11,7 @@ use App\Models\Cliente;
 use App\Models\Caja;
 use App\Models\caja_respuesta;
 
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
@@ -65,22 +67,26 @@ Route::post('/contrasenia/cambio',[ContraseniaController::class, 'cambio'])->nam
 
 //-----------------------------------------------------------
 //----------------- RUTAS DE EMPLEADO -----------------------
-Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])->name('empleados.create');
-
-Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])->name('empleados.store');
-
-Route::get('/Emple/{id}', [EmpleadoController::class, 'show']) -> name('empleado.detalles')-> where('id', '[0-9]+');
 
 
-Route::delete('/empleados/{id}/eliminar',[EmpleadoController::class, 'destroy'])->name('empleados.delete')-> where('id', '[0-9]+');
 
-Route::get('/Empleado/{id}/editar', [EmpleadoController::class, 'edit']) -> name('Editar.empleado')-> where('id', '[0-9]+');
-
-Route::put('/Empleado/{id}/editar', [EmpleadoController::class, 'update']) -> name('actualizar.empleado') -> where('id', '[0-9]+');
-
-Route::get('/ListaUsuarios',[EmpleadoController::class, 'list']) -> name ('lista');
 //-------------------------------------------------------------
 //----------------- RUTAS DE USUARIOS -----------------------
+
+Route::get('/usuarios/nuevo',[UsuarioController::class, 'create'])->name('usuarios.create');
+
+Route::post('/usuarios/nuevo',[UsuarioController::class, 'store'])->name('usuarios.store');
+
+Route::get('/Showuser/{id}', [UsuarioController::class, 'show']) -> name('usuario.detalles')-> where('id', '[0-9]+');
+
+
+Route::delete('/usuarios/{id}/eliminar',[UsuarioController::class, 'destroy'])->name('usuarios.delete')-> where('id', '[0-9]+');
+
+Route::get('/Usuario/{id}/editar', [UsuarioController::class, 'edit']) -> name('Editar.usuario')-> where('id', '[0-9]+');
+
+Route::put('/Usuario/{id}/editar', [UsuarioController::class, 'update']) -> name('actualizar.usuario') -> where('id', '[0-9]+');
+
+Route::get('/ListaUsuarios',[UsuarioController::class, 'list']) -> name ('lista');
 
 
 

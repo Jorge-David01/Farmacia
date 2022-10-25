@@ -27,7 +27,7 @@ td {
   <div class="container-fluid">
 
         <h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de Usuarios </h1>
-        <a style="margin-left: 4%;" class="btn btn-warning" href="/empleados/nuevo">Nuevo Usuario</a>
+        <a style="margin-left: 4%;" class="btn btn-warning" href="/usuarios/nuevo">Nuevo Usuario</a>
 
         <div class="col-x1-12" style="margin-top: 2%;">
             <form action="{{route('lista')}}" method="get">
@@ -68,15 +68,15 @@ td {
                     @endif
 
                 <tbody>
-                    @foreach($employee as $emple)
+                    @foreach($employee as $user)
 
                     <tr style="border: 2px solid #dddddd;">
                     <td>{{$loop->index+1}}</td>
-                    <td>{{$emple->name}}</td>
-                    <td>{{$emple->email}}</td>
-                    <td>{{$emple->role}}</td>
-                    <td > <a  class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
-                    <td > <a  class="btn btn-success" href="/contrasenia/{{$emple->id}}/listausuarios"> Cambiar Contrasena </a></td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->role}}</td>
+                    <td > <a  class="btn btn-success" href="/Showuser/{{$user->id}}"> Detalles </a></td>
+                    <td > <a  class="btn btn-success" href="/contrasenia/{{$user->id}}/listausuarios"> Cambiar Contrasena </a></td>
                     </tr>
                     @endforeach
                 </tbody>
