@@ -37,7 +37,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('usuario_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        // abort_if(Gate::denies('usuario_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         return view('usuarios/create');
     }
 
@@ -65,11 +65,11 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-        abort_if(Gate::denies('usuario_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        // abort_if(Gate::denies('usuario_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $rules=[
             'nombre_completo' => 'required|max:110',
-            'dni'=> 'required|unique:usuarios,DNI|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
-            'numero_cel'=> 'required|unique:usuarios,numero_cel|numeric|regex:([9,8,3]{1}[0-9]{7})',
+            'dni'=> 'required|unique:users,DNI|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
+            'numero_cel'=> 'required|unique:users,numero_cel|numeric|regex:([9,8,3]{1}[0-9]{7})',
             'direccion'=>'required|max:100',
             'password' => 'required|confirmed|min:6',
         ];
@@ -135,7 +135,7 @@ class UsuarioController extends Controller
      */
     public function show($id)//mostrar
     {
-        abort_if(Gate::denies('usuario_detalles'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        // abort_if(Gate::denies('usuario_detalles'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $usuario = Usuario::findOrFail($id);
         return view('usuarios/showusuario')->with('usuario', $usuario);
         //

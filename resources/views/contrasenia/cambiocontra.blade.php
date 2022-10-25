@@ -37,12 +37,36 @@
             <input hidden  name="id" value="{{$user->id}}" />
             <input hidden  name="from" value="{{$from}}" />
 
+        @if( $from == 'navbar')
+            <div class="item form-group">
+                <label for="password" class="col-sm-3 col-form-label">{{ __('Verificar Contraseña:') }}</label>
+                <div class="col-md-6 col-sm-6 ">
+                    <div class="input-group" style="width: 100%;" >
+                    <input id="password" type="password" 
+                     class="form-control  @error('verificar_contrasenia') is-invalid @enderror" 
+                     name="verificar_contrasenia" required autocomplete="current-password"
+                      value="{{$verificar_contrasenia}}" placeholder="Verifique su contraseña" >
+                            <span class="input-group-btn">
+                                <button id="show_password" class="btn" style="background: #3385ff" type="button" onclick="mostrarPassword()">
+                                    <span class="fa fa-eye-slash icon"></span>
+                                </button>
+                            </span>
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+        @endif
 
             <div class="item form-group">
                 <label for="password" class="col-sm-3 col-form-label">{{ __('Contraseña:') }}</label>
                 <div class="col-md-6 col-sm-6 ">
                     <div class="input-group" style="width: 100%;" >
-                    <input id="password" type="password"  {{old('contraseña')}} class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" value="{{old('password')}}" placeholder="Ingrese la contraseña" >
+                    <input id="password" type="password"  class="form-control  @error('password') is-invalid @enderror" 
+                    name="password" required autocomplete="current-password"
+                    value="{{$password}}" placeholder="Ingrese la contraseña" >
                             <span class="input-group-btn">
                                 <button id="show_password" class="btn" style="background: #3385ff" type="button" onclick="mostrarPassword()">
                                     <span class="fa fa-eye-slash icon"></span>
@@ -61,7 +85,12 @@
                 <label for="confirm_password" class="col-sm-1 col-form-label">{{ __('Confirmar Contraseña:') }}</label>
                 <div class="col-md-6 col-sm-6">
                     <div class="input-group" style="width: 100%;" >
-                    <input id="confirm_password" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="current-password" placeholder="Confirme la contraseña">
+                    <input id="confirm_password" type="password" 
+                    class="form-control @error('confirm_password') is-invalid @enderror" 
+                    value="{{$password_confirmation}}"
+                    name="password_confirmation" required autocomplete="current-password"
+
+                     placeholder="Confirme la contraseña">
                     <span class="input-group-btn">
                         <button id="show_confirm_password" class="btn" style="background: #3385ff" type="button" onclick="mostrarConfirmPassword()">
                             <span class="fa fa-eye-slash icon"></span>

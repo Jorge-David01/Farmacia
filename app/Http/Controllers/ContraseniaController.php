@@ -14,13 +14,41 @@ class ContraseniaController extends Controller
     {
  //abort_if(Gate::denies('cambio_contraseña'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $user = User::findOrFail($id);
-        return view('contrasenia/cambiocontra')->with('user', $user)->with('from', $from);
-        
+            $verificar_contrasenia='';
+            $password='';
+            $password_confirmation = '';
+      
+        return view('contrasenia/cambiocontra')->with('user', $user)->with('from', $from)
+        ->with('verificar_contrasenia',$verificar_contrasenia)       
+        ->with('password',$password)        
+        ->with('password_confirmation',$password_confirmation);        
     }
 
     public function cambio(Request $request)
     {
  //abort_if(Gate::denies('cambio_contraseña'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        $from = $request->from;
+        if($from == 'navbar'){
+            $user= User::findorFail($request->id);           
+            if( !password_verify($request->verificar_contrasenia, $user->password)){
+                $inputs = array(
+                "verificar_contrasenia"=>$request->verificar_contrasenia,
+                "password"=>$request->password_confirmation,
+                "password_confirmation"=>$request->password_confirmation
+                );
+                
+                $verificar_contrasenia=$request->verificar_contrasenia;
+                $password=$request->password_confirmation;
+                $password_confirmation = $request->password_confirmation;
+
+                return view('contrasenia/cambiocontra')->with('user', $user)->with('from', $from)
+                ->with('verificar_contrasenia',$verificar_contrasenia)       
+                ->with('password',$password)        
+                ->with('password_confirmation',$password_confirmation);  
+            }
+        }
+        
+
 
         $password = Hash::make($request->password_confirmation);
 

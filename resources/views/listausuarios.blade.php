@@ -27,7 +27,9 @@ td {
   <div class="container-fluid">
 
         <h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de Usuarios </h1>
+        
         <a style="margin-left: 4%;" class="btn btn-warning" href="/usuarios/nuevo">Nuevo Usuario</a>
+
 
         <div class="col-x1-12" style="margin-top: 2%;">
             <form action="{{route('lista')}}" method="get">

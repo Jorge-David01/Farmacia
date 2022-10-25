@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'Formulario de empleados')
+@section('pestania', 'Formulario de usuarios')
 
 @section('contenido')
 
