@@ -70,14 +70,10 @@ Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])->name('empl
 
 Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])->name('empleados.store');
 
-Route::get('/Emple/{id}', [EmpleadoController::class, 'show']) -> name('empleado.detalles')-> where('id', '[0-9]+');
 
+Route::get('/empleados', [EmpleadoController::class, 'index'])
+    ->name('empleados.index');
 
-Route::delete('/empleados/{id}/eliminar',[EmpleadoController::class, 'destroy'])->name('empleados.delete')-> where('id', '[0-9]+');
-
-Route::get('/Empleado/{id}/editar', [EmpleadoController::class, 'edit']) -> name('Editar.empleado')-> where('id', '[0-9]+');
-
-Route::put('/Empleado/{id}/editar', [EmpleadoController::class, 'update']) -> name('actualizar.empleado') -> where('id', '[0-9]+');
 
 Route::get('/ListaUsuarios',[EmpleadoController::class, 'list']) -> name ('lista');
 //-------------------------------------------------------------
