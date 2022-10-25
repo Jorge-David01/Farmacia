@@ -50,7 +50,7 @@ class ProductoController extends Controller
 //----------------- LISTA PRODUCTO -------------------------
     public function lista(){
         abort_if(Gate::denies('producto_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $produc = Producto::paginate(10);
+        $produc = Producto::paginate(5);
 
         return view('listaproductos')->with('produc' , $produc);
     }
