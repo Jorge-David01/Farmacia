@@ -518,96 +518,62 @@
                 <!-- @endcan -->
 
 
-                @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
                 <li>
                     <a href="/Listpro">
                         <i class="fa fa-truck"></i> <span>Proveedores</span>
                     </a>
                 </li>
-                @endcan
-
-
-
-                @can('producto_listado', 'producto_nuevo','producto_actualizar','producto_detalle')
                 <li>
                     <a href="/Producto">
                         <i class="fa fa-medkit"></i> <span>Producto</span>
                     </a>
                 </li>
-                @endcan
-
-                @can('compra_listado', 'compra_nuevo','compra_detalle','compra_eliminar','compra_destruir','compra_cancelar','compra_almacenar')
                 <li>
                     <a href="/listacompra">
                         <i class="fa fa-cart-plus"></i> <span>Compras</span>
                     </a>
                 </li>
-                @endcan
-
-                @can('cliente_listado', 'cliente_nuevo','cliente_actualizar','cliente_detalle')
                 <li>
                     <a href="/Cliente">
                         <i class="fa fa-users"></i> <span>Clientes</span>
                     </a>
                 </li>
-                @endcan
-
-                @can('venta_listado', 'venta_nuevo','venta_detalle', 'factura')
                 <li>
                     <a href="/listaventa">
                         <i class="fa fa-file-text-o"></i> <span>Facturación</span>
                     </a>
                 </li>
-                @endcan
-
-                @can('devolucion')
                 <li>
                     <a href="/devolucion">
                         <i class="fa fa-cart-plus"></i> <span>Devolucion de Producto</span>
                     </a>
                 </li>
-                @endcan
-
-                @can('inventario')
-                <li>
+               <li>
                     <a href="/inventarioVista">
                         <i class="fa fa-columns"></i> <span>Inventario</span>
                     </a>
                 </li>
-                @endcan
-
-                @can('caja_nuevo', 'caja_pregunta', 'caja_respuesta')
-                <li>
+                 <li>
                     <a href="/CajaAlivio">
                         <i class="zmdi zmdi-face"></i> <span>Caja de alivio</span>
                     </a>
                 </li>
-                @endcan
-
-                @can('kardex')
-                <li>
+               <li>
                     <a href="/kardex">
                         <i class="zmdi zmdi-lock"></i> <span>Cardex</span>
                     </a>
                 </li>
-                @endcan
-
-                @can('cotizacion_nuevo', 'cotizacion_imprimir')
                 <li>
                     <a href="/cotizacion/nuevo">
                         <i class="fa fa-file-text-o"></i> <span>Cotizacion</span>
                     </a>
                 </li>
-                @endcan
-
-
-                @can('role_nuevo','role_listado','role_actualizar','role_eliminar')
                 <li>
                     <a href="/roles">
                         <i class="fa fa-file-text-o"></i> <span>Roles</span>
                     </a>
                 </li>
-                @endcan
+                
             </ul>
         </div>
 
@@ -615,47 +581,65 @@
         <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
         <!-- ----------------------------------------------------------NAVEGADOR #2-------------------------------------------------------- -->
         <header class="topbar-nav">
-            <nav class="navbar navbar-expand fixed-top">
+      <nav class="navbar navbar-expand fixed-top">
 
-                <ul class="navbar-nav mr-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link toggle-menu" href="javascript:void();">
-                        </a>
-                    </li>
-                </ul>
-
-
-                <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
-                <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
-
-                <ul class="navbar-nav align-items-center right-nav-link">
-                    <li class="nav-item">
-
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-                            <span class="user-profile"><img src="/assets/images/li.jpg" class="img-circle" alt="user avatar"></span>
-                        </a>
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+        </ul>
 
 
-                        <ul class="dropdown-menu dropdown-menu-right">
+        <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+        <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
 
-                            <li class="dropdown-item user-details">
-                                <a href="javaScript:void();">
-                                    <div class="media">
-                                        <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/LogoDos.png" alt="user avatar"></div>
-                                        <div class="media-body">
+        <ul class="navbar-nav align-items-center right-nav-link">
+          <li class="nav-item">
+
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+              <span class="user-profile"><img src="/assets/images/li.jpg" class="img-circle" alt="user avatar"></span>
+            </a>
 
 
+            <ul class="dropdown-menu dropdown-menu-right">
 
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <ul class="dropdown-menu dropdown-menu-right"></ul>
+              <li class="dropdown-item user-details">
+                <a href="javaScript:void();">
+                  <div class="media">
+                    <div class="avatar"><img class="align-self-start mr-3" src="/assets/images/LogoDos.png" alt="user avatar"></div>
+                    <div class="media-body">
+
+                     
+                    </div>
+                  </div>
+                </a>
+              </li>
+
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a   class="icon-settings"> Cambio de contraseña</a></li>
+
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><a href="/Ayuda" class="icon-envelope"> Ayuda</a> </li>
+
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><a href="{{ route('logout') }}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();" class="icon-power"> Cerrar sesión</a> </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+
+            </ul>
+
+          </li>
+
+        </ul>
+
+      </nav>
+    </header>
+    <ul class="dropdown-menu dropdown-menu-right"></ul>
+
 
 
 
