@@ -1,11 +1,11 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'Detalle de empleado')
+@section('pestania', 'Detalle de usuario')
 @section('contenido')
 
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1> Detalles del empleado </h1>
+        <h1> Detalles del usuario </h1>
 
         <h1 style="margin-bottom: 2%;"></h1>
 
@@ -28,23 +28,23 @@
 
                             <tr>
                                 <th scope="row">Nombre Completo</th>
-                                <td>{{$empleado->nombre_completo}}</td>
+                                <td>{{$usuario->nombre_completo}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Numero de Celular</th>
-                                <td>{{$empleado->numero_cel}}</td>
+                                <td>{{$usuario->numero_cel}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Numero de telefono</th>
-                                <td>{{$empleado->numero_tel}}</td>
+                                <td>{{$usuario->numero_tel}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Identidad</th>
-                                <td>{{$empleado->DNI}}</td>
+                                <td>{{$usuario->DNI}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Direccion</th>
-                                <td>{{$empleado->direccion}}</td>
+                                <td>{{$usuario->direccion}}</td>
                             </tr>
 
                         </tbody>
@@ -54,16 +54,16 @@
 
                     <div style="text-align: center; ">
 
-                        <a class="btn btn-success" href="/Lista">Volver</a>
+                        <a class="btn btn-success" href="/ListaUsuario">Volver</a>
 
 
-                        <a class="btn btn-primary" href="/Empleado/{{$empleado->id}}/editar">Actualizar</a>
+                        <a class="btn btn-primary" href="/Usuario/{{$usuario->id}}/editar">Actualizar</a>
 
 
-                        <form style="display:inline-block;" method="post" action="{{route('empleados.delete',['id'=>$empleado->id])}}">
+                        <form style="display:inline-block;" method="post" action="{{route('usuarios.delete',['id'=>$usuario->id])}}">
                             @csrf
                             @method('delete')
-                            <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el empleado?')" value="eliminar" class="btn btn-danger">
+                            <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el usuario?')" value="eliminar" class="btn btn-danger">
                         </form>
 
                     </div>

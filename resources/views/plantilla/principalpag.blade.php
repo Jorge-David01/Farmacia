@@ -13,7 +13,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS 
+  <!-- Bootstrap CSS
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
    loader-->
@@ -73,27 +73,39 @@
 
       <ul class="sidebar-menu do-nicescrol">
 
-    <!-- @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar') -->
-    <!-- @endcan -->
 
 
 
-      
        <li>
           <a href="/ListaUsuarios">
             <i class="fa fa-users"></i> <span>Usuarios</span>
           </a>
         </li>
-        
 
-       @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
+
+        @can('empleado_listado', 'empleado_nuevo')
+        <li>
+            <a href="empleados/index">
+              <i class="fa fa-users"></i> <span>Empleados</span>
+            </a>
+          </li>
+          @endcan
+
+        @can('empleado_listado', 'empleado_nuevo','empleado_actualizar','empleado_detalle')
+        <li>
+          <a href="/Listempleado">
+            <i class="fa fa-truck"></i> <span>Empleados</span>
+          </a>
+        </li>
+        @endcan
+
+        @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
         <li>
           <a href="/Listpro">
             <i class="fa fa-truck"></i> <span>Proveedores</span>
           </a>
         </li>
         @endcan
-
 
 
         @can('producto_listado', 'producto_nuevo','producto_actualizar','producto_detalle')
@@ -247,7 +259,7 @@
 
 
     <!-- CON LA NUEVA PLANTILLA -->
-    
+
 
 
 
@@ -262,6 +274,7 @@
     <!--
     <main>
     <div style="margin-left:16%;">
+    @yield('contenido')
     </div>
     </main>
      -->
@@ -286,7 +299,7 @@
     <script src='/assets/plugins/fullcalendar/js/moment.min.js'></script>
     <script src='/assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
     <script src="/assets/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
-  <!-- Full Calendar 
+  <!-- Full Calendar
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   Full Calendar -->
     <script>

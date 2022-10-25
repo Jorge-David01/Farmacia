@@ -20,7 +20,7 @@ class CreateEmpleadosTable extends Migration
             $table->string("numero_tel")->unique();
             $table->string("DNI")->unique();
             $table->string("direccion");
-            $table->string("contraseña");
+            $table->string("correo_electronico")->unique();
             $table->timestamps();
         });
     }
