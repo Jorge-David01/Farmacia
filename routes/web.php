@@ -277,3 +277,7 @@ Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta']
 
 //falta hacer
 
+
+Route::get('/proveedores/pdf', [ProveedorController::class, 'createPDF'])->name('proveedores.pdf');
+
+Route::get('/productos/pdf', [ProductoController::class, 'createPDF'])->name('productos.pdf');

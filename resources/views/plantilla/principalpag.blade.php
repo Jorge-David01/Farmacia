@@ -85,19 +85,12 @@
 
         @can('empleado_listado', 'empleado_nuevo')
         <li>
-            <a href="empleados/index">
+            <a href="/empleados">
               <i class="fa fa-users"></i> <span>Empleados</span>
             </a>
           </li>
           @endcan
 
-        @can('empleado_listado', 'empleado_nuevo','empleado_actualizar','empleado_detalle')
-        <li>
-          <a href="/Listempleado">
-            <i class="fa fa-truck"></i> <span>Empleados</span>
-          </a>
-        </li>
-        @endcan
 
         @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
         <li>
