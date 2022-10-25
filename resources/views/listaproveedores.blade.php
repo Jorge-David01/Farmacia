@@ -17,11 +17,7 @@
 
 
 </style>
-@if (session('mensaje'))
-<div class="alert alert-success">
-  {{session('msj')}}
-</div>
-@endif
+
 
 
 
@@ -31,9 +27,28 @@
 
     <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Lista de proveedores </h1>
 
+
+
+    @if (session('mensaje'))
+<div class="alert alert-success">
+  {{session('mensaje')}}
+</div>
+@endif
+
+@if (session('msj'))
+<div class="alert alert-success">
+  {{session('msj')}}
+</div>
+@endif
+
+    <div style="float: right;margin-right: 10px; width: 250px">
+      <center><a class="btn btn-danger" href="{{route('proveedores.pdf')}}">Descargar PDF</a></center>
+    </div>
+    
+
     <a class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
 
-    <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; ">
+    <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; margin-bottom:2%; ">
       @csrf
       <input type="text" name="search" id="search" placeholder="Busqueda">
       <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
@@ -42,7 +57,7 @@
 
 
 
-    <h1 style="margin-bottom: 2%;"></h1>
+
     <div class="row">
       <div class="col-12 col-lg-12">
         <div class="card">
@@ -55,7 +70,8 @@
               <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                 <th>Nombre del proveedor</th>
                 <th>Nombre del distribuidor</th>
-                <th>Correo Electronico</th>
+          
+                <th>Catálogo</th>
                 <th>Ver detalles</th>
               </tr>
 
@@ -72,26 +88,21 @@
 
                 <td>{{$prove->Nombre_del_proveedor}}</td>
                 <td>{{$prove->Nombre_del_distribuidor}}</td>
-                <td>{{$prove->Correo_electronico}}</td>
-                <td> <a class="btn btn-success" href="/Verprovee/{{$prove->id}}"> Detalles </a></td>
+            
+                <td> <a class="btn btn-info" href="Archivos/{{$prove->Archivo}}" target="blank_">Documentos</a></td>
+                <td> <a class="btn btn-success" href="/Verprovee/{{$prove->id}}">Detalles</a></td>
+               
               </tr>
 
               @empty
 
               @endforelse
 
-
-              {{$pro -> links() }}
-
-
-
               </tbody>
 
             </table>
 
-
-
-
+            {{$pro-> links() }}
           </div>
         </div>
       </div>

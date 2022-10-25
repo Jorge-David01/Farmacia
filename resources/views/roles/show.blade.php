@@ -25,7 +25,7 @@
         }
     </style>
 
-    <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Detalle de {{$role->name}} </h1>
+    <h1 style="margin-left: 2% ;  margin-bottom: 3%; "> Detalle de {{$role->name}} </h1>
 <br>
         <div class="card ">
           <!--Header-->

@@ -19,7 +19,7 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Creación de Productos </h1>
+        <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Creación de productos </h1>
 
 
         <div style="margin: auto;" class="col-lg-6">

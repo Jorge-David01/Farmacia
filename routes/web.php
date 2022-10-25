@@ -25,6 +25,7 @@ use App\Http\Controllers\CajaAlivioController;
 
 
 
+
 use App\Http\Controllers\ContraseniaController;
 
 /*
@@ -67,9 +68,22 @@ Route::post('/contrasenia/cambio',[ContraseniaController::class, 'cambio'])->nam
 
 //-----------------------------------------------------------
 //----------------- RUTAS DE EMPLEADO -----------------------
+<<<<<<< HEAD
+=======
+Route::get('/empleados/nuevo',[EmpleadoController::class, 'create'])->name('empleados.create');
+
+Route::post('/empleados/nuevo',[EmpleadoController::class, 'store'])->name('empleados.store');
+
+>>>>>>> 5395cc24236de679f3c54223a115d56c0f3188c5
+
+Route::get('/empleados', [EmpleadoController::class, 'index'])
+    ->name('empleados.index');
 
 
-
+<<<<<<< HEAD
+=======
+Route::get('/ListaUsuarios',[EmpleadoController::class, 'list']) -> name ('lista');
+>>>>>>> 5395cc24236de679f3c54223a115d56c0f3188c5
 //-------------------------------------------------------------
 //----------------- RUTAS DE USUARIOS -----------------------
 
@@ -119,6 +133,8 @@ Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> n
 
     Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'edit']) -> name('edit.producto')-> where('id', '[0-9]+');;
     Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto')-> where('id', '[0-9]+');;
+
+
 
 // Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'Edit']) -> name('edit.producto');
 // Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto');
@@ -273,3 +289,6 @@ Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta']
 
 //falta hacer
 
+Route::get('/proveedores/pdf', [ProveedorController::class, 'createPDF'])->name('proveedores.pdf');
+
+Route::get('/productos/pdf', [ProductoController::class, 'createPDF'])->name('productos.pdf');

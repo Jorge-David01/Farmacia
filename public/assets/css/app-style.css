@@ -33,12 +33,12 @@ File: app-style
   - Responsive
 */
 
-/* Google Font*/
+/* Google Font
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
 /* General */
 html {
-	 font-family: 'Roboto', sans-serif;
+	/* font-family: 'Roboto', sans-serif;*/
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	-ms-overflow-style: scrollbar;

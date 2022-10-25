@@ -16,7 +16,7 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h2 style="margin-left: 3%; margin-bottom: 3%; ">Datos de la factura de compra </h2>
+        <h1 style="margin-left: 2%; margin-bottom: 3%; ">Datos de la factura de compra </h1>
 
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">
@@ -76,19 +76,20 @@
 
                                 <div style="width: 100%; float: left; height: 30px;"></div>
                                 <div style="width: 19%; float: left;margin-right: 1%">
-                                    <center><label for="">Producto:</label></center>
-                                    <select name="productos" id="productos" class="form-control selectpicker" data-live-search="true">
-                                        @if(old('productos'))
-                                        @foreach ($productos as $p)
-                                        @if (old('productos') == $p->id)
-                                        <option value="{{$p->id}}">{{$p->nombre}}</option>
-                                        @endif
-                                        @endforeach
-                                        @else
-                                        <option style="display: none" value="">Seleccione el producto</option>
-                                        @endif
-                                    </select>
-                                </div>
+                <center><label for="" >Producto:</label></center>
+            <select name="productos" id="productos" class="form-control selectpicker"
+                data-live-search="true">
+                @if(old('productos'))
+                @foreach ($productos as $p)
+                    @if (old('productos') == $p->id)
+                        <option value="{{$p->id}}">{{$p->nombre}}</option>
+                    @endif
+                @endforeach
+                @else
+                    <option style="display: none" value="">Seleccione el producto</option>
+                @endif
+                </select>
+            </div>
 
                                 <div style="width: 11%; float: left;margin-right: 1%">
                                     <center><label for="">Cantidad:</label></center>
@@ -150,19 +151,14 @@
                         </div>
 
                     </div>
-                </div>
-
-            </div>
-        </div>
 
 
 
 
-        <h2 style="margin-bottom: 0%; "> Productos Facturados </h2>
 
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="card">
+                    <h2 style="margin-bottom: 0%; "> Productos Facturados </h2>
+
+
 
 
                     <table style="border: 2px solid #dddddd;" class="table table-bordered">
@@ -296,11 +292,10 @@
                         </form>
                     </div>
 
+
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 @stop

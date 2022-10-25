@@ -20,32 +20,19 @@
             }
         </style>
     </head>
-    
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex items-center pt-8 sm:justify-start sm:pt-0">
                     <div class="px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider">
                         @yield('code')
-                        <h1>ESTEEEE AQUI PUEDO MODIFICAR EL TIPO DE ERROR</h1>
                     </div>
-                   
+
                     <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider">
                         @yield('message')
-                        <h1>Y AQUI PUEDO MODIFICAR EL MENSAJE QUE QUIERA MOSTRAR</h1>
                     </div>
-
-                   
                 </div>
-
-                <div >
-                    <button class="btn btn-success" type="submit" style="width: 100%"><a class="btn btn-success" href="/Principal">Volver</a></button> 
-                </div>
-
             </div>
         </div>
     </body>
-
-    
-
 </html>

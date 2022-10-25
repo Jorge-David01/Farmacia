@@ -20,6 +20,7 @@ class CreateProveedorsTable extends Migration
             $table->string("Telefono_del_proveedor")->unique();
             $table->string("Telefono_del_distribuidor")->unique();
             $table->string("Correo_electronico")->unique();
+            $table->string("Archivo")->nullable();
             $table->timestamps();
         });
     }

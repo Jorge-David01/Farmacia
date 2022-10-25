@@ -3,6 +3,11 @@
 @section('contenido')
 
 
+
+    
+
+    
+    <h1 style="margin-left: 3% ; margin-bottom: 3%; "> Editar Proveedor </h1>
     @if($errors->any())
         <div class="alert alert-danger">
             
@@ -15,10 +20,10 @@
         </div>
     @endif
 
-    
-    <h1 style="margin-left: 3% ; margin-bottom: 3%; "> Editar Proveedor </h1>
 
-    <form style="margin-left: 2%;" method="POST" action="">
+
+
+    <form style="margin-left: 2%;" method="POST" action=""  enctype="multipart/form-data">
         @method('put')
         @csrf
 
@@ -51,6 +56,13 @@
             <input type="text" class="form-control-file" name="correo" id="correo" 
             placeholder="Correo_electronico" value="{{$proveedor->Correo_electronico}}" >
         </div>      
+
+        <div class="col-md-6 col-sm-6 ">
+        <label for="files">Catálogo</label>
+        <a href="/Archivos/{{$proveedor->Archivo}}" target="blank_"> <input type="text" class="form-control-file" name="existente" id="existente"  value="{{$proveedor->Archivo}}" readonly></a> 
+            <input style="margin-top:3%; background-color:#374d62;" type="file"  accept="application/pdf"  class="form-control-file" name="files" id="files" 
+             value="{{$proveedor->Archivo}}" multiple>
+        </div>   
 
         <div style="margin-top: 20px;">
 
