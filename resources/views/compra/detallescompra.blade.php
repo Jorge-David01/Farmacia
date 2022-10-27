@@ -2,10 +2,6 @@
 @section('pestania', 'Detalles de compra')
 @section('contenido')
 
-
-
-
-
 <h1 style="margin-left: 2% ; margin-bottom: 3%; "> Detalles de compra </h1>
 
 <table class="table" style="margin-top: 1%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" >
@@ -32,15 +28,6 @@
             $total =0;
             ?>
 
-
-@forelse ($name as $nombre)
-<tr> 
-<td>{{$nombre->nombre_producto}}</td>
-</tr>
-@empty
-       
-       @endforelse
-
        
         @forelse ($deta as $det)
 
@@ -48,7 +35,7 @@
 
         <tr>
            
-    <td></td>
+    <td>{{$det->nombre_producto}}</td>
    
             <td>{{$det->cantidad}}</td>
      
@@ -109,4 +96,3 @@
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection
-
