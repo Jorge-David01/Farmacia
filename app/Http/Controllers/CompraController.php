@@ -15,7 +15,8 @@ use App\Http\Requests\UpdateCompraRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Gate;
-
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class CompraController extends Controller
 {
@@ -31,6 +32,22 @@ class CompraController extends Controller
     public function index()
     {
         //
+    }
+
+    public function createPDF(){
+        $lista = Compra::all();
+        $name = Proveedor::all();
+
+        $data = [
+            'title' => 'Listado de compras',
+            'date' => date('m/d/Y'),
+            'lista' =>$lista,
+            'name' =>$name,
+        ];
+        return PDF::loadView('compra/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Compra_'.date('m_d_Y').'.pdf');
+
     }
 
     /**
@@ -245,7 +262,7 @@ class CompraController extends Controller
    
 public function listacompras(){
     abort_if(Gate::denies('compra_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-    $lista = Compra::paginate(10) ;
+    $lista = Compra::paginate(5) ;
    $name = Proveedor::paginate(10);
     
 

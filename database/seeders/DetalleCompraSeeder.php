@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\DetalleCompra;
 class DetalleCompraSeeder extends Seeder
 {
     /**
@@ -13,6 +13,6 @@ class DetalleCompraSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DetalleCompra::Factory(100)->create();
     }
 }
