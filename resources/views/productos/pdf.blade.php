@@ -14,6 +14,7 @@
             <table class="table table-striped">
 
             <thead>
+            <th>Numero</th>
             <th>Nombre del proveedor</th>
             <th>Nombre del producto</th>
             <th>Principio activo</th>
@@ -21,14 +22,35 @@
     </thead>
 
     <tbody>
+
+    //variable que almacena la enumeracion de cada registro de productos
+            var=i;
+            <?php $i=1?>
+
         @foreach($produc as $producto)
         <tr>
+        <td>{{$i}}</td>
         <td>{{$producto->proveedores->Nombre_del_proveedor}}</td>
         <td>{{$producto->nombre_producto}}</td>
         <td>{{$producto->principio_activo}}</td>
         </tr>
+
+        <?php $i++?>
+
         @endforeach
                 </tbody>
             </table>
+            
+         
+            <script type="text/php">
+        if ( isset($pdf) ) {
+            $pdf->page_script('
+                $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
+                $pdf->text(370, 570, "Pág $PAGE_NUM de $PAGE_COUNT", $font, 10);
+            ');
+        }
+    	</script>
+
+
         </body>
     </html>

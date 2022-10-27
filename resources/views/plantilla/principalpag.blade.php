@@ -76,21 +76,25 @@
 
 
 
-        @can('empleado_listado', 'empleado_nuevo')
+
+    
+
+       <li>
+          <a href="/ListaUsuarios">
+            <i class="fa fa-users"></i> <span>Usuarios</span>
+          </a>
+        </li>
+        
+
+        @can('empleado_listado', 'empleado_nuevo', 'empleado_actualizar','empleado_detalles')
+
         <li>
-            <a href="empleados/index">
+            <a href="/empleados">
               <i class="fa fa-users"></i> <span>Empleados</span>
             </a>
           </li>
           @endcan
 
-        @can('empleado_listado', 'empleado_nuevo','empleado_actualizar','empleado_detalle')
-        <li>
-          <a href="/Listempleado">
-            <i class="fa fa-truck"></i> <span>Empleados</span>
-          </a>
-        </li>
-        @endcan
 
         @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
         <li>
@@ -264,14 +268,7 @@
   </div>
 </main>
 
-    <!--
-    <main>
-    <div style="margin-left:16%;">
-    @yield('contenido')
-    </div>
-    </main>
-     -->
-
+ 
 
 
 

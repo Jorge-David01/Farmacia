@@ -45,7 +45,7 @@ class ProveedorController extends Controller{
 //----------------- EDITAR PROVEEDOR -----------------------
     public function proveed(){
         abort_if(Gate::denies('proveedor_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $pro = Proveedor::paginate(10);
+        $pro = Proveedor::paginate(5);
         return view('listaproveedores')->with('pro' , $pro);
     }
 
