@@ -47,15 +47,12 @@
     
 
     <a class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
-
+    <br><br>
     <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; margin-bottom:2%; ">
       @csrf
       <input type="text" name="search" id="search" placeholder="Busqueda">
       <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
     </form>
-
-
-
 
 
     <div class="row">
