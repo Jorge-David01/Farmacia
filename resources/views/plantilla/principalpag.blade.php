@@ -83,7 +83,7 @@
         </li>
 
 
-        @can('empleado_listado', 'empleado_nuevo')
+        @can('empleado_listado', 'empleado_nuevo', 'empleado_actualizar','empleado_detalles')
         <li>
             <a href="/empleados">
               <i class="fa fa-users"></i> <span>Empleados</span>

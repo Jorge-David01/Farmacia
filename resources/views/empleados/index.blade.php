@@ -66,7 +66,7 @@ td {
 <td>{{$emple->nombre_completo}}</td>
 <td>{{$emple->DNI}}</td>
 <td>{{$emple->numero_cel}}</td>
-<td > <a  class="btn btn-success" href=""> Detalles </a></td>
+<td > <a  class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
 </tr>
 
 @empty
