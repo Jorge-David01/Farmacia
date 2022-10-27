@@ -76,13 +76,6 @@
 
 
 
-       <li>
-          <a href="/ListaUsuarios">
-            <i class="fa fa-users"></i> <span>Usuarios</span>
-          </a>
-        </li>
-
-
         @can('empleado_listado', 'empleado_nuevo')
         <li>
             <a href="empleados/index">
