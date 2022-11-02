@@ -52,6 +52,7 @@
       @csrf
       <input type="text" name="search" id="search" placeholder="Busqueda">
       <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
+      <a style="margin-left: 3%;" class="btn btn-warning" href="/Listpro">Limpiar</a>
     </form>
 
 
