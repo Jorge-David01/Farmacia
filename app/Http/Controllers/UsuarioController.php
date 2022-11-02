@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Gate;
+use Spatie\Permission\Models\Role;
 
 class UsuarioController extends Controller
 {
@@ -49,7 +50,7 @@ class UsuarioController extends Controller
      */
 
     public function list(Request $request){
-        abort_if(Gate::denies('usuario_lista'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        // abort_if(Gate::denies('usuario_lista'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $texto=trim($request->get('texto'));
         $employee=DB::table('users')
 
@@ -96,7 +97,7 @@ class UsuarioController extends Controller
 
 
       
-        User::create([
+        $user = User::create([
             'name' => $request['nombre_completo'],
             'email' => $request['email'],
             'role' => $request['role'],
@@ -105,7 +106,14 @@ class UsuarioController extends Controller
             'numero_tel' => $request['numero_tel'],
             'direccion' => $request['direccion'],
             'password' => Hash::make($request['password']),
-        ]);          
+        ]);  
+        
+        if($request['role'] == "Administrador"){
+            $user->assignRole('Administrador');
+        }else if($request['role'] == "Vendedor"){
+            $user->assignRole('Vendedor');
+        }
+        
     
        
         // $empleado = new Empleado();

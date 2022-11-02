@@ -47,7 +47,7 @@
             <div class="col-md-6 col-sm-6 ">
             <select required="required" class="form-control" name="role" value="{{old('role')}}">
                 <option value="Vendedor">Vendedor</option>
-                <option value="Admin">Admin</option>
+                <option value="Administrador">Administrador</option>
             </select>                
             </div>
         </div>

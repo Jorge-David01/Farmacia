@@ -78,12 +78,13 @@
 
 
     
-
+      @if(Auth::user()->role == 'Administrador')
        <li>
           <a href="/ListaUsuarios">
             <i class="fa fa-users"></i> <span>Usuarios</span>
           </a>
         </li>
+      @endif
         
 
         @can('empleado_listado', 'empleado_nuevo', 'empleado_actualizar','empleado_detalles')

@@ -32,6 +32,7 @@ class RoleSeeder extends Seeder
                 'name' => 'Usuario 1',
                 'email_verified_at'=> null,
                 'email' => 'admin@gmail.com',
+                'role' => 'Administrador',
                 'password' => '$2y$10$AluNc8YndjBpdof62Q4wAesLlvzCLwgkUh.QzutYZjfi8Y8YZN4KC',
             ]
         );
@@ -40,6 +41,7 @@ class RoleSeeder extends Seeder
                 'name' => 'Usuario 2',
                 'email_verified_at'=> null,
                 'email' => 'vendedor@gmail.com',
+                'role' => 'Vendedor',
                 'password' => '$2y$10$AluNc8YndjBpdof62Q4wAesLlvzCLwgkUh.QzutYZjfi8Y8YZN4KC',
             ]
         );
