@@ -34,23 +34,7 @@
                                 <th scope="row">Correo electrónico</th>
                                 <td>{{$usuario->email}}</td>
                             </tr>
-                            <tr>
-                                <th scope="row">Identidad</th>
-                                <td>{{$usuario->dni}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Numero de Celular</th>
-                                <td>{{$usuario->numero_cel}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Numero de telefono</th>
-                                <td>{{$usuario->numero_tel}}</td>
-                            </tr>
-                           
-                            <tr>
-                                <th scope="row">Direccion</th>
-                                <td>{{$usuario->direccion}}</td>
-                            </tr>
+                        
 
                         </tbody>
                     </table><br>
