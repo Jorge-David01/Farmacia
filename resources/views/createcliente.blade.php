@@ -70,7 +70,7 @@
                             <labelfor="last-name">Dirección: <span class="required"></span>
                                 </label>
                                 <div>
-                                    <textarea maxlength="200" placeholder="Ingrese la dirección" name="direccion" id="direccion" name="direccion" cols="1" rows="3" required="required" class="form-control">{{old('direccion')}}</textarea>
+                                    <textarea minlength="10" maxlength="200" placeholder="Ingrese la dirección" name="direccion" id="direccion" name="direccion" cols="1" rows="3" required="required" class="form-control">{{old('direccion')}}</textarea>
                                 </div>
                         </div>
 

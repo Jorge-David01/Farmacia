@@ -36,15 +36,6 @@
             $total =0;
             ?>
 
-     
-@forelse ($name as $nombre)
-<tr>
-<td>{{$nombre->nombre_producto}}</td>
-</tr>
- 
-@empty
-@endforelse
-
 
 
 
@@ -53,7 +44,7 @@
 
         <tr> 
      
-             <td></td>
+             <td>{{$det->nombre_producto}}</td>
             <td>{{$det->cantidad}}</td>
       
             <td>{{$det->precio}}</td>

@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Gate;
 
 class VentaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -238,26 +241,27 @@ class VentaController extends Controller
        
         $factu = Venta::findOrfail($id);
 
-       
-        $name = DB::table('detalle_ventas')
-        ->join('Productos', 'detalle_ventas.id_producto', '=', 'Productos.id')
-        ->where('detalle_ventas.id_venta', '=', $id)
-        ->select('nombre_producto')
-        ->get();
-
         $detalles = DB::table('ventas')
         ->join('detalle_ventas', 'ventas.id', '=', 'detalle_ventas.id_venta')
+        ->join('Productos', 'detalle_ventas.id_producto', '=', 'Productos.id')
         ->where('detalle_ventas.id_venta', '=', $id)
-        ->select('id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio')
+        ->select('id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio', 'nombre_producto')
         ->get();
+
 
      
 
 
-         return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu)->with('name', $name);
+         return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu);
 
     }
-
+    public function buscador(Request $REQUEST){
+        $detalles = Venta::select('*')->orWhere('numero_factura','like', '%'.$REQUEST->busca.'%')->paginate(10);
+       
+        return view('venta/listaventa')->with('detalles', $detalles);
+        
+    }
+        
 
 
 }

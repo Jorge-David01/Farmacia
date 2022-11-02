@@ -188,6 +188,8 @@ Route::post('/venta/nuevo',[VentaController::class, 'store'])->name('venta.store
 Route::post('/venta/editar/{id}',[VentaController::class, 'edit'])->name('venta.editar');
 Route::get('/venta/editar/{id}',[VentaController::class, 'edit'])->name('venta.editar');
 
+Route::post('/Factura/busca',[VentaController::class, 'buscador'])->name('factura.busqueda');
+
 
 Route::delete('/venta/eliminar/{id}',[VentaController::class, 'eliminar'])->name('venta.eliminar');
 

@@ -28,8 +28,7 @@ td {
   <div class="container-fluid">
 
 
-<h1 style="margin-bottom: 2%; margin-left: 2%
-;"> Listado de compras realizadas </h1>
+<h1 style="margin-bottom: 2%; margin-left: 2%;"> Listado de compras realizadas </h1>
 
 <a class="btn btn-warning" href="/compra/nuevo">Ingresar compra</a>
 
@@ -37,6 +36,8 @@ td {
 @csrf
 <input type="text" name="missing" id="missing" placeholder="Busqueda">
 <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
+<a style="margin-left: 2%;" class="btn btn-warning" href="/listacompra">Limpiar</a>
+
 </form>
     
 <h1 style="margin-bottom: 2%;"></h1>

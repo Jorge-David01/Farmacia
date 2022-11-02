@@ -16,11 +16,7 @@ td {
 @endif
 
 </style>
-@if (session('msj'))
-<div class="alert alert-success">
-  {{session('msj')}}
-</div>
-@endif
+
 
 
 <div class="clearfix"></div>
@@ -30,10 +26,14 @@ td {
 
 
 <h1 style=" margin-bottom: 3%; margin-left: 2%; "> Clientes </h1>
-
+@if (session('msj'))
+<div class="alert alert-success">
+  {{session('msj')}}
+</div>
+@endif
 <a class="btn btn-warning" href="/clientes/nuevo">Registrar cliente</a>
 
-<form action="{{route('cliente.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;>
+<form action="{{route('cliente.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
 @csrf
 <input type="text" name="busca" id="busca" placeholder="Busqueda">
 <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">

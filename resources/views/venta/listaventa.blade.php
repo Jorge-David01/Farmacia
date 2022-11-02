@@ -29,7 +29,7 @@
 
     <a class="btn btn-warning" href="/venta/nuevo">Nueva venta</a>
 
-    <form action="{{route('buscador')}}" method="POST" style="margin-top: 1%; width: 78%;">
+    <form action="{{route('factura.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
       @csrf
       <input type="text" name="missing" id="missing" placeholder="Busqueda">
       <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
