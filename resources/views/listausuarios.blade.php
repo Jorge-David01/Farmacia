@@ -9,6 +9,9 @@ td {
 }
 </style>
 
+<div class="content-wrapper">
+  <div class="container-fluid">
+    
 @if (session('Mensaje'))
 <div class="alert alert-danger">
   {{session('Mensaje')}}
@@ -23,8 +26,6 @@ td {
 @endif
 
 
-<div class="content-wrapper">
-  <div class="container-fluid">
 
         <h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de Usuarios </h1>
         

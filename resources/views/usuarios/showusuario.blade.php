@@ -1,5 +1,5 @@
 @extends('plantilla.principalpag')
-@section('pestania', 'Detalle de usuario')
+@section('pestania', 'Detalle usuario')
 @section('contenido')
 
 <div class="content-wrapper">
@@ -28,7 +28,15 @@
 
                             <tr>
                                 <th scope="row">Nombre Completo</th>
-                                <td>{{$usuario->nombre_completo}}</td>
+                                <td>{{$usuario->name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Correo electrónico</th>
+                                <td>{{$usuario->email}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Identidad</th>
+                                <td>{{$usuario->dni}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Numero de Celular</th>
@@ -38,10 +46,7 @@
                                 <th scope="row">Numero de telefono</th>
                                 <td>{{$usuario->numero_tel}}</td>
                             </tr>
-                            <tr>
-                                <th scope="row">Identidad</th>
-                                <td>{{$usuario->DNI}}</td>
-                            </tr>
+                           
                             <tr>
                                 <th scope="row">Direccion</th>
                                 <td>{{$usuario->direccion}}</td>
@@ -54,7 +59,7 @@
 
                     <div style="text-align: center; ">
 
-                        <a class="btn btn-success" href="/ListaUsuario">Volver</a>
+                        <a class="btn btn-success" href="/ListaUsuarios">Volver</a>
 
 
                         <a class="btn btn-primary" href="/Usuario/{{$usuario->id}}/editar">Actualizar</a>

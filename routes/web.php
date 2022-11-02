@@ -81,7 +81,7 @@ Route::get('/usuarios/nuevo',[UsuarioController::class, 'create'])->name('usuari
 
 Route::post('/usuarios/nuevo',[UsuarioController::class, 'store'])->name('usuarios.store');
 
-Route::get('/User/{id}', [UsuarioController::class, 'show']) -> name('usuario.detalles')-> where('id', '[0-9]+');
+Route::get('/Showuser/{id}', [UsuarioController::class, 'show']) -> name('detalle.usuario')-> where('id', '[0-9]+');
 
 
 Route::delete('/usuarios/{id}/eliminar',[UsuarioController::class, 'destroy'])->name('usuarios.delete')-> where('id', '[0-9]+');

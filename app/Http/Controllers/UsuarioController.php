@@ -135,10 +135,10 @@ class UsuarioController extends Controller
      */
     public function show($id)//mostrar
     {
-        // abort_if(Gate::denies('usuario_detalles'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $usuario = Usuario::findOrFail($id);
-        return view('usuarios/showusuario')->with('usuario', $usuario);
-        //
+        // abort_if(Gate::denies('usuario_detalle'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        $user = User::findOrFail($id);
+        return view('usuarios/showusuario')->with('usuario', $user);
+        
     }
 
 
@@ -160,8 +160,8 @@ class UsuarioController extends Controller
      */
     public function edit(Request $request, $id)//Actualizar
     {
-        abort_if(Gate::denies('usuario_actualizar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $usuario = Usuario::find($id);
+        // abort_if(Gate::denies('usuario_actualizar'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+        $usuario = User::find($id);
         return view('usuarios/editusuario') ->with('usuario',$usuario);
 
         //
@@ -175,9 +175,9 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        Usuario::destroy($id);
+        User::destroy($id);
 
-        return redirect()->route('lista')->with('Mensaje', 'El usuario fue eliminado exitosamente');
+        return redirect()->route('lista')->with('msj', 'El usuario fue eliminado exitosamente');
         //
 
     }
@@ -186,18 +186,17 @@ class UsuarioController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'nombre_completo' => 'required|max:110',
+            'name' => 'required|max:110',
             'dni'=> 'required|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
             'numero_cel'=> 'required|numeric|regex:([9,8,3]{1}[0-9]{7})',
             'numero_tel'=> 'required|numeric|regex:([2]{1}[0-9]{7})',
             'direccion'=>'required|max:100',
-            'password' => 'required|min:6',
         ]);
 
         if($validator->fails()){
         
                 $rules=[
-                    'nombre_completo' => 'required|max:110|min:5',
+                    'name' => 'required|max:110|min:5',
                     'dni'=> 'required|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})|min:13',
                     'numero_cel'=> 'required|numeric|regex:([9,8,3]{1}[0-9]{7})|min:8',
                     'numero_tel'=> 'required|numeric|regex:([2]{1}[0-9]{7})|min:8',
@@ -206,9 +205,9 @@ class UsuarioController extends Controller
                 ];
 
                 $mensaje=[
-                    'nombre_completo.required' => 'El nombre no puede estar vacío',
-                    'nombre_completo.max' => 'El nombre que ingresó es demasiado extenso',
-                    'nombre_completo.min' => 'El nombre debe de tener al menos seis caracteres',
+                    'name.required' => 'El nombre no puede estar vacío',
+                    'name.max' => 'El nombre que ingresó es demasiado extenso',
+                    'name.min' => 'El nombre debe de tener al menos seis caracteres',
                     'dni.required' => 'La identidad del usuario no puede estar vacía',
                     'dni.regex' => 'El formato de la identidad no es válida',
                     'dni.min' => 'La identidad debe de contener 13 dígitos',
@@ -224,22 +223,20 @@ class UsuarioController extends Controller
                     'numero_tel.min' => 'En número de teléfono fijo  debe de tener al menos 8 números',
                     'numero_tel.unique' => 'El número de teléfono fijo que ingreso ya lo uso anteriormente',
                     'direccion.required' => 'La dirección no puede estar vacía',
-                    'direccion.min' => 'La dirección que ingresó es muy corta',
-                    'password.required' => 'La contraseña ingresada no puede estar vacía',
-                    'password.confirmed' => 'Las contraseñas que ingreso no coinciden.',
+                    'direccion.min' => 'La dirección que ingresó es muy corta'
                 ];
 
             $this->validate($request,$rules,$mensaje);
 
         }
 
-        $usuario=Usuario::findorFail($id);
-        $usuario->nombre_completo = $request->input('nombre_completo');
-        $usuario->DNI= $request->input('dni');
+
+        $usuario= User::findorFail($id);
+        $usuario->name = $request->input('name');
+        $usuario->dni= $request->input('dni');
         $usuario->numero_cel= $request->input('numero_cel');
         $usuario->numero_tel= $request->input('numero_tel');
         $usuario->direccion = $request->input('direccion');
-        $usuario->contraseña = $request->input('password');
         $creado = $usuario->save();
 
         // if ($actualizado){
