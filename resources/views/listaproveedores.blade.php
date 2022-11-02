@@ -16,6 +16,7 @@
 @endif
 
 
+
 </style>
 
 
@@ -41,8 +42,25 @@
 </div>
 @endif
 
+<script>
+
+  function pdf(){
+
+    window.location.href = "{{route('proveedores.pdf')}}";
+    Swal.fire({
+      position: 'bottom-end',
+      icon: 'success',
+      title: 'Se esta descargando el pdf',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+
+  }
+</script>
+
     <div style="float: right;margin-right: 10px; width: 250px">
-      <center><a class="btn btn-danger" href="{{route('proveedores.pdf')}}">Descargar PDF</a></center>
+    <center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
     </div>
     
 

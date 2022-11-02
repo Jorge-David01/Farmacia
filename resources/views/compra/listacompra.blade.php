@@ -30,8 +30,26 @@ td {
 
 <h1 style="margin-bottom: 2%; margin-left: 2%;"> Listado de compras realizadas </h1>
 
+<script>
+
+  function pdf(){
+
+    window.location.href = "{{route('compras.pdf')}}";
+    Swal.fire({
+      position: 'bottom-end',
+      icon: 'success',
+      title: 'Se esta descargando el pdf',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+
+  }
+</script>
+
+
 <div style="float: right;margin-right: 10px; width: 250px">
-    <center><a class="btn btn-danger" href="{{route('compras.pdf')}}">Descargar PDF</a></center>
+<center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
   </div>
 
 <a class="btn btn-warning" href="/compra/nuevo">Ingresar compra</a>

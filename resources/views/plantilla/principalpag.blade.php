@@ -42,7 +42,10 @@
   <link href="{{ asset('css/select-multiple.css') }}" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
+<script src="{{asset('js/toastr.min.js')}}"></script>
 
   <title>Farmacia - @yield('pestania')</title>
 
