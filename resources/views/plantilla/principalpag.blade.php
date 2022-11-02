@@ -76,14 +76,18 @@
 
 
 
+
+    
+
        <li>
           <a href="/ListaUsuarios">
             <i class="fa fa-users"></i> <span>Usuarios</span>
           </a>
         </li>
+        
 
+        @can('empleado_listado', 'empleado_nuevo', 'empleado_actualizar','empleado_detalles')
 
-        @can('empleado_listado', 'empleado_nuevo')
         <li>
             <a href="/empleados">
               <i class="fa fa-users"></i> <span>Empleados</span>
@@ -264,14 +268,7 @@
   </div>
 </main>
 
-    <!--
-    <main>
-    <div style="margin-left:16%;">
-    @yield('contenido')
-    </div>
-    </main>
-     -->
-
+ 
 
 
 
