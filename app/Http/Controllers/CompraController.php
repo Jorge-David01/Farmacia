@@ -334,6 +334,7 @@ public function detailscompra($id){
         abort_if(Gate::denies('inventario'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $Inventa =  Inventario::paginate(20) ;
         
+    
         
         $nombre = DB::table('inventarios')
         ->join('productos', 'inventarios.id_producto', '=', 'productos.id')

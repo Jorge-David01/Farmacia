@@ -57,7 +57,7 @@
 
                         <div >
                             <label for="direccion">Dirección</label>
-                            <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="Dirección" value="{{$client->direccion}}" minlength="10" maxlength="50">
+                            <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="Dirección" value="{{$client->direccion}}" minlength="10" maxlength="200">
                         </div>
 
                         <button style="margin-top: 20px; margin-left: 10px;" type="submit" class="btn btn-primary">Guardar</button>

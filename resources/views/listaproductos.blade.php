@@ -15,11 +15,7 @@ td {
 @endif
 
 </style>
-@if (session('msj'))
-<div class="alert alert-success">
-  {{session('msj')}}
-</div>
-@endif
+
 
 
 
@@ -31,8 +27,32 @@ td {
 
 <h1 style=" margin-bottom: 3%; margin-left: 2%;"> Lista de productos </h1>
 
+<script>
+
+  function pdf(){
+
+    window.location.href = "{{route('productos.pdf')}}";
+    Swal.fire({
+      position: 'bottom-end',
+      icon: 'success',
+      title: 'Se esta descargando el pdf',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+
+  }
+</script>
+
+</style>
+@if (session('msj'))
+<div class="alert alert-success">
+  {{session('msj')}}
+</div>
+@endif
+
 <div style="float: right;margin-right: 10px; width: 250px">
-  <center><a class="btn btn-danger" href="{{route('productos.pdf')}}">Descargar PDF</a></center>
+<center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
 
 </div>
 

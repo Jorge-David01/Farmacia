@@ -9,6 +9,7 @@
 
         </head>
         <body>
+        <center><h1>FARMACIA LA POPULAR</h1></center>
             <h3><center>{{ $title }} {{ $date }}</center></h3>
 
             <table class="table table-striped">

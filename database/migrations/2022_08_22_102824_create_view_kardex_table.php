@@ -14,6 +14,7 @@ class CreateViewKardexTable extends Migration
      */
     public function up()
     {
+        
         DB::statement(" CREATE VIEW kardex AS
         (SELECT nombre_producto, cantidad, precio, CONCAT('venta') AS tipo,date(detalle_ventas.created_at) AS created_at
         FROM detalle_ventas

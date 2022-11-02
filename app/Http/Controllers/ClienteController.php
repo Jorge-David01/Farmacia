@@ -61,7 +61,7 @@ class ClienteController extends Controller
             'nombre_cliente' => 'required|max:110|min:5',
             'numero_id'=> 'required|unique:clientes,numero_id|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
             'telefono'=> 'required|unique:clientes,Telefono|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})',
-            'direccion'=> 'required|max:200',
+            'direccion'=> 'required|max:200|min:20',
             'num_carnet'=> 'required|unique:clientes,num_carnet|min:8|max:8|'
            
         ];
@@ -79,6 +79,7 @@ class ClienteController extends Controller
         'telefono.max'=>'El teléfono del cliente  debe de tener un máximo de 8 digitos',
         'direccion.required' => 'La dirección del cliente no puede estar vacía',
         'direccion.max' => 'La dirección que ingresó es muy extensa',
+        'direccion.min' => 'La dirección que ingresó es muy corta',
         'num_carnet.required'=>'El numero el carnet es obligatorio',
         'num_carnet.unique'=>'El numero el carnet que ingreso ya ha sido usado',
         'num_carnet.min'=>'El numero el carnet debe de tener un minimo de 8 caracteres',
@@ -101,7 +102,7 @@ class ClienteController extends Controller
 
     if ($creado) {
         return redirect()->route('lista.clientes')
-            ->with('mensaje', 'El Cliente fue creado con exito');
+            ->with('msj', 'El Cliente fue creado con exito');
     }
 }
 
@@ -156,7 +157,7 @@ public function Ver($id){
             'nombre_cliente'=>'required  |min:6 | max:70 '  ,
             'numero_identidad'=>'required |min:13 | max:13 |regex:([[0-1]{1}[0-9]{1}[0-2]{1}[0-9]{10})',
             'numero_tel'=>'required||min:8| max:8 |regex:([2,9,8,3]{1}[0-9]{7})',
-            'direccion'=>'required|min:10|max:50',
+            'direccion'=>'required|min:20|max:200',
            
             
 
@@ -181,9 +182,9 @@ public function Ver($id){
 
 
             'direccion.required'=>'El dirección del cliente es obligatoria' ,
-            'direccion.min'=>'El dirección debe contener como mínimo 10 caracteres' ,
-            'direccion.max'=>'El dirección debe contener como máximo 50 caracteres' ,  
-        
+            'direccion.min'=>'El dirección que ingresó es muy corta' ,
+            'direccion.max'=>'El dirección que ingresó es muy extensa' ,  
+            
         ];
 
 
@@ -228,15 +229,9 @@ public function Ver($id){
     }
 
     public function buscando(Request $REQUEST){
-        $liscliente = Cliente::select('*')
-     ->orWhere(
-        'nombre_cliente','like', '%'.$REQUEST->busca.'%'
-     )->orWhere(
-        'telefono','like', '%'.$REQUEST->busca.'%'
-     )->orWhere(
-        'numero_id','like', '%'.$REQUEST->busca.'%'
-     )
-        ->paginate(10);
+        $liscliente = Cliente::select('*')->orWhere('nombre_cliente','like', '%'.$REQUEST->busca.'%')
+        ->orWhere('telefono','like', '%'.$REQUEST->busca.'%')
+        ->orWhere('numero_id','like', '%'.$REQUEST->busca.'%')  ->paginate(10);
        
         return view('listaclientes')->with('liscliente', $liscliente);
         

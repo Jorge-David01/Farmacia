@@ -28,11 +28,28 @@ td {
   <div class="container-fluid">
 
 
-<h1 style="margin-bottom: 2%; margin-left: 2%
-;"> Listado de compras realizadas </h1>
+<h1 style="margin-bottom: 2%; margin-left: 2%;"> Listado de compras realizadas </h1>
+
+<script>
+
+  function pdf(){
+
+    window.location.href = "{{route('compras.pdf')}}";
+    Swal.fire({
+      position: 'bottom-end',
+      icon: 'success',
+      title: 'Se esta descargando el pdf',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+
+  }
+</script>
+
 
 <div style="float: right;margin-right: 10px; width: 250px">
-    <center><a class="btn btn-danger" href="{{route('compras.pdf')}}">Descargar PDF</a></center>
+<center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
   </div>
 
 <a class="btn btn-warning" href="/compra/nuevo">Ingresar compra</a>
@@ -41,6 +58,8 @@ td {
 @csrf
 <input type="text" name="missing" id="missing" placeholder="Busqueda">
 <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
+<a style="margin-left: 2%;" class="btn btn-warning" href="/listacompra">Limpiar</a>
+
 </form>
     
 <h1 style="margin-bottom: 2%;"></h1>

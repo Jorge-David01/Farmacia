@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Gate;
 
 class ContraseniaController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function show($id,$from)
     {
  //abort_if(Gate::denies('cambio_contraseña'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));

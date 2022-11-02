@@ -131,11 +131,7 @@
                                     var valor = select.value;
                                     var selectnw = document.getElementById("productos");
                                     @foreach($productos as $p)
-                                    if ({
-                                            {
-                                                $p - > id_proveedor
-                                            }
-                                        } == valor) {
+                                    if ({{$p -> id_proveedor}} == valor) {
                                         // creando la nueva option
                                         var opt = document.createElement('option');
                                         // Añadiendo texto al elemento (opt)
