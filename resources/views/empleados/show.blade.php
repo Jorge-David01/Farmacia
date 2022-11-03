@@ -58,7 +58,7 @@
                         <a class="btn btn-primary" href="/Empleado/{{$empleado->id}}/editar">Actualizar</a>
 
                     </div>
-
+                    <h1 style="margin-bottom: 2%;"></h1>
                 </div>
             </div>
         </div>
