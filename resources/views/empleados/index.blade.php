@@ -18,14 +18,19 @@
 
 
         <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Lista de empleados </h1>
+        @if (session('msj'))
+        <div class="alert alert-success">
+            {{session('msj')}}
+        </div>
+        @endif
 
         <a class="btn btn-warning" href="/empleados/nuevo">Nuevo Empleado</a>
         <br>
         <br>
-
+      
         <div class="col-x1-12">
             <form action="{{route('empleados.index')}}" method="get" style="margin-top: 1%; width: 78%; margin-bottom:2%; ">
-                <div class="form-row">
+                <div class="form-row"]>
                     <div style="  margin-left: 0%" class="col-sm-2">
                         <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
                     </div>
@@ -43,11 +48,7 @@
         @endif
 
         </style>
-        @if (session('msj'))
-        <div class="alert alert-success">
-            {{session('msj')}}
-        </div>
-        @endif
+    
 
         <div class="row">
             <div class="col-12 col-lg-12">

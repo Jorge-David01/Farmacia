@@ -20,6 +20,7 @@ use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\KardexController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\Controller;
 
 use App\Http\Controllers\CajaAlivioController;
 
@@ -55,7 +56,7 @@ Route::get('/Principal',[EmpleadoController::class, 'Principal'])->name('princip
 Route::get('/Empleados',[EmpleadoController::class, 'VPEmpleado']);
 Route::get('/Proveedores',[EmpleadoController::class, 'VPProveedor']);
 
-Route::get('/Ayuda',[EmpleadoController::class, 'Ayuda']);
+Route::get('/Ayuda',[Controller::class, 'Ayuda']);
 
 //-----------------------------------------------------------
 //----------------- RUTAS DE CONTRASENIA -----------------------

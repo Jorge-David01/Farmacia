@@ -33,6 +33,7 @@
       @csrf
       <input type="text" name="missing" id="missing" placeholder="Busqueda">
       <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
+      <a style="margin-left: 4%;" class="btn btn-warning" href="/listaventa">Limpiar</a>
     </form>
 
 
