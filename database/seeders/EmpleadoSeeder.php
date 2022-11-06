@@ -14,11 +14,11 @@ class EmpleadoSeeder extends Seeder
      */
     public function run()
     {
-        Empleado::create(
-            [
-
-            ]
-        );
+    
+            
+                Empleado::Factory(500)->create();
+            
+    
 
 
     }

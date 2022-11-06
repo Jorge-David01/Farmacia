@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Venta;
 use Illuminate\Database\Seeder;
 
 class VentaSeeder extends Seeder
@@ -13,6 +13,7 @@ class VentaSeeder extends Seeder
      */
     public function run()
     {
+        Venta::Factory(200)->create();
         //
     }
 }

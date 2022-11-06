@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cliente;
 use Illuminate\Database\Seeder;
 
 class ClienteSeeder extends Seeder
@@ -13,6 +14,7 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
+        Cliente::Factory(300)->create();
         //
     }
 }

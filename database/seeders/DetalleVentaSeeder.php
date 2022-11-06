@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\DetalleVenta;
 use Illuminate\Database\Seeder;
 
 class DetalleVentaSeeder extends Seeder
@@ -13,6 +13,7 @@ class DetalleVentaSeeder extends Seeder
      */
     public function run()
     {
+        DetalleVenta::Factory(200)->create();
         //
     }
 }

@@ -56,9 +56,13 @@ td {
 
 <form action="{{route('buscador')}}" method="POST" style="margin-top: 1%; width: 78%;">
 @csrf
-<input type="text" name="missing" id="missing" placeholder="Busqueda">
-<input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
-<a style="margin-left: 2%;" class="btn btn-warning" href="/listacompra">Limpiar</a>
+<div class="form-row">
+<div style="margin:left: 0%;" class="col-sm-4">
+<input type="text" class="form-control"  name="missing" id="missing" placeholder="Busqueda">
+</div>
+</div>
+<input style="margin-top: 1%" type="submit" value="Buscar" class="btn btn-success">
+<a style="margin-left: 13%; margin-top:1%;" class="btn btn-warning" href="/listacompra">Limpiar</a>
 
 </form>
     
@@ -109,13 +113,13 @@ td {
 
 
 
-{{$lista -> links() }}
+
 
 </tbody>
 
 </table>
 
-                
+{{$lista -> links() }}
 </div>
 </div>
 </div>

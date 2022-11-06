@@ -290,3 +290,5 @@ Route::get('/proveedores/pdf', [ProveedorController::class, 'createPDF'])->name(
 Route::get('/productos/pdf', [ProductoController::class, 'createPDF'])->name('productos.pdf');
 
 Route::get('/compras/pdf', [CompraController::class, 'createPDF'])->name('compras.pdf');
+
+Route::get('/clientes/pdf', [ClienteController::class, 'createPDF'])->name('clientes.pdf');

@@ -14,6 +14,12 @@ class EmpleadoFactory extends Factory
     public function definition()
     {
         return [
+            'nombre_completo'=> $this -> faker -> name(),
+            'numero_cel'=> $this -> faker -> unique() -> phoneNumber(),
+            'numero_tel'=> $this-> faker ->   unique() -> e164PhoneNumber(),
+            'DNI' => $this-> faker -> unique()-> isbn13 ()  ,
+            'direccion'=> $this -> faker ->address(),
+            'correo_electronico'=> $this -> faker ->unique()-> email(),
             //
         ];
     }

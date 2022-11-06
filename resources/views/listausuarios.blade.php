@@ -12,7 +12,11 @@ td {
 <div class="content-wrapper">
   <div class="container-fluid">
     
-@if (session('Mensaje'))
+
+
+
+        <h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de Usuarios </h1>
+        @if (session('Mensaje'))
 <div class="alert alert-danger">
   {{session('Mensaje')}}
 </div>
@@ -24,27 +28,25 @@ td {
   {{session('msj')}}
 </div>
 @endif
+        <a style="margin-left: 4%; float: right;" class="btn btn-warning" href="/usuarios/nuevo">Nuevo Usuario</a>
 
 
-
-        <h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de Usuarios </h1>
-        
-        <a style="margin-left: 4%;" class="btn btn-warning" href="/usuarios/nuevo">Nuevo Usuario</a>
-
-
-        <div class="col-x1-12" style="margin-top: 2%;">
-            <form action="{{route('lista')}}" method="get">
-                <div class="form-row">
-                    <div class="col-sm-2">
+       
+            <form style="margin-bottom: 2%;" action="{{route('lista')}}" method="get">
+            @csrf
+            <div class="form-row"]>
+                    <div style="margin:left: 0%;" class="col-sm-4">
                         <input  type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
                     </div>
-                    <div class="col-auto">
-                <input type="submit" class="btn btn-primary" value="Buscar">
                     </div>
-                </div>
+                
+              
+                    
+                
+                <input style="margin-top:1%" type="submit" class="btn btn-success" value="Buscar">
+                <a style="margin-left: 13%; margin-top: 1%;" class="btn btn-warning" href="/ListaUsuarios">Limpiar</a>
             </form>
-        </div>
-
+        
 
         <div class="row" >
         <div class="col-12 col-lg-12">
