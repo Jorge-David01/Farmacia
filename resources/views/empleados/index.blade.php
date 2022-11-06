@@ -24,22 +24,26 @@
         </div>
         @endif
 
-        <a class="btn btn-warning" href="/empleados/nuevo">Nuevo Empleado</a>
-        <br>
-        <br>
+        <a style="float: right; display:inline-block;" class="btn btn-warning" href="/empleados/nuevo">Nuevo Empleado</a>
+        
+        
       
         <div class="col-x1-12">
-            <form action="{{route('empleados.index')}}" method="get" style="margin-top: 1%; width: 78%; margin-bottom:2%; ">
+            <form action="{{route('empleados.index')}}" method="get" style=" width: 78%; margin-bottom:2%; ">
                 <div class="form-row"]>
-                    <div style="  margin-left: 0%" class="col-sm-2">
+                    <div style="  margin-left: 0%" class="col-sm-4">
                         <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
                     </div>
                     <div class="col-auto">
-                        <input type="submit" class="btn btn-primary" value="Buscar">
+                       
                     </div>
+                    
                 </div>
+                <input style="margin-top: 1%" type="submit" class="btn btn-success" value="Buscar">
+                   <a style="margin-left: 13%; margin-top: 1%;" class="btn btn-warning" href="/empleados">Limpiar</a>
             </form>
         </div>
+
 
         @if (session('Mensaje'))
         <div class="alert alert-danger">
@@ -85,14 +89,13 @@
                             @endforelse
 
 
-                            {{$employee -> links() }}
 
 
 
                             </tbody>
 
                         </table>
-
+                        {{$employee -> links() }}
                     </div>
                 </div>
             </div>

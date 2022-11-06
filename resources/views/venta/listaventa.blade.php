@@ -27,13 +27,18 @@
 
     <h1 style=" margin-bottom: 3%; margin-left: 2%;"> Lista de ventas </h1>
 
-    <a class="btn btn-warning" href="/venta/nuevo">Nueva venta</a>
+    <a   style="float: right;" class="btn btn-warning" href="/venta/nuevo">Nueva venta</a>
 
     <form action="{{route('factura.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
       @csrf
-      <input type="text" name="missing" id="missing" placeholder="Busqueda">
-      <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
-      <a style="margin-left: 4%;" class="btn btn-warning" href="/listaventa">Limpiar</a>
+      <div class="form-row">
+<div style="margin:left: 0%;" class="col-sm-4">
+      <input type="text"  class="form-control" name="missing" id="missing" placeholder="Busqueda">
+      </div>
+      </div>
+
+      <input style="margin-top: 1%" type="submit" value="Buscar" class="btn btn-success">
+      <a style="margin-left: 13%; margin-top:1%;" class="btn btn-warning" href="/listaventa">Limpiar</a>
     </form>
 
 

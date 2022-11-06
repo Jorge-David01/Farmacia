@@ -5,17 +5,7 @@
 
  <div class="x_content">
 
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $mensaje)
-                    <li>
-                        {{$mensaje}}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+   
 
     <style>
         input{
@@ -29,6 +19,18 @@
   <div class="container-fluid">
 
         <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Cambio Contraseña </h1>
+        
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $mensaje)
+                    <li>
+                        {{$mensaje}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <form style="margin-left: 3%;" method="post" enctype="multipart/form-data" 
         action="{{route('contrasenia.cambiopost')}}" method="POST" 
         >

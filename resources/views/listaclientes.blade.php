@@ -33,9 +33,9 @@ td {
 @endif
 <a style="float: right;" class="btn btn-warning" href="/clientes/nuevo">Registrar cliente</a>
 
-<form  action="{{route('cliente.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
+<form  action="{{route('cliente.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%; margin-bottom: 2%;">
 @csrf
-<div class="form-row"]>
+<div class="form-row">
 <div style="margin:left: 0%;" class="col-sm-4">
 <input  type="text" class="form-control"  name="busca" id="busca" placeholder="Busqueda">
 </div>
@@ -88,14 +88,14 @@ td {
 
 @endforelse
 
-{{$liscliente -> links() }}
+
 
 
 
 </tbody>
 
 </table>
-
+{{$liscliente -> links() }}
                 
 </div>
 </div>

@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class ClienteController extends Controller
 {
@@ -17,6 +19,20 @@ class ClienteController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+    public function createPDF(){
+        $pro = Cliente::all();
+
+        $data = [
+            'title' => 'Listado de clientes',
+            'date' => date('m/d/Y'),
+            'pro' =>$pro,
+        ];
+        return PDF::loadView('listaclientes/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Clientes_'.date('m_d_Y').'.pdf');
+
+    }
+
 
     /**
      * Display a listing of the resource.

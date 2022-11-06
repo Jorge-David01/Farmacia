@@ -14,6 +14,13 @@ class VentaFactory extends Factory
     public function definition()
     {
         return [
+            
+            'numero_factura'=> $this -> faker -> unique() -> numerify('#####')
+            ,
+            'id_cliente'=> $this -> faker -> numberBetween($min = 1, $max = 300)
+            ,
+            'pago'=> $this-> faker -> randomElement($array = array ("Efectivo","Tarjeta")),
+   
             //
         ];
     }

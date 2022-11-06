@@ -59,19 +59,25 @@
   }
 </script>
 
-    <div style="float: right;margin-right: 10px; width: 250px">
+    
+<div style="float: right;margin-right: 10px; width: 250px; margin-top:5%;">
     <center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
     </div>
-    
+
 
     <a class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
-    <br><br>
+    
     <form action="{{route('funt')}}" method="POST" style="margin-top: 1%; width: 78%; margin-bottom:2%; ">
       @csrf
-      <input type="text" name="search" id="search" placeholder="Busqueda">
-      <input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
-      <a style="margin-left: 3%;" class="btn btn-warning" href="/Listpro">Limpiar</a>
+      <div class="form-row"]>
+<div style="margin:left: 0%;" class="col-sm-4">
+      <input type="text"  class="form-control"  name="search" id="search" placeholder="Busqueda">
+      </div>
+      </div>
+      <input style="margin-top:1%" type="submit" value="Buscar" class="btn btn-success">
+      <a style="margin-left: 13%; margin-top:" class="btn btn-warning" href="/Listpro">Limpiar</a>
     </form>
+
 
 
     <div class="row">
