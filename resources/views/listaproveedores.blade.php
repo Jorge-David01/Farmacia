@@ -60,7 +60,7 @@
 </script>
 
     
-<div style="float: right;margin-right: 10px; width: 250px; margin-top:5%;">
+<div style="float: right;margin-right: 10px; width: 250px;">
     <center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
     </div>
 
