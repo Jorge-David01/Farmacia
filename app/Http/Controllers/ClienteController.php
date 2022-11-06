@@ -102,7 +102,7 @@ class ClienteController extends Controller
 
     if ($creado) {
         return redirect()->route('lista.clientes')
-            ->with('msj', 'El Cliente fue creado con exito');
+            ->with('msj', 'El cliente fue creado con exito');
     }
 }
 

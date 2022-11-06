@@ -256,9 +256,9 @@ class VentaController extends Controller
 
     }
     public function buscador(Request $REQUEST){
-        $detalles = Venta::select('*')->orWhere('numero_factura','like', '%'.$REQUEST->busca.'%')->paginate(10);
+        $lista = Venta::select('*')->orWhere('numero_factura','like', '%'.$REQUEST->missing.'%')->paginate(10);
        
-        return view('venta/listaventa')->with('detalles', $detalles);
+        return view('venta/listaventa')->with('lista', $lista);
         
     }
         

@@ -115,7 +115,7 @@ class ProductoController extends Controller
 
         if ($creado) {
             return redirect()->route('lista.producto')
-                ->with('msj', 'El producto se ingreso con exito');
+                ->with('msj', 'El producto se ingresó con exito');
         } else {
 
         }

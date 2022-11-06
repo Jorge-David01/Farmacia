@@ -12,16 +12,16 @@
 
 
 
-@if (session('mensaje'))
-<div class="alert alert-success">
-  {{session('mensaje')}}
-</div>
-@endif
 
 <div class="content-wrapper">
   <div class="container-fluid">
 
     <h1 style=" margin-bottom: 3%; margin-left: 2%;"> Caja de alivio </h1>
+    @if (session('mensaje'))
+<div class="alert alert-success">
+  {{session('mensaje')}}
+</div>
+@endif
     <a  class="btn btn-warning" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
     <h1 style="margin-bottom: 2%;"></h1>
     <div class="row">

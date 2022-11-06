@@ -61,9 +61,13 @@ td {
 
 <form action="{{route('producto.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
 @csrf
-<input type="text" name="busca" id="busca" placeholder="Busqueda">
-<input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
-<a style="margin-left: 4%;" class="btn btn-warning" href="/Producto">Limpiar</a>
+<div class="form-row"]>
+<div style="margin:left: 0%;" class="col-sm-4">
+<input type="text" class="form-control" name="busca" id="busca" placeholder="Busqueda">
+</div>
+</div>
+<input style=" margin-top:1%;" type="submit" value="Buscar" class="btn btn-success">
+<a style="margin-left: 13%; margin-top:1%;" class="btn btn-warning" href="/Producto">Limpiar</a>
 
 </form>
 <h1 style="margin-bottom: 2%;"></h1>
@@ -108,13 +112,13 @@ td {
 @endforelse
 
 
-{{$produc -> links() }}
+
 
 
 </tbody>
 
 </table>
-
+{{$produc -> links() }}
                 
 </div>
 </div>
