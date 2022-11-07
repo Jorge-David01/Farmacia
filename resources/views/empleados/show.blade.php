@@ -2,11 +2,11 @@
 @section('pestania', 'Detalle de empleado')
 @section('contenido')
 
+
+
 <div class="content-wrapper">
     <div class="container-fluid">
-
-        <h1> Detalles del empleado </h1>
-
+    <h1 style="margin-left: 2% "> Detalles del empleado </h1>
         <h1 style="margin-bottom: 2%;"></h1>
 
         <div class="row">
