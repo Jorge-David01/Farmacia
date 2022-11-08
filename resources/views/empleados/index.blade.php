@@ -18,11 +18,33 @@
 
 
         <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Lista de empleados </h1>
+
+        <div style="float: right;margin-right: 10px; width: 250px;">
+            <center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
+            </div>
+
         @if (session('msj'))
         <div class="alert alert-success">
             {{session('msj')}}
         </div>
         @endif
+
+        <script>
+            function pdf(){
+
+              window.location.href = "{{route('empleados.pdf')}}";
+              Swal.fire({
+                position: 'bottom-end',
+                icon: 'success',
+                title: 'Se esta descargando el pdf',
+                showConfirmButton: false,
+                timer: 1500
+              })
+
+
+            }
+          </script>
+
 
         <a style="float: right; display:inline-block;" class="btn btn-warning" href="/empleados/nuevo">Nuevo Empleado</a>
         
