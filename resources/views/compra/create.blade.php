@@ -123,8 +123,11 @@
 
                         <div>
                             <script>
-                                window.onload = llenar();
-
+                                window.onload = function () {
+                                    llenar();
+                                }
+                    </script>
+                                <script>
                                 function llenar() {
                                     $("#productos").find('option').not(':first').remove();
                                     var select = document.getElementById("proveedor");
