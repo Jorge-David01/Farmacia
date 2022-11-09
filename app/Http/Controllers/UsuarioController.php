@@ -12,6 +12,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Role;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class UsuarioController extends Controller
 {
@@ -20,6 +22,21 @@ class UsuarioController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+
+    public function createPDF(){
+        $employee = User::all();
+
+        $data = [
+            'title' => 'Listado de Usuarios',
+            'date' => date('m/d/Y'),
+            'employee' =>$employee,
+        ];
+        return PDF::loadView('usuarios/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Usuarios_'.date('m_d_Y').'.pdf');
+
+    }
+    
     /**
      * Display a listing of the resource.
      *

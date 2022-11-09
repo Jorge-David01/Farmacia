@@ -295,3 +295,4 @@ Route::get('/compras/pdf', [CompraController::class, 'createPDF'])->name('compra
 
 Route::get('/empleados/pdf', [EmpleadoController::class, 'createPDF'])->name('empleados.pdf');
 
+Route::get('/usuarios/pdf', [UsuarioController::class, 'createPDF'])->name('usuarios.pdf');
