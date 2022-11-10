@@ -285,10 +285,18 @@ Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta']
 
 //falta hacer
 
+//----------------------------------------------------------
+//----------------- RUTAS PDF ------------------------------
 
 Route::get('/proveedores/pdf', [ProveedorController::class, 'createPDF'])->name('proveedores.pdf');
 
 Route::get('/productos/pdf', [ProductoController::class, 'createPDF'])->name('productos.pdf');
 
 Route::get('/compras/pdf', [CompraController::class, 'createPDF'])->name('compras.pdf');
+
+
+
+Route::get('/empleados/pdf', [EmpleadoController::class, 'createPDF'])->name('empleados.pdf');
+
+Route::get('/usuarios/pdf', [UsuarioController::class, 'createPDF'])->name('usuarios.pdf');
 

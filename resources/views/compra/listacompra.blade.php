@@ -126,5 +126,8 @@ td {
 </div>
 </div>
 
+<!-- SUBIR PARA ARRIBA SI ES MUY GRANDE LAS LISTA -->
+<a href="javaScript:void();" class="back-to-top" style="display: inline;"><i class="fa fa-angle-double-up"></i> </a>
+
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

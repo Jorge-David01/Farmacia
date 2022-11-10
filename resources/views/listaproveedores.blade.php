@@ -60,7 +60,9 @@
 </script>
 
     
+
 <a class="btn btn-warning" href="proveedor/nuevo">Nuevo proveedor</a>
+
 
 <div style="float: right;margin-right: 10px; width: 250px;">
     <center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>

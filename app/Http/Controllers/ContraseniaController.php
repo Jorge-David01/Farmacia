@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
 
 class ContraseniaController extends Controller
 {
@@ -32,6 +33,25 @@ class ContraseniaController extends Controller
     {
  //abort_if(Gate::denies('cambio_contraseña'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $from = $request->from;
+
+        $validator = Validator::make($request->all(), [
+            'password_confirmation' => 'required|required_with:password|same:password'
+        ]);
+
+        if($validator->fails()){
+        
+                $rules=[
+                    'password_confirmation' => 'required|required_with:password|same:password'
+                ];
+
+                $mensaje=[
+                    'password_confirmation.same' => 'La contraseña no coincide',                    
+                ];
+
+            $this->validate($request,$rules,$mensaje);
+
+        }
+
         if($from == 'navbar'){
             $user= User::findorFail($request->id);           
             if( !password_verify($request->verificar_contrasenia, $user->password)){

@@ -37,7 +37,7 @@ class VentaController extends Controller
     public function create(Request $request)
     {
         abort_if(Gate::denies('venta_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $productos = Producto::all();
+        $productos = Producto::select(DB::raw("DISTINCT productos.*"))->rightjoin("detalle_compras","productos.id", "=", "detalle_compras.id_producto")->get();
         $clientes = cliente::all();
         $temporal = TemporalVenta::all();
         $numero =  $request->get('factura');
@@ -55,24 +55,24 @@ class VentaController extends Controller
 
 
 
-        if (isset($idcliente)) {
-            $cli = cliente::select('nombre_cliente')
-            ->where('id',$idcliente)->first();
-            $clientenomb = $cli->nombre_cliente;
-        }else{
-            $clientenomb = "";
-        }
+            if (isset($idcliente)) {
+                $cli = cliente::select('nombre_cliente')
+                ->where('id',$idcliente)->first();
+                $clientenomb = $cli->nombre_cliente;
+            }else{
+                $clientenomb = "";
+            }
 
-        return view('venta/create')
-        ->with('productos',$productos)
-        ->with('temporal',$temporal)
-        ->with('clientes',$clientes)
-        ->with('numero',$numero)
-        ->with('idcliente',$idcliente)
-        ->with('idpago',$idpago)
-        ->with('clientenomb',$clientenomb)
-        ->with('numero',$numero);
-    }
+            return view('venta/create')
+            ->with('productos',$productos)
+            ->with('temporal',$temporal)
+            ->with('clientes',$clientes)
+            ->with('numero',$numero)
+            ->with('idcliente',$idcliente)
+            ->with('idpago',$idpago)
+            ->with('clientenomb',$clientenomb)
+            ->with('numero',$numero);
+}
 
     /**
      * Store a newly created resource in storage.
@@ -229,8 +229,8 @@ class VentaController extends Controller
     public function listaventa(){
         abort_if(Gate::denies('venta_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $lista = Venta::paginate(10) ;
-       
-     
+
+
          return view('venta/listaventa')->with('lista' , $lista);
 
     }
@@ -238,7 +238,7 @@ class VentaController extends Controller
 
     public function detallesventa($id){
         abort_if(Gate::denies('venta_detalle'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-       
+
         $factu = Venta::findOrfail($id);
 
         $detalles = DB::table('ventas')
@@ -249,7 +249,7 @@ class VentaController extends Controller
         ->get();
 
 
-     
+
 
 
          return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu);
@@ -257,11 +257,11 @@ class VentaController extends Controller
     }
     public function buscador(Request $REQUEST){
         $lista = Venta::select('*')->orWhere('numero_factura','like', '%'.$REQUEST->missing.'%')->paginate(10);
-       
+
         return view('venta/listaventa')->with('lista', $lista);
-        
+
     }
-        
+
 
 
 }

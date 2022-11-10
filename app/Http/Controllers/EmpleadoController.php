@@ -9,6 +9,8 @@ use App\Http\Requests\StoreEmpleadoRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class EmpleadoController extends Controller
 {
@@ -18,7 +20,20 @@ class EmpleadoController extends Controller
         $this->middleware('auth');
     }
 
+    public function createPDF(){
+        $employee = Empleado::all();
 
+        $data = [
+            'title' => 'Listado de Empleados',
+            'date' => date('m/d/Y'),
+            'employee' =>$employee,
+        ];
+        return PDF::loadView('empleados/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Empleados_'.date('m_d_Y').'.pdf');
+
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
