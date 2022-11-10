@@ -4,7 +4,15 @@
 
 
 
-@if($errors->any())
+
+
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+
+        <h1 style=" margin-left: 2%; margin-bottom: 2%;"> Registro de clientes </h1>
+
+        @if($errors->any())
 <div class="alert alert-danger">
     <ul>
         @foreach($errors->all() as $error)
@@ -16,12 +24,6 @@
 </div>
 @endif
 
-
-
-<div class="content-wrapper">
-    <div class="container-fluid">
-
-        <h1 style=" margin-left: 2%; margin-bottom: 2%;"> Registro de clientes </h1>
 
         <div style="margin: auto;" class="col-lg-6">
             <div class="card">

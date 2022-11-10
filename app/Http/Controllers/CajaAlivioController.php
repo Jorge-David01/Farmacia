@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Caja;
 use App\Models\caja_respuesta;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProveedorRequest;
 use Illuminate\Support\Facades\Validator;
@@ -37,32 +37,49 @@ class CajaAlivioController extends Controller
 
     public function respuesta(Request $request){
         abort_if(Gate::denies('caja_respuesta'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $rules= ([
-            'cajaalivio'=>'required |min:2 |max:2 | alpha'  ,
-        ]);
+      
 
-        $messages =[
-            'cajaalivio.required'=>'Si desea vacias la caja de escribir "si" ' ,
-            
-            'cajaalivio.min'=>'La palabra a ingresar debe contener únicamente 2 letras ' ,
-            'cajaalivio.max'=>'La palabra a ingresar debe contener únicamente 2 letras ' ,
+        $rules=[
+            'Answer' => 'max:2|min:2',
+         
+           
         ];
 
-
-        $this->validate($request, $rules, $messages);
+        $msj=[
+            'Answer.max' => 'La caja de alivio no se ha vaciado',
+            'Answer.min' => 'La caja de alivio no se ha vaciado',
+           
+        ];
+        $this->validate($request,$rules,$msj);
 
         $answer = new caja_respuesta();
 
-        $answer-> respuesta = $request->input('cajaalivio');
+        $answer-> respuesta = $request->input('Answer');
+
+        
 
         $guardado = $answer->save();
 
-        if ($guardado) {
+
+
+        
+
+
+
+
+        if ($guardado && $answer = "Sí") {
             return redirect()->route('caja.alivio')
-            ->with('mensaje', 'La caja de alivio se vacio exitosamente')   ;
+            ->with('mensaje', "La caja de alivio se vació exitosamente" )   ;
+
+
         } else {
+            return redirect()->route('caja.alivio')
+            ->with('msj', "La caja de alivio no se ha vaciado" );
 
         }
+
+        
+       
     }
     //
 }

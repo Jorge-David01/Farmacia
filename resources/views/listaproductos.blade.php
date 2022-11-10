@@ -118,10 +118,11 @@ td {
 </tbody>
 
 </table>
-{{$produc -> links() }}
+
                 
 </div>
 </div>
+{{$produc -> links() }}
 </div>
 </div>
 

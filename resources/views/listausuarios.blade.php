@@ -16,18 +16,23 @@ td {
 
 
         <h1 style="margin-left: 4% ;margin-bottom: 3%; "> Lista de Usuarios </h1>
+
+
+        
         @if (session('Mensaje'))
 <div class="alert alert-danger">
   {{session('Mensaje')}}
 </div>
 @endif
 
-
 @if (session('msj'))
 <div class="alert alert-success">
   {{session('msj')}}
 </div>
 @endif
+
+
+
         <a style="margin-left: 4%; float: right;" class="btn btn-warning" href="/usuarios/nuevo">Nuevo Usuario</a>
 
 
@@ -88,10 +93,11 @@ td {
 
             </table>
 
-            {{$employee -> links() }}
+    
                         
         </div>
         </div>
+        {{$employee -> links() }}
         </div>
         </div>
 

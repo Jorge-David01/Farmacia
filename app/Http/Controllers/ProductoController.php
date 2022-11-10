@@ -85,7 +85,7 @@ class ProductoController extends Controller
         abort_if(Gate::denies('producto_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
             $rules=[
                 'nombrepro' => 'required|exists:proveedors,id',
-                'nombre_producto' => 'required|max:100|unique:productos,nombre_producto',
+                'nombre_producto' => 'required|max:110|unique:productos,nombre_producto',
                 'principio_activo'=> 'required',
                 'descripcion'=> 'required|max:200',
 
@@ -146,7 +146,7 @@ class ProductoController extends Controller
             'nombre_producto'=>'required|max:110',
             'nombre_proveedor'=>'required',
             'principio_activo'=>'required',
-            'descripcion'=>'required|max:110',
+            'descripcion'=>'required|max:200',
         ]);
 
         if($validator->fails()){
@@ -156,7 +156,7 @@ class ProductoController extends Controller
                 'nombre_producto' => 'required|max:110|min:5',
                 'nombre_proveedor'=> 'required',
                 'principio_activo'=> 'required',
-                'descripcion'=> 'required|max:110',
+                'descripcion'=> 'required|max:200',
                 
             ];
 

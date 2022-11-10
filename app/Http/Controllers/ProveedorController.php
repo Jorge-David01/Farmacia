@@ -75,8 +75,8 @@ class ProveedorController extends Controller{
         $rules= ([
             'nombrepro'=>'required | max:70'  ,
             'nombredis'=>'required | max:70',
-            'telefonopro'=>'required|unique:proveedors,Telefono_del_proveedor|min:8| max:8',
-            'telefonodis'=>'required|unique:proveedors,Telefono_del_distribuidor|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})',
+            'telefonopro'=>'required|unique:proveedors,Telefono_del_proveedor|min:8| max:8|regex:([2,9,8,3]{1}[0-9]{7})',
+            'telefonodis'=>'required|unique:proveedors,Telefono_del_distribuidor|min:8|max:8|regex:([2,9,8,3]{1}[0-9]{7})',
             'correo'=>'required|unique:proveedors,Correo_electronico',
             'files'=>'mimes:pdf'
          
@@ -95,12 +95,13 @@ class ProveedorController extends Controller{
             'telefonopro.unique'=>'El teléfono de proveedor que ingreso ya ha sido usado' ,
             'telefonopro.min'=>'El teléfono del proveedor debe de tener un minimo de 8 digitos' ,
             'telefonopro.max'=>'El teléfono del proveedor debe de tener un máximo de 8 digitos' ,
-
+            'telefonopro.regex'=>'El teléfono del proveedor debe comenzar con 2, 3, 8 o 9' ,
 
             'telefonodis.required'=>'El teléfono del distribuidor es obligatorio' ,
             'telefonodis.unique'=>'El teléfono de distribuidor que ingreso ya ha sido usado' ,
             'telefonodis.min'=>'El teléfono del distribuidor debe de tener un minimo de 8 digitos' ,
             'telefonodis.max'=>'El teléfono del distribuidor debe de tener un máximo de 8 digitos' ,
+            'telefonodis.regex'=>'El teléfono del distribuidor debe comenzar con 2, 3, 8 o 9' ,
 
             'correo.required'=>'El correo electrónico es obligatorio' ,
             'correo.unique'=>'El correo electrónico que ingreso ya ha sido utilizado' ,
@@ -136,7 +137,7 @@ class ProveedorController extends Controller{
 
         if ($creado) {
             return redirect()->route('lista.proveedor')
-                ->with('mensaje', 'El proveedor fue creado con exito');
+                ->with('mensaje', 'El proveedor fue creado con éxito');
         } else {
 
         }
@@ -162,10 +163,10 @@ class ProveedorController extends Controller{
         $pro = Proveedor::find($id);
 
         $validator = Validator::make($request->all(), [
-            'nombrepro'=>'required|max:110',
-            'nombredis'=>'required|max:110',
-            'telefonopro'=>'required|numeric|regex:([9,8,3]{1}[0-9]{7})',
-            'telefonodis'=>'required|numeric|regex:([9,8,3]{1}[0-9]{7})',
+            'nombrepro'=>'required|max:70',
+            'nombredis'=>'required|max:70',
+            'telefonopro'=>'required|numeric|regex:([2,9,8,3]{1}[0-9]{7})',
+            'telefonodis'=>'required|numeric|regex:([2,9,8,3]{1}[0-9]{7})',
             'correo'=>"required|unique:proveedors,Correo_electronico,$id",
             'files'=>'mimes:pdf,docx,pptx'
         ]);
@@ -191,12 +192,12 @@ class ProveedorController extends Controller{
             'nombredis.max'=>'El nombre del distribuidor es demasiado largo',
             'nombredis.min' => 'El nombre del distribuidor debe de tener al menos seis caracteres',
             'telefonopro.required'=>'El teléfono del proveedor es obligatorio',
-            'telefonopro.regex' => 'El número de teléfono  debe de tener 8 dígitos iniciar con 3,8 o 9',
+            'telefonopro.regex' => 'El número de teléfono  debe de tener 8 dígitos iniciar con 2, 3,8 o 9',
             'telefonopro.numeric' => 'En número de teléfono solo debe de tener números',
             'telefonopro.unique'=>'El teléfono de proveedor que ingreso ya ha sido usado anteriormente',
             'telefonopro.min'=>'El teléfono del proveedor debe de tener un minimo de 8 digitos',
             'telefonodis.required'=>'El teléfono del distribuidor es obligatorio',
-            'telefonodis.regex' => 'El número de teléfono  debe de tener 8 dígitos iniciar con 2,3,8 o 9',
+            'telefonodis.regex' => 'El número de teléfono  debe de tener 8 dígitos iniciar con 2 ,3,8 o 9',
             'telefonodis.numeric' => 'El número de teléfono solo debe de tener números',
             'telefonodis.unique'=>'El teléfono de distribuidor que ingreso ya ha sido usado',
             'telefonodis.min'=>'El teléfono del distribuidor debe de tener un minimo de 8 digitos',
@@ -226,7 +227,7 @@ class ProveedorController extends Controller{
 
         $creado = $proveedor->save();
     
-            return redirect()->route('lista.proveedor')->with('msj', 'El proveedor se actualizo exitosamente');
+            return redirect()->route('lista.proveedor')->with('msj', 'El proveedor se actualizó exitosamente');
     
 
     }

@@ -18,8 +18,13 @@ td {
 
 <form action="{{route('busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
 @csrf
-<input type="text" name="good" id="good" placeholder="Busqueda">
-<input style="margin-left: 15px" type="submit" value="Buscar" class="btn btn-success">
+<div class="form-row">
+<div style="margin:left: 0%;" class="col-sm-4">
+<input type="text"  class="form-control"  name="good" id="good" placeholder="Busqueda">
+</div>
+</div>
+<input style="margin-top: 1%" type="submit" value="Buscar" class="btn btn-success">
+<a style="margin-left: 13%; margin-top: 1%;" class="btn btn-warning" href="/inventarioVista">Limpiar</a>
 </form>
 
 <h1 style="margin-bottom: 2%;"></h1>
@@ -80,7 +85,7 @@ td {
 
 
 
-{{$Inventa -> links() }}
+
 
 
 
@@ -91,6 +96,7 @@ td {
                 
 </div>
 </div>
+{{$Inventa -> links() }}
 </div>
 </div>
 

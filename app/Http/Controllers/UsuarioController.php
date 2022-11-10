@@ -103,8 +103,7 @@ class UsuarioController extends Controller
             $employee=DB::table('users')
             ->orderBy('id', 'desc')
             ->paginate(10);
-            return view('listausuarios' , compact ('employee', 'texto'))
-                ->with('mensaje', 'El usuario fue creado con exito');
+            return view('listausuarios' , compact ('employee', 'texto'))->with('msj', 'El usuario fue creado con éxito');
    
     }
 
