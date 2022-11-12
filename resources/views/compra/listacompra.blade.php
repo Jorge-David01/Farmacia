@@ -119,9 +119,10 @@ td {
 
 </table>
 
+</div>
+</div>
+
 {{$lista -> links() }}
-</div>
-</div>
 </div>
 </div>
 

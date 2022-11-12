@@ -84,10 +84,11 @@
               @endforelse
 
             </table>
-            {{$lista -> links() }}
+    
 
           </div>
         </div>
+        {{$lista -> links() }}
       </div>
     </div>
   </div>

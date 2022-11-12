@@ -26,14 +26,14 @@
          @csrf
         <div class="col-md-6 col-sm-6 ">
         <label for="name">Nombre Completo:</label>
-            <input type="text" class="form-control-file" name="name" id="name " 
+            <input type="text" class="form-control"  name="name" id="name " 
              placeholder="name" value="{{$usuario->name}}" maxlength="50">
         </div>
 
         <div class="col-md-6 col-sm-6 ">
         <label for="email">Correo electronico:</label>
-            <input type="text" class="form-control-file" name="email" id="email" 
-            placeholder="email" value="{{$usuario->email}}" maxlength="13">
+            <input type="text" class="form-control"  name="email" id="email" 
+            placeholder="email" value="{{$usuario->email}}" >
         </div>
 
 

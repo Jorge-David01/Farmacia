@@ -95,10 +95,11 @@ td {
 </tbody>
 
 </table>
-{{$liscliente -> links() }}
+
                 
 </div>
 </div>
+{{$liscliente -> links() }}
 </div>
 </div>
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')

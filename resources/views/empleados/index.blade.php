@@ -117,9 +117,11 @@
                             </tbody>
 
                         </table>
-                        {{$employee -> links() }}
+               
                     </div>
+                    
                 </div>
+                {{$employee -> links() }}
             </div>
         </div>
     </div>

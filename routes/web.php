@@ -274,6 +274,7 @@ Route::get('/registro', function () {
 //----------------- Caja De Alivio ---------------------
 
 Route::get('/CajaAlivio',[CajaAlivioController::class, 'caja'])->name('caja.alivio');
+Route::post('/CajaAlivio',[CajaAlivioController::class, 'respuesta'])->name('caja.answer');
 
 Route::get('/CajaPregunta/respuesta',[CajaAlivioController::class, 'pregunta'])->name('caja.pregunta');
 
@@ -293,6 +294,9 @@ Route::get('/productos/pdf', [ProductoController::class, 'createPDF'])->name('pr
 
 Route::get('/compras/pdf', [CompraController::class, 'createPDF'])->name('compras.pdf');
 
+
+
 Route::get('/empleados/pdf', [EmpleadoController::class, 'createPDF'])->name('empleados.pdf');
 
 Route::get('/usuarios/pdf', [UsuarioController::class, 'createPDF'])->name('usuarios.pdf');
+

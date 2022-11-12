@@ -68,6 +68,22 @@
                     <h1 style="margin-bottom: 2%;"></h1>
 
 
+<?php
+            $total_suma =0;
+            ?>
+
+
+<tr>
+
+</table>
+
+
+
+
+<a  style="margin-left: 4%;" class="btn btn-success" href="/listaventa">Volver</a>
+=======
+
+
                 </div>
             </div>
         </div>

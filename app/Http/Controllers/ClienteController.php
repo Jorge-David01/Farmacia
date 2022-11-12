@@ -76,7 +76,7 @@ class ClienteController extends Controller
         $rules=[
             'nombre_cliente' => 'required|max:110|min:5',
             'numero_id'=> 'required|unique:clientes,numero_id|numeric|regex:([0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9})',
-            'telefono'=> 'required|unique:clientes,Telefono|min:8|max:8|regex:([9,8,3]{1}[0-9]{7})',
+            'telefono'=> 'required|unique:clientes,Telefono|min:8|max:8|regex:([2,9,8,3]{1}[0-9]{7})',
             'direccion'=> 'required|max:200|min:20',
             'num_carnet'=> 'required|unique:clientes,num_carnet|min:8|max:8|'
            
@@ -93,6 +93,7 @@ class ClienteController extends Controller
         'telefono.unique'=>'El teléfono de cliente  que ingreso ya ha sido usado',
         'telefono.min'=>'El teléfono del cliente  debe de tener un minimo de 8 digitos',
         'telefono.max'=>'El teléfono del cliente  debe de tener un máximo de 8 digitos',
+        'telefono.regex'=>'El teléfono del cliente debe comenzar con 2, 3, 8 o 9',
         'direccion.required' => 'La dirección del cliente no puede estar vacía',
         'direccion.max' => 'La dirección que ingresó es muy extensa',
         'direccion.min' => 'La dirección que ingresó es muy corta',
@@ -118,7 +119,7 @@ class ClienteController extends Controller
 
     if ($creado) {
         return redirect()->route('lista.clientes')
-            ->with('msj', 'El cliente fue creado con exito');
+            ->with('msj', 'El cliente fue creado con éxito');
     }
 }
 
@@ -170,7 +171,7 @@ public function Ver($id){
     public function update(Request $request, $id){
 
         $rules= ([
-            'nombre_cliente'=>'required  |min:6 | max:70 '  ,
+            'nombre_cliente'=>'required  |min:5 | max:110 '  ,
             'numero_identidad'=>'required |min:13 | max:13 |regex:([[0-1]{1}[0-9]{1}[0-2]{1}[0-9]{10})',
             'numero_tel'=>'required||min:8| max:8 |regex:([2,9,8,3]{1}[0-9]{7})',
             'direccion'=>'required|min:20|max:200',
@@ -216,7 +217,7 @@ public function Ver($id){
         $actualizado = $clienteup->save();
 
         if ($actualizado){
-            return redirect()->route('lista.clientes')->with('msj', 'El cliente fue actualizó exitosamente');
+            return redirect()->route('lista.clientes')->with('msj', 'El cliente se actualizó exitosamente');
          } else {
           
          }
