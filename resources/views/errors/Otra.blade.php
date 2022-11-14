@@ -516,12 +516,6 @@
 
                 <!-- @can('usuario_listado', 'empleado_nuevo','empleado_detalles','empleado_actualizar') -->
                 <!-- @endcan -->
-
-        <li>
-            <a href="empleados/index">
-              <i class="fa fa-users"></i> <span>Empleados</span>
-            </a>
-          </li>
     
 
        

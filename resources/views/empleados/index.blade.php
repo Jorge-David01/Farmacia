@@ -1,7 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Lista de empleados')
 @section('contenido')
-
+@section('TituloPlantillas', 'Lista de empleados')
 
 <style>
     td {
@@ -13,68 +13,78 @@
 
 
 <div class="clearfix"></div>
-<div class="content-wrapper">
+<div style="margin-top: 5%;" class="content-wrapper">
     <div class="container-fluid">
 
 
-        <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Lista de empleados </h1>
-
-        <div style="float: right;margin-right: 10px; width: 250px;">
-            <center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
-            </div>
-
-        @if (session('msj'))
-        <div class="alert alert-success">
-            {{session('msj')}}
-        </div>
-        @endif
-
-        <script>
-            function pdf(){
-
-              window.location.href = "{{route('empleados.pdf')}}";
-              Swal.fire({
-                position: 'bottom-end',
-                icon: 'success',
-                title: 'Se esta descargando el pdf',
-                showConfirmButton: false,
-                timer: 1500
-              })
 
 
-            }
-          </script>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="card">
+                    <div class="card-body">
 
 
-        <a style="float: right; display:inline-block;" class="btn btn-warning" href="/empleados/nuevo">Nuevo Empleado</a>
-        
-        
-      
-        <div class="col-x1-12">
-            <form action="{{route('empleados.index')}}" method="get" style=" width: 78%; margin-bottom:2%; ">
-                <div class="form-row"]>
-                    <div style="  margin-left: 0%" class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
+                        <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
+
+
+                            <form action="{{route('empleados.index')}}" method="get" style="  margin-bottom:2%; ">
+                                <div class="form-row">
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
+                                    </div>
+
+                                    <li class="nav-item">
+                                        <input style="margin-left: 1%;" type="submit" class="btn btn-success" value="Buscar">
+                                    </li>
+                                </div>
+                            </form>
+
+
+                            <li>
+                                <a style="margin-left: 2%;" class="btn btn-warning" href="/empleados">Limpiar</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
+                            </li>
+
+                            <li> <a class="btn btn-warning float-right" href="/empleados/nuevo">Nuevo Empleado</a></li>
+
+                            @if (session('msj'))
+                            <div class="alert alert-success">
+                                {{session('msj')}}
+                            </div>
+                            @endif
+
+
+                            <script>
+                                function pdf() {
+
+                                    window.location.href = "{{route('empleados.pdf')}}";
+                                    Swal.fire({
+                                        position: 'bottom-end',
+                                        icon: 'success',
+                                        title: 'Se esta descargando el pdf',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
+                            </script>
+
+                        </ul>
+
                     </div>
-                    <div class="col-auto">
-                       
-                    </div>
-                    
                 </div>
-                <input style="margin-top: 1%" type="submit" class="btn btn-success" value="Buscar">
-                   <a style="margin-left: 13%; margin-top: 1%;" class="btn btn-warning" href="/empleados">Limpiar</a>
-            </form>
+            </div>
         </div>
-
-
+        
         @if (session('Mensaje'))
         <div class="alert alert-danger">
             {{session('Mensaje')}}
         </div>
         @endif
 
-        </style>
-    
 
         <div class="row">
             <div class="col-12 col-lg-12">
@@ -117,9 +127,9 @@
                             </tbody>
 
                         </table>
-               
+
                     </div>
-                    
+
                 </div>
                 {{$employee -> links() }}
             </div>

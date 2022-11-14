@@ -4,7 +4,7 @@
 <!-- ---------------------------------------------LINK DE  BOOTSTRAP--------------------------------------- -->
 
 <head>
-<!--
+  <!--
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -42,10 +42,10 @@
   <link href="{{ asset('css/select-multiple.css') }}" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 -->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
-<script src="{{asset('js/toastr.min.js')}}"></script>
+  <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
+  <script src="{{asset('js/toastr.min.js')}}"></script>
 
   <title>Farmacia - @yield('pestania')</title>
 
@@ -80,24 +80,24 @@
 
 
 
-    
-      @if(Auth::user()->role == 'Administrador')
-       <li>
+
+        @if(Auth::user()->role == 'Administrador')
+        <li>
           <a href="/ListaUsuarios">
             <i class="fa fa-users"></i> <span>Usuarios</span>
           </a>
         </li>
-      @endif
-        
+        @endif
+
 
         @can('empleado_listado', 'empleado_nuevo', 'empleado_actualizar','empleado_detalles')
 
         <li>
-            <a href="/empleados">
-              <i class="fa fa-users"></i> <span>Empleados</span>
-            </a>
-          </li>
-          @endcan
+          <a href="/empleados">
+            <i class="fa fa-users"></i> <span>Empleados</span>
+          </a>
+        </li>
+        @endcan
 
 
         @can('proveedor_listado', 'proveedor_nuevo','proveedor_actualizar','proveedor_detalle')
@@ -141,7 +141,7 @@
         </li>
         @endcan
 
-      @can('devolucion')
+        @can('devolucion')
         <li>
           <a href="/devolucion">
             <i class="fa fa-cart-plus"></i> <span>Devolucion de Producto</span>
@@ -183,12 +183,12 @@
 
 
         @can('role_nuevo','role_listado','role_actualizar','role_eliminar')
-    <li>
-        <a href="/roles">
-          <i class="fa fa-file-text-o"></i> <span>Roles</span>
-        </a>
-      </li>
-      @endcan
+        <li>
+          <a href="/roles">
+            <i class="fa fa-file-text-o"></i> <span>Roles</span>
+          </a>
+        </li>
+        @endcan
       </ul>
     </div>
 
@@ -197,16 +197,18 @@
     <!-- ----------------------------------------------------------NAVEGADOR #2-------------------------------------------------------- -->
     <header class="topbar-nav">
       <nav class="navbar navbar-expand fixed-top">
-
         <ul class="navbar-nav mr-auto align-items-center">
           <li class="nav-item">
             <a class="nav-link toggle-menu" href="javascript:void();">
               <i class="icon-menu menu-icon"></i>
             </a>
           </li>
+
+          
+
+          <li><h2 > @yield('TituloPlantillas')</h2></li>
         </ul>
-
-
+        
         <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
         <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
 
@@ -235,7 +237,7 @@
               </li>
 
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"> <a  href="/contrasenia/{{Auth::user()->id}}/navbar" class="icon-settings"> Cambio de contraseña</a></li>
+              <li class="dropdown-item"> <a href="/contrasenia/{{Auth::user()->id}}/navbar" class="icon-settings"> Cambio de contraseña</a></li>
 
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><a href="/Ayuda" class="icon-envelope"> Ayuda</a> </li>
@@ -266,13 +268,13 @@
 
     <!-- CON LA VIEJA PLANTILLA -->
 
-<main>
-  <div >
-    @yield('contenido')
-  </div>
-</main>
+    <main>
+      <div>
+        @yield('contenido')
+      </div>
+    </main>
 
- 
+
 
 
 
@@ -293,7 +295,7 @@
     <script src='/assets/plugins/fullcalendar/js/moment.min.js'></script>
     <script src='/assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
     <script src="/assets/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
-  <!-- Full Calendar
+    <!-- Full Calendar
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   Full Calendar -->
     <script>

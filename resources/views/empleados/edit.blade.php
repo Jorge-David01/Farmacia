@@ -1,15 +1,13 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Editar empleado')
 @section('contenido')
-
+@section('TituloPlantillas', 'Editar empleado')
 
 
 
 <div class="clearfix"></div>
 <div class="content-wrapper">
     <div class="container-fluid">
-
-        <h1 style=" margin-left: 2%;">Editar empleado </h1>
 
         @if($errors->any())
         <div class="alert alert-danger">
@@ -24,7 +22,7 @@
         @endif
 
         <div style="margin: auto; margin-top: 2%;" class="col-6 col-lg-6">
-            <div class="card">
+            <div style="margin-top: 15%;" class="card">
                 <div class="card-body">
 
                     <form method="POST" action="">
@@ -33,7 +31,7 @@
 
                         <div>
                             <label for="nombre_completo">Nombre Completo:</label>
-                            <input class="form-control " type="text" class="form-control-file" name="nombre_completo" id="nombre_completo " placeholder="nombre_completo" value="{{$empleado->nombre_completo}}" maxlength="50">
+                            <input class="form-control " type="text" class="form-control-file" name="nombre_completo" id="nombre_completo " placeholder="nombre_completo" value="{{$empleado->nombre_completo}}" maxlength="50" autofocus>
                         </div>
 
                         <div>

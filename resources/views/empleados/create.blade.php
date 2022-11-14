@@ -1,7 +1,8 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Formulario de empleados')
-
+@section('TituloPlantillas', 'Creación de Empleados')
 @section('contenido')
+
     <style>
         input {
             border-radius: 0px !important;
@@ -10,8 +11,6 @@
 
     <div class="content-wrapper">
         <div class="container-fluid">
-
-            <h1 style=" margin-left: 2%; margin-bottom: 2%;"> Creación de Empleados </h1>
 
             @if($errors->any())
             <div class="alert alert-danger">
@@ -26,7 +25,7 @@
             @endif
 
             <div style="margin: auto; margin-bottom: 3%;" class="col-lg-6">
-                <div class="card">
+                <div style="margin-top: 15%;" class="card">
                     <div class="card-body">
 
                         <form method="post" enctype="multipart/form-data">

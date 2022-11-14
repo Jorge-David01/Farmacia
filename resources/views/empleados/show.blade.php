@@ -1,14 +1,13 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Detalle de empleado')
 @section('contenido')
+@section('TituloPlantillas', 'Detalle de empleado')
 
 <div class="content-wrapper">
     <div class="container-fluid">
-        <h1 style="margin-left: 2% "> Detalles del empleado </h1>
 
-        <h1 style="margin-bottom: 2%;"></h1>
-        <div style="margin: auto;" class="col-lg-6">
-            <div class="card">
+        <div style="margin: auto; " class="col-lg-6">
+            <div style="margin-top: 15%;" class="card">
                 <div class="card-body">
 
                     <form style="margin-left: 2%;" method="POST" action="">
@@ -48,7 +47,7 @@
                             <a class="btn btn-success" href="/empleados">Volver</a>
                             <a class="btn btn-primary" href="/Empleado/{{$empleado->id}}/editar">Actualizar</a>
                         </div>
-                        <h1 style="margin-bottom: 2%;"></h1>
+
                     </form>
 
                 </div>
