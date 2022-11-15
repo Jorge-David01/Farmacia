@@ -26,7 +26,7 @@
 <div class="content-wrapper">
   <div class="container-fluid">
 
-    <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Lista de proveedores </h1>
+    <h1 style=" margin-left: 2%; margin-bottom: 2%;"> Lista de proveedores </h1>
 
 
 
@@ -129,6 +129,7 @@
 
 
               <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+             <th>#</th>
                 <th>Nombre del proveedor</th>
                 <th>Nombre del distribuidor</th>
 
@@ -145,8 +146,14 @@
 
               @forelse($pro as $prove)
 
-              <tr style="border: 2px solid #dddddd;">
+          
 
+     
+              <tr style="border: 2px solid #dddddd;">
+           
+
+           
+        <td>{{$pro->perPage()*($pro->currentPage()-1)+$loop->iteration}}</td>
                 <td>{{$prove->Nombre_del_proveedor}}</td>
                 <td>{{$prove->Nombre_del_distribuidor}}</td>
 
@@ -154,6 +161,7 @@
                 <td> <a class="btn btn-success" href="/Verprovee/{{$prove->id}}">Detalles</a></td>
 
               </tr>
+         
 
               @empty
 

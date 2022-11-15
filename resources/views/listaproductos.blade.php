@@ -25,7 +25,7 @@ td {
   <div class="container-fluid">
 
 
-<h1 style=" margin-bottom: 3%; margin-left: 2%;"> Lista de productos </h1>
+<h1 style=" margin-bottom: 2%; margin-left: 2%;"> Lista de productos </h1>
 
 
 
