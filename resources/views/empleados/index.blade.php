@@ -92,6 +92,7 @@
                         <table class="table align-items-center table-flush table-borderless">
 
                             <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+                                <th>#</th>
                                 <th>Nombre</th>
                                 <th>Número de identidad</th>
                                 <th>Teléfono</th>
@@ -108,6 +109,7 @@
                             @forelse($employee as $emple)
 
                             <tr style="border: 2px solid #dddddd;">
+                                <td>{{$employee->perPage()*($employee->currentPage()-1)+$loop->iteration}}</td>
                                 <td>{{$emple->nombre_completo}}</td>
                                 <td>{{$emple->DNI}}</td>
                                 <td>{{$emple->numero_cel}}</td>

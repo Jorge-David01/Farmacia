@@ -80,8 +80,8 @@
 
 
 
-<a  style="margin-left: 4%;" class="btn btn-success" href="/listaventa">Volver</a>
-=======
+
+
 
 
                 </div>

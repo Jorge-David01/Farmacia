@@ -25,7 +25,7 @@ td {
 
 
 
-<h1 style=" margin-bottom: 3%; margin-left: 2%; "> Clientes </h1>
+<h1 style=" margin-bottom: 2%; margin-left: 2%; "> Clientes </h1>
 @if (session('msj'))
 <div class="alert alert-success">
   {{session('msj')}}

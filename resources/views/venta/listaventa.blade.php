@@ -25,7 +25,7 @@
 <div class="content-wrapper">
   <div class="container-fluid">
 
-    <h1 style=" margin-bottom: 3%; margin-left: 2%;"> Lista de ventas </h1>
+    <h1 style=" margin-bottom: 2%; margin-left: 2%;"> Lista de ventas </h1>
 
      
     <div class="row">

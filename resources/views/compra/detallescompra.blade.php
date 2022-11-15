@@ -65,11 +65,7 @@
 
                     <div style="text-align: center; margin-top: 2%;">
                         <a class="btn btn-success" href="/listacompra">Volver</a>
-                        <form style="display:inline-block;" method="post" action="{{route('compra.delete',['id'=>$details->id])}}">
-                            @csrf
-                            @method('delete')
-                            <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar la compra?')" value="Eliminar" class="btn btn-danger">
-                        </form>
+                        
                     </div>
                     <h1 style="margin-bottom: 2%;"></h1>
                 </div>
