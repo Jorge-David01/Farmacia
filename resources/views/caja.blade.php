@@ -39,7 +39,7 @@
 <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="card">
-    
+                <!--
     <form action="{{route('caja.answer')}}" method="POST">
     @csrf
     <div>
@@ -54,10 +54,13 @@
 
 
     </form>
+-->
 
     </div>
 </div>
 </div>
+
+<a  class="btn btn-warning" style="margin-bottom: 2%" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
 
 
 
@@ -83,7 +86,7 @@
           
             <tr style="border: 2px solid #dddddd;">
               <td>{{$datos->Descripcion}}</td>
-              <td>{{$loop->index+1}}</td>
+              <td>{{$datos->id}}</td>
               <td>{{$datos->Fecha}}</td>
             </tr>
 

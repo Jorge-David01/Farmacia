@@ -40,7 +40,7 @@ class CajaAlivioController extends Controller
       
 
         $rules=[
-            'Answer' => 'max:2|min:2',
+            'cajaalivio' => 'max:2|min:2',
          
            
         ];
@@ -52,34 +52,27 @@ class CajaAlivioController extends Controller
         ];
         $this->validate($request,$rules,$msj);
 
-        $answer = new caja_respuesta();
+        $ques = new caja_respuesta();
 
-        $answer-> respuesta = $request->input('Answer');
-
-        
-
-        $guardado = $answer->save();
-
-
+        $ques-> respuesta = $request->input('cajaalivio');
 
         
 
+        $guardado = $ques->save();
 
 
 
-        if ($guardado && $answer = "Sí") {
+        
+
+        if ($guardado) {
             return redirect()->route('caja.alivio')
-            ->with('mensaje', "La caja de alivio se vació exitosamente" )   ;
-
-
-        } else {
-            return redirect()->route('caja.alivio')
-            ->with('msj', "La caja de alivio no se ha vaciado" );
-
+                ->with('mensaje', 'La caja de alivio se ha vaciado exitosamente');
         }
+    
 
         
        
     }
-    //
+
 }
+
