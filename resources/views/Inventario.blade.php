@@ -16,18 +16,54 @@ td {
 
 <h1 style=" margin-bottom: 3%; margin-left: 2%;"> Inventario </h1>
 
-<form action="{{route('busqueda')}}" method="POST" style="margin-top: 1%; width: 78%;">
+
+
+
+<div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
+
+
+
+
+<form action="{{route('busqueda')}}" method="POST" style="margin-bottom:2%;">
 @csrf
 <div class="form-row">
-<div style="margin:left: 0%;" class="col-sm-4">
+<div class="col-sm-8">
 <input type="text"  class="form-control"  name="good" id="good" placeholder="Busqueda">
 </div>
-</div>
+
+
+<li class="nav-item">
 <input style="margin-top: 1%" type="submit" value="Buscar" class="btn btn-success">
-<a style="margin-left: 13%; margin-top: 1%;" class="btn btn-warning" href="/inventarioVista">Limpiar</a>
+</li>
+
+
+</div>
 </form>
 
-<h1 style="margin-bottom: 2%;"></h1>
+<li>
+<a style="margin-left: 2%;" class="btn btn-warning" href="/inventarioVista">Limpiar</a>
+</li>
+
+
+<li class="nav-item">
+<button class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
+</li>
+
+
+
+
+</ul>
+
+</div>
+</div>
+</div>
+</div>
 
 	<div class="row" >
 	<div class="col-12 col-lg-12">
@@ -99,9 +135,6 @@ td {
 {{$Inventa -> links() }}
 </div>
 </div>
-
-<!-- SUBIR PARA ARRIBA SI ES MUY GRANDE LAS LISTA -->
-<a href="javaScript:void();" class="back-to-top" style="display: inline;"><i class="fa fa-angle-double-up"></i> </a>
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

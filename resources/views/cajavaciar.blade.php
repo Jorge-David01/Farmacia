@@ -15,9 +15,12 @@
                         @csrf
                         <div class="form-group">
                             <label for="nombrepro">¿Desea vaciar caja de alivio?</label>
-                            <input minlength="2" maxlength="2" style="width: 18%" class="form-control" type="text" id="cajaalivio" name="cajaalivio" required="required" value="Sí" placeholder="Ingrese si para vaciar la caja">
-                            <button style="margin-top: 2%" type="submit">Vaciar</button>
+                            <input style="display:none;" minlength="2" maxlength="2" style="width: 18%" class="form-control" type="text" id="cajaalivio" name="cajaalivio" required="required" value="Sí" placeholder="Ingrese si para vaciar la caja">
+                       
                         </div>
+                        <button class="btn btn-success" style=" margin-bottom: 3%;"  type="submit">Vaciar</button>
+
+                        <a style ="margin-left: 3%; margin-bottom: 3%;" class="btn btn-primary" href="/CajaAlivio">Cancelar</a>
                     </form>
 
                 </div>

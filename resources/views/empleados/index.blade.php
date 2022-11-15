@@ -15,6 +15,12 @@
 <div class="clearfix"></div>
 <div style="margin-top: 5%;" class="content-wrapper">
     <div class="container-fluid">
+    @if (session('msj'))
+                  <div class="alert alert-success">
+                                {{session('msj')}}
+                            </div>
+                            @endif
+
 
 
 
@@ -28,7 +34,7 @@
                         <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
 
-                            <form action="{{route('empleados.index')}}" method="get" style="  margin-bottom:2%; ">
+                            <form action="{{route('empleados.index')}}" method="get" style="margin-bottom:2%;">
                                 <div class="form-row">
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
@@ -51,11 +57,7 @@
 
                             <li> <a class="btn btn-warning float-right" href="/empleados/nuevo">Nuevo Empleado</a></li>
 
-                            @if (session('msj'))
-                            <div class="alert alert-success">
-                                {{session('msj')}}
-                            </div>
-                            @endif
+                     
 
 
                             <script>
@@ -79,11 +81,7 @@
             </div>
         </div>
         
-        @if (session('Mensaje'))
-        <div class="alert alert-danger">
-            {{session('Mensaje')}}
-        </div>
-        @endif
+      
 
 
         <div class="row">

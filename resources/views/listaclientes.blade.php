@@ -31,22 +31,59 @@ td {
   {{session('msj')}}
 </div>
 @endif
-<a style="float: right;" class="btn btn-warning" href="/clientes/nuevo">Registrar cliente</a>
 
-<form  action="{{route('cliente.busqueda')}}" method="POST" style="margin-top: 1%; width: 78%; margin-bottom: 2%;">
+
+
+<div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
+
+
+
+
+
+
+<form  action="{{route('cliente.busqueda')}}" method="POST" style="margin-bottom:2%;">
 @csrf
 <div class="form-row">
-<div style="margin:left: 0%;" class="col-sm-4">
+<div class="col-sm-8">
 <input  type="text" class="form-control"  name="busca" id="busca" placeholder="Busqueda">
 </div>
-</div>
+
+<li class="nav-item">
 <input style="margin-top: 1%" type="submit" value="Buscar" class="btn btn-success">
-<a style="margin-left: 13%; margin-top: 1%;" class="btn btn-warning" href="/Cliente">Limpiar</a>
+</li>
 
-
+</div>
 </form>
 
-<h1 style="margin-bottom: 2%;"></h1>
+<li>
+<a style="margin-left: 2%;" class="btn btn-warning" href="/Cliente">Limpiar</a>
+</li>
+
+<li class="nav-item">
+<button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
+</li>
+
+
+<li>
+<a class="btn btn-warning float-right" href="/clientes/nuevo">Registrar cliente</a>
+</li>
+
+
+
+
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
 
 	<div class="row" >
 	<div class="col-12 col-lg-12">

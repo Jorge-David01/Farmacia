@@ -31,48 +31,79 @@ td {
 </div>
 @endif
 
-<script>
-
-    function pdf(){
-
-      window.location.href = "{{route('usuarios.pdf')}}";
-      Swal.fire({
-        position: 'bottom-end',
-        icon: 'success',
-        title: 'Se esta descargando el pdf',
-        showConfirmButton: false,
-        timer: 1500
-      })
 
 
-    }
-  </script>
+<div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="card">
+                    <div class="card-body">
 
 
-  <div style="float: right;margin-right: 10px; width: 250px">
-  <center><button class="btn btn-danger" onclick="pdf()">Descargar PDF</button></center>
-    </div>
+                        <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
 
-        <a style="margin-left: 4%; float: right;" class="btn btn-warning" href="/usuarios/nuevo">Nuevo Usuario</a>
-
+                        
 
        
             <form style="margin-bottom: 2%;" action="{{route('lista')}}" method="get">
             @csrf
             <div class="form-row"]>
-                    <div style="margin:left: 0%;" class="col-sm-4">
+            <div class="col-sm-8">
                         <input  type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
                     </div>
-                    </div>
-                
-              
-                    
-                
-                <input style="margin-top:1%" type="submit" class="btn btn-success" value="Buscar">
-                <a style="margin-left: 13%; margin-top: 1%;" class="btn btn-warning" href="/ListaUsuarios">Limpiar</a>
+               
+              <li class="nav-item">
+                <input style="margin-left:1%" type="submit" class="btn btn-success" value="Buscar">
+           </li>
+           </div>
             </form>
         
+
+
+              <li>
+            <a style="margin-left: 2%;" class="btn btn-warning" href="/ListaUsuarios">Limpiar</a>
+
+            </li>
+
+            <li class="nav-item">
+            <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
+             </li>
+
+             <li>
+             <a class="btn btn-warning float-right" href="/usuarios/nuevo">Nuevo Usuario</a>
+
+             </li>
+
+
+
+
+
+
+
+            
+<script>
+
+function pdf(){
+
+  window.location.href = "{{route('usuarios.pdf')}}";
+  Swal.fire({
+    position: 'bottom-end',
+    icon: 'success',
+    title: 'Se esta descargando el pdf',
+    showConfirmButton: false,
+    timer: 1500
+  })
+
+
+}
+</script>
+
+            </ul>
+
+</div>
+</div>
+</div>
+</div>
 
         <div class="row" >
         <div class="col-12 col-lg-12">

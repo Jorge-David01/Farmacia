@@ -283,12 +283,7 @@ public function detailscompra($id){
   
 
 
-    $name = DB::table('detalle_compras')
-    ->join('Productos', 'detalle_compras.id_producto', '=', 'Productos.id')
-    ->where('detalle_compras.id_compra', '=', $id)
-    ->select('nombre_producto')
-    ->get();
-
+  
 
     $deta = DB::table('compras')
     ->join('detalle_compras', 'compras.id', '=', 'detalle_compras.id_compra')
@@ -298,7 +293,7 @@ public function detailscompra($id){
     ->get();
 
     
-    return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta)->with('name', $name);
+    return view('compra/detallescompra')->with('details', $details)->with('comp', $comp)->with('deta', $deta);
 
 
   
@@ -337,7 +332,7 @@ public function detailscompra($id){
     
         
         $nombre = DB::table('inventarios')
-        ->join('productos', 'inventarios.id_producto', '=', 'productos.id')
+        ->join('Productos', 'inventarios.id_producto', '=', 'Productos.id')
         ->where('productos.id', '=', 'inventarios.id_producto')
         ->select('nombre_producto')
         ->get();
