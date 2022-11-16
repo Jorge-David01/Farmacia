@@ -3,6 +3,13 @@
 
 @section('contenido')
 
+
+<style>
+    input {
+      border-radius: 0px !important;
+    }
+  </style>
+
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -11,23 +18,14 @@
         @if($errors->any())
         <div class="alert alert-danger">
           <ul>
-            @foreach($errors->all() as $error)
+            @foreach($errors->all() as $mensaje)
             <li>
-              {{$error}}
+              {{$mensaje}}
             </li>
             @endforeach
           </ul>
         </div>
         @endif
-
-        <style>
-          input {
-            border-radius: 0px !important;
-          }
-        </style>
-
-
-
 
 
         <div class="content-wrapper">
