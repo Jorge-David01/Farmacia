@@ -68,7 +68,7 @@ td {
 	<div class="row" >
 	<div class="col-12 col-lg-12">
 	<div class="card" >
-		 
+
 
 	<div class="table-responsive">
 
@@ -77,7 +77,7 @@ td {
 
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-<th >id producto</th>
+<th >Nombre del producto</th>
 <th >Cantidad</th>
 
 
@@ -101,13 +101,13 @@ td {
 @forelse($Inventa as $listaInv)
 
 <tr style="border: 2px solid #dddddd;">
-<td> {{$listaInv->  id_producto}} </td>
+<td> {{$listaInv->productos->nombre_producto}} </td>
 <td> {{$listaInv->  cantidad}}</td>
 
 
 
 <!--  <td> <a  class="btn btn-success" href="/Precio/{{$listaInv->id}}"> Precio unitario </a></td>
-<td > <a  class="btn btn-success" href="/vencimiento/{{$listaInv->id}}"> fecha de vencimiento </a></td> 
+<td > <a  class="btn btn-success" href="/vencimiento/{{$listaInv->id}}"> fecha de vencimiento </a></td>
 </tr> -->
 
 
@@ -129,7 +129,7 @@ td {
 
 </table>
 
-                
+
 </div>
 </div>
 {{$Inventa -> links() }}
