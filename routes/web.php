@@ -23,6 +23,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Controller;
 
 use App\Http\Controllers\CajaAlivioController;
+use App\Http\Controllers\DevolucionController;
 
 
 
@@ -216,6 +217,8 @@ Route::get('/venta/factura/{id}',[VentaController::class, 'factura'])->name('ven
 Route::get('/listaventa',[VentaController::class, 'listaventa']) -> name('lista.venta');
 
 Route::get('/detallesventa/{id}',[VentaController::class, 'detallesventa']) -> name('detalles.venta')-> where('id', '[1-9]+');
+Route::get('/productodevolver/{id}',[DevolucionController::class, 'productodevolver']) -> name('productos.devolver')-> where('id', '[1-9]+');
+Route::get('/devoluciones',[DevolucionController::class, 'index']) -> name('devoluciones.index');
 
 //----------------------------------------------------------
 //----------------- RUTAS DE COTIZACION -----------------------

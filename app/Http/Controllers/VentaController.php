@@ -245,7 +245,7 @@ class VentaController extends Controller
         ->join('detalle_ventas', 'ventas.id', '=', 'detalle_ventas.id_venta')
         ->join('Productos', 'detalle_ventas.id_producto', '=', 'Productos.id')
         ->where('detalle_ventas.id_venta', '=', $id)
-        ->select('id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio', 'nombre_producto')
+        ->select('devuelto','detalle_ventas.id as id_detalle','id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio', 'nombre_producto')
         ->get();
 
 
@@ -255,6 +255,8 @@ class VentaController extends Controller
          return view('venta/detallesventa')->with('detalles' , $detalles)->with('factu' , $factu);
 
     }
+
+
     public function buscador(Request $REQUEST){
         $lista = Venta::select('*')->orWhere('numero_factura','like', '%'.$REQUEST->missing.'%')->paginate(10);
 
