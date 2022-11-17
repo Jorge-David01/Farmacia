@@ -248,7 +248,7 @@ public function Ver($id){
     public function buscando(Request $REQUEST){
         $liscliente = Cliente::select('*')->orWhere('nombre_cliente','like', '%'.$REQUEST->busca.'%')
         ->orWhere('telefono','like', '%'.$REQUEST->busca.'%')
-        ->orWhere('numero_id','like', '%'.$REQUEST->busca.'%')  ->paginate(10);
+        ->orWhere('numero_id','like', '%'.$REQUEST->busca.'%')->paginate(10);
        
         return view('listaclientes')->with('liscliente', $liscliente);
         
