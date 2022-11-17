@@ -19,15 +19,16 @@ class ClienteController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+    
     public function createPDF(){
-        $pro = Cliente::all();
+        $liscliente = Cliente::all();
 
         $data = [
             'title' => 'Listado de clientes',
             'date' => date('m/d/Y'),
-            'pro' =>$pro,
+            'liscliente' =>$liscliente,
         ];
-        return PDF::loadView('listaclientes/pdf', $data)
+        return PDF::loadView('clientes/pdf', $data)
         ->setPaper('a4', 'landscape')
         ->download('Listado_de_Clientes_'.date('m_d_Y').'.pdf');
 

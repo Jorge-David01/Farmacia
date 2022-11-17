@@ -51,9 +51,12 @@
                                 <a style="margin-left: 2%;" class="btn btn-warning" href="/empleados">Limpiar</a>
                             </li>
 
+                            
                             <li class="nav-item">
-                                <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
+                                <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()" id="descpdf">Descargar PDF</button>
                             </li>
+
+
 
                             <li> <a class="btn btn-warning float-right" href="/empleados/nuevo">Nuevo Empleado</a></li>
 
@@ -61,18 +64,21 @@
 
 
                             <script>
-                                function pdf() {
 
-                                    window.location.href = "{{route('empleados.pdf')}}";
-                                    Swal.fire({
-                                        position: 'bottom-end',
-                                        icon: 'success',
-                                        title: 'Se esta descargando el pdf',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    })
+                                function pdf(){
+
+                                  window.location.href = "{{route('empleados.pdf')}}";
+                                  Swal.fire({
+                                    position: 'bottom-end',
+                                    icon: 'success',
+                                    title: 'Se esta descargando el pdf',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                  })
+
+                                  document.getElementById('descpdf').disabled = true;
                                 }
-                            </script>
+                              </script>
 
                         </ul>
 

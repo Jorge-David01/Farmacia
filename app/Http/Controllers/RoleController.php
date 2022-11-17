@@ -49,13 +49,34 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $role = Role::create($request->only('name'));
+        $rules= ([
+            'name'=>'required | max:50 | unique:roles,name',
+            'descripcion'=>'required | max:100',
+        ]);
+
+        $mensaje =[
+            'name.required'=>'El nombre del rol es obligatorio' ,
+            'name.max'=>'El nombre del rol es demasiado largo' ,
+            'name.unique'=>'El nombre del rol ya esta en uso' ,
+
+            'descripcion.required'=>'La descripcion del rol es obligatorio' ,
+            'descripcion.max'=>'La descrpcion del rol es demasiado largo' ,
+        ];
+        $this->validate($request, $rules, $mensaje);
+        $role = Role::create($request->only('name','descripcion'));
 
         // $role->permissions()->sync($request->input('permissions', []));
         $role->syncPermissions($request->input('permissions', []));
 
-        return redirect()->route('roles.index');
+        $creado = $role->save();
+        if ($creado) {
+        return redirect()->route('roles.index')
+        ->with('msj', 'El rol fue creado con exito');
+    } else {
+
     }
+}
+
 
     public function edit($id)
     {
