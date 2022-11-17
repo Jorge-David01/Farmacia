@@ -66,8 +66,9 @@ td {
             </li>
 
             <li class="nav-item">
-            <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
+            <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()" id="descpdf">Descargar PDF</button>
              </li>
+
 
              <li>
              <a class="btn btn-warning float-right" href="/usuarios/nuevo">Nuevo Usuario</a>
@@ -94,7 +95,7 @@ function pdf(){
     timer: 1500
   })
 
-
+  document.getElementById('descpdf').disabled = true;
 }
 </script>
 

@@ -3,19 +3,31 @@
         <head>
             <title>Laravel 8 Generate PDF From View</title>
 
+            <style>
+                @page { margin: 140px 40px 40px 40px; }
+                .table td { padding: 0rem !important;}
+                #header { position: fixed; left: 150px; top: -120px; right: 0px;  text-align: center; }
+            </style>
             <!-- CSS only -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         </head>
         <body>
-        <center><h1>FARMACIA LA POPULAR</h1></center>
-            <h3><center>{{ $title }} {{ $date }}</center></h3>
+            <div id="header">
+                <div style="float: right">
+                    <img src="{{asset('assets/images/Logo.jpeg')}}" width="150px" class="logo-icon" alt="logo icon">
+                </div>
+                <br>
+                <center><h3>FARMACIA LA POPULAR</h3></center>
+                    <h4><center>{{ $title }} {{ $date }}</center></h4>
+            </div>
 
+        <div id="content">
             <table class="table table-striped">
 
             <thead>
-                <th>Numero</th>
+                <th>Número</th>
                 <th>Nombre</th>
                 <th>Número de identidad</th>
                 <th>Teléfono</th>
@@ -40,6 +52,7 @@
 
         @endforeach
                 </tbody>
+            </div>
             </table>
 
 
