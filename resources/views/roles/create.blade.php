@@ -46,7 +46,7 @@
 
                     <div class="col-sm-7">
                       <div class="form-group">
-                        <input  style="margin-left: 1%;" type="text" class="form-control" name="name" autocomplete="off" autofocus>
+                        <input  style="margin-left: 1%;" type="text" class="form-control" name="name" value="{{old('name')}}" autocomplete="off" autofocus>
                       </div>
                     </div>
 
@@ -55,7 +55,7 @@
                           <label for="name" class="col-sm-2 col-form-label">Descripcion</label>
                           <div class="col-sm-7">
                             <div class="form-group">
-                              <input type="text" class="form-control" name="descripcion" autocomplete="off" autofocus>
+                              <input type="text" class="form-control" name="descripcion" value="{{old('descripcion')}}" autocomplete="off" autofocus>
                             </div>
                           </div>
                         </div>

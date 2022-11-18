@@ -30,6 +30,7 @@
                             <th>Precio</th>
                             <th>Descuento</th>
                             <th>Total</th>
+                            <th>Devolver</th>
                         </tr>
 
                         <?php
@@ -49,6 +50,12 @@
                             <?php $total = ($det->precio * $det->cantidad) - $real;
                             ?>
                             <td> {{$total }} </td>
+                            <td> 
+                            <form style="display:inline-block;" method="get" action="{{route('productos.devolver',['id'=>$det->id_detalle])}}">
+                                @csrf
+                                <input {{$det->devuelto == 1 ?  'disabled' : ''}}  type="submit" onclick="return confirm('¿Está seguro que desea devolver este producto?')" value="{{$det->devuelto == 1 ?  'Devuelto' : 'Devolver'}}" class="btn btn-success">
+                            </form>
+                             </td>
                         </tr>
 
                         @empty
