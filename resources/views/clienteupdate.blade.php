@@ -1,7 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Editar empleado')
 @section('contenido')
-
+@section('TituloPlantillas', 'Editar clientes')
 
 
 
@@ -19,12 +19,13 @@
 </div>
 @endif
 
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style="margin-left: 3% ;  margin-bottom: 3%; ">Editar cliente </h1>
+        
 
-        <h1 style="margin-bottom: 2%;"></h1>
+        <h1 style="margin-bottom: 6%;"></h1>
         <div style="margin: auto;" class="col-lg-6">
             <div class="card">
                 <div class="card-body">

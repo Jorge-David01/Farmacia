@@ -1,6 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Lista de productos')
 @section('contenido')
+@section('TituloPlantillas', 'Lista de productos')
 
 <style>
 td {
@@ -19,13 +20,12 @@ td {
 
 
 
-
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="clearfix"></div>
   <div class="content-wrapper">
   <div class="container-fluid">
 
 
-<h1 style=" margin-bottom: 2%; margin-left: 2%;"> Lista de productos </h1>
 
 
 

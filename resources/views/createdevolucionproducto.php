@@ -1,6 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Formulario de devolucion')
 @section('contenido')
+@section('TituloPlantillas', 'Registro de devoluciones')
 
 <div class="x_content">
 
@@ -22,7 +23,8 @@
         }
     </style>
 
-<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u>Registro de devolucion</u> </h1>
+<h1 style="margin-bottom: 6%;"></h1>
+<h1 style="margin-left: 4% ; margin-top: 70px; margin-bottom: 3%; "> <u></u> </h1>
 
     <form  action="{{route('devolucions.store')}}" method="POST" 
     style="margin-left: 3%;" method="post" enctype="multipart/form-data" >

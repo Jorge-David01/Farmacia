@@ -1,6 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Formulario de cotizacion')
 @section('contenido')
+@section('TituloPlantillas', 'Datos de la cotizacion')
 
 @if(session('mensaje'))
 <div id="mensaje" class="alert alert-success">
@@ -14,11 +15,10 @@
     }
 </style>
 
-
+<h1 style="margin-bottom: 6%;"></h1>
   <div class="content-wrapper">
   <div class="container-fluid">
 
-<h1 style="margin-bottom: 4%; margin-left: 2%;"> Datos de la cotizacion</h1>
 
         <form method="post">
             @csrf

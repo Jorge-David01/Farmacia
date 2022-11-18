@@ -1,11 +1,12 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Detalle usuario')
 @section('contenido')
+@section('TituloPlantillas', 'Detalles del usuario')
 
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1> Detalles del usuario </h1>
 
         <h1 style="margin-bottom: 2%;"></h1>
 

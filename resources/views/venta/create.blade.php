@@ -4,8 +4,9 @@ session_start();
 
 @extends('plantilla.principalpag')
 @section('pestania', 'Formulario de venta')
-
 @section('contenido')
+@section('TituloPlantillas', 'Datos de la factura')
+
 
 @if(session('mensaje'))
 <div id="mensaje" class="alert alert-success">
@@ -19,8 +20,9 @@ session_start();
     }
 </style>
 
+<h1 style="margin-bottom: 6%;"></h1>
 
-<h2 style="margin-left: 3% ; margin-bottom: 1%; ">Datos de la factura de venta </h2>
+<h2 style="margin-left: 3% ; margin-bottom: 1%; "> </h2>
 
 <div style="width: 80%;margin-left: 3%">
     <div style="width: 100%">

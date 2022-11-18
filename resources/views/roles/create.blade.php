@@ -2,6 +2,7 @@
 @section('pestania', 'Formulario de roles')
 
 @section('contenido')
+@section('TituloPlantillas', 'Creación de roles')
 
 
 <style>
@@ -10,6 +11,7 @@
     }
   </style>
 
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -30,8 +32,6 @@
 
         <div class="content-wrapper">
           <div class="container-fluid">
-
-            <h1 style="margin-left: 2% ;  margin-bottom: 3%; "> Creación de roles </h1>
 
             <h1 style="margin-bottom: 2%;"></h1>
 

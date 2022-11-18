@@ -1,8 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Lista de clientes')
 @section('contenido')
-
-
+@section('TituloPlantillas', 'Clientes')
 <style>
 td {
     text-align: center;
@@ -18,14 +17,11 @@ td {
 </style>
 
 
-
+<h1 style="margin-bottom: 5%;"></h1>
 <div class="clearfix"></div>
   <div class="content-wrapper">
   <div class="container-fluid">
 
-
-
-<h1 style=" margin-bottom: 2%; margin-left: 2%; "> Clientes </h1>
 @if (session('msj'))
 <div class="alert alert-success">
   {{session('msj')}}

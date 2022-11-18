@@ -1,6 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Editar usuario')
 @section('contenido')
+@section('TituloPlantillas', 'Editar Usuario')
 
 
 
@@ -16,10 +17,11 @@
         </div>
     @endif
 
+    <h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
   <div class="container-fluid">
 
-    <h1 style="margin-left: 3% ;  margin-bottom: 3%; ">Editar Usuario </h1>
+    <h1 style="margin-left: 3% ;  margin-bottom: 3%; "> </h1>
     
     <form style="margin-left: 2%;" method="POST" action="">
          @method('put')

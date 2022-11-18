@@ -2,6 +2,7 @@
 @section('pestania', 'Formulario de compra')
 
 @section('contenido')
+@section('TituloPlantillas', 'Datos de la factura')
 
 @if(session('mensaje'))
 <div id="mensaje" class="alert alert-success">
@@ -12,11 +13,11 @@
 
 
 
-
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style="margin-left: 2%; margin-bottom: 3%; ">Datos de la factura de compra </h1>
+        <h1 style="margin-left: 2%; margin-bottom: 3%; "> </h1>
 
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">

@@ -2,6 +2,7 @@
 @section('pestania', 'Cambio Contrasena')
 
 @section('contenido')
+@section('TituloPlantillas', 'Cambio Contraseña')
 
  <div class="x_content">
 
@@ -14,11 +15,10 @@
     </style>
 
 
-
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
   <div class="container-fluid">
 
-        <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Cambio Contraseña </h1>
         
     @if($errors->any())
         <div class="alert alert-danger">

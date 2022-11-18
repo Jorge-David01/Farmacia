@@ -1,13 +1,14 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Ayuda')
 @section('contenido')
+@section('TituloPlantillas', 'Pregunta generales')
 
 
 <div style="margin-top: 5%; width: 78%; margin-left: 4%;  text-align: center; border: 2px solid #dddddd;" class="container">
-  <h2>Pregunta generales</h2>
   
   <div id="accordion">
 
+  <h1 style="margin-bottom: 6%;"></h1>
     <div style=" text-align: left;" class="card bg-transparent">
       <div class="card-header">
          <a class="card-link" data-toggle="collapse" href="#collapseOne">

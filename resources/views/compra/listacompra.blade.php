@@ -1,7 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Lista de compras')
 @section('contenido')
-
+@section('TituloPlantillas', 'Listado de compras')
 
 <style>
 td {
@@ -22,13 +22,11 @@ td {
 </div>
 @endif
 
-
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="clearfix"></div>
   <div class="content-wrapper">
   <div class="container-fluid">
 
-
-<h1 style="margin-bottom: 2%; margin-left: 2%;"> Listado de compras realizadas </h1>
 
 
 <div class="row">

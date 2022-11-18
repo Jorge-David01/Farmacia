@@ -2,11 +2,12 @@
 @section('pestania', 'Formulario de proveedor')
 
 @section('contenido')
+@section('TituloPlantillas', 'Registro de proveedores')
 
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style=" margin-left: 2%; margin-bottom: 2%;">Registro de proveedor </h1>
+        <h1 style=" margin-left: 2%; margin-bottom: 2%;"></h1>
 
         
         @if ($errors->any())
@@ -19,7 +20,8 @@
 </div>
 @endif
 
-        
+      
+<h1 style="margin-bottom: 6%;"></h1>
         <div style="margin: auto; margin-bottom: 3%;" class="col-lg-6">
             <div class="card">
                 <div class="card-body">

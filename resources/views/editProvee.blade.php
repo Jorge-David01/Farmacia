@@ -1,15 +1,16 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Editar proveedor')
 @section('contenido')
+@section('TituloPlantillas', 'Editar proveedores')
 
 
 
 
-
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style="margin-left: 3% ;  margin-bottom: 3%; "> Editar proveedor </h1>
+        <h1 style="margin-left: 3% ;  margin-bottom: 3%; ">  </h1>
 
         <h1 style="margin-bottom: 2%;"></h1>
         <div style="margin: auto;" class="col-lg-6">

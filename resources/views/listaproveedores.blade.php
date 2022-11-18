@@ -1,6 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Lista de proveedores')
 @section('contenido')
+@section('TituloPlantillas', 'Lista de proveedores')
 
 
 <style>
@@ -21,12 +22,11 @@
 
 
 
-
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="clearfix"></div>
 <div class="content-wrapper">
   <div class="container-fluid">
 
-    <h1 style=" margin-left: 2%; margin-bottom: 2%;"> Lista de proveedores </h1>
 
 
 

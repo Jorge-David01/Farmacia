@@ -1,6 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Caja de Alivio')
 @section('contenido')
+@section('TituloPlantillas', 'Caja de alivio')
 
 
 <style>
@@ -16,7 +17,6 @@
 <div class="content-wrapper">
   <div class="container-fluid">
 
-    <h1 style=" margin-bottom: 1%; margin-left: 2%;"> Caja de alivio </h1>
     
     @if (session('mensaje'))
 <div class="alert alert-success">
@@ -36,6 +36,7 @@
 </div>
 @endif
 
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="card">

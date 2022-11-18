@@ -1,7 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Lista de Usuarios')
 @section('contenido')
-
+@section('TituloPlantillas', 'Lista de Usuarios')
 
 <style>
 td {
@@ -15,7 +15,7 @@ td {
 
 
 
-        <h1 style="margin-left: 4% ;margin-bottom: 2%; "> Lista de Usuarios </h1>
+        <h1 style="margin-left: 4% ;margin-bottom: 2%; ">  </h1>
 
 
         
@@ -32,7 +32,7 @@ td {
 @endif
 
 
-
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="card">

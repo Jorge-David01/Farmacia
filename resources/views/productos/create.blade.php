@@ -1,7 +1,8 @@
 @extends('plantilla.principalpag')
-@section('pestania', '')
+@section('pestania', 'Creación de productos')
 
 @section('contenido')
+@section('TituloPlantillas', 'Creación de productos')
 
 @if($errors->any())
 <div class="alert alert-danger">
@@ -15,11 +16,11 @@
 </div>
 @endif
 
-
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style=" margin-left: 2%; margin-bottom: 3%;"> Creación de productos </h1>
+        <h1 style=" margin-left: 2%; margin-bottom: 3%;">  </h1>
 
 
         <div style="margin: auto;" class="col-lg-6">

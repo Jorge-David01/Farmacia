@@ -1,19 +1,21 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Listado Roles')
 
+
 @section('contenido')
+@section('TituloPlantillas', 'Lista de roles')
+
 @if(session('mensaje'))
 <div class="alert alert-success">
   {{session('mensaje')}}
 </div>
 @endif
 
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
   <div class="container-fluid">
 
 
-
-    <h1 style="  margin-bottom: 3%; margin-left: 2%;"> Lista de roles </h1>
     <a class="btn btn-warning" href='/rolesnuevo'>Nuevo rol</a>
     <h1 style="margin-bottom: 2%;"></h1>
 

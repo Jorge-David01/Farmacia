@@ -2,6 +2,8 @@
 @section('pestania', 'Formulario de usuarios')
 
 @section('contenido')
+@section('TituloPlantillas', 'Creación de Usuario')
+
 
 <div class="x_content">
 
@@ -23,10 +25,11 @@
         }
     </style>
 
+<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
   <div class="container-fluid">
 
-     <h1 style="margin-left: 4% ;  margin-bottom: 3%; "> Creación de Usuario </h1>
+     <h1 style="margin-left: 4% ;  margin-bottom: 3%; ">  </h1>
 
     <form style="margin-left: 3%;" method="post" enctype="multipart/form-data">
         @csrf
