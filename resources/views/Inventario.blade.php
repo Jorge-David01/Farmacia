@@ -75,6 +75,7 @@
 
 
               <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+                <th >#</th>
                 <th>Nombre del producto</th>
                 <th>Cantidad</th>
                 <!--<th>Precio</th>
@@ -95,6 +96,7 @@
               @forelse($Inventa as $listaInv)
 
               <tr style="border: 2px solid #dddddd;">
+                <td>{{$Inventa->perPage()*($Inventa->currentPage()-1)+$loop->iteration}}</td>
                 <td> {{$listaInv->productos->nombre_producto}} </td>
                 <td> {{$listaInv-> cantidad}}</td>
 

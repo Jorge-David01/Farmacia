@@ -2,7 +2,6 @@
 @section('pestania', 'Formulario de compra')
 
 @section('contenido')
-@section('TituloPlantillas', 'Datos de la factura')
 
 @if(session('mensaje'))
 <div id="mensaje" class="alert alert-success">
@@ -12,11 +11,12 @@
 
 
 
+
+
 <div class="content-wrapper">
     <div class="container-fluid">
 
-
-        <h1 style="margin-bottom: 6%;"></h1>
+        <h1 style="margin-left: 2%; margin-bottom: 3%; ">Datos de la factura de compra </h1>
 
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">
@@ -52,9 +52,12 @@
                                     <center><label for="">Fecha de pago:</label></center>
                                     <input type="date" class="form-control" id="pago" name="pago" min="{{$fecha_actual}}" max="<?php echo date('Y-m-d', strtotime($fecha_actual . "+ 10 year")); ?>" required value="@if(isset($pago)){{$pago}}@else{{old("pago")}}@endif">
                                 </div>
+
                                 <div style="width: 24%; float: left;margin-right: 1%">
                                     <center><label for="">Nombre del proveedor:</label></center>
-                                    <select name="proveedor" id="proveedor" class="form-control selectpicker" data-live-search="true" onchange="llenar()">
+                                    <select name="proveedor" id="proveedor" class="mi-selector"
+                                    data-show-subtext="true" data-live-search="true"
+                                    onchange="llenar()">
                                         @if(old('proveedor'))
                                         @foreach ($proveedor as $p)
                                         @if (old('proveedor') == $p->id)
@@ -76,19 +79,20 @@
 
                                 <div style="width: 100%; float: left; height: 30px;"></div>
                                 <div style="width: 19%; float: left;margin-right: 1%">
-                                    <center><label for="">Producto:</label></center>
-                                    <select name="productos" id="productos" class="form-control selectpicker" data-live-search="true">
-                                        @if(old('productos'))
-                                        @foreach ($productos as $p)
-                                        @if (old('productos') == $p->id)
-                                        <option value="{{$p->id}}">{{$p->nombre}}</option>
-                                        @endif
-                                        @endforeach
-                                        @else
-                                        <option style="display: none" value="">Seleccione el producto</option>
-                                        @endif
-                                    </select>
-                                </div>
+                <center><label for="" >Producto:</label></center>
+            <select name="productos" id="productos" class="mi-selector"
+            data-show-subtext="true" data-live-search="true">
+                @if(old('productos'))
+                @foreach ($productos as $p)
+                    @if (old('productos') == $p->id)
+                        <option value="{{$p->id}}">{{$p->nombre}}</option>
+                    @endif
+                @endforeach
+                @else
+                    <option style="display:none" value="">Seleccione el producto</option>
+                @endif
+                </select>
+            </div>
 
                                 <div style="width: 11%; float: left;margin-right: 1%">
                                     <center><label for="">Cantidad:</label></center>
@@ -122,22 +126,18 @@
 
                         <div>
                             <script>
-                                window.onload = function() {
+                                window.onload = function () {
                                     llenar();
                                 }
-                            </script>
-                            <script>
+                    </script>
+                                <script>
                                 function llenar() {
                                     $("#productos").find('option').not(':first').remove();
                                     var select = document.getElementById("proveedor");
                                     var valor = select.value;
                                     var selectnw = document.getElementById("productos");
                                     @foreach($productos as $p)
-                                    if ({
-                                            {
-                                                $p - > id_proveedor
-                                            }
-                                        } == valor) {
+                                    if ({{$p -> id_proveedor}} == valor) {
                                         // creando la nueva option
                                         var opt = document.createElement('option');
                                         // Añadiendo texto al elemento (opt)
@@ -158,12 +158,12 @@
 
 
 
-                    <h3 style="margin-bottom: 1%; margin-left: 2%" > Productos Facturados </h3>
+                    <h2 style="margin-bottom: 0%; "> Productos Facturados </h2>
 
 
 
 
-                    <table style="border: 2px solid #dddddd; margin-bottom: 1%;" class="table table-bordered">
+                    <table style="border: 2px solid #dddddd;" class="table table-bordered">
 
                         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                             <th style="text-align: center">Eliminar</th>
@@ -258,7 +258,7 @@
 
 
 
-                    <div style="display:inline-block;  margin-bottom: 1%;">
+                    <div style="display:inline-block; margin-bottom: 1%;">
                         <form style="float: left" action="{{route('compra.cancelar')}}" method="get">
                             <button class="btn btn-danger" type="submit">Cancelar</button>
                         </form>
