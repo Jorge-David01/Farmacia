@@ -14,8 +14,6 @@
 
 
 
-<div class="content-wrapper">
-  <div class="container-fluid">
 
 
     @if (session('mensaje'))
@@ -37,26 +35,17 @@
     @endif
 
 
-<h1 style="margin-bottom: 6%;"></h1>
-<div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="card">
-       
 
-    </div>
 
-    <h1 style="margin-bottom: 4%;"></h1>
-    <div class="row">
-      <div class="col-12 col-lg-12">
-        <div class="card">
-          <!--
-    <form action="{{route('caja.answer')}}" method="POST">
-    @csrf
-    <div>
-<label for="">¿Desea vaciar la caja de alivio?</label>
-</div>
-</div>
 
+
+  
+    
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+  <h1 style="margin-bottom: 6%;"></h1>
 
 
 <div class="row">
@@ -64,15 +53,13 @@
                 <div class="card">
                     <div class="card-body">
 
-
-
                         <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
 
 
 
 
-<form action="{{route('caja.buscador')}}" method="post" >
+<form action="{{route('caja.buscador')}}" method="post" style="margin-bottom:2%;" >
 
 @csrf
 <div class="form-row">
@@ -81,11 +68,9 @@
     <input type="text" class="form-control" name="search" id="search" placeholder="Busqueda">
 
   </div>
-
   <li class="nav-item">
 <input style="margin-left:1%" type="submit" value="Buscar" class="btn btn-success">
 </li>
-         
          </div>
 </form>
 
@@ -94,16 +79,13 @@
 <a style="margin-left: 2%;" class="btn btn-warning" href="/CajaAlivio">Limpiar</a>
 </li>
 
-        </div>
-      </div>
-    </div>
-
-    <a class="btn btn-warning" style="margin-bottom: 2%" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
+      
+  
 
 
 
 <li class="nav-item">
-<a  class="btn btn-warning float-right" style="margin-bottom: 1%" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
+<a  class="btn btn-warning float-right" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
 </li>
 
 </ul>
@@ -112,6 +94,8 @@
 </div>
 </div>
 </div>
+
+
 
     <div class="row">
       <div class="col-12 col-lg-12">
@@ -164,7 +148,8 @@
       </div>
     </div>
 
-
+    </div>
+</div>
 
     @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
     @endsection
