@@ -1,10 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Formulario de cliente')
 @section('contenido')
-@section('TituloPlantillas', 'Registro de clientes ')
-
-
-
+@section('TituloPlantillas', 'Registro del cliente')
 
 
 <div class="content-wrapper">

@@ -3,10 +3,10 @@
 @section('contenido')
 @section('TituloPlantillas', 'Vaciar caja de alivio')
 
-<h1 style="margin-bottom: 6%;"></h1>
+
 <div class="content-wrapper">
     <div class="container-fluid">
-        
+        <h1 style="margin-bottom: 6%;"></h1>
 
         <h1 style="margin-bottom: 2%;"></h1>
         <div class="row">
@@ -18,11 +18,11 @@
                         <div class="form-group">
                             <label for="nombrepro">¿Desea vaciar caja de alivio?</label>
                             <input style="display:none;" minlength="2" maxlength="2" style="width: 18%" class="form-control" type="text" id="cajaalivio" name="cajaalivio" required="required" value="Sí" placeholder="Ingrese si para vaciar la caja">
-                       
-                        </div>
-                        <button class="btn btn-success" style=" margin-bottom: 3%;"  type="submit">Vaciar</button>
 
-                        <a style ="margin-left: 3%; margin-bottom: 3%;" class="btn btn-primary" href="/CajaAlivio">Cancelar</a>
+                        </div>
+                        <button class="btn btn-success" style=" margin-bottom: 3%;" type="submit">Vaciar</button>
+
+                        <a style="margin-left: 3%; margin-bottom: 3%;" class="btn btn-primary" href="/CajaAlivio">Cancelar</a>
                     </form>
 
                 </div>

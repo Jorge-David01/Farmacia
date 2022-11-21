@@ -1,62 +1,59 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Detalles del producto')
 @section('contenido')
-@section('TituloPlantillas', 'Detalles de productos')
+@section('TituloPlantillas', 'Detalles del producto')
 
-<h1 style="margin-bottom: 6%;"></h1>
+
 <div class="clearfix"></div>
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style="margin-left: 2%; margin-bottom: 3%; "></h1>
-
-        <h1 style="margin-bottom: 2%;"></h1>
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="card">
+    <h1 style="margin-bottom: 6%;"></h1>
 
 
-                    <div class="table-responsive">
+            <div style="margin: auto;" class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
 
-                        <table style="text-align: center; " class="table table-bordered align-items-center table-flush table-borderless">
+                    <form style="margin-left: 2%;" method="POST" >
+                        @method('put')
+                        @csrf
 
-                            <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-                                <th scope="col">Campo</th>
-                                <th scope="col">Valor</th>
-                            </tr>
+                        <div>
+                            <label  style="margin-top: 3%;" for="nombre_producto">Nombre del proveedor:</label>
+                            <input class="form-control " type="text" class="form-control-file" name="nombre_producto" id="nombre_producto" placeholder="nombre_producto" value="{{$details->Nombre_del_proveedor}}" maxlength="50" disabled>
+                        </div>
 
-                            <tr>
-                                <th scope="row">Nombre del proveedor</th>
-                                <td>{{$details->Nombre_del_proveedor}}</td>
-                            </tr>
+                        <div>
+                            <label  style="margin-top: 3%;" for="nombre_producto">Nombre del Producto:</label>
+                            <input class="form-control " type="text" class="form-control-file" name="nombre_producto" id="nombre_producto" placeholder="nombre_producto" value="{{$details->nombre_producto}}" maxlength="50" disabled>
+                        </div>
 
-                            <tr>
-                                <th scope="row">Nombre del producto</th>
-                                <td>{{$details->nombre_producto}}</td>
-                            </tr>
+                        <div>
+                            <label style="margin-top: 3%;" for="principio_activo">Principio Activo:</label>
+                            <input class="form-control " type="text" class="form-control-file" name="principio_activo" id="principio_activo" placeholder="principio_activo" value="{{$details->principio_activo}}" disabled>
+                        </div>
 
-                            <tr>
+                        <div>
+                            <label style="margin-top: 3%;" for="Descripcion">Descripcion:</label>
+                            <input class="form-control " type="text" class="form-control-file" name="descripcion" id="descripcion" placeholder="Descripcion" value="{{$details->descripcion}}" maxlength="110" disabled>
+                        </div>
 
-                                <th scope="row">Principio activo</th>
-                                <td>{{$details->principio_activo}}</td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">Descripción</th>
-                                <td>{{$details->descripcion}}</td>
-                            </tr>
-
-                        </table><br>
+                        <hr>
+                        
                         
                         <div style="text-align: center">
                         <a class="btn btn-success" href="/Producto">Volver</a>
                         <a style="display:inline-block;margin-left:1%;" class="btn btn-primary" href="/productoeditar/{{$details->id}}/editar">Actualizar</a>
                         </div>
 
-                        <h1 style="margin-bottom: 2%;"></h1>
-                    </div>
+
+                    </form>
+
                 </div>
             </div>
+        </div>
+
         </div>
     </div>
 </div>

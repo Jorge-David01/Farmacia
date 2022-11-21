@@ -1,7 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Detalle de empleado')
 @section('contenido')
-@section('TituloPlantillas', 'Detalle de empleado')
+@section('TituloPlantillas', 'Detalles del empleado')
 
 <div class="content-wrapper">
     <div class="container-fluid">

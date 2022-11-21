@@ -12,12 +12,11 @@
 
 
 
-
-<h1 style="margin-bottom: 6%;"></h1>
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style="margin-left: 2%; margin-bottom: 3%; "> </h1>
+
+        <h1 style="margin-bottom: 6%;"></h1>
 
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">
@@ -77,20 +76,19 @@
 
                                 <div style="width: 100%; float: left; height: 30px;"></div>
                                 <div style="width: 19%; float: left;margin-right: 1%">
-                <center><label for="" >Producto:</label></center>
-            <select name="productos" id="productos" class="form-control selectpicker"
-                data-live-search="true">
-                @if(old('productos'))
-                @foreach ($productos as $p)
-                    @if (old('productos') == $p->id)
-                        <option value="{{$p->id}}">{{$p->nombre}}</option>
-                    @endif
-                @endforeach
-                @else
-                    <option style="display: none" value="">Seleccione el producto</option>
-                @endif
-                </select>
-            </div>
+                                    <center><label for="">Producto:</label></center>
+                                    <select name="productos" id="productos" class="form-control selectpicker" data-live-search="true">
+                                        @if(old('productos'))
+                                        @foreach ($productos as $p)
+                                        @if (old('productos') == $p->id)
+                                        <option value="{{$p->id}}">{{$p->nombre}}</option>
+                                        @endif
+                                        @endforeach
+                                        @else
+                                        <option style="display: none" value="">Seleccione el producto</option>
+                                        @endif
+                                    </select>
+                                </div>
 
                                 <div style="width: 11%; float: left;margin-right: 1%">
                                     <center><label for="">Cantidad:</label></center>
@@ -124,18 +122,22 @@
 
                         <div>
                             <script>
-                                window.onload = function () {
+                                window.onload = function() {
                                     llenar();
                                 }
-                    </script>
-                                <script>
+                            </script>
+                            <script>
                                 function llenar() {
                                     $("#productos").find('option').not(':first').remove();
                                     var select = document.getElementById("proveedor");
                                     var valor = select.value;
                                     var selectnw = document.getElementById("productos");
                                     @foreach($productos as $p)
-                                    if ({{$p -> id_proveedor}} == valor) {
+                                    if ({
+                                            {
+                                                $p - > id_proveedor
+                                            }
+                                        } == valor) {
                                         // creando la nueva option
                                         var opt = document.createElement('option');
                                         // Añadiendo texto al elemento (opt)
@@ -156,12 +158,12 @@
 
 
 
-                    <h2 style="margin-bottom: 0%; "> Productos Facturados </h2>
+                    <h3 style="margin-bottom: 1%; margin-left: 2%" > Productos Facturados </h3>
 
 
 
 
-                    <table style="border: 2px solid #dddddd;" class="table table-bordered">
+                    <table style="border: 2px solid #dddddd; margin-bottom: 1%;" class="table table-bordered">
 
                         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                             <th style="text-align: center">Eliminar</th>
@@ -256,7 +258,7 @@
 
 
 
-                    <div style="display:inline-block; margin-bottom: 1%;">
+                    <div style="display:inline-block;  margin-bottom: 1%;">
                         <form style="float: left" action="{{route('compra.cancelar')}}" method="get">
                             <button class="btn btn-danger" type="submit">Cancelar</button>
                         </form>
