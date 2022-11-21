@@ -93,12 +93,6 @@
 
             <table class="table align-items-center table-flush table-borderless">
 
-              <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-                <th>Número de factura</th>
-
-                <th>Fecha de pago</th>
-                <th>Detalles de compra</th>
-              </tr>
 
               <tbody>
                 @if (count($lista)<=0) <tr>
@@ -107,13 +101,9 @@
                   @endif
               </tbody>
 
-              @forelse($lista as $list )
+         
 
-              <tr style="border: 2px solid #dddddd;">
-                <td> {{$list->numero_factura}} </td>
-
-                <td> {{$list->fecha_pago}} </td>
-
+             
 
     <table class="table table-bordered align-items-center table-flush table-borderless">
 
@@ -123,19 +113,20 @@
 <th>Fecha de pago</th>
 <th>Detalles de compra</th>
 </tr>
-                <td> <a class="btn btn-success" href="/detallescompra/{{$list->id}}"> Detalles </a></td>
-              </tr>
+             
+              
 
 
 
 
-
+              @forelse($lista as $list )
 
 
 <tr style="border: 2px solid #dddddd;">
 <td>{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
 <td> {{$list->numero_factura}} </td>
 <td>  {{$list->fecha_pago}}             </td>
+<td> <a class="btn btn-success" href="/detallescompra/{{$list->id}}"> Detalles </a></td>
 
               @empty
 

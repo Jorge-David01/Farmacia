@@ -127,12 +127,6 @@
           <div class="table-responsive">
             <table class="table align-items-center table-flush table-borderless">
 
-              <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-                <th>Nombre del proveedor</th>
-                <th>Nombre del producto</th>
-                <th>Principio activo</th>
-                <th>Ver detalles</th>
-              </tr>
 
 
               <tbody>
@@ -153,17 +147,6 @@
 <td>{{$producto->principio_activo}}</td>
 <td > <a  class="btn btn-success" href="/Detallesproduct/{{$producto->id}}"> Detalles </a></td>
 </tr>
-
-              <tr style="border: 2px solid #dddddd;">
-                <td>{{$producto->proveedores->Nombre_del_proveedor}}</td>
-                <td>{{$producto->nombre_producto}}</td>
-                <td>{{$producto->principio_activo}}</td>
-                <td> <a class="btn btn-success" href="/Detallesproduct/{{$producto->id}}"> Detalles </a></td>
-              </tr>
-
-
-
-
 
               @empty
 

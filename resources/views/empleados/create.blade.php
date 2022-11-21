@@ -77,7 +77,12 @@
                                     <input maxlength="60" type="email" id="email" name="email" required="required" class="form-control" value="{{old('email')}}" placeholder="Ingrese el correo electrónico" pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" title="Ingrese un punto seguido de un dominio como por ejemplo .com .es .org">
                                 </div>
                             </div>
-                            
+                            <hr>
+                            <div style="text-align: center; ">
+                                <button class="btn btn-danger" type="button" onclick="window.location='/empleados'">Cancelar</button>
+                                <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                            </div>
 
                         </form>
                     </div>

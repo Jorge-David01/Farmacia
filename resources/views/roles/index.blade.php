@@ -40,19 +40,18 @@
 
                   <td style="padding: 7px;">{{ $role->name }}</td>
                   <td style="padding: 7px;" >{{ $role->descripcion }}</td>
-                  <td style="padding: 7px;" >
-                    <a  href="{{ route('roles.show', $role->id) }}" class="btn btn-success"> <i
+                  
+                  
 
-                  <td style="padding: 15px;">{{ $role->name }}</td>
-                  <td style="padding: 15px;">{{ $role->descripcion }}</td>
+           
 
                   <td style="padding: 15px;">
+                  
                     <a href="{{ route('roles.show', $role->id) }}" class="btn btn-success"> <i
 
                       class="material-icons">detalles</i> </a>
 
                    
-
                  
                   </td>
 
