@@ -104,8 +104,9 @@ td {
 
 	<div class="table-responsive">
 
-    <table class="table align-items-center table-flush table-borderless">
+    <table class="table table-bordered align-items-center table-flush table-borderless">
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+<th>#</th>
 <th>Nombre Completo</th>
 <th>Telefono</th>
 <th>Numero de Carnet</th>
@@ -125,6 +126,7 @@ td {
 
 
 <tr style="border: 2px solid #dddddd;">
+<td>{{$liscliente->perPage()*($liscliente->currentPage()-1)+$loop->iteration}}</td>
 <td> {{$cliente->nombre_cliente}} </td>
 <td>  {{$cliente->telefono}} </td>
 <td>  {{$cliente->num_carnet}}  </td>

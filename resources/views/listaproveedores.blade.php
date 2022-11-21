@@ -104,7 +104,7 @@
         <div class="card">
 
           <div class="table-responsive">
-            <table class="table align-items-center table-flush table-borderless">
+            <table class="table table-bordered align-items-center table-flush table-borderless">
 
 
 

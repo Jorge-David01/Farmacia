@@ -89,11 +89,11 @@
 
           <div class="table-responsive">
 
-            <table class="table align-items-center table-flush table-borderless">
+            <table class="table table-bordered align-items-center table-flush table-borderless">
 
               <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-                <th>Número de factura</th>
-
+              <th>#</th>  
+              <th>Número de factura</th>
                 <th>Método de pago</th>
                 <th>Detalles de compra</th>
               </tr>
@@ -109,10 +109,9 @@
 
 
               <tr style="border: 2px solid #dddddd;">
+              <td>{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
                 <td> {{$list->numero_factura}} </td>
-
                 <td> {{$list->pago}} </td>
-
                 <td> <a class="btn btn-success" href="/detallesventa/{{$list->id}}"> Detalles </a></td>
               </tr>
 

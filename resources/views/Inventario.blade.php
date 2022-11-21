@@ -72,6 +72,7 @@
 
             <table class="table align-items-center table-flush table-borderless">
 
+  <table class="table table-bordered align-items-center table-flush table-borderless">
 
 
               <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
@@ -82,12 +83,18 @@
                 <th>Vencimiento</th> -->
               </tr>
 
+
+<tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+<th>#</th>
+<th >Nombre dels producto</th>
+<th >Cantidad</th>
               <tbody>
                 @if (count($Inventa)<=0) <tr>
                   <td colspan="4">No hay resultados</td>
                   </tr>
                   @endif
               </tbody>
+
 
 
 
@@ -105,6 +112,12 @@
                 <!--  <td> <a  class="btn btn-success" href="/Precio/{{$listaInv->id}}"> Precio unitario </a></td>
                 <td > <a  class="btn btn-success" href="/vencimiento/{{$listaInv->id}}"> fecha de vencimiento </a></td>
                 </tr> -->
+
+
+<tr style="border: 2px solid #dddddd;">
+<td>{{$Inventa->perPage()*($Inventa->currentPage()-1)+$loop->iteration}}</td>
+<td> {{$listaInv->productos->nombre_producto}} </td>
+<td> {{$listaInv->  cantidad}}</td>
 
 
 

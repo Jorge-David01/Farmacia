@@ -52,7 +52,7 @@
 
                     <div class="card-body">
                         <div class="row">
-                          <label for="name" class="col-sm-2 col-form-label">Descripcion</label>
+                          <label for="name" class="col-sm-2 col-form-label">Descripción</label>
                           <div class="col-sm-7">
                             <div class="form-group">
                               <input type="text" class="form-control" name="descripcion" value="{{old('descripcion')}}" autocomplete="off" autofocus>

@@ -95,7 +95,7 @@
                 <div class="card">
 
                     <div class="table-responsive">
-                        <table class="table align-items-center table-flush table-borderless">
+                        <table class="table table-bordered align-items-center table-flush table-borderless">
 
                             <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                                 <th>#</th>

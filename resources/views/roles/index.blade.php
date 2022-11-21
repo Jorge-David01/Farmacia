@@ -37,11 +37,18 @@
               <td>
                 @forelse ($roles as $role)
                 <tr>
+
+                  <td style="padding: 7px;">{{ $role->name }}</td>
+                  <td style="padding: 7px;" >{{ $role->descripcion }}</td>
+                  <td style="padding: 7px;" >
+                    <a  href="{{ route('roles.show', $role->id) }}" class="btn btn-success"> <i
+
                   <td style="padding: 15px;">{{ $role->name }}</td>
                   <td style="padding: 15px;">{{ $role->descripcion }}</td>
 
                   <td style="padding: 15px;">
                     <a href="{{ route('roles.show', $role->id) }}" class="btn btn-success"> <i
+
                       class="material-icons">detalles</i> </a>
 
                    
@@ -62,7 +69,7 @@
                       onsubmit="return confirm('Desea eliminar este rol')" style="display: inline-block;">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" rel="tooltip" class="btn btn-danger">
+                      <button style="margin-top: 5%"   type="submit" rel="tooltip" class="btn btn-danger">
                         <i class="material-icons">Eliminar</i>
                       </button>
                     </form>

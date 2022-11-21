@@ -262,11 +262,11 @@ class CompraController extends Controller
    
 public function listacompras(){
     abort_if(Gate::denies('compra_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-    $lista = Compra::paginate(5) ;
-   $name = Proveedor::paginate(10);
+    $lista = Compra::paginate(10) ;
+
     
 
-    return view('compra/listacompra')->with('lista' , $lista)->with('name', $name);
+    return view('compra/listacompra')->with('lista' , $lista);
 
   
 
@@ -327,7 +327,7 @@ public function detailscompra($id){
 
     public function inven(){
         abort_if(Gate::denies('inventario'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $Inventa =  Inventario::paginate(20) ;
+        $Inventa =  Inventario::paginate(10) ;
         
     
         
