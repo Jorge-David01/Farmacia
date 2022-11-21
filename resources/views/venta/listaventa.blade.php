@@ -92,10 +92,11 @@
             <table class="table table-bordered align-items-center table-flush table-borderless">
 
               <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-              <th>#</th>  
+              <th>#</th>
               <th>Número de factura</th>
-                <th>Método de pago</th>
-                <th>Detalles de compra</th>
+                    <th>Cliente</th>
+                    <th>Total factura</th>
+                    <th>Detalles de compra</th>
               </tr>
 
               <tbody>
@@ -110,8 +111,18 @@
 
               <tr style="border: 2px solid #dddddd;">
               <td>{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
-                <td> {{$list->numero_factura}} </td>
-                <td> {{$list->pago}} </td>
+              <td> {{$list->numero_factura}} </td>
+
+              <td>
+                {{$list->clientes->nombre_cliente}}
+                </td>
+              <td>
+                <?php $sum=0?>
+                @foreach ($list->detalles as $detall)
+                <?php $sum+= ($detall->cantidad*$detall->precio * (1-$detall->descuento/100))?>
+                @endforeach
+                L.{{number_format($sum,2)}}
+              </td>
                 <td> <a class="btn btn-success" href="/detallesventa/{{$list->id}}"> Detalles </a></td>
               </tr>
 
