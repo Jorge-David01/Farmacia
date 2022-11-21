@@ -22,7 +22,7 @@ class CajaAlivioController extends Controller
     public function caja()
     {
         abort_if(Gate::denies('caja_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $cajadatos = caja::paginate(10);
+        $cajadatos = caja::paginate(10) ;
         return view('caja') ->with('cajadatos',$cajadatos);
 
         //
@@ -72,6 +72,20 @@ class CajaAlivioController extends Controller
 
         
        
+    }
+
+
+    public function busqueda(Request $request){
+        
+        $sear=trim($request->get('search'));
+        $cajadatos=DB::table('cajas')
+
+        ->where('Fecha','like','%'.$sear.'%')
+        ->orderBy('Fecha', 'asc')->paginate(10);
+
+
+
+        return view('caja')->with('cajadatos',  $cajadatos);
     }
 
 }

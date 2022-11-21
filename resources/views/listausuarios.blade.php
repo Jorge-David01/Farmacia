@@ -111,7 +111,7 @@ function pdf(){
         <div class="card" >
         <div class="table-responsive">
 
-            <table class="table align-items-center table-flush table-borderless">
+            <table class="table table-bordered align-items-center table-flush table-borderless">
                             
                 <thead>
                 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
@@ -134,7 +134,7 @@ function pdf(){
                     @foreach($employee as $user)
 
                     <tr style="border: 2px solid #dddddd;">
-                    <td>{{$loop->index+1}}</td>
+                    <td>{{$employee->perPage()*($employee->currentPage()-1)+$loop->iteration}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>

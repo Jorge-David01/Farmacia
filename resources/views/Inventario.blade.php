@@ -73,12 +73,13 @@ td {
 
 	<div class="table-responsive">
 
-  <table class="table align-items-center table-flush table-borderless">
+  <table class="table table-bordered align-items-center table-flush table-borderless">
 
 
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-<th >Nombre del producto</th>
+<th>#</th>
+<th >Nombre dels producto</th>
 <th >Cantidad</th>
 
 
@@ -102,6 +103,7 @@ td {
 @forelse($Inventa as $listaInv)
 
 <tr style="border: 2px solid #dddddd;">
+<td>{{$Inventa->perPage()*($Inventa->currentPage()-1)+$loop->iteration}}</td>
 <td> {{$listaInv->productos->nombre_producto}} </td>
 <td> {{$listaInv->  cantidad}}</td>
 

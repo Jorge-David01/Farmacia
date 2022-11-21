@@ -23,7 +23,6 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Controller;
 
 use App\Http\Controllers\CajaAlivioController;
-use App\Http\Controllers\DevolucionController;
 
 
 
@@ -217,8 +216,6 @@ Route::get('/venta/factura/{id}',[VentaController::class, 'factura'])->name('ven
 Route::get('/listaventa',[VentaController::class, 'listaventa']) -> name('lista.venta');
 
 Route::get('/detallesventa/{id}',[VentaController::class, 'detallesventa']) -> name('detalles.venta')-> where('id', '[1-9]+');
-Route::get('/productodevolver/{id}',[DevolucionController::class, 'productodevolver']) -> name('productos.devolver')-> where('id', '[1-9]+');
-Route::get('/devoluciones',[DevolucionController::class, 'index']) -> name('devoluciones.index');
 
 //----------------------------------------------------------
 //----------------- RUTAS DE COTIZACION -----------------------
@@ -277,11 +274,16 @@ Route::get('/registro', function () {
 //----------------- Caja De Alivio ---------------------
 
 Route::get('/CajaAlivio',[CajaAlivioController::class, 'caja'])->name('caja.alivio');
-Route::post('/CajaAlivio',[CajaAlivioController::class, 'respuesta'])->name('caja.answer');
+
 
 Route::get('/CajaPregunta/respuesta',[CajaAlivioController::class, 'pregunta'])->name('caja.pregunta');
 
 Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta'])->name('caja.respuestas');
+
+
+
+Route::post('/CajaAlivio', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
+
 
 //----------------------------------------------------------
 //----------------- RUTAS DE DEVOLUCION ---------------------
@@ -297,8 +299,10 @@ Route::get('/productos/pdf', [ProductoController::class, 'createPDF'])->name('pr
 
 Route::get('/compras/pdf', [CompraController::class, 'createPDF'])->name('compras.pdf');
 
+
+
 Route::get('/empleados/pdf', [EmpleadoController::class, 'createPDF'])->name('empleados.pdf');
 
 Route::get('/usuarios/pdf', [UsuarioController::class, 'createPDF'])->name('usuarios.pdf');
-
 Route::get('/clientes/pdf', [ClienteController::class, 'createPDF'])->name('clientes.pdf');
+

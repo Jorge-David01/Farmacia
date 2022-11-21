@@ -102,11 +102,11 @@ td {
 
   <div class="table-responsive">
 
-    <table class="table align-items-center table-flush table-borderless">
+    <table class="table table-bordered align-items-center table-flush table-borderless">
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
+<th>#</th>
 <th>Número de factura</th>
-
 <th>Fecha de pago</th>
 <th>Detalles de compra</th>
 </tr>
@@ -122,8 +122,8 @@ td {
 @forelse($lista as $list )
 
 <tr style="border: 2px solid #dddddd;">
+<td>{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
 <td> {{$list->numero_factura}} </td>
-
 <td>  {{$list->fecha_pago}}             </td>
 
 <td > <a  class="btn btn-success" href="/detallescompra/{{$list->id}}"> Detalles </a></td>
