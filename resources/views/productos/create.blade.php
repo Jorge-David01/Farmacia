@@ -2,7 +2,7 @@
 @section('pestania', 'Creación de productos')
 
 @section('contenido')
-@section('TituloPlantillas', 'Creación de productos')
+@section('TituloPlantillas', 'Creación de producto')
 
 @if($errors->any())
 <div class="alert alert-danger">
@@ -16,11 +16,11 @@
 </div>
 @endif
 
-<h1 style="margin-bottom: 6%;"></h1>
+
 <div class="content-wrapper">
     <div class="container-fluid">
+        <h1 style="margin-bottom: 6%;"></h1>
 
-        <h1 style=" margin-left: 2%; margin-bottom: 3%;">  </h1>
 
 
         <div style="margin: auto;" class="col-lg-6">
@@ -69,10 +69,10 @@
                                 <textarea maxlength="200" type="text" id="descripcion" name="descripcion" required="required" class="form-control" value="{{old('descripcion')}}" placeholder="Ingrese la descripción ">{{old('descripcion')}}</textarea>
                             </div>
                         </div>
+                        <hr>
 
                         <div class="ln_solid"></div>
                         <div class="form-group">
-                            
                             <div style="text-align: center; ">
                                 <button class="btn btn-danger" type="button" onclick="window.location='/Producto'">Cancelar</button>
                                 <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>

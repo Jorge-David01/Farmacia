@@ -47,12 +47,26 @@
   <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
   <script src="{{asset('js/toastr.min.js')}}"></script>
 
+  <link href="{{asset('css/select2.min.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="{{asset('js/select2.min.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+
   <title>Farmacia - @yield('pestania')</title>
 
 </head>
 
 <body class="bg-theme bg-theme1">
 
+    <script>
+        jQuery(document).ready(function($){
+          $(document).ready(function() {
+              $('.mi-selector').select2();
+          });
+      });
+      </script>
 
   <!-- Catgador de arranque -->
   <div id="pageloader-overlay" class="visible incoming">
@@ -204,11 +218,11 @@
             </a>
           </li>
 
-          
+
 
           <li><h3 > @yield('TituloPlantillas')</h3></li>
         </ul>
-        
+
         <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
         <!-- ---------------------------------------------------- PERFIL Y CONFIGURACIÓN -------------------------------------------------- -->
 

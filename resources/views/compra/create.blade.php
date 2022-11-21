@@ -2,7 +2,6 @@
 @section('pestania', 'Formulario de compra')
 
 @section('contenido')
-@section('TituloPlantillas', 'Datos de la factura')
 
 @if(session('mensaje'))
 <div id="mensaje" class="alert alert-success">
@@ -13,11 +12,11 @@
 
 
 
-<h1 style="margin-bottom: 6%;"></h1>
+
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style="margin-left: 2%; margin-bottom: 3%; "> </h1>
+        <h1 style="margin-left: 2%; margin-bottom: 3%; ">Datos de la factura de compra </h1>
 
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">
@@ -53,9 +52,12 @@
                                     <center><label for="">Fecha de pago:</label></center>
                                     <input type="date" class="form-control" id="pago" name="pago" min="{{$fecha_actual}}" max="<?php echo date('Y-m-d', strtotime($fecha_actual . "+ 10 year")); ?>" required value="@if(isset($pago)){{$pago}}@else{{old("pago")}}@endif">
                                 </div>
+
                                 <div style="width: 24%; float: left;margin-right: 1%">
                                     <center><label for="">Nombre del proveedor:</label></center>
-                                    <select name="proveedor" id="proveedor" class="form-control selectpicker" data-live-search="true" onchange="llenar()">
+                                    <select name="proveedor" id="proveedor" class="mi-selector"
+                                    data-show-subtext="true" data-live-search="true"
+                                    onchange="llenar()">
                                         @if(old('proveedor'))
                                         @foreach ($proveedor as $p)
                                         @if (old('proveedor') == $p->id)
@@ -78,8 +80,8 @@
                                 <div style="width: 100%; float: left; height: 30px;"></div>
                                 <div style="width: 19%; float: left;margin-right: 1%">
                 <center><label for="" >Producto:</label></center>
-            <select name="productos" id="productos" class="form-control selectpicker"
-                data-live-search="true">
+            <select name="productos" id="productos" class="mi-selector"
+            data-show-subtext="true" data-live-search="true">
                 @if(old('productos'))
                 @foreach ($productos as $p)
                     @if (old('productos') == $p->id)
@@ -87,7 +89,7 @@
                     @endif
                 @endforeach
                 @else
-                    <option style="display: none" value="">Seleccione el producto</option>
+                    <option style="display:none" value="">Seleccione el producto</option>
                 @endif
                 </select>
             </div>

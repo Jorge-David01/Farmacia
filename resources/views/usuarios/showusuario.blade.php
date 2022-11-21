@@ -3,66 +3,52 @@
 @section('contenido')
 @section('TituloPlantillas', 'Detalles del usuario')
 
-<h1 style="margin-bottom: 6%;"></h1>
+
 <div class="content-wrapper">
     <div class="container-fluid">
 
 
-        <h1 style="margin-bottom: 2%;"></h1>
-
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="card">
+        <div style="margin: auto; margin-top: 2%;" class="col-6 col-lg-6">
+            <div style="margin-top: 15%;" class="card">
+                <div class="card-body">
 
 
-                    <table style="text-align: center; " class="table table-bordered align-items-center table-flush table-borderless">
+                    <form style="margin-left: 2%;" method="POST" action="">
+                        @method('put')
+                        @csrf
 
-                        <thead>
+                        <div>
+                            <label for="name">Nombre Completo:</label>
+                            <input type="text" class="form-control" name="name" id="name " placeholder="name" value="{{$usuario->name}}" maxlength="50" disabled>
+                        </div>
 
-                            <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-                                <th scope="col">Campo</th>
-                                <th scope="col">Valor</th>
-                            </tr>
+                        <div>
+                            <label for="email">Correo electronico:</label>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="email" value="{{$usuario->email}}" disabled>
+                        </div>
 
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <th scope="row">Nombre Completo</th>
-                                <td>{{$usuario->name}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Correo electrónico</th>
-                                <td>{{$usuario->email}}</td>
-                            </tr>
-                        
-
-                        </tbody>
-                    </table><br>
+                        <hr>
+                        <div style="text-align: center">
+                            <a class="btn btn-success" href="/ListaUsuarios">Volver</a>
 
 
-
-                    <div style="text-align: center; ">
-
-                        <a class="btn btn-success" href="/ListaUsuarios">Volver</a>
+                            <a class="btn btn-primary" href="/Usuario/{{$usuario->id}}/editar">Actualizar</a>
 
 
-                        <a class="btn btn-primary" href="/Usuario/{{$usuario->id}}/editar">Actualizar</a>
+                            <form style="display:inline-block;" method="post" action="{{route('usuarios.delete',['id'=>$usuario->id])}}">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el usuario?')" value="eliminar" class="btn btn-danger">
+                            </form>
+                        </div>
 
+                    </form>
 
-                        <form style="display:inline-block;" method="post" action="{{route('usuarios.delete',['id'=>$usuario->id])}}">
-                            @csrf
-                            @method('delete')
-                            <input type="submit" onclick="return confirm('¿Está seguro que desea eliminar el usuario?')" value="eliminar" class="btn btn-danger">
-                        </form>
-
-                    </div>
-                    <h1 style="margin-bottom: 2%;"></h1>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection

@@ -10,9 +10,10 @@
   }
 </style>
 
-<h1 style="margin-bottom: 6%;"></h1>
+
 <div class="content-wrapper">
   <div class="container-fluid">
+  <h1 style="margin-bottom: 6%;"></h1>
 
     <form action="{{route('kardex.index')}}" method="GET">
       <div style="width: 18%;">

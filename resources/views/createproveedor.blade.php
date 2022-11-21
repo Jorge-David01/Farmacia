@@ -20,7 +20,6 @@
 </div>
 @endif
 
-      
 <h1 style="margin-bottom: 6%;"></h1>
         <div style="margin: auto; margin-bottom: 3%;" class="col-lg-6">
             <div class="card">

@@ -1,7 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Lista de clientes')
 @section('contenido')
-@section('TituloPlantillas', 'Clientes')
+@section('TituloPlantillas', 'Lista de clientes')
 <style>
 td {
     text-align: center;
