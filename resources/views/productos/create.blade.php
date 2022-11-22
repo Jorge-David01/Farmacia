@@ -74,8 +74,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div style="text-align: center; ">
-                                <button class="btn btn-danger" type="button" onclick="window.location='/Producto'">Cancelar</button>
-                                <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
+                                <button class="btn btn-warning" type="button" onclick="window.location='/Producto'">Volver</button>
+                                <a type="button" href="javascript:location.reload()" class="btn btn-danger">Restablecer</a>
                                 <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>

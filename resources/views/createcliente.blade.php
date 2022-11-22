@@ -74,12 +74,12 @@
                         </div>
 
 
-
+     <hr>
                         <div style="text-align: center;">
                             
                             <div style="display:inline-block;">
-                                <button class="btn btn-danger" type="button" onclick="window.location='/Cliente'">Cancelar</button>
-                                <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
+                                <button class="btn btn-warning" type="button" onclick="window.location='/Cliente'">Volver</button>
+                                <a type="button" href="javascript:location.reload()" class="btn btn-danger">Restablecer</a>
                                 <button style="display:inline-block;" type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>

@@ -57,9 +57,9 @@
 
                         <hr>
                         <div style="text-align: center">
-                            <button style=" margin-left: 10px;" type="submit" class="btn btn-primary">Guardar</button>
+                        <a class="btn btn-warning" href="/Producto">Volver</a>
                             <input type="reset" class="btn btn-danger">
-                            <a class="btn btn-success" href="/Producto">Regresar</a>
+                            <button  type="submit" class="btn btn-success">Guardar</button>
                         </div>
                         <h1 style="margin-bottom: 2%;"></h1>
 

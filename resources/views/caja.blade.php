@@ -16,11 +16,6 @@
 
 
 
-    @if (session('mensaje'))
-    <div class="alert alert-success">
-      {{session('mensaje')}}
-    </div>
-    @endif
 
     @if($errors->any())
     <div class="alert alert-danger">
@@ -41,11 +36,17 @@
 
   
     
-
+  <h1 style="margin-bottom: 5%;"></h1>
+  <div class="clearfix"></div>
 <div class="content-wrapper">
   <div class="container-fluid">
 
-  <h1 style="margin-bottom: 6%;"></h1>
+
+  @if (session('mensaje'))
+    <div class="alert alert-success">
+      {{session('mensaje')}}
+    </div>
+    @endif
 
 
 <div class="row">
@@ -59,7 +60,7 @@
 
 
 
-<form action="{{route('caja.buscador')}}" method="post" style="margin-bottom:2%;" >
+<form action="{{route('caja.buscador')}}" method="post" style="margin-bottom: 1%;" >
 
 @csrf
 <div class="form-row">
@@ -150,6 +151,7 @@
 
     </div>
 </div>
+ </div>
 
     @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
     @endsection

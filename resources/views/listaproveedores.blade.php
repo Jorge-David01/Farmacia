@@ -42,7 +42,7 @@
 
             <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
-              <form action="{{route('funt')}}" method="POST" style="margin-bottom:2%;">
+              <form action="{{route('funt')}}" method="get" style="margin-bottom: 1%;">
 
                 @csrf
                 <div class="form-row">

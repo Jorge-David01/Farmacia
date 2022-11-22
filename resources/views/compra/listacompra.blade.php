@@ -37,7 +37,7 @@
 
             <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
-              <form action="{{route('buscador')}}" method="POST" style="margin-bottom:2%;">
+              <form action="{{route('buscador')}}" method="POST" style="margin-bottom: 1%;">
                 @csrf
                 <div class="form-row">
                   <div class="col-sm-8">

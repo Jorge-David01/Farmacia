@@ -50,9 +50,9 @@
 
                         <hr>
                         <div style="text-align: center">
-                            <button  type="submit" class="btn btn-primary">Guardar</button>
+                        <a  class="btn btn-warning" href="/Cliente">Volver</a>
                             <input type="reset" class="btn btn-danger">
-                            <a  class="btn btn-success" href="/Cliente">Regresar</a>
+                            <button  type="submit" class="btn btn-success">Guardar</button>
                         </div>
 
                     </form>
