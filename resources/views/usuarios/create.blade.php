@@ -148,14 +148,6 @@
                                 <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
 
-
-                        <div style="text-align: center; ">
-                            <button class=" btn btn-danger" type="button" onclick="window.location='/ListaUsuarios'">Cancelar</button>
-                            <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
-                            <button type="submit" class="btn btn-success">Guardar</button>
-                        </div>
-
-
                     </form>
 
 
