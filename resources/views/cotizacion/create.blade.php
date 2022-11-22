@@ -44,13 +44,13 @@
                                 @endif
 
                                 <?php $fecha_actual = date("Y-m-d"); ?>
-                                <div style="width: 49%; float: left;margin-right: 1%">
+                                <div style="width: 49%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="">Fecha de la cotizacion:</label></center>
                                     <input type="date" class="form-control" id="fecha" name="fecha" disabled value="{{$fecha_actual}}">
                                 </div>
 
 
-                                <div style="width: 49%; float: left;margin-right: 1%">
+                                <div style="width: 49%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="">Nombre del cliente:</label></center>
                                     <select name="cliente" id="cliente" class="form-control selectpicker" data-live-search="true">
                                         @if(old('cliente'))
@@ -75,7 +75,7 @@
 
 
 
-                                <div style="width:32%; float: left;margin-right: 1%">
+                                <div style="width:32%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="">Producto:</label></center>
                                     <select name="productos" id="productos" class="form-control selectpicker" data-live-search="true">
                                         @if(old('productos'))
@@ -96,17 +96,17 @@
                                     </select>
                                 </div>
 
-                                <div style="width: 32%; float: left;margin-right: 1%">
+                                <div style="width: 32%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="">Cantidad:</label></center>
                                     <input type="number" placeholder="0" class="form-control" id="cantidad" name="cantidad" min="0" maxlength="7" max="999999999" required value="{{old("cantidad")}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                 </div>
 
-                                <div style="width: 33%; float: left;margin-right: 1%">
+                                <div style="width: 33%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="">Descuento:</label></center>
                                     <input placeholder="0.00" class="form-control" id="descuento" name="descuento" min="0" max="100" maxlength="3" type="number" step="any" title="Formato de descuento incorrecto" value="{{old("descuento")}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                 </div>
 
-                                <div style="width: 100%; float: left;margin-top: 2%; margin-bottom: 1%;">
+                                <div style="width: 99%; float: left;margin-top: 3%; margin-bottom: 1%; ">
                                     <button class="btn btn-success" type="submit" style="width: 100%">Agregar producto</button> <br>
                                     <hr>
                                 </div>
@@ -121,7 +121,7 @@
 
                         <div class="row">
                             <div class="col-12 col-lg-12">
-                                <div class="card">
+                                <div style="width: 99%;" class="card">
 
 
                                     <div class="table-responsive">
@@ -215,7 +215,6 @@
                                 </div>
                             </div>
                         </div>
-
 
                         <div style="text-align: center; margin-bottom: 1% ">
 

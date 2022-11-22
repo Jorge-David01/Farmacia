@@ -2,6 +2,7 @@
 @section('pestania', 'Formulario de compra')
 
 @section('contenido')
+@section('TituloPlantillas', 'Datos de la factura')
 
 @if(session('mensaje'))
 <div id="mensaje" class="alert alert-success">
@@ -16,13 +17,12 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style="margin-left: 2%; margin-bottom: 3%; ">Datos de la factura de compra </h1>
-
+    <h1 style="margin-bottom: 6%;"></h1>
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">
                 <div class="card">
 
-                    <div style="width: 97%; margin-left: 2%">
+                    <div style="width: 97%; margin-left: 2%; ">
                         <div style="width: 100%">
                             <form method="post">
                                 @csrf
@@ -258,16 +258,16 @@
 
 
 
-                    <div style="display:inline-block; margin-bottom: 1%;">
-                        <form style="float: left" action="{{route('compra.cancelar')}}" method="get">
+                    <div style="text-align: center; margin-bottom: 2%">
+                        <form style="display: inline" action="{{route('compra.cancelar')}}" method="get">
                             <button class="btn btn-danger" type="submit">Cancelar</button>
                         </form>
 
-                        <form style="float: left" action="{{route('compra.destruir')}}" method="get">
+                        <form style="display: inline" action="{{route('compra.destruir')}}" method="get">
                             <button type="submit" class="btn btn-warning">Borrar todo</button>
                         </form>
 
-                        <form style="float: left" action="{{route('compra.almacenar')}}" method="post">
+                        <form style="display: inline" action="{{route('compra.almacenar')}}" method="post">
                             @csrf
                             @method('put')
                             <script>
@@ -293,6 +293,8 @@
                             @endif
                         </form>
                     </div>
+
+                   
 
 
                 </div>
