@@ -101,20 +101,19 @@
                   @endif
               </tbody>
 
-         
 
-             
+
+
 
     <table class="table table-bordered align-items-center table-flush table-borderless">
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-<th>#</th>
-<th>Número de factura</th>
-<th>Fecha de pago</th>
-<th>Detalles de compra</th>
-</tr>
-             
-              
+            <th>#</th>
+            <th>Número de factura</th>
+            <th>Proveedor</th>
+            <th>Total factura</th>
+            <th>Detalles de compra</th>
+
 
 
 
@@ -125,7 +124,14 @@
 <tr style="border: 2px solid #dddddd;">
 <td>{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
 <td> {{$list->numero_factura}} </td>
-<td>  {{$list->fecha_pago}}             </td>
+            <td>{{$list->proveed->Nombre_del_proveedor}}</td>
+            <td>
+              <?php $sum=0?>
+              @foreach ($list->detalles as $detall)
+              <?php $sum+= ($detall->cantidad*$detall->precio_farmacia)?>
+              @endforeach
+              L.{{number_format($sum,2)}}
+            </td>
 <td> <a class="btn btn-success" href="/detallescompra/{{$list->id}}"> Detalles </a></td>
 
               @empty

@@ -11,6 +11,7 @@ use App\Models\Cliente;
 use App\Models\Caja;
 use App\Models\caja_respuesta;
 
+use App\Http\Controllers\DevolucionController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
@@ -290,6 +291,8 @@ Route::post('/CajaAlivio', [CajaAlivioController::class, 'busqueda']) -> name ('
 //----------------- RUTAS DE DEVOLUCION ---------------------
 
 //falta hacer
+Route::post('/productodevolver',[DevolucionController::class, 'productodevolver']) -> name('productos.devolver');
+Route::get('/devoluciones',[DevolucionController::class, 'index']) -> name('devoluciones.index');
 
 //----------------------------------------------------------
 //----------------- RUTAS PDF ------------------------------

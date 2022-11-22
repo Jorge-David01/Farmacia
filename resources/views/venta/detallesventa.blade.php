@@ -8,6 +8,12 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
+        @if (session('Mensaje'))
+            <div class="alert alert-danger">
+            {{session('Mensaje')}}
+            </div>
+        @endif
+
         <h1 style="margin-left: 2% ; ">Detalles de venta </h1>
         <h1 style="margin-bottom: 2%;"></h1>
 
@@ -51,11 +57,10 @@
                             ?>
                             <td> {{$total }} </td>
                             <td> 
-                            <form style="display:inline-block;" method="get" action="{{route('productos.devolver',['id'=>$det->id_detalle])}}">
-                                @csrf
-                                <input {{$det->devuelto == 1 ?  'disabled' : ''}}  type="submit" onclick="return confirm('¿Está seguro que desea devolver este producto?')" value="{{$det->devuelto == 1 ?  'Devuelto' : 'Devolver'}}" class="btn btn-success">
-                            </form>
-                             </td>
+                                <button  onclick="cargarproductodevolver({{json_encode($det)}})" 
+                                {{$det->cantidad == 0 ? "disabled":""}} data-toggle="modal" data-target="#modalDevolucion" class="btn btn-primary"
+                                    >Devolver</button>
+                            </td>
                         </tr>
 
                         @empty
@@ -85,7 +90,53 @@
 </table>
 
 
+<!-- Button trigger modal -->
 
+
+<!-- Modal -->
+<div class="modal fade" id="modalDevolucion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black" id="exampleModalLabel">Modal Devolucion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form style="display:inline-block;" method="post"  action="{{route('productos.devolver')}}">
+      @csrf;
+      <div class="modal-body">
+        <div style="color:gray" >
+            Ingrese la cantidad a devolver de <span id="modal_nombre_producto"></span>, con precio de 
+            <span id="modal_precio"></span> y descuento de <span id="modal_descuento"></span>            
+        </div>
+
+        <div>                   
+            <input hidden type="text" id="modal_id_detalle" name="modal_id_detalle">  
+            <input  type="text" id="modal_cantidad" name="modal_cantidad"> 
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="submit"  onclick="return confirm('¿Está seguro que desea devolver este producto?')" class="btn btn-primary">Devolver</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+    function cargarproductodevolver(producto){
+        document.getElementById("modal_id_detalle").value = producto['id_detalle'];
+        document.getElementById("modal_cantidad").value = producto['cantidad'];
+        document.getElementById("modal_descuento").innerHTML = producto['descuento'];
+        document.getElementById("modal_precio").innerHTML = producto['precio'];
+        document.getElementById("modal_nombre_producto").innerHTML = producto['nombre_producto'];
+    }
+</script>
 
 
 
