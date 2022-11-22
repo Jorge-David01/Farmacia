@@ -64,20 +64,25 @@
               </li>
 
               <script>
-                function pdf() {
+        setInterval('fg()', 1000);
+        function fg(){
+          document.getElementById('dat').innerHTML = "{{url()->previous();}}";
+        }
 
-                  window.location.href = "{{route('proveedores.pdf')}}";
-                  Swal.fire({
-                    position: 'bottom-end',
-                    icon: 'success',
-                    title: 'Se esta descargando el pdf',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
+        function pdf(){
 
+          window.location.href="{{route('proveedores.pdf')}}";
+          Swal.fire({
+            position: 'bottom-end',
+            icon: 'success',
+            title: 'Se esta descargando el pdf',
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            timer: {{$pro->lastPage()*100*1}}
+          })
 
-                }
-              </script>
+        }
+      </script>
 
 
             </ul>

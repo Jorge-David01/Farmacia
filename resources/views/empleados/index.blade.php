@@ -73,10 +73,9 @@
                                     icon: 'success',
                                     title: 'Se esta descargando el pdf',
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    allowOutsideClick: false,
+        timer: {{$employee->lastPage()*100*1}}
                                   })
-
-                                  document.getElementById('descpdf').disabled = true;
                                 }
                               </script>
 
