@@ -16,20 +16,28 @@ $devoluciones = Devolucion::
 select('devolucions.*','productos.nombre_producto')
 ->join('productos', 'devolucions.id_producto', '=', 'Productos.id')
 ->paginate(10);
+
 return $devoluciones;
 }
 
     
-public function productodevolver($id){
+public function productodevolver(Request $request){
 
-$detalle = DetalleVenta::findOrfail($id);
-$detalle->devuelto = 1;
+$detalle = DetalleVenta::findOrfail($request->modal_id_detalle);
+
+if($request->modal_cantidad > $detalle->cantidad){    
+    return redirect()->route('detalles.venta',["id"=>$detalle->id_venta])->with('Mensaje', 'La cantidad excede a la venta');
+}
+
+$detalle->cantidad = $detalle->cantidad - $request->modal_cantidad;
 $detalle->save();
+
+
 
 $devuelto = new Devolucion();
 $devuelto->id_venta = $detalle->id_venta;
 $devuelto->id_producto = $detalle->id_producto;
-$devuelto->cantidad = $detalle->cantidad;
+$devuelto->cantidad = $request->modal_cantidad;
 $devuelto->descuento = $detalle->descuento;
 $devuelto->precio = $detalle->precio;
 $devuelto->save();
