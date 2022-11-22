@@ -117,7 +117,7 @@
 
 
 
-                        <h2 style="  margin-bottom: 2%; "> Productos Cotizados </h2>
+                        <h3 style="  margin-bottom: 1%; "> Productos Cotizados </h3>
 
                         <div class="row">
                             <div class="col-12 col-lg-12">
@@ -216,20 +216,23 @@
                             </div>
                         </div>
 
-                        <div style="display:inline-block;  margin-bottom: 1%;">
-                            <form style=" float: left" action="{{route('cotizacion.cancelar')}}" method="get">
-                            <button class="btn btn-danger" type="submit">Cancelar</button>
+
+                        <div style="text-align: center; margin-bottom: 1% ">
+
+                            <form style="display: inline" action="{{route('cotizacion.cancelar')}}" method="get">
+                                <button class="btn btn-danger" type="submit">Cancelar</button>
                             </form>
 
-                            <form style="float: left" action="{{route('cotizacion.destruir')}}" method="get">
+                            <form style="display: inline" action="{{route('cotizacion.destruir')}}" method="get">
                                 <button type="submit" class="btn btn-warning">Borrar todo</button>
                             </form>
 
-                            <form style="float: left" action="{{route('cotizacion.almacenar')}}" method="post">
+                            <form style="display: inline" action="{{route('cotizacion.almacenar')}}" method="post">
                                 @csrf
                                 @method('put')
                                 <script>
                                     setInterval('actualizar()', 1000);
+
                                     function actualizar() {
                                         var c = document.getElementById('cliente').value;
                                         document.getElementById('cliente2').value = c;
@@ -245,6 +248,7 @@
                                 @endif
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>

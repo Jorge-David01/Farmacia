@@ -14,7 +14,7 @@
 
 <div class="content-wrapper">
   <div class="container-fluid">
-  <h1 style="margin-bottom: 6%;"></h1>
+    <h1 style="margin-bottom: 6%;"></h1>
 
     <a class="btn btn-warning" href='/rolesnuevo'>Nuevo rol</a>
     <h1 style="margin-bottom: 2%;"></h1>
@@ -38,38 +38,25 @@
                 @forelse ($roles as $role)
                 <tr>
 
-                  <td style="padding: 7px;">{{ $role->name }}</td>
-                  <td style="padding: 7px;" >{{ $role->descripcion }}</td>
-                  
-                  
+                  <td style="padding: 30px;">{{ $role->name }}</td>
+                  <td style="padding: 22px;">{{ $role->descripcion }}</td>
 
-           
-
-                  <td style="padding: 15px;">
-                  
-                    <a href="{{ route('roles.show', $role->id) }}" class="btn btn-success"> <i
-
-                      class="material-icons">detalles</i> </a>
-
-                   
-                 
+                  <td style="padding: 20px;">
+                    <a href="{{ route('roles.show', $role->id) }}" class="btn btn-success"> detalles </a>
                   </td>
 
-                  <td style="padding: 15px;">
-                  @if ($role->id != 1)
-                    <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-success"> <i
-                      class="material-icons">editar</i> </a>
+                  <td style="padding: 20px;">
+                    @if ($role->id != 1)
+                    <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-success"> editar </a>
                     @endif
                   </td>
 
                   <td style="padding: 15px;">
-                  @if ($role->id != 1)
-                    <form action="{{ route('roles.destroy', $role->id) }}" method="post"
-                      onsubmit="return confirm('Desea eliminar este rol')" style="display: inline-block;">
+                    @if ($role->id != 1)
+                    <form action="{{ route('roles.destroy', $role->id) }}" method="post" onsubmit="return confirm('Desea eliminar este rol')" style="display: inline-block;">
                       @csrf
                       @method('DELETE')
-                      <button style="margin-top: 5%"   type="submit" rel="tooltip" class="btn btn-danger">
-                        <i class="material-icons">Eliminar</i>
+                      <button style="margin-top: 5%" type="submit" rel="tooltip" class="btn btn-danger">Eliminar
                       </button>
                     </form>
                     @endif
