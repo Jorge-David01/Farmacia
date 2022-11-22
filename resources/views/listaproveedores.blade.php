@@ -10,15 +10,10 @@
   }
 </style>
 
-@if (session('Mensaje'))
-<div class="alert alert-danger">
-  {{session('Mensaje')}}
-</div>
-@endif
 
 
 <div class="clearfix"></div>
-<div class="content-wrapper">
+        <div class="content-wrapper">
   <div class="container-fluid">
 
     <h1 style="margin-bottom: 6%;"></h1>
@@ -43,19 +38,14 @@
             <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
               <form action="{{route('funt')}}" method="get" style="margin-bottom: 1%;">
-
                 @csrf
                 <div class="form-row">
-
                   <div class="col-sm-8">
                     <input type="text" class="form-control" name="search" id="search" placeholder="Busqueda">
-
                   </div>
-
                   <li class="nav-item">
                     <input style="margin-left:1%" type="submit" value="Buscar" class="btn btn-success">
                   </li>
-
                 </div>
               </form>
 

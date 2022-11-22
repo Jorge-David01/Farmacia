@@ -193,18 +193,20 @@ class ProductoController extends Controller
 //------------- BUSCADOR  -----------------
 
 
-public function buscando(Request $REQUEST){
+public function buscando(Request $request){
+    $sear=trim($request->get('busca'));
+    $variablesurl=$request->all();
     $produc = Producto::select('*')
     ->join("proveedors","productos.id_proveedor","=","proveedors.id")
     ->where(
-    'nombre_producto','like', '%'.$REQUEST->busca.'%'
+    'nombre_producto','like', '%'.$sear.'%'
  )
  ->orWhere(
-    'principio_activo','like', '%'.$REQUEST->busca.'%'
+    'principio_activo','like', '%'.$sear.'%'
  )->orWhere(
-    'Nombre_del_proveedor','like', '%'.$REQUEST->busca.'%'
+    'Nombre_del_proveedor','like', '%'.$sear.'%'
  )
-    ->paginate(10);
+    ->paginate(10)->appends($variablesurl);
 // return $prod;
    
     return view('listaproductos')->with('produc', $produc);
