@@ -1,7 +1,7 @@
 @extends('plantilla.principalpag')
 @section('pestania', 'Lista de clientes')
 @section('contenido')
-@section('TituloPlantillas', 'Lista de clientes')
+@section('TituloPlantillas', 'Clientes')
 <style>
 td {
     text-align: center;
@@ -43,7 +43,7 @@ td {
 
 
 
-<form  action="{{route('cliente.busqueda')}}" method="POST" style="margin-bottom:2%;">
+<form  action="{{route('cliente.busqueda')}}" method="POST" style="margin-bottom:1%;">
 @csrf
 <div class="form-row">
 <div class="col-sm-8">
@@ -107,9 +107,9 @@ td {
     <table class="table table-bordered align-items-center table-flush table-borderless">
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>#</th>
-<th>Nombre Completo</th>
-<th>Telefono</th>
-<th>Numero de Carnet</th>
+<th>Nombre completo</th>
+<th>Teléfono</th>
+<th>Número de carnet</th>
 <th>Identidad</th>
 <th>Ver detalles</th>
 </tr>

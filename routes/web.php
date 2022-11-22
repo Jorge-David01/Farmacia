@@ -114,7 +114,8 @@ Route::get('/Editprovee/{id}/editar',[ProveedorController::class, 'Edit']) -> na
 Route::put('/Editprovee/{id}/editar',[ProveedorController::class, 'Update']) -> name('update.proveedor')-> where('id', '[1-9]+');
 
 
-Route::post('/Prove/search', [ProveedorController::class, 'sear']) -> name ('funt');
+Route::get('/Prove/search', [ProveedorController::class, 'sear']) -> name ('funt');
+
 
 
 //------------------------------------------------------------

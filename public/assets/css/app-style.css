@@ -2006,7 +2006,7 @@ table.grid td {
 /* Alerts*/
 .alert {
     position: relative;
-    padding: 0;
+    padding: 15px;
     margin-bottom: 1rem;
     border: none;
 	background-color: rgba(0,0,0,.2);
@@ -2041,15 +2041,17 @@ table.grid td {
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
+
 .alert-success {
+    padding: 8px;
     color: #ffffff;
     background-color: #02ba5a;
     border-color: #02ba5a;
-	
+    border-radius: 0.75rem;
 }
-.alert-success .alert-link {
-    color: #7bff2b;
-}
+
+
+
 
 .alert-info {
     color: #fefefe;

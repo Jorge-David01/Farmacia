@@ -158,7 +158,7 @@
         @can('devolucion')
         <li>
           <a href="/devolucion">
-            <i class="fa fa-cart-plus"></i> <span>Devolucion de Producto</span>
+            <i class="fa fa-cart-plus"></i> <span>Devolución de Producto</span>
           </a>
         </li>
         @endcan
@@ -190,7 +190,7 @@
         @can('cotizacion_nuevo', 'cotizacion_imprimir')
         <li>
           <a href="/cotizacion/nuevo">
-            <i class="fa fa-file-text-o"></i> <span>Cotizacion</span>
+            <i class="fa fa-file-text-o"></i> <span>Cotización</span>
           </a>
         </li>
         @endcan
