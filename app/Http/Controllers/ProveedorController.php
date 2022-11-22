@@ -238,9 +238,14 @@ class ProveedorController extends Controller{
     public function sear(Request $request){
 
         $sear=trim($request->get('search'));
+        $variablesurl=$request->all();
         $pro=DB::table('proveedors') 
+
+
+
+
         ->where('Nombre_del_proveedor','like', '%'.$sear.'%' )
-        ->orWhere('Nombre_del_distribuidor', 'like', '%'.$sear.'%')->paginate(10);
+        ->orWhere('Nombre_del_distribuidor', 'like', '%'.$sear.'%')->paginate(10)->appends($variablesurl);
 
 
 

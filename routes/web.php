@@ -135,7 +135,7 @@ Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> n
 // Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto');
 
 
-Route::post('/Produ/busca', [ProductoController::class, 'buscando']) -> name ('producto.busqueda');
+Route::get('/Produ/busca', [ProductoController::class, 'buscando']) -> name ('producto.busqueda');
 
 
 //----------------------------------------------------------
@@ -284,7 +284,7 @@ Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta']
 
 
 
-Route::post('/CajaAlivio', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
+Route::get('/CajaAlivio', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
 
 
 //----------------------------------------------------------

@@ -32,13 +32,13 @@
             <div style="margin-top: 15%;" class="card">
                 <div class="card-body">
 
-                    <form method="post" enctype="multipart/form-data">
+                    <form  method="post" enctype="multipart/form-data">
                         @csrf
 
                         <div class="item form-group">
                             <label for="first-name">Nombre Completo: <span class="required"></span>
                             </label>
-                            <div>
+                            <div >
                                 <input maxlength="110" type="text" id="nombre_completo" name="nombre_completo" required="required" class="form-control " value="{{old('nombre_completo')}}" placeholder="Ingrese el nombre completo">
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="item form-group">
                             <label for="first-name">Rol: <span class="required"></span>
                             </label>
-                            <div>
+                            <div >
                                 <select required="required" class="form-control" name="role" value="{{old('role')}}">
                                     <option value="Vendedor">Vendedor</option>
                                     <option value="Administrador">Administrador</option>
@@ -57,7 +57,7 @@
                         <div class="item form-group">
                             <label for="first-name">Correo Electronico: <span class="required"></span>
                             </label>
-                            <div>
+                            <div >
                                 <input placeholder="Ingrese el correo electronico" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                             </div>
                         </div>
@@ -65,7 +65,7 @@
 
                         <div class="item form-group">
                             <label for="password">{{ __('Contraseña:') }}</label>
-                            <div>
+                            <div >
                                 <div class="input-group" style="width: 100%;">
                                     <input id="password" type="password" {{old('contraseña')}} class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" value="{{old('password')}}" placeholder="Ingrese la contraseña">
                                     <span class="input-group-btn">
@@ -84,7 +84,7 @@
 
                         <div class="item form-group">
                             <label for="confirm_password">{{ __('Confirmar Contraseña:') }}</label>
-                            <div>
+                            <div >
                                 <div class="input-group" style="width: 100%;">
                                     <input id="confirm_password" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="current-password" placeholder="Confirme la contraseña">
                                     <span class="input-group-btn">
@@ -135,26 +135,17 @@
                             }
                         </script>
 
-
+                      
 
 
 
                         <div class="ln_solid"></div>
-
 <hr>
                             <div style="text-align: center; ">
                             <button class=" btn btn-warning" type="button" onclick="window.location='/ListaUsuarios'">Volver</button>
                                 <a type="button" href="javascript:location.reload()" class="btn btn-danger">Restablecer</a>
                                 <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
-
-
-                        <div style="text-align: center; ">
-                            <button class=" btn btn-danger" type="button" onclick="window.location='/ListaUsuarios'">Cancelar</button>
-                            <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
-                            <button type="submit" class="btn btn-success">Guardar</button>
-                        </div>
-
 
                     </form>
 

@@ -51,7 +51,7 @@
 
 
 
-              <form action="{{route('producto.busqueda')}}" method="POST" style="margin-bottom: 1%;">
+              <form action="{{route('producto.busqueda')}}" method="get" style="margin-bottom: 1%;">
                 @csrf
                 <div class="form-row" ]>
                   <div class="col-sm-8">

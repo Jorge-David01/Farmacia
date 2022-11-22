@@ -8,13 +8,9 @@ td {
 }
 </style>
 
-@if (session('Mensaje'))
-<div class="alert alert-danger">
-  {{session('Mensaje')}}
-</div>
-@endif
 
-</style>
+
+
 
 
 <h1 style="margin-bottom: 5%;"></h1>

@@ -60,7 +60,7 @@
 
 
 
-<form action="{{route('caja.buscador')}}" method="post" style="margin-bottom: 1%;" >
+<form action="{{route('caja.buscador')}}" method="get" style="margin-bottom: 1%;" >
 
 @csrf
 <div class="form-row">
@@ -144,6 +144,7 @@
 
         </div>
         {{$cajadatos -> links() }}
+        
    
       
       </div>
