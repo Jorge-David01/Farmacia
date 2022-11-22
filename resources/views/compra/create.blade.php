@@ -258,7 +258,7 @@
 
 
 
-                    <div style="text-align: center; margin-bottom: 2%">
+                    <div style="text-align: center; margin-bottom: 2%; margin-top: 2%">
                         <form style="display: inline" action="{{route('compra.cancelar')}}" method="get">
                             <button class="btn btn-danger" type="submit">Cancelar</button>
                         </form>
