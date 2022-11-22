@@ -50,49 +50,51 @@
                                 </div>
 
 
-                                <div style="width: 49%; float: left;margin-right: 1%; margin-top: 2%">
-                                    <center><label for="">Nombre del cliente:</label></center>
-                                    <select name="cliente" id="cliente" class="form-control selectpicker" data-live-search="true">
-                                        @if(old('cliente'))
-                                        @foreach ($clientes as $p)
+                                <div style="width: 44%; float: left;margin-right: 1%">
+                                    <center><label for="" >Nombre del cliente:</label></center>
+                                    <select name="cliente" id="cliente" class="mi-selector"
+                                    data-show-subtext="true" data-live-search="true">
+                                    @if(old('cliente'))
+                                    @foreach ($clientes as $p)
                                         @if (old('cliente') == $p->id)
-                                        <option value="{{$p->id}}">{{$p->nombre}}</option>
+                                            <option value="{{$p->id}}">{{$p->nombre}}</option>
                                         @endif
-                                        @endforeach
-                                        @else
+                                    @endforeach
+                                    @else
                                         @if (isset($idcliente))
                                         <option style="display: none" value="{{$idcliente}}">{{$clientenomb}}</option>
                                         @else
                                         <option style="display: none" value="">Seleccione el cliente</option>
                                         @endif
-                                        @endif
+                                    @endif
                                         @foreach ($clientes as $p)
-                                        <option value="{{$p->id}}">{{$p->nombre_cliente}}</option>
+                                            <option value="{{$p->id}}">{{$p->nombre_cliente}}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                               </div>
 
+                                <div style="width: 100%; float: left; margin-bottom: 2%;"></div>
 
-
-
-                                <div style="width:32%; float: left;margin-right: 1%; margin-top: 2%">
-                                    <center><label for="">Producto:</label></center>
-                                    <select name="productos" id="productos" class="form-control selectpicker" data-live-search="true">
-                                        @if(old('productos'))
-                                        @foreach ($productos as $p)
+                                <div style="width:32%; float: left;margin-right: 1%">
+                                    <center><label for="" >Producto:</label></center>
+                                <select name="productos" id="productos" class="mi-selector"
+                                data-show-subtext="true" data-live-search="true">
+                                    @if(old('productos'))
+                                    @foreach ($productos as $p)
                                         @if (old('productos') == $p->id)
-                                        <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
+                                            <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
                                         @endif
                                         @foreach ($productos as $p)
                                         <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
                                         @endforeach
-                                        @endforeach
-                                        @else
+                                    @endforeach
+                                    @else
                                         <option style="display: none" value="">Seleccione el producto</option>
                                         @foreach ($productos as $p)
                                         <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
                                         @endforeach
-                                        @endif
+                                    @endif
                                     </select>
                                 </div>
 
