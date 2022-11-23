@@ -55,7 +55,7 @@
 
                                 <div style="width: 24%; float: left;margin-right: 1%">
                                     <center><label for="">Nombre del proveedor:</label></center>
-                                    <select name="proveedor" id="proveedor" class="mi-selector"
+                                    <select style="width:100%;" name="proveedor" id="proveedor" class="mi-selector"
                                     data-show-subtext="true" data-live-search="true"
                                     onchange="llenar()">
                                         @if(old('proveedor'))
@@ -80,7 +80,7 @@
                                 <div style="width: 100%; float: left; height: 30px;"></div>
                                 <div style="width: 19%; float: left;margin-right: 1%">
                 <center><label for="" >Producto:</label></center>
-            <select name="productos" id="productos" class="mi-selector"
+            <select style="width:100%;" name="productos" id="productos" class="mi-selector"
             data-show-subtext="true" data-live-search="true">
                 @if(old('productos'))
                 @foreach ($productos as $p)
@@ -118,7 +118,7 @@
                                     <center><label for="">Laboratorio:</label></center>
                                     <input placeholder="ingrese laboratorio" class="form-control" id="laboratorio" name="laboratorio" maxlength="10" type="text" step="any" required value="{{old("laboratorio")}}">
                                 </div>
-                                <div style="width: 100%; float: left;margin-top: 2%; margin-bottom: 1%;">
+                                <div style="width: 99%; float: left;margin-top: 2%; margin-bottom: 1%;">
                                     <button class="btn btn-success" type="submit" style="width: 100%">Agregar producto</button> <br>
                                 </div>
                             </form>
@@ -156,14 +156,14 @@
 
 
 
+<hr>
+
+                    <h3 style="margin-bottom: 0%; margin-left: 2%"> Productos Facturados </h3>
 
 
-                    <h2 style="margin-bottom: 0%; "> Productos Facturados </h2>
 
 
-
-
-                    <table style="border: 2px solid #dddddd;" class="table table-bordered">
+                    <table style="border: 2px solid #dddddd; width:96%;margin-left: 2%" class="table table-bordered">
 
                         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                             <th style="text-align: center">Eliminar</th>

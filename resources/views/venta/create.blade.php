@@ -78,7 +78,7 @@ session_start();
 
                                 <div style="width: 24%; float: left;margin-right: 1%">
                                     <center><label for="" >Nombre del cliente:</label></center>
-                                    <select name="cliente" id="cliente" class="mi-selector"
+                                    <select style="width:100%;" name="cliente" id="cliente" class="mi-selector"
                                     data-show-subtext="true" data-live-search="true">
                                     @if(old('cliente'))
                                     @foreach ($clientes as $p)
@@ -102,9 +102,9 @@ session_start();
                                 <div style="width: 100%; float: left; height: 30px;">
                                 </div>
 
-                                <div style="width:32%; float: left;margin-right: 1%">
+                                <div style="width:32%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="" >Producto:</label></center>
-                                <select name="productos" id="productos" class="mi-selector"
+                                <select style="width:100%;" name="productos" id="productos" class="mi-selector"
                                 data-show-subtext="true" data-live-search="true">
                                     @if(old('productos'))
                                     @foreach ($productos as $p)
@@ -256,17 +256,22 @@ session_start();
                                             document.getElementById('pago2').value = p;
                                         }
                                     </script>
+
                                     <input type="text" name="factura" id="factura2" value="{{$numero}}" readonly style="display: none">
                                     <input type="text" name="cliente" id="cliente2" value="{{$idcliente}}" readonly style="display: none">
                                     <input type="text" name="pago" id="pago2" value="{{$idpago}}" readonly style="display: none">
+
                                     @if (count($temporal) != 0)
                                     <button onclick="caja()" type="submit" target="_blank" class="btn btn-success">Vender</button>
 
                                     @else
                                     <button type="submit" class="btn btn-success" disabled>Vender</button>
                                     @endif
+                                    
                                 </form>
                             </div>
+
+
                         </div>
 
 
