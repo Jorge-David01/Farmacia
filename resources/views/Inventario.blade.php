@@ -79,7 +79,7 @@
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>#</th>
-<th >Nombre dels producto</th>
+<th >Nombre del producto</th>
 <th >Cantidad</th>
 
               <tbody>
