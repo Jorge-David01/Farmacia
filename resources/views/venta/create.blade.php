@@ -77,58 +77,61 @@ session_start();
                                 </div>
 
                                 <div style="width: 24%; float: left;margin-right: 1%">
-                                    <center><label for="">Nombre del cliente:</label></center>
-                                    <select name="cliente" id="cliente" class="form-control selectpicker" data-live-search="true">
-                                        @if(old('cliente'))
-                                        @foreach ($clientes as $p)
+                                    <center><label for="" >Nombre del cliente:</label></center>
+                                    <select style="width:100%;" name="cliente" id="cliente" class="mi-selector"
+                                    data-show-subtext="true" data-live-search="true">
+                                    @if(old('cliente'))
+                                    @foreach ($clientes as $p)
                                         @if (old('cliente') == $p->id)
-                                        <option value="{{$p->id}}">{{$p->nombre}}</option>
+                                            <option value="{{$p->id}}">{{$p->nombre}}</option>
                                         @endif
-                                        @endforeach
-                                        @else
+                                    @endforeach
+                                    @else
                                         @if (isset($idcliente))
                                         <option style="display: none" value="{{$idcliente}}">{{$clientenomb}}</option>
                                         @else
                                         <option style="display: none" value="">Seleccione el cliente</option>
                                         @endif
-                                        @endif
+                                    @endif
                                         @foreach ($clientes as $p)
-                                        <option value="{{$p->id}}">{{$p->nombre_cliente}}</option>
+                                            <option value="{{$p->id}}">{{$p->nombre_cliente}}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
-                                
+                                <div style="width: 100%; float: left; height: 30px;">
+                                </div>
 
-                                <div style="width:32%; float: left;margin-right: 1%">
-                                    <center><label for="">Producto:</label></center>
-                                    <select name="productos" id="productos" class="form-control selectpicker" data-live-search="true">
-                                        @if(old('productos'))
-                                        @foreach ($productos as $p)
+                                <div style="width:32%; float: left;margin-right: 1%; margin-top: 2%">
+                                    <center><label for="" >Producto:</label></center>
+                                <select style="width:100%;" name="productos" id="productos" class="mi-selector"
+                                data-show-subtext="true" data-live-search="true">
+                                    @if(old('productos'))
+                                    @foreach ($productos as $p)
                                         @if (old('productos') == $p->id)
-                                        <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
+                                            <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
                                         @endif
                                         @foreach ($productos as $p)
                                         <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
                                         @endforeach
-                                        @endforeach
-                                        @else
+                                    @endforeach
+                                    @else
                                         <option style="display: none" value="">Seleccione el producto</option>
                                         @foreach ($productos as $p)
                                         <option value="{{$p->id}}">{{$p->nombre_producto}}</option>
                                         @endforeach
-                                        @endif
+                                    @endif
                                     </select>
                                 </div>
-                                <div style="width: 32%; float: left;margin-right: 1%">
+                                <div style="width: 33%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="">Cantidad:</label></center>
                                     <input type="number" placeholder="0" class="form-control" id="cantidad" name="cantidad" min="0" maxlength="7" max="999999999" required value="{{old("cantidad")}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                 </div>
-                                <div style="width: 32%; float: left;margin-right: 1%">
+                                <div style="width: 32%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="">Descuento:</label></center>
                                     <input placeholder="0.00" class="form-control" id="descuento" name="descuento" min="0" max="100" maxlength="3" type="number" step="any" title="Formato de descuento incorrecto" value="{{old("descuento")}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                 </div>
-                                <div style="width: 100%; float: left;margin-top: 2%; margin-bottom: 1%;">
+                                <div style="width: 99%; float: left;margin-top: 2%; margin-bottom: 1%;">
                                     <button class="btn btn-success" type="submit" style="width: 100%">Agregar producto</button> <br>
                                     <hr>
                                 </div>
@@ -139,8 +142,8 @@ session_start();
 
                         <div>
 
-                            <h3 style="margin-left: 0% ;  margin-bottom: 2%; "> Productos Facturados </h3>
-                            <table style="border: 2px solid #dddddd; margin-bottom: 1%;" class="table table-bordered">
+                            <h3 style="margin-left: 0% ;  margin-bottom: 1%; margin-top: 1%"> Productos Facturados </h3>
+                            <table style="border: 2px solid #dddddd; margin-bottom: 1%; width: 99%;" class="table table-bordered">
 
                                 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                                     <th style="text-align: center">Eliminar</th>
@@ -230,16 +233,16 @@ session_start();
 
 
 
-                            <div style="display:inline-block;  margin-bottom: 1%;">
-                                <form style="float: left" action="{{route('venta.cancelar')}}" method="get">
+                            <div style="text-align: center; margin-bottom: 2%; margin-top: 2%">
+                                <form style="display: inline" action="{{route('venta.cancelar')}}" method="get">
                                     <button class="btn btn-danger" type="submit">Cancelar</button>
                                 </form>
 
-                                <form style="float: left" action="{{route('venta.destruir')}}" method="get">
+                                <form style="display: inline" action="{{route('venta.destruir')}}" method="get">
                                     <button type="submit" class="btn btn-warning">Borrar todo</button>
                                 </form>
 
-                                <form style="float: left" action="{{route('venta.almacenar')}}" method="post">
+                                <form style="display: inline" action="{{route('venta.almacenar')}}" method="post">
                                     @csrf
                                     @method('put')
                                     <script>
@@ -253,17 +256,22 @@ session_start();
                                             document.getElementById('pago2').value = p;
                                         }
                                     </script>
+
                                     <input type="text" name="factura" id="factura2" value="{{$numero}}" readonly style="display: none">
                                     <input type="text" name="cliente" id="cliente2" value="{{$idcliente}}" readonly style="display: none">
                                     <input type="text" name="pago" id="pago2" value="{{$idpago}}" readonly style="display: none">
+
                                     @if (count($temporal) != 0)
                                     <button onclick="caja()" type="submit" target="_blank" class="btn btn-success">Vender</button>
 
                                     @else
                                     <button type="submit" class="btn btn-success" disabled>Vender</button>
                                     @endif
+                                    
                                 </form>
                             </div>
+
+
                         </div>
 
 

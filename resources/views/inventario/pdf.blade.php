@@ -3,7 +3,7 @@
         <head>
             <title>Laravel 8 Generate PDF From View</title>
             <style>
-                @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif; }
+                @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif;}
                 .table td { padding: 0rem !important;}
                 #header { position: fixed; left: 150px; top: -120px; right: 0px;  text-align: center; }
                 h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem}
@@ -13,8 +13,9 @@
                 .table thead th{vertical-align:bottom;border-bottom:2px solid #dee2e6;text-align: left}.table tbody+tbody{border-top:2px solid #dee2e6}
                 .table{width:100%;margin-bottom:1rem;color:#212529}.table td,.table th{padding:.75rem;vertical-align:top;}
             </style>
-            <!-- CSS only -->
+
     <!-- Bootstrap CSS -->
+
         </head>
         <body>
             <div id="header">
@@ -28,47 +29,35 @@
 
             <div id="content">
             <table class="table table-striped">
+                <thead>
+                    <th>Número</th>
+                    <th >Nombre del Producto</th>
+                    <th >Cantidad</th>
+                   </tr>
+                   </thead>
 
-            <thead>
-            <th>Número</th>
-            <th>Nombre Completo</th>
-            <th>Telefono</th>
-            <th>Número de Carnet</th>
-            <th>Identidad</th>
-        </tr>
-    </thead>
+                    <tbody>    
+                        var=i;
+               <?php $i=1?>                   
+                        @forelse($Inventa as $listaInv)
 
-    <tbody>
+<tr>
+    <td>{{$i}}</td>
+    <td> {{$listaInv->productos->nombre_producto}} </td>
+    <td> {{$listaInv-> cantidad}}</td>
+    <?php $i++?>
 
-    //variable que almacena la enumeracion de cada registro de productos
-            var=i;
-            <?php $i=1?>
+@empty
+<tr>
+    <td colspan="4">No hay resultados</td>
+</tr>
 
-            @forelse($liscliente as $cliente)
-        <tr>
-        <td>{{$i}}</td>
-        <td> {{$cliente->nombre_cliente}} </td>
-        <td>  {{$cliente->telefono}} </td>
-        <td>  {{$cliente->num_carnet}}  </td>
-        <td>  {{$cliente->numero_id}}  </td>
-        </tr>
 
-        <?php $i++?>
+@endforelse
 
-        @endforeach
-                </tbody>
-            </table>
-            </div>
-
-        <script type="text/php">
-        if ( isset($pdf) ) {
-            $pdf->page_script('
-                $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
-                $pdf->text(370, 570, "Pág $PAGE_NUM de $PAGE_COUNT", $font, 10);
-                ');
-            }
-            </script>
-
+                    </tbody>
+                    </table>
+                   </div>
 
             </body>
         </html>

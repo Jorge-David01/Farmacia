@@ -92,18 +92,6 @@
 
 
 
-
-
-
-        @if(Auth::user()->role == 'Administrador')
-        <li>
-          <a href="/ListaUsuarios">
-            <i class="fa fa-users"></i> <span>Usuarios</span>
-          </a>
-        </li>
-        @endif
-
-
         @can('empleado_listado', 'empleado_nuevo', 'empleado_actualizar','empleado_detalles')
 
         <li>
@@ -203,6 +191,16 @@
           </a>
         </li>
         @endcan
+
+
+        @if(Auth::user()->role == 'Administrador')
+        <li>
+          <a href="/ListaUsuarios">
+            <i class="fa fa-users"></i> <span>Usuarios</span>
+          </a>
+        </li>
+        @endif
+
       </ul>
     </div>
 
@@ -220,7 +218,7 @@
 
 
 
-          <li><h3 > @yield('TituloPlantillas')</h3></li>
+          <li><h3 style="margin-top: 5px;" > @yield('TituloPlantillas')</h3></li>
         </ul>
 
         <!-- ------------------------------------------------------------------------------------------------------------------------------ -->

@@ -7,6 +7,9 @@ use App\Http\Requests\StoreTemporalVentaRequest;
 use App\Http\Requests\UpdateTemporalVentaRequest;
 use App\Http\Requests\TemporalVentaRequest;
 use Illuminate\Support\Facades\Gate;
+use App\Models\Inventario;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class KardexController extends Controller
 {
@@ -14,6 +17,27 @@ class KardexController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+
+    public function createPDFInventario(){
+        $Inventa =  Inventario::all();
+
+        $nombre = DB::table('inventarios')
+        ->join('Productos', 'inventarios.id_producto', '=', 'Productos.id')
+        ->where('productos.id', '=', 'inventarios.id_producto')
+        ->select('nombre_producto')
+        ->get();
+
+        $data = [
+            'title' => 'Listado de inventario',
+            'date' => date('m/d/Y'),
+            'Inventa' =>$Inventa,
+            'nombre' =>$nombre,
+        ];
+        return PDF::loadView('inventario/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Inventario_'.date('m_d_Y').'.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      *

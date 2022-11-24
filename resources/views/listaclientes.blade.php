@@ -66,6 +66,7 @@ td {
 <a class="btn btn-warning float-right" href="/clientes/nuevo">Registrar cliente</a>
 </li>
 
+
 <script>
 
     function pdf(){
@@ -76,10 +77,9 @@ td {
         icon: 'success',
         title: 'Se esta descargando el pdf',
         showConfirmButton: false,
-        timer: 1500
+        allowOutsideClick: false,
+            timer: {{$liscliente->lastPage()*100*1}}
       })
-
-      document.getElementById('descpdf').disabled = true;
     }
     </script>
 

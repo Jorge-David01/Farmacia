@@ -2,6 +2,7 @@
 @section('pestania', 'Formulario de compra')
 
 @section('contenido')
+@section('TituloPlantillas', 'Datos de la factura')
 
 @if(session('mensaje'))
 <div id="mensaje" class="alert alert-success">
@@ -12,17 +13,15 @@
 
 
 
-
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        <h1 style="margin-left: 2%; margin-bottom: 3%; ">Datos de la factura de compra </h1>
-
+    <h1 style="margin-bottom: 6%;"></h1>
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">
                 <div class="card">
 
-                    <div style="width: 97%; margin-left: 2%">
+                    <div style="width: 97%; margin-left: 2%; ">
                         <div style="width: 100%">
                             <form method="post">
                                 @csrf
@@ -55,7 +54,7 @@
 
                                 <div style="width: 24%; float: left;margin-right: 1%">
                                     <center><label for="">Nombre del proveedor:</label></center>
-                                    <select name="proveedor" id="proveedor" class="mi-selector"
+                                    <select style="width:100%;" name="proveedor" id="proveedor" class="mi-selector"
                                     data-show-subtext="true" data-live-search="true"
                                     onchange="llenar()">
                                         @if(old('proveedor'))
@@ -80,7 +79,7 @@
                                 <div style="width: 100%; float: left; height: 30px;"></div>
                                 <div style="width: 19%; float: left;margin-right: 1%">
                 <center><label for="" >Producto:</label></center>
-            <select name="productos" id="productos" class="mi-selector"
+            <select style="width:100%;" name="productos" id="productos" class="mi-selector"
             data-show-subtext="true" data-live-search="true">
                 @if(old('productos'))
                 @foreach ($productos as $p)
@@ -118,7 +117,7 @@
                                     <center><label for="">Laboratorio:</label></center>
                                     <input placeholder="ingrese laboratorio" class="form-control" id="laboratorio" name="laboratorio" maxlength="10" type="text" step="any" required value="{{old("laboratorio")}}">
                                 </div>
-                                <div style="width: 100%; float: left;margin-top: 2%; margin-bottom: 1%;">
+                                <div style="width: 99%; float: left;margin-top: 2%; margin-bottom: 1%;">
                                     <button class="btn btn-success" type="submit" style="width: 100%">Agregar producto</button> <br>
                                 </div>
                             </form>
@@ -156,14 +155,14 @@
 
 
 
+<hr>
+
+                    <h3 style="margin-bottom: 0%; margin-left: 2%"> Productos Facturados </h3>
 
 
-                    <h2 style="margin-bottom: 0%; "> Productos Facturados </h2>
 
 
-
-
-                    <table style="border: 2px solid #dddddd;" class="table table-bordered">
+                    <table style="border: 2px solid #dddddd; width:96%;margin-left: 2%" class="table table-bordered">
 
                         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                             <th style="text-align: center">Eliminar</th>
@@ -258,16 +257,16 @@
 
 
 
-                    <div style="display:inline-block; margin-bottom: 1%;">
-                        <form style="float: left" action="{{route('compra.cancelar')}}" method="get">
+                    <div style="text-align: center; margin-bottom: 2%; margin-top: 2%">
+                        <form style="display: inline" action="{{route('compra.cancelar')}}" method="get">
                             <button class="btn btn-danger" type="submit">Cancelar</button>
                         </form>
 
-                        <form style="float: left" action="{{route('compra.destruir')}}" method="get">
+                        <form style="display: inline" action="{{route('compra.destruir')}}" method="get">
                             <button type="submit" class="btn btn-warning">Borrar todo</button>
                         </form>
 
-                        <form style="float: left" action="{{route('compra.almacenar')}}" method="post">
+                        <form style="display: inline" action="{{route('compra.almacenar')}}" method="post">
                             @csrf
                             @method('put')
                             <script>
@@ -293,6 +292,8 @@
                             @endif
                         </form>
                     </div>
+
+                   
 
 
                 </div>

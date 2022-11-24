@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreVentaRequest;
 use App\Http\Requests\UpdateVentaRequest;
 use Illuminate\Support\Facades\Gate;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
+
 
 class VentaController extends Controller
 {
@@ -27,6 +30,20 @@ class VentaController extends Controller
     public function index()
     {
         //
+    }
+
+    public function createPDF(){
+        $lista = Venta::all();
+        $data = [
+            'title' => 'Listado de venta',
+            'date' => date('m/d/Y'),
+            'lista' =>$lista,
+        ];
+
+        return PDF::loadView('venta/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Venta_'.date('m_d_Y').'.pdf');
+
     }
 
     /**

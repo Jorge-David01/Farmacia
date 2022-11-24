@@ -38,7 +38,10 @@ class CotizacionController extends Controller
     public function create(Request $request)
     {
         abort_if(Gate::denies('cotizacion_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        $productos = Producto::select("productos.*")->leftjoin("detalle_compras","productos.id", "=", "detalle_compras.id_producto")->get();
+        $productos = Producto::select("productos.id","productos.nombre_producto",
+        db::raw("max(detalle_compras.precio_publico) AS precio_publico"))
+        ->rightjoin("detalle_compras","productos.id", "=", "detalle_compras.id_producto")
+        ->groupby("productos.id")->get();
 
         $clientes = cliente::all();
         $temporal = TemporalCotizacion::all();
@@ -111,7 +114,10 @@ class CotizacionController extends Controller
             $clientenomb = $cli->nombre_cliente;
 
 
-            $productos = Producto::all();
+            $productos = Producto::select("productos.id","productos.nombre_producto",
+            db::raw("max(detalle_compras.precio_publico) AS precio_publico"))
+            ->rightjoin("detalle_compras","productos.id", "=", "detalle_compras.id_producto")
+            ->groupby("productos.id")->get();
             $clientes = cliente::all();
             $temporal = TemporalCotizacion::all();
 
@@ -202,4 +208,3 @@ class CotizacionController extends Controller
     }
 
 }
-

@@ -301,10 +301,12 @@ Route::get('/productos/pdf', [ProductoController::class, 'createPDF'])->name('pr
 
 Route::get('/compras/pdf', [CompraController::class, 'createPDF'])->name('compras.pdf');
 
-
-
 Route::get('/empleados/pdf', [EmpleadoController::class, 'createPDF'])->name('empleados.pdf');
 
 Route::get('/usuarios/pdf', [UsuarioController::class, 'createPDF'])->name('usuarios.pdf');
+
 Route::get('/clientes/pdf', [ClienteController::class, 'createPDF'])->name('clientes.pdf');
 
+Route::get('/venta/pdf', [VentaController::class, 'createPDF'])->name('venta.pdf');
+
+Route::get('/inventario/pdf', [KardexController::class, 'createPDFInventario'])->name('inventario.pdf');

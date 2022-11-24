@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VentaSeeder::class);
         $this->call(DetalleVentaSeeder::class);
 
-    
+
 
     }
 }

@@ -81,20 +81,19 @@
 
 
               <script>
-                function pdf() {
 
-                  window.location.href = "{{route('productos.pdf')}}";
-                  Swal.fire({
-                    position: 'bottom-end',
-                    icon: 'success',
-                    title: 'Se esta descargando el pdf',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-
-
-                }
-              </script>
+    function pdf(){
+      window.location.href = "{{route('productos.pdf')}}";
+      Swal.fire({
+        position: 'bottom-end',
+        icon: 'success',
+        title: 'Se esta descargando el pdf',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        timer: {{$produc->lastPage()*100*1}}
+      })
+    }
+  </script>
 
 
 
