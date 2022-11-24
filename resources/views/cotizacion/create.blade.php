@@ -50,9 +50,9 @@
                                 </div>
 
 
-                                <div style="width: 44%; float: left;margin-right: 1%">
+                                <div style="width: 44%; float: left;margin-right: 1%; ">
                                     <center><label for="" >Nombre del cliente:</label></center>
-                                    <select name="cliente" id="cliente" class="mi-selector"
+                                    <select style="width:100%; " name="cliente" id="cliente" class="mi-selector"
                                     data-show-subtext="true" data-live-search="true">
                                     @if(old('cliente'))
                                     @foreach ($clientes as $p)
@@ -78,7 +78,7 @@
 
                                 <div style="width:32%; float: left;margin-right: 1%">
                                     <center><label for="" >Producto:</label></center>
-                                <select name="productos" id="productos" class="mi-selector"
+                                <select style="width:100%;" name="productos" id="productos" class="mi-selector"
                                 data-show-subtext="true" data-live-search="true">
                                     @if(old('productos'))
                                     @foreach ($productos as $p)
