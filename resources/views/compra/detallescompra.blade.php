@@ -17,13 +17,24 @@
                     <table style="text-align: center; " class="table table-bordered align-items-center table-flush table-borderless">
 
                         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
-                            <th scope="row">Número de factura</th>
+                            <th scope="row">Número de factura:</th>
                             <td style="background: #0088cc; border: 2px solid #dddddd;">{{$comp->numero_factura}} </td>
+                            <th scope="row">Proveedor:</th>
+                            <td style="background: #0088cc; border: 2px solid #dddddd;">{{$comp->proveed->Nombre_del_proveedor}}</td>
+                            
+                            <th scope="row">Fecha de pago:</th>
+                            <td style="background: #0088cc; border: 2px solid #dddddd;">{{$comp->fecha_pago}} </td>
+                            
+                        
+
+                     
+
 
                         </tr>
 
                         <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
                             <th>Nombre de producto</th>
+                            <th>Laboratorio</th>
                             <th>Cantidad</th>
                             <th>Lote</th>
                             <th>Fecha de vencimiento</th>
@@ -41,6 +52,7 @@
                         <tr>
 
                             <td>{{$det->nombre_producto}}</td>
+                            <td>{{$det->laboratorio}}</td>
                             <td>{{$det->cantidad}}</td>
                             <td>{{$det->lote}}</td>
                             <td>{{$det->fecha_vencimiento}}</td>

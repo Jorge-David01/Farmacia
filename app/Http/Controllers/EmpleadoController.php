@@ -187,7 +187,7 @@ class EmpleadoController extends Controller
                     'dni.min' => 'La identidad debe de contener 13 dígitos',
                     'dni.unique' => 'La identidad que ingresó ya fue utilizada anteriormente',
                     'numero_cel.required' => 'El número de celular no puede estar vacio',
-                    'numero_cel.regex' => 'El número de celular debe de tener 8 dígitos iniciar con 3,8 o 9',
+                    'numero_cel.regex' => 'El número de celular debe de tener 8 dígitos iniciar con 3, 8 o 9',
                     'numero_cel.numeric' => 'En número de celular solo debe tener números',
                     'numero_cel.unique' => 'El número de celular que ingreso ya fue utilizado anteriomente',
                     'numero_cel.min' => 'El número de celular debe de tener 8 dígitos',

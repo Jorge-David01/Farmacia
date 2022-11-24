@@ -21,7 +21,7 @@ class DetalleCompraFactory extends Factory
         $valor =$this -> faker-> numberBetween($min = 1, $max = 50000);
 
         return [
-            'id_compra'=> $this -> faker-> numberBetween($min = 1, $max = 100),
+            'id_compra'=> $this -> faker -> numberBetween($min = 1, $max = 100),
             'id_producto'=> $this -> faker-> numberBetween($min = 1, $max = 200),
             'laboratorio'=> $this -> faker -> numerify('Laboratorio #'),
             'cantidad'=> $this -> faker-> numberBetween($min = 1, $max = 10000),
