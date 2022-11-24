@@ -54,7 +54,23 @@
               </li>
 
 
+              <script>
 
+                function pdf(){
+              
+                  window.location.href = "{{route('inventario.pdf')}}";
+                  Swal.fire({
+                    position: 'bottom-end',
+                    icon: 'success',
+                    title: 'Se esta descargando el pdf',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    timer: {{$Inventa->lastPage()*100*1}}
+                  })
+              
+              
+                }
+              </script>
 
             </ul>
 

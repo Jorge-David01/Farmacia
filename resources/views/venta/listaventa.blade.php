@@ -72,8 +72,23 @@
               <li>
                 <a class="btn btn-warning float-right" href="/venta/nuevo">Nueva venta</a>
               </li>
+              
+              <script>
+              function pdf(){
+
+                window.location.href = "{{route('venta.pdf')}}";
+                Swal.fire({
+                  position: 'bottom-end',
+                  icon: 'success',
+                  title: 'Se esta descargando el pdf',
+                  showConfirmButton: false,
+                  allowOutsideClick: false,
+                  timer: {{$lista->lastPage()*100*1}}
+                })
 
 
+              }
+              </script>
 
             </ul>
 
