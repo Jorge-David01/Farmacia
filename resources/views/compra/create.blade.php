@@ -11,6 +11,8 @@
 @endif
 
 
+
+
 <div class="content-wrapper">
     <div class="container-fluid">
 
@@ -50,7 +52,7 @@
                                     <input type="date" class="form-control" id="pago" name="pago" min="{{$fecha_actual}}" max="<?php echo date('Y-m-d', strtotime($fecha_actual . "+ 10 year")); ?>" required value="@if(isset($pago)){{$pago}}@else{{old("pago")}}@endif">
                                 </div>
 
-                                <div style="width: 24%; float: left;margin-right: 3%">
+                                <div style="width: 24%; float: left;margin-right: 1%">
                                     <center><label for="">Nombre del proveedor:</label></center>
                                     <select style="width:100%;" name="proveedor" id="proveedor" class="mi-selector"
                                     data-show-subtext="true" data-live-search="true"
