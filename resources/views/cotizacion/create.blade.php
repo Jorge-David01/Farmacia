@@ -50,9 +50,9 @@
                                 </div>
 
 
-                                <div style="width: 44%; float: left;margin-right: 1%">
+                                <div style="width: 49%; float: left;margin-right: 1%;  margin-top: 2% ">
                                     <center><label for="" >Nombre del cliente:</label></center>
-                                    <select name="cliente" id="cliente" class="mi-selector"
+                                    <select style="width:100%; " name="cliente" id="cliente" class="mi-selector"
                                     data-show-subtext="true" data-live-search="true">
                                     @if(old('cliente'))
                                     @foreach ($clientes as $p)
@@ -76,9 +76,9 @@
 
                                 <div style="width: 100%; float: left; margin-bottom: 2%;"></div>
 
-                                <div style="width:32%; float: left;margin-right: 1%">
+                                <div style="width:32%; float: left;margin-right: 1%;  margin-top: 2%">
                                     <center><label for="" >Producto:</label></center>
-                                <select name="productos" id="productos" class="mi-selector"
+                                <select style="width:100%;" name="productos" id="productos" class="mi-selector"
                                 data-show-subtext="true" data-live-search="true">
                                     @if(old('productos'))
                                     @foreach ($productos as $p)
@@ -119,11 +119,11 @@
 
 
 
-                        <h3 style="  margin-bottom: 1%; "> Productos Cotizados </h3>
+                        <h3 style="  margin-bottom: 1%; margin-left: 2%"> Productos Cotizados </h3>
 
                         <div class="row">
                             <div class="col-12 col-lg-12">
-                                <div style="width: 99%;" class="card">
+                                <div style="width: 96%;margin-left: 2%" class="card">
 
 
                                     <div class="table-responsive">
