@@ -37,7 +37,7 @@
 
             <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
-              <form action="{{route('buscador')}}" method="POST" style="margin-bottom:2%;">
+              <form action="{{route('buscador')}}" method="POST" style="margin-bottom: 1%;">
                 @csrf
                 <div class="form-row">
                   <div class="col-sm-8">
@@ -63,21 +63,22 @@
               </li>
 
               <script>
-                function pdf() {
 
-                  window.location.href = "{{route('compras.pdf')}}";
-                  Swal.fire({
-                    position: 'bottom-end',
-                    icon: 'success',
-                    title: 'Se esta descargando el pdf',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
+function pdf(){
+
+  window.location.href = "{{route('compras.pdf')}}";
+  Swal.fire({
+    position: 'bottom-end',
+    icon: 'success',
+    title: 'Se esta descargando el pdf',
+    showConfirmButton: false,
+    allowOutsideClick: false,
+    timer: {{$lista->lastPage()*100*1}}
+  })
 
 
-                }
-              </script>
-
+}
+</script>
             </ul>
 
           </div>

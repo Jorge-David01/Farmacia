@@ -78,10 +78,10 @@ class CajaAlivioController extends Controller
     public function busqueda(Request $request){
         
         $sear=trim($request->get('search'));
-        $cajadatos=DB::table('cajas')
-
+        $variablesurl=$request->all();
+        $cajadatos=DB::table('cajas') 
         ->where('Fecha','like','%'.$sear.'%')
-        ->orderBy('Fecha', 'asc')->paginate(10);
+        ->orderBy('Fecha', 'asc')->paginate(3)->appends($variablesurl);
 
 
 

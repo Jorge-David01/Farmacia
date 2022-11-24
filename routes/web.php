@@ -115,7 +115,8 @@ Route::get('/Editprovee/{id}/editar',[ProveedorController::class, 'Edit']) -> na
 Route::put('/Editprovee/{id}/editar',[ProveedorController::class, 'Update']) -> name('update.proveedor')-> where('id', '[1-9]+');
 
 
-Route::post('/Prove/search', [ProveedorController::class, 'sear']) -> name ('funt');
+Route::get('/Prove/search', [ProveedorController::class, 'sear']) -> name ('funt');
+
 
 
 //------------------------------------------------------------
@@ -134,7 +135,7 @@ Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> n
 // Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto');
 
 
-Route::post('/Produ/busca', [ProductoController::class, 'buscando']) -> name ('producto.busqueda');
+Route::get('/Produ/busca', [ProductoController::class, 'buscando']) -> name ('producto.busqueda');
 
 
 //----------------------------------------------------------
@@ -283,7 +284,7 @@ Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta']
 
 
 
-Route::post('/CajaAlivio', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
+Route::get('/CajaAlivio', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
 
 
 //----------------------------------------------------------

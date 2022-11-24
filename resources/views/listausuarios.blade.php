@@ -7,7 +7,14 @@
 td {
     text-align: center;
 }
+
+
+
 </style>
+
+
+
+
 
 <div class="content-wrapper">
   <div class="container-fluid">
@@ -18,22 +25,23 @@ td {
         <h1 style="margin-left: 4% ;margin-bottom: 2%; ">  </h1>
 
 
-        
-        @if (session('Mensaje'))
-<div class="alert alert-danger">
-  {{session('Mensaje')}}
-</div>
-@endif
-
-@if (session('msj'))
-<div class="alert alert-success">
-  {{session('msj')}}
-</div>
-@endif
 
 
 <h1 style="margin-bottom: 6%;"></h1>
+
+
+@if (session('msj'))
+<div  class="alert alert-success">
+  {{session('msj')}}
+  </div>
+@endif
+
 <div class="row">
+
+
+
+
+
             <div class="col-12 col-lg-12">
                 <div class="card">
                     <div class="card-body">
@@ -42,10 +50,8 @@ td {
                         <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
 
-                        
-
        
-            <form style="margin-bottom: 2%;" action="{{route('lista')}}" method="get">
+            <form style="margin-bottom: 1%;" action="{{route('lista')}}" method="get">
             @csrf
             <div class="form-row"]>
             <div class="col-sm-8">

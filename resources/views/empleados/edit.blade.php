@@ -61,9 +61,9 @@
 
                         <hr>
                         <div style="text-align: center">
+                        <a class="btn btn-warning" href="/empleados">Volver</a>
                             <input type="reset" class="btn btn-danger">
-                            <a class="btn btn-success" href="/empleados">Regresar</a>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
 
 

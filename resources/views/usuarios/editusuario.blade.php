@@ -42,8 +42,8 @@
 
                         <hr>
                         <div style="text-align: center">
-                        <button style="margin-top: 10px; margin-left: 10px;" type="submit" class="btn btn-primary">Actualizar</button>
-                        <a style="margin-top: 10px;" class="btn btn-success" href="/ListaUsuarios">Regresar</a>
+                        <a  class="btn btn-warning" href="/ListaUsuarios">Volver</a>
+                        <button  type="submit" class="btn btn-success">Guardar</button>
                         </div>
 
                     </form>

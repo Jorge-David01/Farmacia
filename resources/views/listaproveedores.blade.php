@@ -10,15 +10,10 @@
   }
 </style>
 
-@if (session('Mensaje'))
-<div class="alert alert-danger">
-  {{session('Mensaje')}}
-</div>
-@endif
 
 
 <div class="clearfix"></div>
-<div class="content-wrapper">
+        <div class="content-wrapper">
   <div class="container-fluid">
 
     <h1 style="margin-bottom: 6%;"></h1>
@@ -42,20 +37,15 @@
 
             <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
-              <form action="{{route('funt')}}" method="POST" style="margin-bottom:2%;">
-
+              <form action="{{route('funt')}}" method="get" style="margin-bottom: 1%;">
                 @csrf
                 <div class="form-row">
-
                   <div class="col-sm-8">
                     <input type="text" class="form-control" name="search" id="search" placeholder="Busqueda">
-
                   </div>
-
                   <li class="nav-item">
                     <input style="margin-left:1%" type="submit" value="Buscar" class="btn btn-success">
                   </li>
-
                 </div>
               </form>
 
@@ -74,20 +64,25 @@
               </li>
 
               <script>
-                function pdf() {
+        setInterval('fg()', 1000);
+        function fg(){
+          document.getElementById('dat').innerHTML = "{{url()->previous();}}";
+        }
 
-                  window.location.href = "{{route('proveedores.pdf')}}";
-                  Swal.fire({
-                    position: 'bottom-end',
-                    icon: 'success',
-                    title: 'Se esta descargando el pdf',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
+        function pdf(){
 
+          window.location.href="{{route('proveedores.pdf')}}";
+          Swal.fire({
+            position: 'bottom-end',
+            icon: 'success',
+            title: 'Se esta descargando el pdf',
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            timer: {{$pro->lastPage()*100*1}}
+          })
 
-                }
-              </script>
+        }
+      </script>
 
 
             </ul>

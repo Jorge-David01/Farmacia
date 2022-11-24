@@ -235,9 +235,22 @@ class ProveedorController extends Controller{
 
 //-----------------------------------------------------------
 //------------- BUSCADOR Y BORRAR PROVEEDOR -----------------
-    public function sear(Request $REQUEST){
-        $pro = Proveedor::where('Nombre_del_proveedor','like', '%'.$REQUEST->search.'%' )
-        ->orWhere('Nombre_del_distribuidor', 'like', '%'.$REQUEST->search.'%')->paginate(10);
+    public function sear(Request $request){
+
+        $sear=trim($request->get('search'));
+        $variablesurl=$request->all();
+        $pro=DB::table('proveedors') 
+
+
+
+
+        ->where('Nombre_del_proveedor','like', '%'.$sear.'%' )
+        ->orWhere('Nombre_del_distribuidor', 'like', '%'.$sear.'%')->paginate(10)->appends($variablesurl);
+
+
+
+
+       
         return view('listaproveedores')->with('pro', $pro);
     }
 

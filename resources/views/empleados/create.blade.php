@@ -79,8 +79,8 @@
                             </div>
                             <hr>
                             <div style="text-align: center; ">
-                                <button class="btn btn-danger" type="button" onclick="window.location='/empleados'">Cancelar</button>
-                                <a type="button" href="javascript:location.reload()" class="btn btn-warning">Limpiar</a>
+                                <button class="btn btn-warning" type="button" onclick="window.location='/empleados'">volver</button>
+                                <a type="button" href="javascript:location.reload()" class="btn btn-danger">Restablecer</a>
                                 <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
 

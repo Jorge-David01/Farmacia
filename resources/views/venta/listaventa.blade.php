@@ -44,7 +44,7 @@
 
 
 
-              <form action="{{route('factura.busqueda')}}" method="POST" style="margin-bottom:2%;">
+              <form action="{{route('factura.busqueda')}}" method="POST" style="margin-bottom:1%;">
                 @csrf
                 <div class="form-row">
                   <div class="col-sm-8">

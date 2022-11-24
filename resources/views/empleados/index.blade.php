@@ -34,7 +34,7 @@
                         <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
 
-                            <form action="{{route('empleados.index')}}" method="get" style="margin-bottom:2%;">
+                            <form action="{{route('empleados.index')}}" method="get" style="margin-bottom: 1%;">
                                 <div class="form-row">
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
@@ -73,10 +73,9 @@
                                     icon: 'success',
                                     title: 'Se esta descargando el pdf',
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    allowOutsideClick: false,
+        timer: {{$employee->lastPage()*100*1}}
                                   })
-
-                                  document.getElementById('descpdf').disabled = true;
                                 }
                               </script>
 

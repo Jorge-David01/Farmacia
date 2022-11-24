@@ -72,11 +72,11 @@
 
                         </div>
 
-                
+                <hr>
                         <div style="text-align: center; ">
-                            <button class="btn btn-primary" href="/Listpro">Volver</button>
-                            <button type="submit" class="btn btn-success">Guardar datos</button>
-                            <input type="reset" class="btn btn-danger">
+                            <button class="btn btn-warning" type="button" onclick="window.location='/Listpro'">volver</button>
+                            <input type="reset" class="btn btn-danger" class="btn btn-danger" >
+                            <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
 
                     </form>

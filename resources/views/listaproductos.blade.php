@@ -21,11 +21,19 @@
 
 
 
+<h1 style="margin-bottom: 5%;"></h1>
 <div class="clearfix"></div>
 <div class="content-wrapper">
   <div class="container-fluid">
 
-  <h1 style="margin-bottom: 6%;"></h1>
+  @if (session('msj'))
+<div class="alert alert-success">
+  {{session('msj')}}
+</div>
+@endif
+
+
+
     <div class="row">
       <div class="col-12 col-lg-12">
         <div class="card">
@@ -35,21 +43,15 @@
             <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
 
-              </style>
-              @if (session('msj'))
-              <div class="alert alert-success">
-                {{session('msj')}}
-              </div>
-              @endif
+            
+          
 
 
 
 
 
 
-
-
-              <form action="{{route('producto.busqueda')}}" method="POST" style="margin-bottom:2%;">
+              <form action="{{route('producto.busqueda')}}" method="get" style="margin-bottom: 1%;">
                 @csrf
                 <div class="form-row" ]>
                   <div class="col-sm-8">
@@ -79,20 +81,19 @@
 
 
               <script>
-                function pdf() {
 
-                  window.location.href = "{{route('productos.pdf')}}";
-                  Swal.fire({
-                    position: 'bottom-end',
-                    icon: 'success',
-                    title: 'Se esta descargando el pdf',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-
-
-                }
-              </script>
+    function pdf(){
+      window.location.href = "{{route('productos.pdf')}}";
+      Swal.fire({
+        position: 'bottom-end',
+        icon: 'success',
+        title: 'Se esta descargando el pdf',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        timer: {{$produc->lastPage()*100*1}}
+      })
+    }
+  </script>
 
 
 
@@ -103,10 +104,6 @@
       </div>
     </div>
 
-
-    <div class="row">
-      <div class="col-12 col-lg-12">
-        <div class="card">
 
 
 	<div class="row" >
@@ -124,8 +121,6 @@
 <th>Ver detalles</th>
 </tr>
 
-          <div class="table-responsive">
-            <table class="table align-items-center table-flush table-borderless">
 
 
 
@@ -163,9 +158,16 @@
 
           </div>
         </div>
-        {{$produc -> links() }}
-      </div>
+    
+    
+ 
     </div>
+
+     </div>
+     {{$produc -> links() }}
+  </div>
+
+</div>
 
 
 
