@@ -15,7 +15,7 @@
         @endif
 
         <h1 style="margin-left: 2% ; ">Detalles de venta </h1>
-        <h1 style="margin-bottom: 2%;"></h1>
+      
 
         <div class="row">
             <div class="col-12 col-lg-12">

@@ -12,7 +12,12 @@
     <div class="content-wrapper">
         <div class="container-fluid">
 
-            @if($errors->any())
+          
+
+            <div style="margin: auto; margin-bottom: 3%;" class="col-lg-6">
+                <div style="margin-top: 15%;" class="card">
+                    <div class="card-body">
+                    @if($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach($errors->all() as $mensaje)
@@ -23,10 +28,6 @@
                 </ul>
             </div>
             @endif
-
-            <div style="margin: auto; margin-bottom: 3%;" class="col-lg-6">
-                <div style="margin-top: 15%;" class="card">
-                    <div class="card-body">
 
                         <form method="post" enctype="multipart/form-data">
                             @csrf
@@ -50,7 +51,7 @@
                                 <label for="last-name">Número de celular: <span class="required"></span>
                                 </label>
                                 <div>
-                                    <input maxlength="8" type="tel" id="numero_cel" name="numero_cel" required="required" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="{{old('numero_cel')}}" pattern="[9,8,3]{1}[0-9]{7}" title="Ingrese un numero de celular que inicie con 3,8 o 9 y que sea de 8 digitos" placeholder="Ingrese el número de celular">
+                                    <input maxlength="8"  type="tel" id="numero_cel" name="numero_cel" required="required" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="{{old('numero_cel')}}" pattern="[9,8,3]{1}[0-9]{7}" title="Ingrese un numero de celular que inicie con 3,8 o 9 y que sea de 8 digitos" placeholder="Ingrese el número de celular">
                                 </div>
                             </div>
 

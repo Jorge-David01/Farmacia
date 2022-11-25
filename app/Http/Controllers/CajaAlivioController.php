@@ -46,8 +46,8 @@ class CajaAlivioController extends Controller
         ];
 
         $msj=[
-            'Answer.max' => 'La caja de alivio no se ha vaciado',
-            'Answer.min' => 'La caja de alivio no se ha vaciado',
+            'cajaalivio.max' => 'La caja de alivio no se ha vaciado',
+            'cajaalivio.min' => 'La caja de alivio no se ha vaciado',
            
         ];
         $this->validate($request,$rules,$msj);
@@ -61,17 +61,11 @@ class CajaAlivioController extends Controller
         $guardado = $ques->save();
 
 
-
-        
-
         if ($guardado) {
-            return redirect()->route('caja.alivio')
-                ->with('mensaje', 'La caja de alivio se ha vaciado exitosamente');
+            return redirect()->route('caja.alivio')->with('mensaje', 'La caja de alivio se ha vaciado exitosamente');
         }
     
 
-        
-       
     }
 
 
@@ -81,7 +75,7 @@ class CajaAlivioController extends Controller
         $variablesurl=$request->all();
         $cajadatos=DB::table('cajas') 
         ->where('Fecha','like','%'.$sear.'%')
-        ->orderBy('Fecha', 'asc')->paginate(3)->appends($variablesurl);
+        ->orderBy('Fecha', 'asc')->paginate(10)->appends($variablesurl);
 
 
 

@@ -98,7 +98,7 @@
       <div class="col-12 col-lg-12">
         <div class="card">
 
-          <div class="table-responsive">
+          <div  class="table-responsive">
             <table class="table table-bordered align-items-center table-flush table-borderless">
 
 

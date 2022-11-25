@@ -9,11 +9,7 @@
   }
 </style>
 
-@if (session('Mensaje'))
-<div class="alert alert-danger">
-  {{session('Mensaje')}}
-</div>
-@endif
+
 
 </style>
 @if (session('msj'))
@@ -24,10 +20,16 @@
 
 
 <div class="clearfix"></div>
-<div class="content-wrapper">
+</style>
+@if (session('msj'))
+<div class="alert alert-success">
+  {{session('msj')}}
+</div>
+@endif
+<div style="margin-top: 5%;" class="content-wrapper">
   <div class="container-fluid">
 
-    <h1 style="margin-bottom: 6%;"></h1>
+   
 
     <div class="row">
       <div class="col-12 col-lg-12">

@@ -126,7 +126,7 @@ function pdf(){
                 <th>Email</th>
                 <th>Rol</th>
                 <th>Ver detalles</th>
-                <th></th>
+                <th>Cambio de contraseña</th>
                 </tr>
                 </thead>
 
@@ -144,8 +144,8 @@ function pdf(){
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
-                    <td > <a  class="btn btn-success" href="/Showuser/{{$user->id}}"> Detalles </a></td>
-                    <td > <a  class="btn btn-success" href="/contrasenia/{{$user->id}}/listausuarios"> Cambiar Contrasena </a></td>
+                    <td > <a  class="btn btn-success" href="/Showuser/{{$user->id}}">Detalles</a></td>
+                    <td > <a  class="btn btn-success" href="/contrasenia/{{$user->id}}/listausuarios">Cambiar</a></td>
                     </tr>
                     @endforeach
                 </tbody>

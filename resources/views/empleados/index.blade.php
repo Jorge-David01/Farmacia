@@ -39,7 +39,6 @@
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
                                     </div>
-
                                     <li class="nav-item">
                                         <input style="margin-left: 1%;" type="submit" class="btn btn-success" value="Buscar">
                                     </li>
@@ -55,8 +54,6 @@
                             <li class="nav-item">
                                 <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()" id="descpdf">Descargar PDF</button>
                             </li>
-
-
 
                             <li> <a class="btn btn-warning float-right" href="/empleados/nuevo">Nuevo Empleado</a></li>
 

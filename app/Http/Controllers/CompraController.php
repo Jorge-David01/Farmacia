@@ -289,7 +289,7 @@ public function detailscompra($id){
     ->join('detalle_compras', 'compras.id', '=', 'detalle_compras.id_compra')
     ->join('Productos', 'detalle_compras.id_producto', '=', 'Productos.id')
     ->where('detalle_compras.id_compra', '=', $id)
-    ->select('id_producto' ,'nombre_producto', 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
+    ->select('id_producto' ,'nombre_producto','laboratorio', 'cantidad', 'lote' , 'fecha_vencimiento', 'precio_farmacia', 'precio_publico')
     ->get();
 
     

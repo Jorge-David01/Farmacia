@@ -282,9 +282,7 @@ Route::get('/CajaPregunta/respuesta',[CajaAlivioController::class, 'pregunta'])-
 
 Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta'])->name('caja.respuestas');
 
-
-
-Route::get('/CajaAlivio', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
+Route::get('/Caja/Alivio/Search', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
 
 
 //----------------------------------------------------------
