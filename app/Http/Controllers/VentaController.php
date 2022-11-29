@@ -262,7 +262,7 @@ class VentaController extends Controller
         ->join('detalle_ventas', 'ventas.id', '=', 'detalle_ventas.id_venta')
         ->join('Productos', 'detalle_ventas.id_producto', '=', 'Productos.id')
         ->where('detalle_ventas.id_venta', '=', $id)
-        ->select('devuelto','detalle_ventas.id as id_detalle','id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio', 'nombre_producto')
+        ->select('detalle_ventas.id as id_detalle','id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio', 'nombre_producto')
         ->get();
 
 
