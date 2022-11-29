@@ -72,7 +72,7 @@
               <li>
                 <a class="btn btn-warning float-right" href="/venta/nuevo">Nueva venta</a>
               </li>
-              
+
               <script>
               function pdf(){
 
@@ -125,13 +125,13 @@
 
 
               <tr style="border: 2px solid #dddddd;">
-              <td>{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
-              <td> {{$list->numero_factura}} </td>
+              <td class="nunero">{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
+              <td class="numero"> {{$list->numero_factura}} </td>
 
-              <td>
+              <td class="letras">
                 {{$list->clientes->nombre_cliente}}
                 </td>
-              <td>
+              <td class="numero">
                 <?php $sum=0?>
                 @foreach ($list->detalles as $detall)
                 <?php $sum+= ($detall->cantidad*$detall->precio * (1-$detall->descuento/100))?>

@@ -111,10 +111,10 @@
                             @forelse($employee as $emple)
 
                             <tr style="border: 2px solid #dddddd;">
-                                <td>{{$employee->perPage()*($employee->currentPage()-1)+$loop->iteration}}</td>
-                                <td>{{$emple->nombre_completo}}</td>
-                                <td>{{$emple->DNI}}</td>
-                                <td>{{$emple->numero_cel}}</td>
+                                <td class="numero">{{$employee->perPage()*($employee->currentPage()-1)+$loop->iteration}}</td>
+                                <td class="letras">{{$emple->nombre_completo}}</td>
+                                <td class="numero">{{$emple->DNI}}</td>
+                                <td class="numero">{{$emple->numero_cel}}</td>
                                 <td> <a class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
                             </tr>
 

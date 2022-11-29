@@ -113,9 +113,9 @@
               @forelse($Inventa as $listaInv)
 
               <tr style="border: 2px solid #dddddd;">
-                <td>{{$Inventa->perPage()*($Inventa->currentPage()-1)+$loop->iteration}}</td>
-                <td> {{$listaInv->productos->nombre_producto}} </td>
-                <td> {{$listaInv-> cantidad}}</td>
+                <td class="numero">{{$Inventa->perPage()*($Inventa->currentPage()-1)+$loop->iteration}}</td>
+                <td class="letras"> {{$listaInv->productos->nombre_producto}} </td>
+                <td class="numero"> {{$listaInv-> cantidad}}</td>
 
 
 

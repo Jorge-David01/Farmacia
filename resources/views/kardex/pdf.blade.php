@@ -4,7 +4,8 @@
             <title>Laravel 8 Generate PDF From View</title>
             <link rel="stylesheet" href="{{asset('css/app.css')}}">
             <style>
-                @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif; }
+                 h1,h2,h3,h4,h5,h6{font-family: 'Roboto', sans-serif !important;}
+                @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif;}
                 .table td { padding: 0rem !important;}
                 #header { position: fixed; left: 150px; top: -120px; right: 0px;  text-align: center; }
                 h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem}
@@ -15,8 +16,7 @@
                 .table{width:100%;margin-bottom:1rem;color:#212529}.table td,.table th{padding:.75rem;vertical-align:top;}
             </style>
             <!-- CSS only -->
-    <!-- Bootstrap CSS -->
-        </head>
+            </head>
         <body>
             <div id="header">
                 <div style="float: right">
@@ -28,35 +28,53 @@
             </div>
 
             <div id="content">
-            <table class="table table-striped">
+            <table class="table table-striped table-bordered">
 
-            <thead>
-            <th>Número</th>
-            <th>Nombre Completo</th>
-            <th>Telefono</th>
-            <th>Número de Carnet</th>
-            <th>Identidad</th>
-        </tr>
-    </thead>
+                <tr style="text-align: center">
+                  <th rowspan="2">producto</th>
+                  <th colspan="3">Entrada</th>
+                  <th colspan="3">Salida</th>
+                </tr>
+                <tr>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Total</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Total</th>
+                </tr>
 
-    <tbody>
 
-    //variable que almacena la enumeracion de cada registro de productos
-            var=i;
-            <?php $i=1?>
+                <tbody>
+                  @forelse($kardex as $k)
 
-            @forelse($liscliente as $cliente)
-        <tr>
-        <td class="numero">{{$i}}</td>
-        <td class="letras"> {{$cliente->nombre_cliente}} </td>
-        <td class="numero">  {{$cliente->telefono}} </td>
-        <td class="numero">  {{$cliente->num_carnet}}  </td>
-        <td class="numero">  {{$cliente->numero_id}}  </td>
-        </tr>
+                  <tr style="border: 2px solid #dddddd;">
 
-        <?php $i++?>
+                    <td>{{$k->nombre_producto}}</td>
 
-        @endforeach
+                    @if($k->tipo == 'venta')
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="numero">{{$k->cantidad}}</td>
+                    <td class="numero">{{$k->precio}}</td>
+                    <td class="numero">{{$k->precio * $k->cantidad}}</td>
+                    @else
+                    <td class="numero">{{$k->cantidad}}</td>
+                    <td class="numero">{{$k->precio}}</td>
+                    <td class="numero">{{$k->precio * $k->cantidad}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    @endif
+
+                  </tr>
+
+                  @empty
+
+                  @endforelse
+
+
                 </tbody>
             </table>
             </div>

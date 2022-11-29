@@ -2,6 +2,7 @@
     <html>
         <head>
             <title>Laravel 8 Generate PDF From View</title>
+            <link rel="stylesheet" href="{{asset('css/app.css')}}">
             <style>
                 @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif;}
                 .table td { padding: 0rem !important;}
@@ -43,10 +44,10 @@
                         <?php $i=1?>
                         @foreach($pro as $prove)
                         <tr>
-                            <td>{{$i}}</td>
-                            <td>{{$prove->Nombre_del_proveedor}}</td>
-                            <td>{{$prove->Nombre_del_distribuidor}}</td>
-                            <td>{{$prove->Correo_electronico}}</td>
+                            <td class="numero">{{$i}}</td>
+                            <td class="letras">{{$prove->Nombre_del_proveedor}}</td>
+                            <td class="letras">{{$prove->Nombre_del_distribuidor}}</td>
+                            <td class="letras">{{$prove->Correo_electronico}}</td>
                         </tr>
                         <?php $i++?>
                         @endforeach
