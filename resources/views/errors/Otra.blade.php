@@ -551,7 +551,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/devolucion">
+                    <a href="/Devolucion">
                         <i class="fa fa-cart-plus"></i> <span>Devolucion de Producto</span>
                     </a>
                 </li>

@@ -46,7 +46,12 @@ return redirect()->route('detalles.venta',["id"=>$detalle->id_venta]);
 
 }
 
+public function list(){
+    //abort_if(Gate::denies('devolucion_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
+    $lisdevolucion = Devolucion::paginate(10);
+    return view('devolucionProducto/listadevoluciones')->with('lisdevolucion' , $lisdevolucion);
+}
 
-
+    
 
 }

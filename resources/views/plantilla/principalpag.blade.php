@@ -143,13 +143,13 @@
         </li>
         @endcan
 
-        @can('devolucion')
+        
         <li>
-          <a href="/devolucion">
+          <a href="/devolucionProducto/listadevoluciones">
             <i class="fa fa-cart-plus"></i> <span>Devolución de Producto</span>
           </a>
         </li>
-        @endcan
+       
 
         @can('inventario')
         <li>
