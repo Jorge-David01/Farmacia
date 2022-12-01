@@ -125,10 +125,10 @@ function pdf(){
 
 
 <tr style="border: 2px solid #dddddd;">
-<td>{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
-<td> {{$list->numero_factura}} </td>
-            <td>{{$list->proveed->Nombre_del_proveedor}}</td>
-            <td>
+<td class="numero">{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
+<td class="numero"> {{$list->numero_factura}} </td>
+            <td class="letras">{{$list->proveed->Nombre_del_proveedor}}</td>
+            <td class="numero">
               <?php $sum=0?>
               @foreach ($list->detalles as $detall)
               <?php $sum+= ($detall->cantidad*$detall->precio_farmacia)?>

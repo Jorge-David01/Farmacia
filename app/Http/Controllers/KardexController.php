@@ -38,6 +38,28 @@ class KardexController extends Controller
         ->download('Listado_de_Inventario_'.date('m_d_Y').'.pdf');
     }
 
+
+    public function createPDF(Request $request){
+        $fecha = $request->input('fecha');
+
+        if($fecha == null){
+            $fecha = date("Y-m-d");
+        }
+
+        $kardex = DB::table('kardex')->where('created_at',$fecha)->get();
+
+        $data = [
+            'title' => 'Listado de kardex',
+            'date' => date('m/d/Y'),
+            'kardex' =>$kardex,
+        ];
+        return PDF::loadView('kardex/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_kardex_'.date('m_d_Y').'.pdf');
+
+    }
+
+
     /**
      * Display a listing of the resource.
      *

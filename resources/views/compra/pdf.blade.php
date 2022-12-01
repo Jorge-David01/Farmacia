@@ -3,6 +3,7 @@
     <html>
         <head>
             <title>Laravel 8 Generate PDF From View</title>
+            <link rel="stylesheet" href="{{asset('css/app.css')}}">
             <style>
                 @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif;}
                 .table td { padding: 0rem !important;}
@@ -45,10 +46,10 @@
 
                @foreach($lista as $list )
                <tr>
-             <td>{{$i}}</td>
-             <td> {{$list->numero_factura}} </td>
-             <td>{{$list->proveed->Nombre_del_proveedor}}</td>
-             <td>
+             <td class="numero">{{$i}}</td>
+             <td class="numero"> {{$list->numero_factura}} </td>
+             <td class="letras">{{$list->proveed->Nombre_del_proveedor}}</td>
+             <td class="numero">
                <?php $sum=0?>
                @foreach ($list->detalles as $detall)
                <?php $sum+= ($detall->cantidad*$detall->precio_farmacia)?>

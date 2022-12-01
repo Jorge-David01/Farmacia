@@ -1,0 +1,11 @@
+.numero {
+    text-align: right;
+}
+
+.letras {
+    text-align: left;
+}
+
+table thead th {
+    text-align: center !important;
+}

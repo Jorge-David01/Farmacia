@@ -2,6 +2,7 @@
     <html>
         <head>
             <title>Laravel 8 Generate PDF From View</title>
+            <link rel="stylesheet" href="{{asset('css/app.css')}}">
             <style>
                 @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif;}
                 .table td { padding: 0rem !important;}
@@ -42,9 +43,9 @@
                         @forelse($Inventa as $listaInv)
 
 <tr>
-    <td>{{$i}}</td>
-    <td> {{$listaInv->productos->nombre_producto}} </td>
-    <td> {{$listaInv-> cantidad}}</td>
+    <td class="numero">{{$i}}</td>
+    <td class="letras"> {{$listaInv->productos->nombre_producto}} </td>
+    <td class="numero"> {{$listaInv-> cantidad}}</td>
     <?php $i++?>
 
 @empty

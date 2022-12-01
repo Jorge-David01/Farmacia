@@ -2,6 +2,7 @@
     <html>
         <head>
             <title>Laravel 8 Generate PDF From View</title>
+            <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
             <style>
                 @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif;}
@@ -45,10 +46,10 @@
 
         @forelse($employee as $emple)
         <tr>
-        <td>{{$i}}</td>
-        <td>{{$emple->nombre_completo}}</td>
-        <td>{{$emple->DNI}}</td>
-        <td>{{$emple->numero_cel}}</td>
+        <td class="numero">{{$i}}</td>
+        <td class="letras">{{$emple->nombre_completo}}</td>
+        <td class="numero">{{$emple->DNI}}</td>
+        <td class="numero">{{$emple->numero_cel}}</td>
         </tr>
 
         <?php $i++?>

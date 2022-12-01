@@ -11,9 +11,32 @@
 </style>
 
 
+<script>
+
+  function pdf(){
+
+    window.location.href = "{{route('kardex.pdf',['fecha'=>$fecha])}}";
+    Swal.fire({
+      position: 'bottom-end',
+      icon: 'success',
+      title: 'Se esta descargando el pdf',
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      timer: 2500
+    })
+  }
+</script>
+
 <div class="content-wrapper">
   <div class="container-fluid">
   <h1 style="margin-bottom: 6%;"></h1>
+
+
+  
+  <div style="float: right;margin-top: 20px">
+    <center><button class="btn btn-danger" id="descpdf" onclick="pdf()">Descargar PDF</button></center>
+
+  </div>
 
     <form action="{{route('kardex.index')}}" method="GET">
       <div style="width: 18%;">

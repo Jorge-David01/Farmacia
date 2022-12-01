@@ -128,9 +128,9 @@
 
 
 
-                <td>{{$pro->perPage()*($pro->currentPage()-1)+$loop->iteration}}</td>
-                <td>{{$prove->Nombre_del_proveedor}}</td>
-                <td>{{$prove->Nombre_del_distribuidor}}</td>
+                <td class="numero">{{$pro->perPage()*($pro->currentPage()-1)+$loop->iteration}}</td>
+                <td class="letras">{{$prove->Nombre_del_proveedor}}</td>
+                <td class="letras">{{$prove->Nombre_del_distribuidor}}</td>
 
                 <td> <a class="btn btn-info" href="Archivos/{{$prove->Archivo}}" target="blank_">Documentos</a></td>
                 <td> <a class="btn btn-success" href="/Verprovee/{{$prove->id}}">Detalles</a></td>

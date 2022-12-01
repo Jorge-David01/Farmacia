@@ -313,3 +313,5 @@ Route::get('/clientes/pdf', [ClienteController::class, 'createPDF'])->name('clie
 Route::get('/venta/pdf', [VentaController::class, 'createPDF'])->name('venta.pdf');
 
 Route::get('/inventario/pdf', [KardexController::class, 'createPDFInventario'])->name('inventario.pdf');
+
+Route::get('/kardex/pdf', [KardexController::class, 'createPDF'])->name('kardex.pdf');

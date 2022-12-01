@@ -122,11 +122,11 @@ td {
 
 
 <tr style="border: 2px solid #dddddd;">
-<td>{{$liscliente->perPage()*($liscliente->currentPage()-1)+$loop->iteration}}</td>
-<td> {{$cliente->nombre_cliente}} </td>
-<td>  {{$cliente->telefono}} </td>
-<td>  {{$cliente->num_carnet}}  </td>
-<td>  {{$cliente->numero_id}}  </td>
+<td class="numero">{{$liscliente->perPage()*($liscliente->currentPage()-1)+$loop->iteration}}</td>
+<td class="letras">  {{$cliente->nombre_cliente}} </td>
+<td class="numero">  {{$cliente->telefono}} </td>
+<td class="numero">  {{$cliente->num_carnet}}  </td>
+<td class="numero">  {{$cliente->numero_id}}  </td>
 
 <td > <a href="/Vercliente/{{$cliente->id}}" class="btn btn-success"> Detalles </a></td>
 </tr>
