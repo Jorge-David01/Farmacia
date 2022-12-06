@@ -315,3 +315,7 @@ Route::get('/venta/pdf', [VentaController::class, 'createPDF'])->name('venta.pdf
 Route::get('/inventario/pdf', [KardexController::class, 'createPDFInventario'])->name('inventario.pdf');
 
 Route::get('/kardex/pdf', [KardexController::class, 'createPDF'])->name('kardex.pdf');
+
+Route::get('/devolucionProducto/pdf', [DevolucionController::class, 'createPDF'])->name('devolucionProducto.pdf');
+
+Route::get('/caja/pdf', [CajaAlivioController::class, 'createPDF'])->name('caja.pdf');

@@ -80,14 +80,35 @@
 <a style="margin-left: 2%;" class="btn btn-warning" href="/CajaAlivio">Limpiar</a>
 </li>
 
-      
-  
-
-
 
 <li class="nav-item">
+  <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
+</li>
+
+<li >
 <a  class="btn btn-warning float-right" href="/CajaPregunta/respuesta">Vaciar caja de alivio</a>
 </li>
+
+<script>
+  setInterval('fg()', 1000);
+  function fg(){
+    document.getElementById('dat').innerHTML = "{{url()->previous();}}";
+  }
+
+  function pdf(){
+
+    window.location.href="{{route('caja.pdf')}}";
+    Swal.fire({
+      position: 'bottom-end',
+      icon: 'success',
+      title: 'Se esta descargando el pdf',
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      timer: {{$cajadatos->lastPage()*100*1}}
+    })
+
+  }
+</script>
 
 </ul>
 
