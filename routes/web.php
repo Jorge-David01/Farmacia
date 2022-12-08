@@ -288,12 +288,13 @@ Route::get('/Caja/Alivio/Search', [CajaAlivioController::class, 'busqueda']) -> 
 //----------------------------------------------------------
 //----------------- RUTAS DE DEVOLUCION ---------------------
 
-//falta hacer
+
 Route::post('/productodevolver',[DevolucionController::class, 'productodevolver']) -> name('productos.devolver');
 Route::get('/devoluciones',[DevolucionController::class, 'index']) -> name('devoluciones.index');
 
 Route::get('/devolucionProducto/listadevoluciones',[DevolucionController::class, 'list'])->name('lista.devoluciones');
 
+Route::get('/listadevoluciones', [DevolucionController::class, 'buscando']) -> name ('devolucion.busqueda');
 
 //----------------------------------------------------------
 //----------------- RUTAS PDF ------------------------------

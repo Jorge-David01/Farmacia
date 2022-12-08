@@ -48,10 +48,34 @@ return redirect()->route('detalles.venta',["id"=>$detalle->id_venta]);
 
 public function list(){
     //abort_if(Gate::denies('devolucion_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-    $lisdevolucion = Devolucion::paginate(10);
-    return view('devolucionProducto/listadevoluciones')->with('lisdevolucion' , $lisdevolucion);
+    $buscar = "";
+    $lisdevolucion =  Devolucion::
+    select('devolucions.*','productos.nombre_producto')
+    ->join('productos', 'devolucions.id_producto', '=', 'Productos.id')
+    ->paginate(10);
+    return view('devolucionProducto/listadevoluciones')->with('lisdevolucion' , $lisdevolucion)->with('buscar' , $buscar);
 }
 
+
+//-----------------------------------------------------------
+//------------- BUSCADOR  -----------------
+
+
+public function buscando(Request $request){
+    $sear=trim($request->get('busca'));
+    $buscar = $sear;
+    $variablesurl=$request->all();
+    $lisdevolucion=  Devolucion::
+    select('devolucions.*','productos.nombre_producto')
+    ->join('productos', 'devolucions.id_producto', '=', 'Productos.id')
+    ->orWhere('nombre_producto','like', '%'.$sear.'%')
+    
+    ->paginate(10)->appends($variablesurl);
+  
+   
+    return view('/devolucionProducto/listadevoluciones')->with('lisdevolucion', $lisdevolucion)->with('buscar' , $buscar);
+    
+}
     
 
 }
