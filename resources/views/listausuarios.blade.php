@@ -81,29 +81,26 @@ td {
 
              </li>
 
+             <script>
+              setInterval('fg()', 1000);
+              function fg(){
+                document.getElementById('dat').innerHTML = "{{url()->previous();}}";
+              }
 
+              function pdf(){
 
+                window.location.href="{{route('usuarios.pdf')}}";
+                Swal.fire({
+                  position: 'bottom-end',
+                  icon: 'success',
+                  title: 'Se esta descargando el pdf',
+                  showConfirmButton: false,
+                  allowOutsideClick: false,
+                  timer: {{$employee->lastPage()*100*1}}
+                })
 
-
-
-
-            
-<script>
-
-function pdf(){
-
-  window.location.href = "{{route('usuarios.pdf')}}";
-  Swal.fire({
-    position: 'bottom-end',
-    icon: 'success',
-    title: 'Se esta descargando el pdf',
-    showConfirmButton: false,
-    timer: 1500
-  })
-
-  document.getElementById('descpdf').disabled = true;
-}
-</script>
+              }
+            </script>
 
             </ul>
 

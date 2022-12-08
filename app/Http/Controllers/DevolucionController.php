@@ -6,11 +6,31 @@ use App\Models\Devolucion;
 use App\Models\DetalleVenta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class DevolucionController extends Controller
 {
 
+    public function createPDF(){
+        $devoluciones = Devolucion::
+        select('devolucions.*','productos.nombre_producto')
+        ->join('productos', 'devolucions.id_producto', '=', 'Productos.id')
+        ->get();
+        $data = [
+            'title' => 'Listado Devolucion Producto',
+            'date' => date('m/d/Y'),
+            'lisdevolucion' =>$devoluciones,
+        ];
+        return PDF::loadView('devolucionProducto/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Devolucion_'.date('m_d_Y').'.pdf');
 
+
+        return $devoluciones;
+        }
+
+        
 public function index(){
 $devoluciones = Devolucion::
 select('devolucions.*','productos.nombre_producto')

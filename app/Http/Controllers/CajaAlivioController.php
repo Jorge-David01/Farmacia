@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProveedorRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class CajaAlivioController extends Controller
 {
@@ -17,6 +19,19 @@ class CajaAlivioController extends Controller
         $this->middleware('auth');
     }
 
+    public function createPDF(){
+        $cajadatos = caja::all();
+
+        $data = [
+            'title' => 'Listado de caja de alivio',
+            'date' => date('m/d/Y'),
+            'cajadatos' =>$cajadatos,
+        ];
+        return PDF::loadView('caja/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Caja_de_Alivio_'.date('m_d_Y').'.pdf');
+
+    }
 
 
     public function caja()

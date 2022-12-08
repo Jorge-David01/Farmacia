@@ -31,9 +31,8 @@
 
             <thead>
  	        <th>Número</th>
-            <th>Nombre del usuario</th>
-            <th>Correo Electronico</th>
-            <th>Rol</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
             </tr>
             </thead>
 
@@ -42,12 +41,11 @@
             var=i;
             <?php $i=1?>
 
-        @foreach($employee as $user )
+            @forelse ($roles as $role)
         <tr>
-  	<td class="numero">{{$i}}</td>
-    <td class="letras">{{$user->name}}</td>
-    <td class="letras">{{$user->email}}</td>
-    <td class="letras">{{$user->role}}</td>
+  	<td >{{$i}}</td>
+      <td style="padding: 30px;">{{ $role->name }}</td>
+      <td style="padding: 22px;">{{ $role->descripcion }}</td>
         </tr>
  <?php $i++?>
 

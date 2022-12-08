@@ -65,8 +65,31 @@ td {
               </li>
 
 
+<div style="float: right;margin-top: 20px">
+    <center><button class="btn btn-danger" id="descpdf" onclick="pdf()">Descargar PDF</button></center>
 
+  </div>
 
+  <script>
+    setInterval('fg()', 1000);
+    function fg(){
+      document.getElementById('dat').innerHTML = "{{url()->previous();}}";
+    }
+
+    function pdf(){
+
+      window.location.href="{{route('devolucionProducto.pdf')}}";
+      Swal.fire({
+        position: 'bottom-end',
+        icon: 'success',
+        title: 'Se esta descargando el pdf',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        timer: {{$lisdevolucion->lastPage()*100*1}}
+      })
+
+    }
+  </script>
 
 
 	<div class="table-responsive">

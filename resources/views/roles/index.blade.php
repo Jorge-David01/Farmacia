@@ -17,7 +17,29 @@
     <h1 style="margin-bottom: 6%;"></h1>
 
     <a class="btn btn-warning" href='/rolesnuevo'>Nuevo rol</a>
+    <button style="margin-right;" class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
     <h1 style="margin-bottom: 2%;"></h1>
+
+    <script>
+        setInterval('fg()', 1000);
+        function fg(){
+          document.getElementById('dat').innerHTML = "{{url()->previous();}}";
+        }
+
+        function pdf(){
+
+          window.location.href="{{route('roles.pdf')}}";
+          Swal.fire({
+            position: 'bottom-end',
+            icon: 'success',
+            title: 'Se esta descargando el pdf',
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            timer: {{$roles->lastPage()*100*1}}
+          })
+
+        }
+      </script>
 
     <div class="row">
       <div class="col-12 col-lg-12">
