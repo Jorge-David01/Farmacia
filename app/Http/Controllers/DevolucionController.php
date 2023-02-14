@@ -6,11 +6,31 @@ use App\Models\Devolucion;
 use App\Models\DetalleVenta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class DevolucionController extends Controller
 {
 
+    public function createPDF(){
+        $devoluciones = Devolucion::
+        select('devolucions.*','productos.nombre_producto')
+        ->join('productos', 'devolucions.id_producto', '=', 'Productos.id')
+        ->get();
+        $data = [
+            'title' => 'Listado Devolucion Producto',
+            'date' => date('m/d/Y'),
+            'lisdevolucion' =>$devoluciones,
+        ];
+        return PDF::loadView('devolucionProducto/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Devolucion_'.date('m_d_Y').'.pdf');
 
+
+        return $devoluciones;
+        }
+
+        
 public function index(){
 $devoluciones = Devolucion::
 select('devolucions.*','productos.nombre_producto')
@@ -48,10 +68,34 @@ return redirect()->route('detalles.venta',["id"=>$detalle->id_venta]);
 
 public function list(){
     //abort_if(Gate::denies('devolucion_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-    $lisdevolucion = Devolucion::paginate(10);
-    return view('devolucionProducto/listadevoluciones')->with('lisdevolucion' , $lisdevolucion);
+    $buscar = "";
+    $lisdevolucion =  Devolucion::
+    select('devolucions.*','productos.nombre_producto')
+    ->join('productos', 'devolucions.id_producto', '=', 'Productos.id')
+    ->paginate(10);
+    return view('devolucionProducto/listadevoluciones')->with('lisdevolucion' , $lisdevolucion)->with('buscar' , $buscar);
 }
 
+
+//-----------------------------------------------------------
+//------------- BUSCADOR  -----------------
+
+
+public function buscando(Request $request){
+    $sear=trim($request->get('busca'));
+    $buscar = $sear;
+    $variablesurl=$request->all();
+    $lisdevolucion=  Devolucion::
+    select('devolucions.*','productos.nombre_producto')
+    ->join('productos', 'devolucions.id_producto', '=', 'Productos.id')
+    ->orWhere('nombre_producto','like', '%'.$sear.'%')
+    
+    ->paginate(10)->appends($variablesurl);
+  
+   
+    return view('/devolucionProducto/listadevoluciones')->with('lisdevolucion', $lisdevolucion)->with('buscar' , $buscar);
+    
+}
     
 
 }

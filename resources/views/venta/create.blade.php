@@ -49,6 +49,20 @@ session_start();
                                     </ul>
                                 </div>
                                 @endif
+
+                                @if (isset($menss) )
+                                @if ($menss != '')
+                                <script>
+                                    Swal.fire({
+                                    icon: 'error',
+                                    title: '{{$menss}}',
+                                    showConfirmButton: false,
+                                    allowOutsideClick: false,
+                                    timer: 3500
+                                })
+                                </script>
+                                @endif
+                    @endif
                                 <div style="width: 24%; float: left;margin-right: 1%">
                                     <center><label for="">Número de factura:</label></center>
                                     <input placeholder="Número de factura" class="form-control" id="factura" name="factura" maxlength="10" type="text" required value="@if(isset($numero)){{$numero}}@else{{old("factura")}}@endif" readonly>
@@ -194,11 +208,7 @@ session_start();
                                         </div>
 
                                         <script>
-                                            function cambio {
-                                                {
-                                                    $p - > id
-                                                }
-                                            }() {
+                                            function cambio{{$p -> id}}() {
                                                 var x = document.getElementById("oculto{{$p->id}}");
                                                 var y = document.getElementById("mostrar{{$p->id}}");
                                                 x.style.display = "block";
@@ -267,7 +277,7 @@ session_start();
                                     @else
                                     <button type="submit" class="btn btn-success" disabled>Vender</button>
                                     @endif
-                                    
+
                                 </form>
                             </div>
 
