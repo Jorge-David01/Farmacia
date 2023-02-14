@@ -67,20 +67,20 @@
                         @forelse ($deta as $det)
 
                         <tr>
-                            <td style="padding-right: 16.9px; padding-left: 16.9px;">{{$det->nombre_producto}}</td>
-                            <td style="padding-right: 16.9px; padding-left: 16.9px;">{{$det->laboratorio}}</td>
+                            <td >{{$det->nombre_producto}}</td>
+                            <td >{{$det->laboratorio}}</td>
 
-                            <td style="padding-right: 16.9px; padding-left: 16.9px;">{{$det->lote}}</td>
-                            <td style="padding-right: 16.9px; padding-left: 16.9px;">{{$det->fecha_vencimiento}}</td>
-                            <td style="padding-right: 16.9px; padding-left: 16.9px;">{{$det->cantidad}}</td>
+                            <td >{{$det->lote}}</td>
+                            <td >{{$det->fecha_vencimiento}}</td>
+                            <td >{{$det->cantidad}}</td>
                            
-                            <td style="padding-right: 16.9px; padding-left: 16.9px;">{{$det->precio_farmacia}}</td>
-                            <td style="padding-right: 16.9px; padding-left: 16.9px;">{{$det->precio_publico}}</td>
+                            <td >{{$det->precio_farmacia}}</td>
+                            <td >{{$det->precio_publico}}</td>
 
                             <?php $total = $det->precio_farmacia * $det->cantidad;
                             ?>
 
-                            <td style="padding-right: 16.9px; padding-left: 16.9px;"> {{$total }} </td>
+                            <td> {{$total }} </td>
                             
 
 
@@ -94,29 +94,6 @@
                         ?>
 
                     </table>
-
-
-
-
-
-
-
-
-
-
-
-
-                    
-
-
-
-
-
-
-
-
-
-
 
                     <div style="text-align: center; margin-top: 2%;">
                         <a class="btn btn-success" href="/listacompra">Volver</a>
