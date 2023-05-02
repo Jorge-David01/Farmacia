@@ -138,8 +138,23 @@ session_start();
                                     </select>
                                 </div>
                                 <div style="width: 33%; float: left;margin-right: 1%; margin-top: 2%">
-                                    <center><label for="">Cantidad:</label></center>
+                                    <center><label for="cantidad">Cantidad:</label></center>
                                     <input type="number" placeholder="0" class="form-control" id="cantidad" name="cantidad" min="0" maxlength="7" max="999999999" required value="{{old("cantidad")}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                               <!-- Se puede agregar un mensaje de error personalizado -->
+<div class="error" style="display:none">Por favor, ingrese solo números</div>
+
+                                    <script>
+  const cantidad = document.getElementById('cantidad');
+  cantidad.addEventListener('input', () => {
+    if (cantidad.value.toLowerCase().includes('e')) {
+        cantidad.value = cantidad.value.replace(/e/gi, '');
+      document.querySelector('.error').style.display = 'block';
+    } else {
+      document.querySelector('.error').style.display = 'none';
+    }
+  });
+</script>
+                               
                                 </div>
                                 <div style="width: 32%; float: left;margin-right: 1%; margin-top: 2%">
                                     <center><label for="">Descuento:</label></center>
@@ -191,7 +206,7 @@ session_start();
                                         <form method="post" style="display: none" id="oculto{{$p->id}}" action="{{route('venta.editar',['id'=>$p->id,'factura'=>$numero,'cliente'=>$idcliente,'pago'=>$idpago])}}">
                                             @csrf
                                             @method('post')
-                                            <input style="float: left" type="text" min="1" name="cantidad{{$p->id}}" id="cantidad" value="{{$p->cantidad}}">
+                                            <input style="float: left" type="number" min="1" name="cantidad{{$p->id}}" id="cantidad" value="{{$p->cantidad}}">
 
                                             <button style="float: right" type="submit" class="btn btn-success">
                                                 <i class="fa fa-save" aria-hidden="true"></i>
@@ -245,7 +260,7 @@ session_start();
 
                             <div style="text-align: center; margin-bottom: 2%; margin-top: 2%">
                                 <form style="display: inline" action="{{route('venta.cancelar')}}" method="get">
-                                    <button class="btn btn-danger" type="submit">Cancelar</button>
+                                    <button  class="btn btn-danger" type="submit">Cancelar</button>
                                 </form>
 
                                 <form style="display: inline" action="{{route('venta.destruir')}}" method="get">
