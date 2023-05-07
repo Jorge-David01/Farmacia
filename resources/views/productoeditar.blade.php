@@ -32,7 +32,7 @@
 
                         <div>
                             <label for="id_proveedor">Nombre del Proveedor:</label>
-                            <select name="nombre_proveedor" id="nombrepro" required="required" class="form-control selectpicker" data-live-search="true">
+                            <select name="nombre_proveedor" id="nombrepro" required="required" class="form-control selectpicker" data-live-search="true" >
                                 @foreach ($proveedors as $pro)
                                 <option {{ ($pro->id) == $producto->id_prov  ? 'selected' : '' }} value="{{$pro->id}}">{{$pro->Nombre_del_proveedor}}</option>
                                 @endforeach
@@ -42,7 +42,7 @@
 
                         <div>
                             <label  style="margin-top: 3%;" for="nombre_producto">Nombre del Producto:</label>
-                            <input class="form-control " type="text" class="form-control-file" name="nombre_producto" id="nombre_producto" placeholder="nombre_producto" value="{{$producto->nombre_producto}}" maxlength="50" autofocus>
+                            <input class="form-control " type="text" class="form-control-file" name="nombre_producto" id="nombre_producto" placeholder="nombre_producto" value="{{$producto->nombre_producto}}" maxlength="25" autofocus>
                         </div>
 
                         <div>

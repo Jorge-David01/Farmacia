@@ -54,7 +54,23 @@
               </li>
 
 
+              <script>
 
+                function pdf(){
+              
+                  window.location.href = "{{route('inventario.pdf')}}";
+                  Swal.fire({
+                    position: 'bottom-end',
+                    icon: 'success',
+                    title: 'Se esta descargando el pdf',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    timer: {{$Inventa->lastPage()*100*1}}
+                  })
+              
+              
+                }
+              </script>
 
             </ul>
 
@@ -79,7 +95,7 @@
 
 <tr style="background: #0088cc; text-align: center; border: 2px solid #dddddd;">
 <th>#</th>
-<th >Nombre dels producto</th>
+<th >Nombre del producto</th>
 <th >Cantidad</th>
 
               <tbody>
@@ -97,9 +113,9 @@
               @forelse($Inventa as $listaInv)
 
               <tr style="border: 2px solid #dddddd;">
-                <td>{{$Inventa->perPage()*($Inventa->currentPage()-1)+$loop->iteration}}</td>
-                <td> {{$listaInv->productos->nombre_producto}} </td>
-                <td> {{$listaInv-> cantidad}}</td>
+                <td class="numero">{{$Inventa->perPage()*($Inventa->currentPage()-1)+$loop->iteration}}</td>
+                <td class="letras"> {{$listaInv->productos->nombre_producto}} </td>
+                <td class="numero"> {{$listaInv-> cantidad}}</td>
 
 
 

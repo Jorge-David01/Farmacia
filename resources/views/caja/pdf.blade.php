@@ -3,8 +3,9 @@
         <head>
             <title>Laravel 8 Generate PDF From View</title>
             <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
             <style>
-                @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif; }
+                @page { margin: 140px 40px 40px 40px; font-family: 'Roboto', sans-serif;}
                 .table td { padding: 0rem !important;}
                 #header { position: fixed; left: 150px; top: -120px; right: 0px;  text-align: center; }
                 h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem}
@@ -15,27 +16,25 @@
                 .table{width:100%;margin-bottom:1rem;color:#212529}.table td,.table th{padding:.75rem;vertical-align:top;}
             </style>
             <!-- CSS only -->
-    <!-- Bootstrap CSS -->
-        </head>
+            </head>
         <body>
             <div id="header">
                 <div style="float: right">
                     <img src="{{asset('assets/images/Logo.jpeg')}}" width="150px" class="logo-icon" alt="logo icon">
                 </div>
                 <br>
-                    <center><h3>FARMACIA LA POPULAR</h3></center>
+                <center><h3>FARMACIA LA POPULAR</h3></center>
                     <h4><center>{{ $title }} {{ $date }}</center></h4>
             </div>
 
-            <div id="content">
+        <div id="content">
             <table class="table table-striped">
 
             <thead>
-            <th>Número</th>
-            <th>Nombre Completo</th>
-            <th>Telefono</th>
-            <th>Número de Carnet</th>
-            <th>Identidad</th>
+                <th>Número</th>
+                <th>Descripción</th>
+              <th>Vez #</th>
+              <th>Fecha</th>
         </tr>
     </thead>
 
@@ -45,31 +44,31 @@
             var=i;
             <?php $i=1?>
 
-            @forelse($liscliente as $cliente)
+        @forelse($cajadatos as $datos)
         <tr>
         <td class="numero">{{$i}}</td>
-        <td class="letras"> {{$cliente->nombre_cliente}} </td>
-        <td class="numero">  {{$cliente->telefono}} </td>
-        <td class="numero">  {{$cliente->num_carnet}}  </td>
-        <td class="numero">  {{$cliente->numero_id}}  </td>
+        <td class="letras">{{$datos->Descripcion}}</td>
+        <td class="numero">{{$datos->id}}</td>
+        <td class="numero">{{$datos->Fecha}}</td>
         </tr>
 
         <?php $i++?>
 
         @endforeach
                 </tbody>
-            </table>
             </div>
+            </table>
+
 
         <script type="text/php">
         if ( isset($pdf) ) {
             $pdf->page_script('
                 $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
                 $pdf->text(370, 570, "Pág $PAGE_NUM de $PAGE_COUNT", $font, 10);
-                ');
-            }
-            </script>
+            ');
+        }
+    	</script>
 
 
-            </body>
-        </html>
+        </body>
+    </html>

@@ -75,20 +75,19 @@
 
 
               <script>
-                function pdf() {
 
-                  window.location.href = "{{route('productos.pdf')}}";
-                  Swal.fire({
-                    position: 'bottom-end',
-                    icon: 'success',
-                    title: 'Se esta descargando el pdf',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-
-
-                }
-              </script>
+    function pdf(){
+      window.location.href = "{{route('productos.pdf')}}";
+      Swal.fire({
+        position: 'bottom-end',
+        icon: 'success',
+        title: 'Se esta descargando el pdf',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        timer: {{$produc->lastPage()*100*1}}
+      })
+    }
+  </script>
 
 
 
@@ -131,10 +130,17 @@
 
 
 <tr style="border: 2px solid #dddddd;">
+
 <td>{{$produc->perPage()*($produc->currentPage()-1)+$loop->iteration}}</td>
 <td>{{$producto->proveedores->Nombre_del_proveedor}}</td>
 <td>{{$producto->nombre_producto}}</td>
 <td word-wrap="break-word;" >{{$producto->principio_activo}}</td>
+
+<td class="numero">{{$produc->perPage()*($produc->currentPage()-1)+$loop->iteration}}</td>
+<td class="letras">{{$producto->proveedores->Nombre_del_proveedor}}</td>
+<td class="letras">{{$producto->nombre_producto}}</td>
+<td class="letras">{{$producto->principio_activo}}</td>
+
 <td > <a  class="btn btn-success" href="/Detallesproduct/{{$producto->id}}"> Detalles </a></td>
 </tr>
 

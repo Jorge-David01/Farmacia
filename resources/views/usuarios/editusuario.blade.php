@@ -32,7 +32,7 @@
 
                         <div>
                             <label for="name">Nombre Completo:</label>
-                            <input type="text" class="form-control" name="name" id="name " placeholder="name" value="{{$usuario->name}}" maxlength="50"  autofocus>
+                            <input type="text" class="form-control" name="name" id="name " placeholder="name" value="{{$usuario->name}}" minlength="5" maxlength="20"  autofocus>
                         </div>
 
                         <div>

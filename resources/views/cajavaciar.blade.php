@@ -16,7 +16,7 @@
                     <form style="margin-left: 1%;" method="POST" action="">
                         @csrf
                         <div class="form-group">
-                            <label for="nombrepro">¿Desea vaciar caja de alivio?</label>
+                            <label for="cajaalivio">¿Desea vaciar caja de alivio?</label>
                             <input style="display:none;" minlength="2" maxlength="2" style="width: 18%" class="form-control" type="text" id="cajaalivio" name="cajaalivio" required="required" value="Sí" placeholder="Ingrese si para vaciar la caja">
 
                         </div>

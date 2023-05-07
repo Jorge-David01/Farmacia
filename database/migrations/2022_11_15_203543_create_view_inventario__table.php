@@ -15,7 +15,7 @@ class CreateViewInventarioTable extends Migration
     public function up()
     {
         DB::unprepared('DROP TRIGGER IF EXISTS `actualizar_inventario`');
-
+        DB::unprepared('DROP TRIGGER IF EXISTS `actualizar_inventario2`');
             DB::unprepared('CREATE TRIGGER actualizar_inventario
             before insert on detalle_compras for each row
             begin
@@ -27,7 +27,7 @@ class CreateViewInventarioTable extends Migration
                 if new.cantidad < 0 then
                     set new.cantidad= 0;
                 end if;
-                
+
                 if exists(select id_producto from inventarios where id_producto = new.id_producto) then
                 select id into var from inventarios where id_producto = new.id_producto;
                 update inventarios set cantidad =  cantidad + new.cantidad  where id = var;
@@ -35,7 +35,26 @@ class CreateViewInventarioTable extends Migration
                     insert into inventarios(id_producto, cantidad)
                     values (new.id_producto, new.cantidad);
                 end if;
-                
+
+            end
+            ');
+            DB::unprepared('CREATE TRIGGER actualizar_inventario2
+            before insert on detalle_ventas for each row
+            begin
+
+            Declare var int default 0;
+            Declare suma int default 0;
+
+
+                if new.cantidad < 0 then
+                    set new.cantidad= 0;
+                end if;
+
+                if exists(select id_producto from inventarios where id_producto = new.id_producto) then
+                select id into var from inventarios where id_producto = new.id_producto;
+                update inventarios set cantidad =  cantidad - new.cantidad  where id = var;
+                end if;
+
             end
             ');
     }
@@ -48,5 +67,6 @@ class CreateViewInventarioTable extends Migration
     public function down()
     {
         DB::unprepared('DROP TRIGGER IF EXISTS `actualizar_inventario`');
+        DB::unprepared('DROP TRIGGER IF EXISTS `actualizar_inventario2`');
     }
 }

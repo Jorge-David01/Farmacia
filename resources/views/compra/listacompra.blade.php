@@ -9,11 +9,7 @@
   }
 </style>
 
-@if (session('Mensaje'))
-<div class="alert alert-danger">
-  {{session('Mensaje')}}
-</div>
-@endif
+
 
 </style>
 @if (session('msj'))
@@ -24,10 +20,16 @@
 
 
 <div class="clearfix"></div>
-<div class="content-wrapper">
+</style>
+@if (session('msj'))
+<div class="alert alert-success">
+  {{session('msj')}}
+</div>
+@endif
+<div style="margin-top: 5%;" class="content-wrapper">
   <div class="container-fluid">
 
-    <h1 style="margin-bottom: 6%;"></h1>
+   
 
     <div class="row">
       <div class="col-12 col-lg-12">
@@ -63,21 +65,22 @@
               </li>
 
               <script>
-                function pdf() {
 
-                  window.location.href = "{{route('compras.pdf')}}";
-                  Swal.fire({
-                    position: 'bottom-end',
-                    icon: 'success',
-                    title: 'Se esta descargando el pdf',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
+function pdf(){
+
+  window.location.href = "{{route('compras.pdf')}}";
+  Swal.fire({
+    position: 'bottom-end',
+    icon: 'success',
+    title: 'Se esta descargando el pdf',
+    showConfirmButton: false,
+    allowOutsideClick: false,
+    timer: {{$lista->lastPage()*100*1}}
+  })
 
 
-                }
-              </script>
-
+}
+</script>
             </ul>
 
           </div>
@@ -122,10 +125,10 @@
 
 
 <tr style="border: 2px solid #dddddd;">
-<td>{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
-<td> {{$list->numero_factura}} </td>
-            <td>{{$list->proveed->Nombre_del_proveedor}}</td>
-            <td>
+<td class="numero">{{$lista->perPage()*($lista->currentPage()-1)+$loop->iteration}}</td>
+<td class="numero"> {{$list->numero_factura}} </td>
+            <td class="letras">{{$list->proveed->Nombre_del_proveedor}}</td>
+            <td class="numero">
               <?php $sum=0?>
               @foreach ($list->detalles as $detall)
               <?php $sum+= ($detall->cantidad*$detall->precio_farmacia)?>

@@ -39,7 +39,6 @@
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" placeholder="Busqueda" name="texto" value="{{$texto}}">
                                     </div>
-
                                     <li class="nav-item">
                                         <input style="margin-left: 1%;" type="submit" class="btn btn-success" value="Buscar">
                                     </li>
@@ -56,8 +55,6 @@
                                 <button style="margin-right: 1%;" class="btn btn-danger float-right" onclick="pdf()" id="descpdf">Descargar PDF</button>
                             </li>
 
-
-
                             <li> <a class="btn btn-warning float-right" href="/empleados/nuevo">Nuevo Empleado</a></li>
 
                      
@@ -73,10 +70,9 @@
                                     icon: 'success',
                                     title: 'Se esta descargando el pdf',
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    allowOutsideClick: false,
+        timer: {{$employee->lastPage()*100*1}}
                                   })
-
-                                  document.getElementById('descpdf').disabled = true;
                                 }
                               </script>
 
@@ -115,10 +111,10 @@
                             @forelse($employee as $emple)
 
                             <tr style="border: 2px solid #dddddd;">
-                                <td>{{$employee->perPage()*($employee->currentPage()-1)+$loop->iteration}}</td>
-                                <td>{{$emple->nombre_completo}}</td>
-                                <td>{{$emple->DNI}}</td>
-                                <td>{{$emple->numero_cel}}</td>
+                                <td class="numero">{{$employee->perPage()*($employee->currentPage()-1)+$loop->iteration}}</td>
+                                <td class="letras">{{$emple->nombre_completo}}</td>
+                                <td class="numero">{{$emple->DNI}}</td>
+                                <td class="numero">{{$emple->numero_cel}}</td>
                                 <td> <a class="btn btn-success" href="/Emple/{{$emple->id}}"> Detalles </a></td>
                             </tr>
 

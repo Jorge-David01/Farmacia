@@ -282,17 +282,19 @@ Route::get('/CajaPregunta/respuesta',[CajaAlivioController::class, 'pregunta'])-
 
 Route::post('/CajaPregunta/respuesta',[CajaAlivioController::class, 'respuesta'])->name('caja.respuestas');
 
-
-
-Route::get('/CajaAlivio', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
+Route::get('/Caja/Alivio/Search', [CajaAlivioController::class, 'busqueda']) -> name ('caja.buscador');
 
 
 //----------------------------------------------------------
 //----------------- RUTAS DE DEVOLUCION ---------------------
 
-//falta hacer
+
 Route::post('/productodevolver',[DevolucionController::class, 'productodevolver']) -> name('productos.devolver');
 Route::get('/devoluciones',[DevolucionController::class, 'index']) -> name('devoluciones.index');
+
+Route::get('/devolucionProducto/listadevoluciones',[DevolucionController::class, 'list'])->name('lista.devoluciones');
+
+Route::get('/listadevoluciones', [DevolucionController::class, 'buscando']) -> name ('devolucion.busqueda');
 
 //----------------------------------------------------------
 //----------------- RUTAS PDF ------------------------------
@@ -303,10 +305,20 @@ Route::get('/productos/pdf', [ProductoController::class, 'createPDF'])->name('pr
 
 Route::get('/compras/pdf', [CompraController::class, 'createPDF'])->name('compras.pdf');
 
-
-
 Route::get('/empleados/pdf', [EmpleadoController::class, 'createPDF'])->name('empleados.pdf');
 
 Route::get('/usuarios/pdf', [UsuarioController::class, 'createPDF'])->name('usuarios.pdf');
+
 Route::get('/clientes/pdf', [ClienteController::class, 'createPDF'])->name('clientes.pdf');
 
+Route::get('/venta/pdf', [VentaController::class, 'createPDF'])->name('venta.pdf');
+
+Route::get('/inventario/pdf', [KardexController::class, 'createPDFInventario'])->name('inventario.pdf');
+
+Route::get('/kardex/pdf', [KardexController::class, 'createPDF'])->name('kardex.pdf');
+
+Route::get('/devolucionProducto/pdf', [DevolucionController::class, 'createPDF'])->name('devolucionProducto.pdf');
+
+Route::get('/caja/pdf', [CajaAlivioController::class, 'createPDF'])->name('caja.pdf');
+
+Route::get('/roles/pdf', [RoleController::class, 'createPDF'])->name('roles.pdf');

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProveedorRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class CajaAlivioController extends Controller
 {
@@ -17,6 +19,19 @@ class CajaAlivioController extends Controller
         $this->middleware('auth');
     }
 
+    public function createPDF(){
+        $cajadatos = caja::all();
+
+        $data = [
+            'title' => 'Listado de caja de alivio',
+            'date' => date('m/d/Y'),
+            'cajadatos' =>$cajadatos,
+        ];
+        return PDF::loadView('caja/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Caja_de_Alivio_'.date('m_d_Y').'.pdf');
+
+    }
 
 
     public function caja()
@@ -46,8 +61,8 @@ class CajaAlivioController extends Controller
         ];
 
         $msj=[
-            'Answer.max' => 'La caja de alivio no se ha vaciado',
-            'Answer.min' => 'La caja de alivio no se ha vaciado',
+            'cajaalivio.max' => 'La caja de alivio no se ha vaciado',
+            'cajaalivio.min' => 'La caja de alivio no se ha vaciado',
            
         ];
         $this->validate($request,$rules,$msj);
@@ -61,17 +76,11 @@ class CajaAlivioController extends Controller
         $guardado = $ques->save();
 
 
-
-        
-
         if ($guardado) {
-            return redirect()->route('caja.alivio')
-                ->with('mensaje', 'La caja de alivio se ha vaciado exitosamente');
+            return redirect()->route('caja.alivio')->with('mensaje', 'La caja de alivio se ha vaciado exitosamente');
         }
     
 
-        
-       
     }
 
 
@@ -81,7 +90,7 @@ class CajaAlivioController extends Controller
         $variablesurl=$request->all();
         $cajadatos=DB::table('cajas') 
         ->where('Fecha','like','%'.$sear.'%')
-        ->orderBy('Fecha', 'asc')->paginate(3)->appends($variablesurl);
+        ->orderBy('Fecha', 'asc')->paginate(10)->appends($variablesurl);
 
 
 

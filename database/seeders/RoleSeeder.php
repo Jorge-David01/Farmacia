@@ -19,13 +19,11 @@ class RoleSeeder extends Seeder
 
         Role::create([
             'name' => 'Administrador',
-            'descripcion' => 'Este rol sera el rol maestro con todos los permisos,
-            se encargara de la organización, de la dirección y control de la farmacia',
+            'descripcion' => 'Este rol será el rol maestro con todos los permisos, se encargará de la organización, de la dirección y control de la farmacia',
         ]);
         Role::create([
             'name' => 'Vendedor',
-            'descripcion' => 'Este rol sera el rol para los vendedores, no se limita simplemente a vender
-            y brindar el servicio al cliente, sino que tambien lograr determinados objetivos',
+            'descripcion' => 'Este rol será el rol para los vendedores, no se limita simplemente a vender y brindar el servicio al cliente, sino que también lograr determinados objetivos',
         ]);
         $user1 = User::create(
             [

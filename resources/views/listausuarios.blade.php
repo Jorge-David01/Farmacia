@@ -81,29 +81,26 @@ td {
 
              </li>
 
+             <script>
+              setInterval('fg()', 1000);
+              function fg(){
+                document.getElementById('dat').innerHTML = "{{url()->previous();}}";
+              }
 
+              function pdf(){
 
+                window.location.href="{{route('usuarios.pdf')}}";
+                Swal.fire({
+                  position: 'bottom-end',
+                  icon: 'success',
+                  title: 'Se esta descargando el pdf',
+                  showConfirmButton: false,
+                  allowOutsideClick: false,
+                  timer: {{$employee->lastPage()*100*1}}
+                })
 
-
-
-
-            
-<script>
-
-function pdf(){
-
-  window.location.href = "{{route('usuarios.pdf')}}";
-  Swal.fire({
-    position: 'bottom-end',
-    icon: 'success',
-    title: 'Se esta descargando el pdf',
-    showConfirmButton: false,
-    timer: 1500
-  })
-
-  document.getElementById('descpdf').disabled = true;
-}
-</script>
+              }
+            </script>
 
             </ul>
 
@@ -126,7 +123,7 @@ function pdf(){
                 <th>Email</th>
                 <th>Rol</th>
                 <th>Ver detalles</th>
-                <th></th>
+                <th>Cambio de contraseña</th>
                 </tr>
                 </thead>
 
@@ -144,8 +141,8 @@ function pdf(){
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
-                    <td > <a  class="btn btn-success" href="/Showuser/{{$user->id}}"> Detalles </a></td>
-                    <td > <a  class="btn btn-success" href="/contrasenia/{{$user->id}}/listausuarios"> Cambiar Contrasena </a></td>
+                    <td > <a  class="btn btn-success" href="/Showuser/{{$user->id}}">Detalles</a></td>
+                    <td > <a  class="btn btn-success" href="/contrasenia/{{$user->id}}/listausuarios">Cambiar</a></td>
                     </tr>
                     @endforeach
                 </tbody>

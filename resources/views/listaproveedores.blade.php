@@ -64,20 +64,25 @@
               </li>
 
               <script>
-                function pdf() {
+        setInterval('fg()', 1000);
+        function fg(){
+          document.getElementById('dat').innerHTML = "{{url()->previous();}}";
+        }
 
-                  window.location.href = "{{route('proveedores.pdf')}}";
-                  Swal.fire({
-                    position: 'bottom-end',
-                    icon: 'success',
-                    title: 'Se esta descargando el pdf',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
+        function pdf(){
 
+          window.location.href="{{route('proveedores.pdf')}}";
+          Swal.fire({
+            position: 'bottom-end',
+            icon: 'success',
+            title: 'Se esta descargando el pdf',
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            timer: {{$pro->lastPage()*100*1}}
+          })
 
-                }
-              </script>
+        }
+      </script>
 
 
             </ul>
@@ -93,7 +98,7 @@
       <div class="col-12 col-lg-12">
         <div class="card">
 
-          <div class="table-responsive">
+          <div  class="table-responsive">
             <table class="table table-bordered align-items-center table-flush table-borderless">
 
 
@@ -123,9 +128,9 @@
 
 
 
-                <td>{{$pro->perPage()*($pro->currentPage()-1)+$loop->iteration}}</td>
-                <td>{{$prove->Nombre_del_proveedor}}</td>
-                <td>{{$prove->Nombre_del_distribuidor}}</td>
+                <td class="numero">{{$pro->perPage()*($pro->currentPage()-1)+$loop->iteration}}</td>
+                <td class="letras">{{$prove->Nombre_del_proveedor}}</td>
+                <td class="letras">{{$prove->Nombre_del_distribuidor}}</td>
 
                 <td> <a class="btn btn-info" href="Archivos/{{$prove->Archivo}}" target="blank_">Documentos</a></td>
                 <td> <a class="btn btn-success" href="/Verprovee/{{$prove->id}}">Detalles</a></td>

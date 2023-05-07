@@ -6,9 +6,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
 
 class RoleController extends Controller
 {
+
+    
+ public function createPDF(){
+    $roles = Role::all();
+
+    $data = [
+        'title' => 'Listado de Roles',
+        'date' => date('m/d/Y'),
+        'roles' =>$roles,
+    ];
+    return PDF::loadView('roles/pdf', $data)
+    ->setPaper('a4', 'landscape')
+    ->download('Listado_de_Roles_'.date('m_d_Y').'.pdf');
+
+}
 
     public function __construct(){
         $this->middleware('auth');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventario;
 use App\Models\Venta;
 use App\Models\cliente;
 use App\Models\Producto;
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreVentaRequest;
 use App\Http\Requests\UpdateVentaRequest;
 use Illuminate\Support\Facades\Gate;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
+
 
 class VentaController extends Controller
 {
@@ -29,6 +33,20 @@ class VentaController extends Controller
         //
     }
 
+    public function createPDF(){
+        $lista = Venta::all();
+        $data = [
+            'title' => 'Listado de venta',
+            'date' => date('m/d/Y'),
+            'lista' =>$lista,
+        ];
+
+        return PDF::loadView('venta/pdf', $data)
+        ->setPaper('a4', 'landscape')
+        ->download('Listado_de_Venta_'.date('m_d_Y').'.pdf');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -43,6 +61,7 @@ class VentaController extends Controller
         $numero =  $request->get('factura');
         $idcliente = $request->get('cliente');
         $idpago = $request->get('pago');
+        $menss = $request->get('menss');
 
         $venta = Venta::select(DB::raw("max(numero_factura) as factura"))->first();
 
@@ -51,8 +70,6 @@ class VentaController extends Controller
             if ($numero == "") {
                 $numero = 1;
             }
-
-
 
 
             if (isset($idcliente)) {
@@ -71,8 +88,11 @@ class VentaController extends Controller
             ->with('idcliente',$idcliente)
             ->with('idpago',$idpago)
             ->with('clientenomb',$clientenomb)
-            ->with('numero',$numero);
+            ->with('numero',$numero)
+            ->with('menss',$menss);
 }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -110,28 +130,50 @@ class VentaController extends Controller
             'descuento.numeric' => 'El descuento debe de ser un valor numérico',
         ]);
 
-        $temporals = new TemporalVenta();
+        $val = Inventario::where("id_producto",$request->input('productos'))->select('cantidad')->first();
+        $h = $val->cantidad;
+        $menss='';
 
-        $pre = DetalleCompra::where("id_producto",$request->input('productos'))->first();
+        if ( $h > 0 && $h >= $request->input('cantidad')) {
 
-        $temporals->id_producto = $request->input('productos');
-        $temporals->cantidad = $request->input('cantidad');
-        $temporals->descuento = $request->input('descuento');
-        $temporals->precio = $pre->precio_publico;
+            $t = TemporalVenta::where('id_producto',$request->input('productos'))->get();
+            if (count($t)!=0) {
+                $temporals = TemporalVenta::where('id_producto',$request->input('productos'))->first();
 
-        $temporals->save();
+                if ($h >= $request->input('cantidad')+$temporals->cantidad) {
+                    $temporals->cantidad += $request->input('cantidad');
+                } else {
+                    $menss = 'El producto seleccionado no tiene las suficientes unidades para venderse';
+                }
 
+
+                $temporals->save();
+            } else {
+                $temporals = new TemporalVenta();
+
+                $pre = DetalleCompra::where("id_producto",$request->input('productos'))->first();
+
+                $temporals->id_producto = $request->input('productos');
+                $temporals->cantidad = $request->input('cantidad');
+                $temporals->descuento = $request->input('descuento');
+                $temporals->precio = $pre->precio_publico;
+
+                $temporals->save();
+                }
+
+
+        } else {
+            $menss = 'El producto seleccionado no tiene las suficientes unidades para venderse';
+        }
+
+        $productos = Producto::select(DB::raw("DISTINCT productos.*"))->rightjoin("detalle_compras","productos.id", "=", "detalle_compras.id_producto")->get();
+        $clientes = cliente::all();
+        $temporal = TemporalVenta::all();
         $numero =  $request->get('factura');
         $idcliente = $request->get('cliente');
         $idpago = $request->get('pago');
-        $cli = cliente::select('nombre_cliente')
-            ->where('id',$idcliente)->first();
-            $clientenomb = $cli->nombre_cliente;
-
-
-            $productos = Producto::all();
-            $clientes = cliente::all();
-            $temporal = TemporalVenta::all();
+        $cli = cliente::select('nombre_cliente')->where('id',$idcliente)->first();
+        $clientenomb = $cli->nombre_cliente;
 
         return view('venta/create')
         ->with('productos',$productos)
@@ -140,7 +182,8 @@ class VentaController extends Controller
         ->with('numero',$numero)
         ->with('idcliente',$idcliente)
         ->with('idpago',$idpago)
-        ->with('clientenomb',$clientenomb);
+        ->with('clientenomb',$clientenomb)
+        ->with('menss',$menss);
     }
 
     public function eliminar(Request $request,$id){
@@ -213,9 +256,18 @@ class VentaController extends Controller
         if ($request->input('cantidad'.$id) != "" && $request->input('cantidad'.$id) > 0 ) {
             $cambio = TemporalVenta::findOrFail($id);
 
-        $cambio->cantidad = $request->input('cantidad'.$id);
+            $val = Inventario::where("id_producto",$cambio->id_producto)->select('cantidad')->first();
+            $h = $val->cantidad;
+            $menss='';
 
-        $cambio->save();
+            if ($h > $request->input('cantidad'.$id)) {
+                $cambio->cantidad = $request->input('cantidad'.$id);
+
+                $cambio->save();
+
+            } else {
+                $menss = 'El producto seleccionado no tiene las suficientes unidades para venderse';
+            }
 
         }
 
@@ -223,7 +275,8 @@ class VentaController extends Controller
         $idcliente = $request->get('cliente');
         $idpago = $request->get('pago');
 
-        return redirect()->route('venta.create',['factura'=>$numero,'cliente'=>$idcliente,'pago'=>$idpago]);
+        return redirect()->route('venta.create',['factura'=>$numero,'cliente'=>$idcliente,'pago'=>$idpago, 'menss'=>$menss]);
+
     }
 
     public function listaventa(){
@@ -245,7 +298,7 @@ class VentaController extends Controller
         ->join('detalle_ventas', 'ventas.id', '=', 'detalle_ventas.id_venta')
         ->join('Productos', 'detalle_ventas.id_producto', '=', 'Productos.id')
         ->where('detalle_ventas.id_venta', '=', $id)
-        ->select('devuelto','detalle_ventas.id as id_detalle','id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio', 'nombre_producto')
+        ->select('detalle_ventas.id as id_detalle','id_venta' , 'id_producto', 'cantidad' , 'descuento', 'precio', 'nombre_producto')
         ->get();
 
 

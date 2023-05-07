@@ -48,7 +48,11 @@
 
                     <div class="col-sm-6">
                       <div class="form-group">
+
                         <input  type="text" pattern="[A-Za-z]+"  maxlength="30" class="form-control" name="name" value="{{old('name')}}" autocomplete="off" autofocus>
+
+                        <input minlength="5" maxlength="15" type="text" class="form-control" name="name" value="{{old('name')}}" autocomplete="off" autofocus>
+
                       </div>
                       </div>
                     </div>
@@ -59,7 +63,7 @@
                           <label for="name" class="col-sm-2 col-form-label">Descripción:</label>
                           <div class="col-sm-6">
                             <div class="form-group">
-                              <input type="text" class="form-control" name="descripcion" value="{{old('descripcion')}}" autocomplete="off" autofocus>
+                              <input minlength="7" maxlength="30" type="text" class="form-control" name="descripcion" value="{{old('descripcion')}}" autocomplete="off" autofocus>
                             </div>
                           </div>
                           
@@ -74,21 +78,24 @@
                               <table class="table  table-bordered  ">
                                 <tbody>
                                   @foreach ($permissions as $id => $permission)
+                                  
                                   <tr>
+
                                     <td>
                                       <div style="display: flex; justify-content: center;" class="form-check">
-                                        
-                                          <input  class="form-check-input" type="checkbox" name="permissions[]" value="{{ $id }}">
-                                          <span class="form-check-sign">
+                                          <input class="form-check-input" type="checkbox" name="permissions[]" value="{{ $id }}" required>
+                                          <span  class="form-check-sign">
                                             <span class="check"></span>
                                           </span>
-                                        
                                       </div>
                                     </td>
+
                                     <td style="display: flex; justify-content: center;">
                                       {{ $permission }}
                                     </td>
+                                    
                                   </tr>
+
                                   @endforeach
                                 </tbody>
                               </table>

@@ -4,6 +4,7 @@
 @section('contenido')
 @section('TituloPlantillas', 'Registro de proveedores')
 
+
 <div class="content-wrapper">
     <div class="container-fluid">
 
@@ -32,7 +33,7 @@
                         <div class="form-group">
                             <label for="nombrepro">Nombre del proveedor:</label>
 
-                            <input maxlength="70"  class="form-control" type="text" id="nombrepro" name="nombrepro" title="Ingrese el nombre del proveedor" required="required" placeholder="Ingrese el nombre del proveedor"  value="{{old('nombrepro')}}">
+                            <input  class="form-control" type="text" id="nombrepro" name="nombrepro" title="Ingrese el nombre del proveedor" required="required" placeholder="Ingrese el nombre del proveedor"  value="{{old('nombrepro')}}" minlength="5" maxlength="25">
 
 
                             
@@ -42,21 +43,21 @@
 
                         <div class="form-group">
                             <label for="nombredis">Nombre del distribuidor:</label>
-                            <input maxlength="70" class="form-control" type="text" id="nombredis" name="nombredis" title="Ingrese el nombre del distribuidor" required="required" placeholder="Ingrese el nombre del distribuidor"  value="{{old('nombredis')}}">
+                            <input  minlength="5" maxlength="250" class="form-control" type="text" id="nombredis" name="nombredis" title="Ingrese el nombre del distribuidor" required="required" placeholder="Ingrese el nombre del distribuidor"  value="{{old('nombredis')}}">
 
                         </div>
 
 
                         <div class="form-group">
                             <label for="telefonopro">Teléfono del proveedor:</label>
-                            <input minlength="8" maxlength="8" class="form-control" type="tel" id="telefonopro" name="telefonopro" title="Ingrese el teléfono del proveedor" required="required" placeholder="Ingrese el teléfono del proveedor"  value="{{old('telefonopro')}}">
+                            <input  minlength="8" maxlength="8" class="form-control" type="tel" id="telefonopro" name="telefonopro" title="Ingrese el teléfono del proveedor" required="required" placeholder="Ingrese el teléfono del proveedor"  value="{{old('telefonopro')}}">
 
                         </div>
 
 
                         <div class="form-group">
                             <label for="telefonodis">Teléfono del distribuidor:</label>
-                            <input minlength="8" maxlength="8" class="form-control" type="tel" id="telefonodis" name="telefonodis" title="Ingrese el teléfono del distribuidor" required="required" pattern="[9,8,3]{1}[0-9]{7}" placeholder="Ingrese el teléfono del distribuidor"  value="{{old('telefonodis')}}">
+                            <input  minlength="8" maxlength="8" class="form-control" type="tel" id="telefonodis" name="telefonodis" title="Ingrese el teléfono del distribuidor" required="required" pattern="[9,8,3]{1}[0-9]{7}" placeholder="Ingrese el teléfono del distribuidor"  value="{{old('telefonodis')}}">
 
                         </div>
 
@@ -68,7 +69,7 @@
 
                         <div class="form-group">
                             <label for="files">Subir PDF</label>
-                            <input class="form-control" type="file"  id="files" accept="application/pdf" name="files"  >
+                            <input  class="form-control inputfile inputfile-3" type="file"  id="files" accept="application/pdf" name="files"  >
 
                         </div>
 

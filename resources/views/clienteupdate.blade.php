@@ -30,12 +30,12 @@
                         @csrf
                         <div>
                             <label style="margin-top: 3%;" for="nombre_cliente">Nombre del cliente:</label>
-                            <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente" placeholder="Nombre del cliente" value="{{$client->nombre_cliente}}" minlength="6" maxlength="50" autofocus>
+                            <input type="text" pattern="[a-zA-Z\s]+" class="form-control" name="nombre_cliente" id="nombre_cliente" placeholder="Nombre del cliente" value="{{$client->nombre_cliente}}" minlength="3" maxlength="20" autofocus>
                         </div>
 
                         <div>
                             <label style="margin-top: 3%;" for="numero_identidad">Numero de identidad:</label>
-                            <input type="number " class="form-control" name="numero_identidad" id="numero_identidad" placeholder="Número de identidad " value="{{$client->numero_id}}" minlength="13" maxlength="13" pattern="[0-1]{1}[0-9]{1}[0-2]{1}[0-9]{10}">
+                            <input type="number" class="form-control" name="numero_identidad" id="numero_identidad" placeholder="Número de identidad " value="{{$client->numero_id}}" minlength="13" maxlength="13" pattern="[0-1]{1}[1-9]{1}[0-2]{1}[0-9]{10}">
                         </div>
 
                         <div>
@@ -45,7 +45,7 @@
 
                         <div>
                             <label style="margin-top: 3%;" for="direccion">Dirección</label>
-                            <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección" value="{{$client->direccion}}" minlength="10" maxlength="200">
+                            <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección" value="{{$client->direccion}}" pattern="[a-zA-Z0-9\s]+" minlength="5" maxlength="100">
                         </div>
 
                         <hr>
