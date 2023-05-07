@@ -39,7 +39,7 @@ class RoleController extends Controller
     {
         abort_if(Gate::denies('role_listado'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
 
-        $roles = Role::paginate(10);
+        $roles = Role::paginate(5);
 
         return view('roles.index', compact('roles'));
     }

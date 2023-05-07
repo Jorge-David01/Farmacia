@@ -35,7 +35,7 @@
 
                         <div>
                             <label style="margin-top: 3%;" for="direccion">Dirección</label>
-                            <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección" value="{{$cliente->num_carnet}}" minlength="10" maxlength="200" disabled>
+                            <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección" value="{{$cliente->direccion}}" minlength="10" maxlength="200" disabled>
                         </div>
 
                         <hr>

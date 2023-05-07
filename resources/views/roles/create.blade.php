@@ -48,7 +48,11 @@
 
                     <div class="col-sm-6">
                       <div class="form-group">
+
+                        <input  type="text" pattern="[A-Za-z]+"  maxlength="30" class="form-control" name="name" value="{{old('name')}}" autocomplete="off" autofocus>
+
                         <input minlength="5" maxlength="15" type="text" class="form-control" name="name" value="{{old('name')}}" autocomplete="off" autofocus>
+
                       </div>
                       </div>
                     </div>

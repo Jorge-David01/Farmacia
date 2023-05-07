@@ -4,7 +4,14 @@
 @section('contenido')
 @section('TituloPlantillas', 'Creación de producto')
 
-@if($errors->any())
+
+
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <h1 style="margin-bottom: 6%;"></h1>
+
+        @if($errors->any())
 <div class="alert alert-danger">
     <ul>
         @foreach($errors->all() as $error)
@@ -15,12 +22,6 @@
     </ul>
 </div>
 @endif
-
-
-<div class="content-wrapper">
-    <div class="container-fluid">
-        <h1 style="margin-bottom: 6%;"></h1>
-
 
 
         <div style="margin: auto;" class="col-lg-6">
