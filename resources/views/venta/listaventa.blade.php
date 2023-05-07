@@ -96,7 +96,7 @@
               <th>Número de factura</th>
                     <th>Cliente</th>
                     <th>Total factura</th>
-                    <th>Detalles de compra</th>
+                    <th>Detalles de venta</th>
               </tr>
 
               <tbody>

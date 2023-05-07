@@ -63,12 +63,11 @@ session_start();
                                     <center><label for="">Tipo de pago:</label></center>
                                     <select name="pago" id="pago" class="form-control selectpicker" data-live-search="true">
                                         @if(old('pago'))
-                                        <option value="{{old('pago')}}" style="display:none">{{old('pago')}}</option>
+                                        <option value="{{old('pago')}}" style="display:none" requerid>{{old('pago')}}</option>
                                         @else
                                         @if (isset($idpago))
                                         <option value="{{$idpago}}" style="display:none">{{$idpago}}</option>
-                                        @else
-                                        <option value="" style="display:none">Seleccione</option>
+                                     
                                         @endif
                                         @endif
                                         <option value="Efectivo">Efectivo</option>
@@ -88,8 +87,7 @@ session_start();
                                         @else
                                         @if (isset($idcliente))
                                         <option style="display: none" value="{{$idcliente}}">{{$clientenomb}}</option>
-                                        @else
-                                        <option style="display: none" value="">Seleccione el cliente</option>
+                                      
                                         @endif
                                         @endif
                                         @foreach ($clientes as $p)
@@ -126,7 +124,7 @@ session_start();
                                 </div>
                                 <div style="width: 32%; float: left;margin-right: 1%">
                                     <center><label for="">Descuento:</label></center>
-                                    <input placeholder="0.00" class="form-control" id="descuento" name="descuento" min="0" max="100" maxlength="3" type="number" step="any" title="Formato de descuento incorrecto" value="{{old("descuento")}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                    <input placeholder="0.00" class="form-control" id="descuento" name="descuento" min="0" max="80" maxlength="3" type="number" step="any" title="Formato de descuento incorrecto" value="{{old("descuento")}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                 </div>
                                 <div style="width: 100%; float: left;margin-top: 2%; margin-bottom: 1%;">
                                     <button class="btn btn-success" type="submit" style="width: 100%">Agregar producto</button> <br>

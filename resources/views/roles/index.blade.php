@@ -27,7 +27,7 @@
           <table class="table-bordered align-items-center">
             <thead>
               <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Nombre </th>
-              <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Descripcion </th>
+              <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Descripción </th>
               <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Detalles </th>
               <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Editar </th>
               <th style="background: #0088cc; text-align: center; border: 2px solid #dddddd;" class="text-center"> Eliminar </th>
@@ -72,6 +72,7 @@
         </div>
       </div>
     </div>
+    {{$roles -> links() }}
   </div>
 </div>
 @endsection

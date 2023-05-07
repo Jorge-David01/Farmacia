@@ -169,7 +169,7 @@ class VentaController extends Controller
             TemporalVenta::destroy($temp->id);
         }
 
-        return redirect()->route('venta.create');
+        return redirect()->route('lista.venta');
     }
 
     public function almacenar(Request $request){
@@ -241,7 +241,7 @@ class VentaController extends Controller
 
         $factu = Venta::findOrfail($id);
 
-        $detalles = DB::table('ventas')
+        $detalles = DB::table('detalle_ventas')
         ->join('detalle_ventas', 'ventas.id', '=', 'detalle_ventas.id_venta')
         ->join('Productos', 'detalle_ventas.id_producto', '=', 'Productos.id')
         ->where('detalle_ventas.id_venta', '=', $id)
