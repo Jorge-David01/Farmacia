@@ -5,16 +5,18 @@
 @section('contenido')
 @section('TituloPlantillas', 'Lista de roles')
 
-@if(session('mensaje'))
-<div class="alert alert-success">
-  {{session('mensaje')}}
-</div>
-@endif
+
 
 
 <div class="content-wrapper">
   <div class="container-fluid">
     <h1 style="margin-bottom: 6%;"></h1>
+
+    @if(session('msj'))
+<div class="alert alert-success">
+  {{session('msj')}}
+</div>
+@endif
 
     <a class="btn btn-warning" href='/rolesnuevo'>Nuevo rol</a>
     <button style="margin-right;" class="btn btn-danger float-right" onclick="pdf()">Descargar PDF</button>
