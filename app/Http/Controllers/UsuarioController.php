@@ -83,13 +83,18 @@ class UsuarioController extends Controller
     {
         // abort_if(Gate::denies('usuario_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $rules=[
-            'nombre_completo' => 'required|max:110',
+            'nombre_completo' => 'required|max:50|min:3',
             'password' => 'required|confirmed|min:6',
+            'email' => 'required|unique:users,email',
+
         ];
 
         $mensaje=[
             'nombre_completo.required' => 'El nombre no puede estar vacío',
             'nombre_completo.max' => 'El nombre es demasiado extenso',
+            'nombre_completo.min' => 'El nombre es demasiado corto',
+            'email.required' => 'El correo no puede estar vacío',
+            'email.unique' => 'El correo debe ser unico',
             'password.required' => 'La contraseña no puede estar vacía',
             'password.confirmed' => 'Las contraseñas que ingreso no coinciden.',
         ];
@@ -179,34 +184,29 @@ class UsuarioController extends Controller
     }
 
     public function update(Request $request, $id){
-
-
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:110',
-           
-        ]);
-
-        if($validator->fails()){
         
-                $rules=[
-                    'name' => 'required|max:110|min:5',
-                    'password' => 'required|min:6',
-                ];
+        $rules=[
+                    'name' => 'required|max:50|min:3',
+                    'email' => 'required|unique:users,email,'.$id,
+                    
+        ];
 
-                $mensaje=[
+        $mensaje=[
                     'name.required' => 'El nombre no puede estar vacío',
                     'name.max' => 'El nombre que ingresó es demasiado extenso',
-                    'name.min' => 'El nombre debe de tener al menos seis caracteres',
-                    
-                ];
+                    'name.min' => 'El nombre debe de tener al menos tres caracteres',
+                    'email.required' => 'El correo no puede estar vacío',
+                    'email.unique' => 'El correo debe ser unico',
+        ];
 
-            $this->validate($request,$rules,$mensaje);
+        $this->validate($request,$rules,$mensaje);
 
-        }
+      
 
 
         $usuario= User::findorFail($id);
         $usuario->name = $request->input('name');
+        $usuario->email = $request->input('email');
       
         $creado = $usuario->save();
 
