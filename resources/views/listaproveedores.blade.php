@@ -41,7 +41,7 @@
                 @csrf
                 <div class="form-row">
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" name="search" id="search" placeholder="Busqueda">
+                    <input required type="text" class="form-control" name="search" id="search" placeholder="Busqueda">
                   </div>
                   <li class="nav-item">
                     <input style="margin-left:1%" type="submit" value="Buscar" class="btn btn-success">
