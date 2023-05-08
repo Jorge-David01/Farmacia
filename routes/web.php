@@ -126,7 +126,7 @@ Route::post('/productos/nuevo',[ProductoController::class, 'store'])->name('prod
 
 Route::get('/Producto',[ProductoController::class, 'lista']) -> name('lista.producto');
 
-Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles']) -> name('detalles.producto')-> where('id', '[1-9]+');
+Route::get('/Detallesproduct/{id}',[ProductoController::class, 'detalles'])->name('detalles.producto')->where('id', '[0-9]+');
 
     Route::get('/productoeditar/{id}/editar',[ProductoController::class, 'edit']) -> name('edit.producto')-> where('id', '[0-9]+');;
     Route::put('/productoeditar/{id}/editar',[ProductoController::class, 'Update']) -> name('update.producto')-> where('id', '[0-9]+');;
@@ -157,7 +157,7 @@ Route::put('/compra/almacenar',[CompraController::class, 'almacenar'])->name('co
 
 Route::get('/listacompra',[CompraController::class, 'listacompras']) -> name('lista.compras');
 
-Route::get('/detallescompra/{id}',[CompraController::class, 'detailscompra']) -> name('details.compra')-> where('id', '[1-9]+');
+Route::get('/detallescompra/{id}',[CompraController::class, 'detailscompra']) -> name('details.compra')-> where('id', '[0-9]+');
 
 Route::delete('/listacompra/{id}/delete',[CompraController::class, 'delete'])->name('compra.delete')-> where('id', '[0-9]+');
 
