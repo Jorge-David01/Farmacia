@@ -85,7 +85,7 @@ class ProductoController extends Controller
         abort_if(Gate::denies('producto_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
             $rules=[
                 'nombrepro' => 'required|exists:proveedors,id',
-                'nombre_producto' => 'required|max:110|unique:productos,nombre_producto',
+                'nombre_producto' => 'required|max:110|unique:productos,nombre_producto|regex:/^[a-zA-Z]*\d{2}$/',
                 'principio_activo'=> 'required',
                 'descripcion'=> 'required|max:200',
 
@@ -96,7 +96,8 @@ class ProductoController extends Controller
             'nombrepro.exists' => 'El proveedor seleccionado es invalido',
             'nombre_producto.required' => 'El nombre no puede estar vacío',
             'nombre_producto.unique' => 'El nombre ya esta en uso',
-            'nombre_producto.max' => 'El nombre es muy extenso',
+            'nombre_producto.regex' => 'El nombre debe de contener caracteres y numeros',
+            'descripcion.max' => 'El descripción es muy extensa',
             'principio_activo.required' => 'El principio activo no puede estar vacío',
             'descripcion.required' => 'El descripción no puede estar vacío',
             'descripcion.max' => 'El descripción es muy extensa',
@@ -142,25 +143,17 @@ class ProductoController extends Controller
 
     public function update(Request $request, $id){
 
-        $validator = Validator::make($request->all(), [
-            'nombre_producto'=>'required|max:110',
-            'nombre_proveedor'=>'required',
-            'principio_activo'=>'required',
-            'descripcion'=>'required|max:200',
-        ]);
-
-        if($validator->fails()){
         
-            $rules=[
+         $rules=[
 
                 'nombre_producto' => 'required|max:110|min:5',
                 'nombre_proveedor'=> 'required',
-                'principio_activo'=> 'required',
+                'principio_activo'=> 'required|regex:/^[a-zA-Z]/',
                 'descripcion'=> 'required|max:200',
                 
             ];
 
-            $mensaje=[
+        $mensaje=[
                 'nombre_proveedor.required' => 'Debe de seleccionar un proveedor',
                 'nombre_producto.required' => 'El nombre no puede estar vacío',
                 'nombre_producto.unique' => 'El nombre ingresado ya está en uso',
@@ -168,13 +161,14 @@ class ProductoController extends Controller
                 'nombre_producto.min' => 'El nombre del producto debe de tener al menos seis caracteres',
                 'principio_activo.required' => 'El principio activo no puede estar vacío',
                 'principio_activo.exists' => 'El principio activo no existe',
+                'principio_activo.regex' => 'El principio activo debe contener solo palabras',
                 'descripcion.required' => 'La descripción no puede estar vacío',
                 'descripcion.max' => 'La descripción ingresada es muy extensa',
             ];
 
-            $this->validate($request,$rules,$mensaje);
+        $this->validate($request,$rules,$mensaje);
 
-        }
+    
         $upda = Producto::find($id);
         $upda->id_proveedor  = $request->input('nombre_proveedor');
         $upda->nombre_producto  = $request->input('nombre_producto');
