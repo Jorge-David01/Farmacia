@@ -13,7 +13,14 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        @if($errors->any())
+       
+
+
+
+
+        <div style="margin: auto; margin-bottom: 3%;" class="col-lg-6">
+            <div style="margin-top: 15%;" class="card">
+            @if($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach($errors->all() as $mensaje)
@@ -24,12 +31,6 @@
             </ul>
         </div>
         @endif
-
-
-
-
-        <div style="margin: auto; margin-bottom: 3%;" class="col-lg-6">
-            <div style="margin-top: 15%;" class="card">
                 <div class="card-body">
 
                     <form  method="post" enctype="multipart/form-data">
