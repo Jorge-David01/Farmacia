@@ -34,23 +34,23 @@ class ContraseniaController extends Controller
  //abort_if(Gate::denies('cambio_contraseña'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
         $from = $request->from;
 
-        $validator = Validator::make($request->all(), [
-            'password_confirmation' => 'required|required_with:password|same:password'
-        ]);
 
-        if($validator->fails()){
+
+        $mensaje=[
+            'password_confirmation.same' => 'La contraseña no coincide',   
+            'password_confirmation.required' => 'La verificacion de contraseña es requerida', 
+            'verificar_contrasenia.required' => 'La verificacion de contraseña es requerida',
+            'password.required' => 'La contraseña es requerida',                 
+        ];
+
+
+        $this->validate($request,[
+                'password_confirmation' => 'required|required_with:password|same:password',
+                'verificar_contrasenia' => 'required',
+                'password' => 'required'
+            ],$mensaje);
+
         
-                $rules=[
-                    'password_confirmation' => 'required|required_with:password|same:password'
-                ];
-
-                $mensaje=[
-                    'password_confirmation.same' => 'La contraseña no coincide',                    
-                ];
-
-            $this->validate($request,$rules,$mensaje);
-
-        }
 
         if($from == 'navbar'){
             $user= User::findorFail($request->id);           
@@ -69,6 +69,10 @@ class ContraseniaController extends Controller
                 ->with('verificar_contrasenia',$verificar_contrasenia)       
                 ->with('password',$password)        
                 ->with('password_confirmation',$password_confirmation);  
+            }else{
+
+                session('erro', 'Ingrese la contraseña correcta');
+                return redirect()->back();  
             }
         }
         
