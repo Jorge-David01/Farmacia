@@ -46,7 +46,7 @@
 
                         <div>
                             <label style="margin-top: 3%;" for="DNI">DNI:</label>
-                            <input class="form-control " type="text" class="form-control-file" name="dni" id="dni" placeholder="DNI" value="{{$empleado->DNI}}" maxlength="13">
+                            <input class="form-control " type="text" class="form-control-file" name="dni" id="dni" placeholder="DNI" value="{{$empleado->DNI}}" maxlength="13" pattern="[0-9]{4}[1-2]{1}[0-9]{3}[0-9]{4}">
                         </div>
 
                         <div>

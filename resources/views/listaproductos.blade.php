@@ -11,11 +11,6 @@
 
 
 
-
-
-
-
-
 <h1 style="margin-bottom: 5%;"></h1>
 <div class="clearfix"></div>
 <div class="content-wrapper">
@@ -27,8 +22,6 @@
 </div>
 @endif
 
-
-
     <div class="row">
       <div class="col-12 col-lg-12">
         <div class="card">
@@ -38,20 +31,12 @@
             <ul class="nav nav-tabs nav-tabs-primary  nav-justified">
 
 
-          
-
-
-
-
-
-
               <form action="{{route('producto.busqueda')}}" method="get" style="margin-bottom: 1%;">
                 @csrf
                 <div class="form-row" ]>
                   <div class="col-sm-8">
                     <input type="text" class="form-control" name="busca" id="busca" placeholder="Busqueda">
                   </div>
-
 
                   <li class="nav-item">
                     <input style=" margin-left:1%;" type="submit" value="Buscar" class="btn btn-success">
@@ -89,8 +74,6 @@
     }
   </script>
 
-
-
             </ul>
 
           </div>
@@ -116,8 +99,6 @@
 </tr>
 
 
-
-
               <tbody>
                 @if (count($produc)<=0) <tr>
 
@@ -136,10 +117,6 @@
 <td>{{$producto->nombre_producto}}</td>
 <td word-wrap="break-word;" >{{$producto->principio_activo}}</td>
 
-<td class="numero">{{$produc->perPage()*($produc->currentPage()-1)+$loop->iteration}}</td>
-<td class="letras">{{$producto->proveedores->Nombre_del_proveedor}}</td>
-<td class="letras">{{$producto->nombre_producto}}</td>
-<td class="letras">{{$producto->principio_activo}}</td>
 
 <td > <a  class="btn btn-success" href="/Detallesproduct/{{$producto->id}}"> Detalles </a></td>
 </tr>

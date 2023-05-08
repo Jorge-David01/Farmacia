@@ -43,7 +43,7 @@
                             <label for="last-name">Numero de Identidad: <span class="required"></span>
                             </label>
                             <div>
-                                <input maxlength="13" type="text" id="numero_id" name="numero_id" required="required" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="{{old('numero_id')}}" pattern="[0-1]{1}[0-9]{1}[0-2]{1}[0-8]{1}[0-9]{9}" placeholder="Ingrese el numero de identidad sin guiones">
+                                <input maxlength="13" type="text" id="numero_id" name="numero_id" required="required" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="{{old('numero_id')}}" pattern="[0-9]{4}[1-2]{1}[0-9]{3}[0-9]{4}" placeholder="Ingrese el numero de identidad sin guiones">
                             </div>
                         </div>
 

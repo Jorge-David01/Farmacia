@@ -43,14 +43,14 @@
 
                         <div class="form-group">
                             <label for="nombredis">Nombre del distribuidor:</label>
-                            <input  pattern="[A-Za-z ]+"   minlength="5" maxlength="250" class="form-control" type="text" id="nombredis" name="nombredis" title="Ingrese el nombre del distribuidor" required="required" placeholder="Ingrese el nombre del distribuidor"  value="{{old('nombredis')}}" minlength="5" maxlength="25">
+                            <input  pattern="[A-Za-z ]+"   minlength="5" maxlength="25" class="form-control" type="text" id="nombredis" name="nombredis" title="Ingrese el nombre del distribuidor" required="required" placeholder="Ingrese el nombre del distribuidor"  value="{{old('nombredis')}}" minlength="5" maxlength="25">
 
                         </div>
 
 
                         <div class="form-group">
                             <label for="telefonopro">Teléfono del proveedor:</label>
-                            <input  minlength="8" maxlength="8" class="form-control" type="tel" id="telefonopro" name="telefonopro" title="Ingrese el teléfono del proveedor" required="required" placeholder="Ingrese el teléfono del proveedor"  value="{{old('telefonopro')}}">
+                            <input  minlength="8" maxlength="8" class="form-control" type="tel" id="telefonopro" name="telefonopro" title="Ingrese el teléfono del proveedor" required="required" placeholder="Ingrese el teléfono del proveedor"  value="{{old('telefonopro')}}" pattern="[9,8,3]{1}[0-9]{7}">
 
                         </div>
 
@@ -63,7 +63,7 @@
 
                         <div class="form-group">
                             <label for="correo">Correo electrónico:</label>
-                            <input maxlength="30" class="form-control" type="email" id="correo" name="correo" title="Ingrese el correo del proveedor" required="required" placeholder="Ingrese el correo del proveedor"  value="{{old('correo')}}">
+                            <input maxlength="30" class="form-control" type="email" id="correo" name="correo" title="Ingrese el correo del proveedor" required="required" placeholder="Ingrese el correo del proveedor"  value="{{old('correo')}}" pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$">
 
                         </div>
 
