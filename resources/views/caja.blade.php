@@ -153,6 +153,9 @@
 
             @empty
 
+            <tr style="border: 2px solid #dddddd;">
+              <td colspan="4">No hay resultado</td>
+            </tr>
             @endforelse
             
             
