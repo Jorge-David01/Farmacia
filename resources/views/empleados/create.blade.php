@@ -36,7 +36,7 @@
                                 <label for="first-name">Nombre Completo: <span class="required"></span>
                                 </label>
                                 <div>
-                                    <input maxlength="110" type="text" id="nombre_completo" name="nombre_completo" required="required" class="form-control " value="{{old('nombre_completo')}}" placeholder="Ingrese el nombre completo">
+                                    <input pattern="[A-Za-z ]+" type="text" id="nombre_completo" name="nombre_completo" required="required" class="form-control " value="{{old('nombre_completo')}}" placeholder="Ingrese el nombre completo" minlength="5" maxlength="20">
                                 </div>
                             </div>
 

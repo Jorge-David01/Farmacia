@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <label for="nombrepro">Nombre del proveedor:</label>
 
-                            <input  class="form-control" type="text" id="nombrepro" name="nombrepro" title="Ingrese el nombre del proveedor" required="required" placeholder="Ingrese el nombre del proveedor"  value="{{old('nombrepro')}}" minlength="5" maxlength="25">
+                            <input  class="form-control" type="text" id="nombrepro" name="nombrepro" title="Ingrese el nombre del proveedor" required="required" placeholder="Ingrese el nombre del proveedor"  value="{{old('nombrepro')}}" minlength="5" maxlength="25"  pattern="[A-Za-z ]+" >
 
 
                             
@@ -43,7 +43,7 @@
 
                         <div class="form-group">
                             <label for="nombredis">Nombre del distribuidor:</label>
-                            <input  minlength="5" maxlength="250" class="form-control" type="text" id="nombredis" name="nombredis" title="Ingrese el nombre del distribuidor" required="required" placeholder="Ingrese el nombre del distribuidor"  value="{{old('nombredis')}}">
+                            <input  pattern="[A-Za-z ]+"   minlength="5" maxlength="250" class="form-control" type="text" id="nombredis" name="nombredis" title="Ingrese el nombre del distribuidor" required="required" placeholder="Ingrese el nombre del distribuidor"  value="{{old('nombredis')}}" minlength="5" maxlength="25">
 
                         </div>
 
