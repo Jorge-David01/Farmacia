@@ -20,14 +20,7 @@
         <div style="margin-bottom: 2%;" class="row">
             <div class="col-12 col-lg-12">
                 <div class="card">
-
-                    <div style="width: 97%; margin-left: 2%; ">
-                        <div style="width: 100%">
-                            <form method="post">
-                                @csrf
-
-                                <br>
-                                @if($errors->any())
+                @if($errors->any())
                                 <div id="error" class="alert alert-danger">
                                     <ul>
                                         @foreach($errors->all() as $error)
@@ -37,7 +30,14 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                @endif
+                    @endif
+                    <div style="width: 97%; margin-left: 2%; ">
+                        <div style="width: 100%">
+                            <form method="post">
+                                @csrf
+
+                                <br>
+
                                 <div style="width: 24%; float: left;margin-right: 1%">
                                     <center><label for="">Número de factura:</label></center>
                                     <input placeholder="Número de factura" class="form-control" id="factura" name="factura" maxlength="10" type="text" required value="@if(isset($numero)){{$numero}}@else{{old("factura")}}@endif">
@@ -219,11 +219,7 @@
                                 </div>
 
                                 <script>
-                                    function cambio {
-                                        {
-                                            $p - > id
-                                        }
-                                    }() {
+                                    function cambio{{$p->id}}() {
                                         var x = document.getElementById("oculto{{$p->id}}");
                                         var y = document.getElementById("mostrar{{$p->id}}");
 
