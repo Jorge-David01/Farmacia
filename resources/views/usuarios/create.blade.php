@@ -48,8 +48,9 @@
                             </label>
                             <div >
                                 <select required="required" class="form-control" name="role" value="{{old('role')}}">
-                                    <option value="Vendedor">Vendedor</option>
-                                    <option value="Administrador">Administrador</option>
+                                    @foreach ($roles as $rol)
+                                        <option value="{{ $rol->name }}">{{ $rol->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
