@@ -53,7 +53,9 @@ class UsuarioController extends Controller
     public function create()
     {
         // abort_if(Gate::denies('usuario_nuevo'), redirect()->route('principal')->with('denegar','No tiene acceso a esta seccion'));
-        return view('usuarios/create');
+        $roles = Role::all();
+
+        return view('usuarios/create')->with('roles',$roles);
     }
 
     /**
