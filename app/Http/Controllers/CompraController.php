@@ -104,7 +104,7 @@ class CompraController extends Controller
         $fecha_actual = date("d-m-Y");
         $maxima = date("d-m-Y",strtotime($fecha_actual."+ 30 days"));
         $this->validate($request, [
-            'factura' => 'required|unique:compras,numero_factura',
+            'factura' => 'required|unique:compras,numero_factura|regex:/^[0-9]/',
             'productos' => 'required|exists:productos,id',
             'proveedor' => 'required|exists:proveedors,id',
             "cantidad" => "required|min:1|numeric|max:999999999",
@@ -118,6 +118,7 @@ class CompraController extends Controller
         ], [
             'factura.required' => 'Debe de ingresar el numero de factura',
             'factura.unique' => 'El numero de factura es invalido',
+            'factura.regex' => 'El numero de factura debe contener solo numeros',
             'productos.required' => 'Debe de seleccionar un producto',
             'productos.exists' => 'El producto seleccionado es invalido',
             'proveedor.required' => 'Debe de seleccionar un proveedor',
@@ -318,7 +319,7 @@ public function detailscompra($id){
         ->orWhere('id_proveedor', 'like', '%'.$request->missing.'%')->paginate(10);
 
         
-        return view('compra/listacompra')->with('lista', $lista)->with('name', $name);
+        return view('compra/listacompra')->with('lista', $lista)->with('name', $name)->with('texto',$request->missing);
     }
 
 
@@ -343,8 +344,13 @@ public function detailscompra($id){
 
 
     public function buscador(Request $request){
-        $Inventa =  inventario::where('cantidad','like', '%'.$request->good.'%' )->paginate(10);
-        return view('Inventario')->with('Inventa', $Inventa);
+
+        $Inventa = inventario::select('*')
+                    ->join("productos","productos.id","=","inventarios.id_producto")
+                    ->where('inventarios.cantidad','like', '%'.$request->good.'%')
+                    ->orWhere('productos.nombre_producto','like', '%'.$request->good.'%')->paginate(10);
+
+        return view('Inventario')->with('Inventa', $Inventa)->with('texto',$request->good);
     }
 
 
