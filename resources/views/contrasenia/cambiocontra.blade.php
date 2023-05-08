@@ -20,21 +20,22 @@
         <div class="container-fluid">
 
 
-            @if($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach($errors->all() as $mensaje)
-                    <li>
-                        {{$mensaje}}
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
+          
 
             <div style="margin: auto; margin-top: 2%;" class="col-6 col-lg-6">
                 <div style="margin-top: 15%;" class="card">
                     <div class="card-body">
+                    @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $mensaje)
+                            <li>
+                                {{$mensaje}}
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
                         <form style="margin-left: 3%;" method="post" enctype="multipart/form-data" action="{{route('contrasenia.cambiopost')}}" method="POST">
                             @csrf
@@ -47,9 +48,9 @@
                                 <label for="password">{{ __('Verificar Contraseña:') }}</label>
                                 <div>
                                     <div class="input-group" style="width: 100%;">
-                                        <input id="password" type="password" class="form-control  @error('verificar_contrasenia') is-invalid @enderror" name="verificar_contrasenia" required autocomplete="current-password" value="{{$verificar_contrasenia}}" placeholder="Verifique su contraseña">
+                                        <input id="verificar_contrasenia" type="password" class="form-control  @error('verificar_contrasenia') is-invalid @enderror" name="verificar_contrasenia" required autocomplete="current-password" value="{{$verificar_contrasenia}}" placeholder="Verifique su contraseña">
                                         <span class="input-group-btn">
-                                            <button id="show_password" class="btn" style="background: #3385ff" type="button" onclick="mostrarPassword()">
+                                            <button id="show_password" class="btn" style="background: #3385ff" type="button" onclick="mostrarCurrentPassword()">
                                                 <span class="fa fa-eye-slash icon"></span>
                                             </button>
                                         </span>
@@ -101,7 +102,7 @@
                                     </div>
                                     <script type="text/javascript">
                                         function mostrarCurrentPassword() {
-                                            var x = document.getElementById("current_password");
+                                            var x = document.getElementById("verificar_contrasenia");
                                             if (x.type == "password") {
                                                 x.type = "text";
                                                 $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
