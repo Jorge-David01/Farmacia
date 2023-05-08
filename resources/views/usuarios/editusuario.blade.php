@@ -9,20 +9,20 @@
 <div class="content-wrapper">
     <div class="container-fluid">
 
-        @if($errors->any())
-        <div class="alert alert-danger">
-
-            @foreach($errors->all() as $error)
-            <p>
-                &nbsp;&nbsp;{{$error}}
-            </p>
-            @endforeach
-
-        </div>
-        @endif
 
         <div style="margin: auto; margin-top: 2%;" class="col-6 col-lg-6">
             <div style="margin-top: 15%;" class="card">
+            @if($errors->any())
+            <div class="alert alert-danger">
+
+                @foreach($errors->all() as $error)
+                <p>
+                    &nbsp;&nbsp;{{$error}}
+                </p>
+                @endforeach
+
+            </div>
+            @endif
                 <div class="card-body">
 
 
@@ -32,7 +32,7 @@
 
                         <div>
                             <label for="name">Nombre Completo:</label>
-                            <input type="text" class="form-control" name="name" id="name " placeholder="name" value="{{$usuario->name}}" minlength="5" maxlength="20"  autofocus>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="name" value="{{$usuario->name}}" maxlength="50"  autofocus>
                         </div>
 
                         <div>
