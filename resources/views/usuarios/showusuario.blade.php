@@ -12,11 +12,6 @@
             <div style="margin-top: 15%;" class="card">
                 <div class="card-body">
 
-
-                    <form style="margin-left: 2%;" method="POST" action="">
-                        @method('put')
-                        @csrf
-
                         <div>
                             <label for="name">Nombre Completo:</label>
                             <input type="text" class="form-control" name="name" id="name " placeholder="name" value="{{$usuario->name}}" maxlength="50" disabled>
@@ -42,7 +37,6 @@
                             </form>
                         </div>
 
-                    </form>
 
                 </div>
             </div>
