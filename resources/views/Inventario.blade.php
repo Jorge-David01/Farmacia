@@ -32,7 +32,7 @@
                 @csrf
                 <div class="form-row">
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" name="good" id="good" placeholder="Busqueda">
+                    <input type="text" class="form-control" name="good" id="good" value="{{isset($texto)?$texto:''}}" placeholder="Busqueda">
                   </div>
 
 
@@ -154,3 +154,4 @@
 
 @section('pie_pagina', 'Copyright © 2022. FARMACIA LA POPULAR.')
 @endsection
+
