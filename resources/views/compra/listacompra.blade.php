@@ -43,7 +43,7 @@
                 @csrf
                 <div class="form-row">
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" name="missing" id="missing" placeholder="Busqueda">
+                    <input type="text" class="form-control" name="missing" id="missing" value="{{ isset($texto)?$texto:'' }}" placeholder="Busqueda">
                   </div>
 
                   <li class="nav-item">
