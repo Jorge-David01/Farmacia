@@ -6,26 +6,26 @@
 
 
 
-
 <div class="content-wrapper">
     <div class="container-fluid">
         <h1 style="margin-bottom: 6%;"></h1>
 
-        @if($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach($errors->all() as $error)
-        <li>
-            {{$error}}
-        </li>
-        @endforeach
-    </ul>
-</div>
-@endif
 
 
         <div style="margin: auto;" class="col-lg-6">
             <div class="card">
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>
+                            {{$error}}
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
                 <div class="card-body">
 
                     <form method="post" enctype="multipart/form-data">
